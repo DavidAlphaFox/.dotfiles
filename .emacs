@@ -17,9 +17,3 @@
 (my-run-directories "~/.emacs.d/conf")
 
 
-(setq-default indent-tabs-mode nil tab-always-indent nil tab-width 4) 
-(setq-default kill-whole-line t)
-(defalias 'yes-or-no-p 'y-or-n-p) 
-(custom-set-faces '(default ((t (:family "Monaco")))))    
-(global-linum-mode t) 
-(setq default-make-backup-files nil)

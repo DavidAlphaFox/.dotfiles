@@ -64,15 +64,6 @@
   (setenv "PATH" (concat "~/bin:" (getenv "PATH")))
   (add-to-list 'exec-path "~/bin"))
 
-; tab width
-(setq tab-width 4)
-
-;;; key config
-(progn
-  (global-set-key "\M-?" 'help-for-help)
-  (global-set-key "\M-g" 'goto-line)
-  (global-set-key "\C-h" 'backward-delete-char)
-  (global-set-key [delete] 'delete-char))
 
 ;; Emacs 21以降だと Makefile の編集時にTABを打ったときに "Suspicious
 ;; line XXX.  Save anyway?" というプロンプトが出るのでこれを抑制する
@@ -195,10 +186,16 @@
   (run-hooks 'auto-line-hook)
   )
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; C-l は、中央にくるだけでいい。emacs23 でデフォルトが recenter-top-bottom になったぽい
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key "\C-l" 'recenter)
-(global-set-key "\C-j" 'recenter) ;; ついでに C-j も recenter にする
+
+(progn
+  (global-set-key "\M-?" 'help-for-help)
+  (global-set-key "\M-g" 'goto-line)
+  (global-set-key "\C-h" 'backward-delete-char)
+  (global-set-key [delete] 'delete-char))
+
+(setq-default indent-tabs-mode nil tab-always-indent nil tab-width 4) 
+(setq-default kill-whole-line t)
+(defalias 'yes-or-no-p 'y-or-n-p) 
+(custom-set-faces '(default ((t (:family "Monaco")))))    
+(global-linum-mode t) 
+(setq default-make-backup-files nil)
