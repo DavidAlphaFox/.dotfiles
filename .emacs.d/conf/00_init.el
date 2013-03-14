@@ -5,8 +5,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p) 
 
-(global-linum-mode t) 
-
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
 
