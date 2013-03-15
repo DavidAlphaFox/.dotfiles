@@ -1,0 +1,5 @@
+(when (>= emacs-major-version 24)
+  (require 'solarized)
+  ;;(load-theme 'solarized-dark t)
+  (load-theme 'zenburn t)
+)
