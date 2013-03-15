@@ -1,6 +1,7 @@
-(setq load-path
+B0;136;0c(setq load-path
       (append '("~/.emacs.d/elisp"
                 "~/.emacs.d/elisp/js2-mode"
+                "~/.emacs.d/elisp/yaml-mode"
                 "~/.emacs.d/elisp/auto-complete"
 		) load-path))
 
