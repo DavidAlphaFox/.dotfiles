@@ -6,11 +6,11 @@
                 "~/.emacs.d/elisp/auto-complete"
                 "~/.emacs.d/themes/solarized-emacs" 
 		) load-path))
-
-(setq custom-theme-load-path (append '(
+(when (>= emacs-major-version 24)
+  (setq custom-theme-load-path (append '(
                           "~/.emacs.d/themes/solarized-emacs" 
                           "~/.emacs.d/themes/zenburn-emacs")
-                        custom-theme-load-path))
+				       custom-theme-load-path)))
 
 (load "config-loader")
 (my-run-directories "~/.emacs.d/conf")
