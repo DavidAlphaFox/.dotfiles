@@ -12,10 +12,7 @@
                           "~/.emacs.d/themes/zenburn-emacs")
 				       custom-theme-load-path)))
 
-(load "config-loader")
-(my-run-directories "~/.emacs.d/conf")
-
-
+(eval-after-load "config-loader" '(my-run-directories "~/.emacs.d/conf"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
