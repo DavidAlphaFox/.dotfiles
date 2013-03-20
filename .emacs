@@ -13,7 +13,11 @@
 				       custom-theme-load-path)))
 ;;(load "config-loader")
 ;;(my-run-directories "~/.emacs.d/conf")
-(ignore-errors (load "config-loader"))
+(cond 
+ ((>= emacs-major-version 24) (ignore-errors (load "config-loader")))
+ (t (condition-case nil (load "config-loader") nil))
+ )
+
 (eval-after-load "config-loader" '(my-run-directories "~/.emacs.d/conf"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -27,4 +31,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
 
