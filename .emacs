@@ -11,7 +11,9 @@
                           "~/.emacs.d/themes/solarized-emacs" 
                           "~/.emacs.d/themes/zenburn-emacs")
 				       custom-theme-load-path)))
-
+;;(load "config-loader")
+;;(my-run-directories "~/.emacs.d/conf")
+(ignore-errors (load "config-loader"))
 (eval-after-load "config-loader" '(my-run-directories "~/.emacs.d/conf"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
