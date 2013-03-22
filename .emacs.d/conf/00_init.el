@@ -57,8 +57,6 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode))
 
-(server-start)
-
 (setq system-time-locale "C")
 
 (add-to-list 'completion-ignored-extensions ".svn/")
