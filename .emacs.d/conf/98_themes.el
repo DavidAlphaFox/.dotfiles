@@ -1,4 +1,6 @@
-(when (>= emacs-major-version 24)
+(cond
+ ((>= emacs-major-version 24) 
   ;;(load-theme 'solarized-dark t)
-  (load-theme 'zenburn t)
-)
+  (load-theme 'zenburn t))
+ (t (load-theme 'zenburn)))
+

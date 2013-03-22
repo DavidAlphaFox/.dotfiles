@@ -4,14 +4,18 @@
                 "~/.emacs.d/elisp/yaml-mode"
                 "~/.emacs.d/elisp/php-mode"
                 "~/.emacs.d/elisp/auto-complete"
-                "~/.emacs.d/themes/solarized-emacs" 
-                "~/.emacs.d/themes/zenburn-emacs"
 		) load-path))
-(when (>= emacs-major-version 24)
+(cond 
+ ((>= emacs-major-version 24)
   (setq custom-theme-load-path (append '(
-                          "~/.emacs.d/themes/solarized-emacs" 
-                          "~/.emacs.d/themes/zenburn-emacs")
-				       custom-theme-load-path)))
+                                         "~/.emacs.d/themes/solarized-emacs" 
+                                         "~/.emacs.d/themes/zenburn-emacs")
+                                       custom-theme-load-path)))
+ (t (setq load-path (append '(
+                              "~/.emacs.d/themes/solarized-emacs" 
+                              "~/.emacs.d/themes/zenburn-emacs")
+                            load-path))))
+
 ;;(load "config-loader")
 ;;(my-run-directories "~/.emacs.d/conf")
 (cond 
