@@ -19,7 +19,7 @@
   (setq make-backup-files nil))
 
 (progn
-  (load "font-lock")
+;  (load "font-lock")
   (global-font-lock-mode t)
   (show-paren-mode)                          ;; 対応する括弧をハイライト
   (menu-bar-mode -1)                         ;; メニューバーを消す

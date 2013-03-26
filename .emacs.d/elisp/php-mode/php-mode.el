@@ -77,7 +77,7 @@
 ;;; using that version then we revert to using flet.
 (unless (fboundp 'cl-flet)
   (defalias 'cl-flet 'flet))
-
+
 ;; Local variables
 ;;;###autoload
 (defgroup php nil
@@ -258,7 +258,6 @@ This variable can take one of the following symbol values:
                 ((eq value 'wordpress)
                  (php-enable-wordpress-coding-style))))
 
-
 
 (c-add-style
  "pear"
