@@ -1,6 +1,5 @@
 ac-comphist.dat
 session.*
-quicklisp/cache
 quicklisp/local-projects
 quicklisp/tmp
 quicklisp/dists
