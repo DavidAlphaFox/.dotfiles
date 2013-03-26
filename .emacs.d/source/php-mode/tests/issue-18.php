@@ -19,5 +19,5 @@
 $a = 'github';
 
 if ($a === 'github') {
-    header('Location: http://github.com'); // ###php-mode-test### ((indent c-basic-offset))
+    header('Location: http://github.com');
 }
