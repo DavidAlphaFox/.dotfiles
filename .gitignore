@@ -3,3 +3,4 @@ session.*
 quicklisp/local-projects
 quicklisp/tmp
 quicklisp/dists
+\#.*\#

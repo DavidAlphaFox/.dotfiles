@@ -1,7 +1,8 @@
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
-(let ((quicklisp-init #P"/usr/home/david/quicklisp/setup.lisp"))
+(let ((quicklisp-init #P"~/quicklisp/setup.lisp"))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
+(load ".emacs.d/elisp/slime/swank-loader.lisp")
