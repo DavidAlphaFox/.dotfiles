@@ -3,4 +3,15 @@ session.*
 quicklisp/local-projects
 quicklisp/tmp
 quicklisp/dists
-\#.*\#
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
