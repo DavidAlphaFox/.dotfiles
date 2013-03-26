@@ -1,4 +1,3 @@
-
 (setq-default indent-tabs-mode nil tab-always-indent nil tab-width 4) 
 
 (setq-default kill-whole-line t)
@@ -20,7 +19,7 @@
   (setq make-backup-files nil))
 
 (progn
-  (load "font-lock")                         ;; 色付ける
+  (load "font-lock")
   (global-font-lock-mode t)
   (show-paren-mode)                          ;; 対応する括弧をハイライト
   (menu-bar-mode -1)                         ;; メニューバーを消す
@@ -32,8 +31,6 @@
   (setq visible-bell t)                      ;; visible-bell
   )
 
-;; .gz なファイルを読めるように
-(auto-compression-mode t)
 
 ;;; shell-mode で ^M を出さなくする．
 (add-hook 'comint-output-filter-functions 'shell-strip-ctrl-m nil t)
@@ -86,33 +83,5 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-
-; tool-bar を表示しない
-(tool-bar-mode 0)
-
-;; 長い文章の折り返しで物理的に次の行に移動
-;; taken from http://www.bookshelf.jp/pukiwiki/pukiwiki.php?2ch%2F%BC%AB%CB%FD%A4%CE.emacs%A4%F2%C5%BD%A4%EA%C9%D5%A4%B1%A4%E8%A4%A6
-(global-set-key "\C-p" 'previous-window-line)
-(global-set-key "\C-n" 'next-window-line)
-(global-set-key [up] 'previous-window-line)
-(global-set-key [down] 'next-window-line)
-(defun previous-window-line (n)
-  (interactive "p")
-  (let ((cur-col
-		 (- (current-column)
-			(save-excursion (vertical-motion 0) (current-column)))))
-    (vertical-motion (- n))
-    (move-to-column (+ (current-column) cur-col)))
-  (run-hooks 'auto-line-hook)
-  )
-(defun next-window-line (n)
-  (interactive "p")
-  (let ((cur-col
-		 (- (current-column)
-			(save-excursion (vertical-motion 0) (current-column)))))
-    (vertical-motion n)
-    (move-to-column (+ (current-column) cur-col)))
-  (run-hooks 'auto-line-hook)
-  )
 
 

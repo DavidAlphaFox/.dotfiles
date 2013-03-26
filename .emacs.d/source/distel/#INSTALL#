@@ -21,7 +21,7 @@ $prefix defaults to /usr/local, which is cool if you're on e.g. debian.
 
   (add-to-list 'load-path "/home/me/jungerl/lib/distel/elisp")
   (require 'distel)
-  (distel-setup)
+  (distel-setup)(car (file-expand-wildcards "/usr/lib/erlang/lib/tools-*/emacs"))
 
 You can also build the documentation in doc/ with 'make postscript'
 for a printable manual and 'make install' to install the info manual.

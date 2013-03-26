@@ -1,7 +1,7 @@
 PACKAGE := distel
 VERSION := 4.02
 
-prefix      = /usr/local
+prefix      = /home/david/.emacs.d/elisp
 exec_prefix = ${prefix}
 bindir      = ${exec_prefix}/bin
 datadir     = ${prefix}/share
