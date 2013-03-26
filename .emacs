@@ -4,6 +4,7 @@
                 "~/.emacs.d/elisp/yaml-mode"
                 "~/.emacs.d/elisp/php-mode"
                 "~/.emacs.d/elisp/auto-complete"
+                "~/.emacs.d/elisp/slime"
                 "~/.emacs.d/elisp/share/distel/elisp"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
