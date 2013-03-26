@@ -4,5 +4,4 @@
 (let ((quicklisp-init #P"~/quicklisp/setup.lisp"))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
-
-(load ".emacs.d/elisp/slime/swank-loader.lisp")
+(ql:quickload :swank)
