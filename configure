@@ -3,7 +3,6 @@ ln -s .dotfiles/.emacs ../.emacs
 ln -s .dotfiles/.emacs.d ../.emacs.d
 ln -s .dotfiles/.sbclrc ../.sbclrc
 ln -s .dotfiles/.vim ../.vim
-ln -s .dotfiles/.viminfo ../.viminfo
 ln -s .dotfiles/.vimrc ../.vimrc
 ln -s .dotfiles/quicklisp ../quicklisp
 ln -s .dotfiles/.erlang ../.erlang
