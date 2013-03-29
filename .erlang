@@ -1,1 +1,1 @@
-code:add_pathsz(["~/.emacs.d/elisp/share/distel/ebin"]).
+code:add_pathsz(["~/.emacs.d/elisp/distel/ebin"]).
