@@ -143,8 +143,12 @@ reload_project(RootDir)->
     Dirs = distel_dir:all_ebins(RootDir),
     Filter1 = fun(Dir,Acc)->
                 code:add_patha(Dir),
-                Files = distel_dir:recursive_dir(Dir,file),
-                lists:append(Acc,Files)
+                case distel_dir:recursive_dir(Dir,file) of
+                    {ok,Paths}->
+                        lists:append(Acc,Paths);
+                    _ ->
+                        Acc
+                end
         end,
     Files = lists:foldl(Filter1,[],Dirs),
     Filter2 = fun(File,Acc)->
@@ -157,21 +161,11 @@ reload_project(RootDir)->
                  end
          end,
     Beams = lists:foldl(Filter2,[],Files),
-    T = fun(L) -> 
-                [X || X <- L, element(1,X) =:= time] 
-        end,
-    Tm = fun(M) ->
-                 T(M:module_info(compile))
-         end,
-    Tf = fun(F) ->
-                 {ok,{_,[{_,I}]}} = beam_lib:chunks(F,[compile_info]),
-                 T(I)
-         end,
     Load = fun(M) ->
                    c:l(M),
                    M
            end,
-    [Load(M) || {M,F} <- Beams, Tm(M) < Tf(F)].
+    [Load(M) || {M,F} <- Beams].
 
                      
 %% ----------------------------------------------------------------------
