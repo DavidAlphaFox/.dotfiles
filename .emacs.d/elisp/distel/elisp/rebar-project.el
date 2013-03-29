@@ -2,7 +2,7 @@
 
 (defun rebar-generate-current (project-dir)
   (interactive (list 
-    (let* ((project-dir (ebm-find-rebar-top))
+    (let* ((project-dir (rebar-find-top-dir))
            (prompt (if project-dir
                        (format "Project dir (default %s): " project-dir)
                      "Project dir: ")))
