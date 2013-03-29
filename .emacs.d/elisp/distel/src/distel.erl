@@ -87,7 +87,7 @@ gl_proxy(GL) ->
 reload_modules() ->
     T = fun(L) -> [X || X <- L, element(1,X) =:= time] end,
     Tm = fun(M) -> T(M:module_info(compile)) end,
-    Tf = fun(F) -> {ok,{_,[{_,I}]}}=beam_lib:chunks(F,[compile_info]),T(I) end,
+    Tf = fun(F) -> {ok,{_,[{_,I}]}} = beam_lib:chunks(F,[compile_info]),T(I) end,
     Load = fun(M) -> c:l(M),M end,
 
     [Load(M) || {M,F} <- code:all_loaded(), is_beamfile(F), Tm(M)<Tf(F)].
@@ -120,7 +120,8 @@ reload_module(Mod, File) ->
             end;
         R -> R
     end.
-
+reload_dir(Dir)->
+    
 is_beam(Filename) ->
     case file:read_file_info(Filename++".beam") of
         {ok,_} -> true;
