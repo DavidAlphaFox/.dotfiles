@@ -155,19 +155,19 @@ reload_project(RootDir)->
                  case is_beamfile(File) of
                      true->
                          Mod = basename(File,".beam"),
-                         [{Mod,File}|Acc];
+                         [{to_atom(Mod),File}|Acc];
                      false ->
                          Acc
                  end
          end,
     Beams = lists:foldl(Filter2,[],Files),
-    Load = fun(M) ->
-                   c:l(M),
-                   M
-           end,
-    [Load(M) || {M,F} <- Beams].
+    T = fun(L) -> [X || X <- L, element(1,X) =:= time] end,
+    Tm = fun(M) -> T(M:module_info(compile)) end,
+    Tf = fun(F) -> {ok,{_,[{_,I}]}}=beam_lib:chunks(F,[compile_info]),T(I) end,
+    Load = fun(M) -> c:l(M),M end,
 
-                     
+    [Load(M) || {M,F} <- Beams, Tm(M) < Tf(F)].
+
 %% ----------------------------------------------------------------------
 
 eval_expression(S) ->
