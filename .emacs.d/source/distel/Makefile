@@ -1,7 +1,7 @@
 PACKAGE := distel
 VERSION := 4.02
 
-prefix      = /home/david/.emacs.d/elisp
+prefix      = ~/.dotfiles/.emacs.d/elisp
 exec_prefix = ${prefix}
 bindir      = ${exec_prefix}/bin
 datadir     = ${prefix}/share
@@ -9,9 +9,9 @@ infodir     = ${prefix}/info
 erlc        = erlc
 emacs       = emacs
 
-ELISP_DIR = ${datadir}/distel/elisp
-EBIN_DIR = ${datadir}/distel/ebin
-ERL_SRC_DIR = ${datadir}/distel/src
+ELISP_DIR = ${prefix}/distel/elisp
+EBIN_DIR = ${prefix}/distel/ebin
+ERL_SRC_DIR = ${prefix}/distel/src
 
 ########################################
 ## Main part

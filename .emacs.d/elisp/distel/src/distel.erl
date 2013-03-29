@@ -87,7 +87,7 @@ gl_proxy(GL) ->
 reload_modules() ->
     T = fun(L) -> [X || X <- L, element(1,X) =:= time] end,
     Tm = fun(M) -> T(M:module_info(compile)) end,
-    Tf = fun(F) -> {ok,{_,[{_,I}]}} = beam_lib:chunks(F,[compile_info]),T(I) end,
+    Tf = fun(F) -> {ok,{_,[{_,I}]}}=beam_lib:chunks(F,[compile_info]),T(I) end,
     Load = fun(M) -> c:l(M),M end,
 
     [Load(M) || {M,F} <- code:all_loaded(), is_beamfile(F), Tm(M)<Tf(F)].
@@ -120,21 +120,60 @@ reload_module(Mod, File) ->
             end;
         R -> R
     end.
-%% add by david
-reload_dir(Dir)->
-    Dirs = hm_files:all_ebins(Dir),
-    F = fun(X,_Acc)->
-                code:add_patha(X),
-                _Acc
-       end,
-   lists:foldl(F,[],Dirs).
-%% add by david
+
 is_beam(Filename) ->
     case file:read_file_info(Filename++".beam") of
         {ok,_} -> true;
         {error,_} -> false
     end.
 
+%% add by David to realod rebar project
+%% Project Tree
+%% /
+%% - rebar
+%% - Makefile
+%% - rebar.config
+%% +apps
+%%   + project
+%%   + project2
+%% +deps
+%%   + dep_project
+%%   + dep_project2
+reload_project(RootDir)->
+    Dirs = distel_dir:all_ebins(RootDir),
+    Filter1 = fun(Dir,Acc)->
+                code:add_patha(Dir),
+                Files = distel_dir:recursive_dir(Dir,file),
+                lists:append(Acc,Files)
+        end,
+    Files = lists:foldl(Filter1,[],Dirs),
+    Filter2 = fun(File,Acc)->
+                 case is_beamfile(File) of
+                     true->
+                         Mod = basename(File,".beam"),
+                         [{Mod,File}|Acc];
+                     false ->
+                         Acc
+                 end
+         end,
+    Beams = lists:foldl(Filter2,[],Files),
+    T = fun(L) -> 
+                [X || X <- L, element(1,X) =:= time] 
+        end,
+    Tm = fun(M) ->
+                 T(M:module_info(compile))
+         end,
+    Tf = fun(F) ->
+                 {ok,{_,[{_,I}]}} = beam_lib:chunks(F,[compile_info]),
+                 T(I)
+         end,
+    Load = fun(M) ->
+                   c:l(M),
+                   M
+           end,
+    [Load(M) || {M,F} <- Beams, Tm(M) < Tf(F)].
+
+                     
 %% ----------------------------------------------------------------------
 
 eval_expression(S) ->

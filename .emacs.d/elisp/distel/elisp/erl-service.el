@@ -11,6 +11,7 @@
 (require 'erlang)
 (eval-when-compile (require 'cl))
 (require 'erl)
+(require 'rebar-project)
 
 ;;;; Base framework
 
@@ -689,15 +690,6 @@ time it spent in subfunctions."
   (erl-rpc (lambda (result) (message "load: %s" result)) nil 
            node 'distel 'reload_modules ()))
 
-(defun erl-reload-project (node)
-  (interactive (list (erl-target-node)))
-  (let* ((prj-top-dir (ebm-find-rebar-top)))
-    (erl-do-reload-project node prj-top-dir)
-    ))
-(defun erl-do-reload-project (node prj-top-dir)
-  (erl-rpc (lambda (result) 
-             (message "load: %s" result)) nil 
-             node 'distel 'reload_dir (list prj-top-dir)))
 
 (defvar erl-reload-dwim nil
   "Do What I Mean when reloading beam files. If erl-reload-dwim is non-nil, 
@@ -730,6 +722,16 @@ We also don't prompt for the module name.")
   ;; int:i(SourcePath).
   (erl-send-rpc node
 		'int 'i (list (cadr (assq module edb-interpreted-modules)))))
+
+(defun erl-reload-project (node)
+  (interactive (list (erl-target-node)))
+  (let* ((prj-top-dir (rebar-find-top-dir)))
+    (erl-do-reload-project node prj-top-dir)
+    ))
+(defun erl-do-reload-project (node prj-top-dir)
+  (erl-rpc (lambda (result) 
+             (message "load: %s" result)) nil 
+             node 'distel 'reload_project (list prj-top-dir)))
 
 ;;;; Definition finding
 

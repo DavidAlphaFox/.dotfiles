@@ -1,6 +1,8 @@
--module(hm_files).
+-module(distel_dir).
+
 -export([recursive_dir/1,recursive_dir/2]). 
--export([all_ebins/1,current_dir/0]).
+-export([all_ebins/1]).
+
 % @type name() = string() | atom() | binary().
 -type name() :: string() | atom() | binary().
 -spec recursive_dir(Dir::name()) ->{ok, [string()]} | {error, atom()}.
@@ -45,8 +47,7 @@ recursive_dir([Path|Paths], Type, Acc) ->
                      recursive_dir(SubPaths,Type,SubAcc)
             end,
     recursive_dir(Paths,Type,NewAcc).
- 
- 
+-spec all_ebins(Dir::name())->list().  
 all_ebins(Dir)-> 
    F = fun(X,Acc) ->
                ProjDir = filename:dirname(X),
@@ -65,6 +66,3 @@ all_ebins(Dir)->
        _ ->
            []
   end.
-current_dir()->
-    {file, Here} = code:is_loaded(?MODULE),
-    filename:dirname(Here).
