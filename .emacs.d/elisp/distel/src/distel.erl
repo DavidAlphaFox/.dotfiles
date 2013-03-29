@@ -120,8 +120,15 @@ reload_module(Mod, File) ->
             end;
         R -> R
     end.
+%% add by david
 reload_dir(Dir)->
-    
+    Dirs = hm_files:all_ebins(Dir),
+    F = fun(X,_Acc)->
+                code:add_patha(X),
+                _Acc
+       end,
+   lists:foldl(F,[],Dirs).
+%% add by david
 is_beam(Filename) ->
     case file:read_file_info(Filename++".beam") of
         {ok,_} -> true;
