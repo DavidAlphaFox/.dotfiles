@@ -1,2 +1,4 @@
-(autoload 'jade-mode "jade-mode" "Mode for editing Jade source files")
-(add-to-list 'auto-mode-alist '("\\.jade$" . lua-mode))
+(require 'sws-mode)
+(require 'jade-mode)    
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
