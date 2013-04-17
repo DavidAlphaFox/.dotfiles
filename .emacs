@@ -3,6 +3,7 @@
                 "~/.emacs.d/elisp/js2-mode"
                 "~/.emacs.d/elisp/yaml-mode"
                 "~/.emacs.d/elisp/php-mode"
+				"~/.emacs.d/elisp/jade-mode"
                 "~/.emacs.d/elisp/auto-complete"
                 "~/.emacs.d/elisp/slime"
                 "~/.emacs.d/elisp/distel/elisp"
