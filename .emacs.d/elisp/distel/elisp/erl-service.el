@@ -723,11 +723,15 @@ We also don't prompt for the module name.")
   (erl-send-rpc node
 		'int 'i (list (cadr (assq module edb-interpreted-modules)))))
 
-(defun erl-reload-project (node)
-  (interactive (list (erl-target-node)))
-  (let* ((prj-top-dir (rebar-find-top-dir)))
-    (erl-do-reload-project node prj-top-dir)
-    ))
+(defun erl-reload-project (node project-top-dir)
+  (interactive (list (erl-target-node)
+                     (let* ((project-top-dir (rebar-find-top-dir))
+                            (prompt (if project-top-dir
+                                        (format "Project dir (default %s): " project-top-dir)
+                                      "Project dir: ")))
+                       (intern (read-string prompt nil nil project-top-dir)))))
+  (erl-do-reload-project node project-top-dir))
+
 (defun erl-do-reload-project (node prj-top-dir)
   (erl-rpc (lambda (result) 
              (message "load: %s" result)) nil 
