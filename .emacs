@@ -9,11 +9,14 @@
                 "~/.emacs.d/elisp/distel/elisp"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
+				"~/.emacs.d/themes/color-theme-molokai"
 		) load-path))
+
 (when (>= emacs-major-version 24)
   (setq custom-theme-load-path (append '(
                                          "~/.emacs.d/themes/solarized-emacs" 
-                                         "~/.emacs.d/themes/zenburn-emacs")
+                                         "~/.emacs.d/themes/zenburn-emacs"
+										 "~/.emacs.d/themes/color-theme-molokai")
                                        custom-theme-load-path)))
 ;;(load "config-loader")
 ;;(my-run-directories "~/.emacs.d/conf")
