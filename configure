@@ -75,4 +75,4 @@ ln -s .dotfiles/quicklisp ../quicklisp
 sbcl --load ~/.dotfiles/after_init.lisp
 
 ln -s .dotfiles/.sbclrc ../.sbclrc
-rm ~/.dofiles/*.lisp
+rm ~/.dotfiles/*.lisp
