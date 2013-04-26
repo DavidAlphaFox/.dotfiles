@@ -1,4 +1,12 @@
 #/bin/sh
+SBCL=`which sbcl`
+CURL=`which name`
+GIT=`which git`
+
+if [ ! -x "GIT" ]; then
+   echo "Can't find git"
+   exit
+fi
 
 conf_files=".emacs .sbclrc .vimrc .erlang .tmux.conf"
 conf_directories=".emacs.d quicklisp .vim"
@@ -23,13 +31,10 @@ for item in ${conf_directories[@]}; do
 done
 
 echo "Create all links"
-
 ln -s .dotfiles/.emacs ../.emacs
 ln -s .dotfiles/.emacs.d ../.emacs.d
-ln -s .dotfiles/.sbclrc ../.sbclrc
 ln -s .dotfiles/.vim ../.vim
 ln -s .dotfiles/.vimrc ../.vimrc
-ln -s .dotfiles/quicklisp ../quicklisp
 ln -s .dotfiles/.erlang ../.erlang
 ln -s .dotfiles/.tmux.conf ../.tmux.conf
 
@@ -42,4 +47,32 @@ fi
 echo "Clone vundle"
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+echo "Setup quicklisp"
+if [ ! -x "$SBCL" ]; then
+   echo "Can't find sbcl.Stop steuping quicklisp"
+   exit
+fi
 
+if [ ! -x "$CURL" ]; then
+   echo "Can't find curl.Stop setuping quicklisp"
+   exit
+fi
+
+if [ -d "$HOME/.dotfiles/quicklisp" ]; then
+   rm -rf "$HOME/.dotfiles/quicklisp/" 
+fi
+
+if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
+   rm "$HOME/.dotfiles/quicklisp.lisp"
+fi
+
+curl -O "http://beta.quicklisp.org/quicklisp.lisp"
+sbcl --load ~/.dotfiles/pre_init.lisp
+
+mv ~/quicklisp ~/.dotfiles/
+ln -s .dotfiles/quicklisp ../quicklisp
+
+sbcl --load ~/.dotfiles/after_init.lisp
+
+ln -s .dotfiles/.sbclrc ../.sbclrc
+rm ~/.dofiles/*.lisp

@@ -18,3 +18,5 @@ tramp
 .org-id-locations
 *_archive
 bundle
+quicklisp
+quicklisp.lisp
