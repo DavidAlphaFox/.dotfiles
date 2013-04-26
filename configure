@@ -1,4 +1,29 @@
 #/bin/sh
+
+conf_files=".emacs .sbclrc .vimrc .erlang .tmux.conf"
+conf_directories=".emacs.d quicklisp .vim"
+
+for item in ${conf_files[@]}; do
+    if [ -f "$HOME/$item" ]; then
+       echo "Delete link or file $item"
+       rm "$HOME/$item"
+    fi
+done
+
+for item in ${conf_directories[@]}; do
+    if [ -d "$HOME/$item" ]; then
+       if [ -L "$HOME/$item" ]; then
+       	  echo "Delete link $item"
+       	  rm "$HOME/$item"
+       else
+		   echo "Delete directory $item"
+	  	   rm -rf "$HOME/$item"
+       fi
+    fi
+done
+
+echo "Create all links"
+
 ln -s .dotfiles/.emacs ../.emacs
 ln -s .dotfiles/.emacs.d ../.emacs.d
 ln -s .dotfiles/.sbclrc ../.sbclrc
@@ -7,4 +32,14 @@ ln -s .dotfiles/.vimrc ../.vimrc
 ln -s .dotfiles/quicklisp ../quicklisp
 ln -s .dotfiles/.erlang ../.erlang
 ln -s .dotfiles/.tmux.conf ../.tmux.conf
+
+if [ -d "$HOME/.vim/bundle/" ]; then
+   echo "Delete all files in .vim/bundle"
+   rm -rf "$HOME/.vim/bundle/"
+   mkdir "$HOME/.vim/bundle/"
+fi
+
+echo "Clone vundle"
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+
