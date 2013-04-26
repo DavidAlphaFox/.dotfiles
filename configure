@@ -1,9 +1,9 @@
 #/bin/sh
 SBCL=`which sbcl`
-CURL=`which name`
+CURL=`which curl`
 GIT=`which git`
 
-if [ ! -x "GIT" ]; then
+if [ ! -x "$GIT" ]; then
    echo "Can't find git"
    exit
 fi
