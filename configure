@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 SBCL=`which sbcl`
 CURL=`which curl`
 GIT=`which git`
@@ -11,14 +11,14 @@ fi
 conf_files=".emacs .sbclrc .vimrc .erlang .tmux.conf"
 conf_directories=".emacs.d quicklisp .vim"
 
-for item in ${conf_files[@]}; do
+for item in ${conf_files}; do
     if [ -f "$HOME/$item" ]; then
        echo "Delete link or file $item"
        rm "$HOME/$item"
     fi
 done
 
-for item in ${conf_directories[@]}; do
+for item in ${conf_directories}; do
     if [ -d "$HOME/$item" ]; then
        if [ -L "$HOME/$item" ]; then
        	  echo "Delete link $item"
