@@ -1,6 +1,9 @@
 #!/bin/sh
+
 SBCL=`which sbcl`
+
 CURL=`which curl`
+
 GIT=`which git`
 
 if [ ! -x "$GIT" ]; then
@@ -75,4 +78,4 @@ ln -s .dotfiles/quicklisp ../quicklisp
 sbcl --load ~/.dotfiles/after_init.lisp
 
 ln -s .dotfiles/.sbclrc ../.sbclrc
-rm ~/.dotfiles/*.lisp
+rm ~/.dotfiles/quicklisp.lisp
