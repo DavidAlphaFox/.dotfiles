@@ -11,9 +11,11 @@
   
 (defun rebar-generate-project (project-dir)
   (progn
+	(set 'prev-default-directory (format "%s" default-directory))
     (set 'default-directory (format "%s" project-dir))
     (set (make-local-variable 'compile-command) (format "make -f %sMakefile" project-dir))
-    (call-interactively 'compile)))
+    (call-interactively 'compile)
+	(set 'default-directory (format "%s" prev-default-directory))))
 
 (defun rebar-find-top-dir-recr (dirname)
       (let* ((project-dir (locate-dominating-file dirname "rebar.config")))
@@ -30,7 +32,7 @@
 (defun rebar-find-top-dir  ()
   (let* ((dirname (file-name-directory (buffer-file-name)))
          (project-dir (rebar-find-top-dir-recr dirname)))
-    project-dir))
+   (expand-file-name project-dir)))
 
 (defun dirs-in-dir (dir name)
   "Find all directories of name in directory."
