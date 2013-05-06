@@ -6,6 +6,7 @@
 				"~/.emacs.d/elisp/jade-mode"
 				"~/.emacs.d/elisp/yasnippet"
                 "~/.emacs.d/elisp/auto-complete"
+				"~/.emacs.d/elisp/flymake"
                 "~/.emacs.d/elisp/slime"
                 "~/.emacs.d/elisp/distel/elisp"
                 "~/.emacs.d/themes/solarized-emacs" 

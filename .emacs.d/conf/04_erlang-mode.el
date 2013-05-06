@@ -27,3 +27,4 @@
         ;; pretty much anywhere without having to muck with NetInfo
         ;; ... but I only tested it on Mac OS X.
        ;; (car (split-string (shell-command-to-string "hostname"))))))
+(require 'erlang-flymake) 
