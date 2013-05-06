@@ -28,3 +28,4 @@
         ;; ... but I only tested it on Mac OS X.
        ;; (car (split-string (shell-command-to-string "hostname"))))))
 (require 'erlang-flymake) 
+(require 'auto-complete-distel)
