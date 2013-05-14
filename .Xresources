@@ -13,4 +13,4 @@ XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=18
 XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true
 XTerm*trimSelection: true
-
+XTerm*locale: utf8
