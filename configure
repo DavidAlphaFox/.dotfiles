@@ -49,7 +49,8 @@ if [ -d "$HOME/.vim/bundle/" ]; then
    mkdir "$HOME/.vim/bundle/"
 fi
 
-if [[ $(uname) == "OpenBSD" ]]; then
+if [ $(uname) == "OpenBSD" ]; then
+	echo "set up .Xresources for OpenBSD"
 	rm "$HOME/.Xresources"
 	rm "$HOME/.Xresources-solarized"
 	ln -s .dotfiles/.Xresources ../.Xresources
