@@ -9,7 +9,7 @@ Xft.rgba: rgb
 Xcursor.size: 32
 XTerm*scrollBar: false
 XTerm*utf8: 2
-XTerm*termName: xterm-256color
+*xterm.termName: xterm-256color
 XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=18
 XTerm*faceNameDoublesize: xft:wenquanyi bitmap song:pixelsize=18:antialias=True
 XTerm*metaSendsEscape: true
@@ -20,3 +20,13 @@ XTerm*xftAntialiass: true
 XTerm*cjkWidth: false
 XTerm*bellIsUrgent: true
 XTerm*allowBoldFont: false
+*xterm*eightBitInput: false
+*XTerm*backarrowKey: false
+*XTerm*VT100.Translations: #override \
+    <BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+    Ctrl <KeyPress> P: print() \n\
+    <Key>BackSpace: string(0x7f) \n\
+    <Key>Delete:    string("\033[3~")
+
+XTerm*selectToClipboard:true
+*XTerm*ttyModes: erase ^?
