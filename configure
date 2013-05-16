@@ -1,10 +1,12 @@
 #!/bin/sh
 
 SBCL=`which sbcl`
-
 CURL=`which curl`
-
 GIT=`which git`
+
+ShellName=`echo "${SHELL}" | awk -F '/' '{print $NF}'`
+echo "It seems that you are using ${ShellName}"
+
 
 if [ ! -x "$GIT" ]; then
    echo "Can't find git"
@@ -45,6 +47,13 @@ if [ -d "$HOME/.vim/bundle/" ]; then
    echo "Delete all files in .vim/bundle"
    rm -rf "$HOME/.vim/bundle/"
    mkdir "$HOME/.vim/bundle/"
+fi
+
+if [[ $(uname) == "OpenBSD" ]]; then
+	rm "$HOME/.Xresources"
+	rm "$HOME/.Xresources-solarized"
+	ln -s .dotfiles/.Xresources ../.Xresources
+	ln -s .dotfiles/.Xresources-solarized ../.Xresources-solarized
 fi
 
 echo "Clone vundle"
