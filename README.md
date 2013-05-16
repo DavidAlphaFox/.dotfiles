@@ -1,7 +1,7 @@
-常用的Vim和Emacs的配置文件	
-同时包含了quicklisp和tmux的配置		
+常用的Vim和Emacs的配置文件		
+同时包含了quicklisp和tmux的配置				
 tmux的配置主要解决了远程ssh时配色出现不正常的现象	
-
+本配置只在FreeBSD，OpenBSD及Mac OS X测试过			
 ##使用方法
 
 1.Clone这个项目
