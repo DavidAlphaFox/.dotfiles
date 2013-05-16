@@ -21,3 +21,4 @@ bundle
 quicklisp
 quicklisp.lisp
 .emacs.d/rfc/*
+\*.elc
