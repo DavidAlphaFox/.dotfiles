@@ -8,7 +8,7 @@ Xft.rgba: rgb
 !Xcursor.theme: whitelarge
 Xcursor.size: 32
 XTerm*loginShell: true
-XTerm*locale: true
+XTerm*locale: utf8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
 XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=18
@@ -24,5 +24,5 @@ XTerm*allowBoldFont: false
 XTerm*eightBitInput: false
 XTerm*backarrowKey: false
 
-*.vt100.font: fixed
-*.vt100.encodingMode :false
+!*.vt100.font: fixed
+*.vt100.encodingMode: true
