@@ -1,3 +1,4 @@
+#include ".Xresources-solarized"
 !Xft.dpi: 121
 Xft.antialias: true
 Xft.hinting: true
@@ -16,4 +17,5 @@ XTerm*highlightSelection: true
 XTerm*trimSelection: true
 XTerm*locale: utf8
 XTerm*xftAntialiass: true
-XTerm*cjkWidth: true
+XTerm*cjkWidth: false
+
