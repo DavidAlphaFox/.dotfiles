@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name : Snippet header
+# contributor : joaotavora
+# contributor : Michael Markert <markert.michael@googlemail.com>
+# --
+# -*- mode: snippet -*-
+# name : $1
+# key : ${2:trigger-key}
+# contributor : $3
+# --
+$0
