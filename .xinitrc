@@ -9,6 +9,12 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export XMODIFIERS='@im=SCIM'
+export XIM=scim 
+export XIM_PROGRAM=scim
+export GTK_IM_MODULE=scim
+export QT_IM_MODULE=scim
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -60,12 +66,11 @@ then
 fi
 
 # start some nice programs
-
-xclock -geometry 50x50-1+1 &
-xconsole -iconic &
+scim -d
+xclock -geometry 180x40-1+1 -digital&
 xterm -geometry 80x24 &
-fvwm || xterm
-
+exec fvwm -f $HOME/.fvwm/.fvwm2rc 
+killall scim
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
