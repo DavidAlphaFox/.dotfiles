@@ -9,6 +9,12 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export XMODIFIERS="@im=SCIM"
+export XIM=scim 
+export XIM_PROGRAM=scim
+export GTK_IM_MODULE=scim
+export QT_IM_MODULE=scim
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
