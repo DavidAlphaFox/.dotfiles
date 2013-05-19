@@ -58,12 +58,9 @@ Style "emacs*"	Icon xemacs.xpm, MiniIcon mini.emacs.xpm
 Style "Fvwm*"	StaysOnTop, Sticky, MiniIcon mini.fvwm.xpm 
 Style "rxvt*"	Icon display.xpm, MiniIcon mini-display.xpm
 Style "xterm"	Icon display.xpm, MiniIcon mini-display.xpm
-Style "aterm"	Icon display.xpm, MiniIcon mini-display.xpm 
 Style "xbiff"   NoTitle, Icon mail1.xpm, MiniIcon mini-mail.xpm
 Style "xcal"   NoTitle, Icon mail1.xpm, MiniIcon mini-mail.xpm
 Style "xclock"   NoTitle, Icon mail1.xpm, MiniIcon mini-clock.xpm
-Style "netscape*" Icon nscape.xpm, MiniIcon mini-nscape.xpm
-Style "mozilla*" Icon nscape.xpm, MiniIcon mini-nscape.xpm
 Style "Procmeter*" Notitle
 
 AddToMenu "System"
@@ -93,7 +90,7 @@ AddToMenu "LongRootMenu"
 +	"Menu" 	Title
 +       "" Nop
 +       "XTerm" Exec xterm
-+ 	"Kill" Exec xkill
++ 		"Kill" Exec xkill
 +       "Windows List" WindowList
 +       "Pager" FvwmPager 0 2
 +       "" Nop
@@ -208,4 +205,12 @@ Key F3		A	1	Desk 0 2
 
 # nouzove reseni, prepinani klavesnic
 Key Pause A       A       Exec exec /usr/local/bin/xkbchange
+
+######################## Initialization Functions ############################
+AddToFunc InitFunction 	  "I" Module FvwmButtons
++             "I" Module FvwmPager 0 2
++			  "I" exec xsetroot -mod 2 2 -fg \#554055 -bg \#705070
+AddToFunc RestartFunction "I" Module FvwmButtons
++             "I" Module FvwmPager 0 2
++			  "I" exec xsetroot -mod 2 2 -fg \#554055 -bg \#705070
 

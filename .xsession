@@ -64,6 +64,7 @@ fi
 xclock -geometry 180x40-1+1 -digital&
 xterm -geometry 80x24 &
 fvwm -f $HOME/.fvwm/.fvwm2rc || xterm
+
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
