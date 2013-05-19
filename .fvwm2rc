@@ -66,27 +66,6 @@ Style "netscape*" Icon nscape.xpm, MiniIcon mini-nscape.xpm
 Style "mozilla*" Icon nscape.xpm, MiniIcon mini-nscape.xpm
 Style "Procmeter*" Notitle
 
-# Read system and user menu prefixes
-AddToMenu /Debian
-+ 	"Debian Menu" 	Title
-Read /etc/X11/fvwm/main-menu-pre.hook
-
-# Read the auto-generated menus
-Read /etc/X11/fvwm/menudefs.hook
-
-# Add in user additions
-Read /etc/X11/fvwm/main-menu.hook
-	
-AddToMenu   "R-Hosts"
-+       "Remote Hosts" Title 
-+       ""      Nop
-+       "Netscape" exec ssh -f -X monoceros "LC_ALL=cs_CZ LANG=cs nice /usr/bin/X11/netscape -geometry 730x550+60+0 -display $DISPLAY -no-about-splash &"
-+       "Mozilla" exec ssh -f -X monoceros "LC_CTYPE=cs_CZ nice /usr/local/mozilla/mozilla -geometry 730x550+60+0"
-+       "monoceros" exec ssh -f -X monoceros "LC_CTYPE=czech /usr/bin/X11/xterm +cm +sb -sl 500 -ls -j -fn '-misc-*-*-*-*--15-*-iso8859-2' -bg black -cr green -fg white"
-+       "indus" exec ssh -f -X indus "/usr/bin/X11/xterm +sb -sl 500 -ls -j  -fn 9x15 -bg black -cr green -fg white"
-+       "dior" exec ssh -f -X dior "/usr/openwin/bin/xterm +sb -sl 500 -ls -j -fn  9x15 -bg black -cr green -fg white"
-+       "mars" exec ssh -f -X mars "LC_CTYPE=cs_CZ /usr/X11R6/bin/xterm +sb -ls -fn '-misc-*-*-*-*--15-*-iso8859-2' -bg black -cr green -fg white"
-
 AddToMenu "System"
 +       "Are you sure to logout ? " Title 
 +       ""      Nop
@@ -101,18 +80,24 @@ AddToMenu "Window-Ops"
 +              "Close" Close
 +              "Delete" Delete
 
+AddToMenu Quit-Verify 	"Really Quit Fvwm?" Title	
++		      	"Yes, Really Quit"  Quit	
++		      	""		    Nop	
++               "Restart Fvwm2"     Restart fvwm2
++		      	"Restart Fvwm"	    Restart fvwm
++		      	""		    Nop	
++		      	"No, Don't Quit"    Nop	
+
 #4 root window
 AddToMenu "LongRootMenu" 
 +	"Menu" 	Title
 +       "" Nop
-+       "New Window" Exec aterm +sb -ls -fn '-misc-*-*-*-*--15-*-iso8859-2' -bg black -cr green -fg white -fade 70 &
++       "XTerm" Exec xterm
 + 	"Kill" Exec xkill
 +       "Windows List" WindowList
 +       "Pager" FvwmPager 0 2
 +       "" Nop
-+	"R-Hosts" PopUp R-Hosts
-+	"Debian" PopUp /Debian
-
++		"Exit Fvwm" Popup Quit-Verify
 ############################################################################
 # Now define some handy complex functions
 

@@ -61,11 +61,9 @@ fi
 
 # start some nice programs
 
-xclock -geometry 50x50-1+1 &
-xconsole -iconic &
+xclock -geometry 180x40-1+1 -digital&
 xterm -geometry 80x24 &
-#fvwm -f $HOME/.fvwm/.fvwm2rc || xterm
-fvwm || xterm
+fvwm -f $HOME/.fvwm/.fvwm2rc || xterm
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
