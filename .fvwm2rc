@@ -90,6 +90,7 @@ AddToMenu "LongRootMenu"
 +	"Menu" 	Title
 +       "" Nop
 +       "XTerm" Exec xterm
++		"FireFox" Exec firefox
 + 		"Kill" Exec xkill
 +       "Windows List" WindowList
 +       "Pager" FvwmPager 0 2
