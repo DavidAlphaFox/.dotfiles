@@ -9,7 +9,7 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS="@im=SCIM"
+export XMODIFIERS='@im=scim'
 export XIM=scim 
 export XIM_PROGRAM=scim
 export GTK_IM_MODULE=scim
@@ -69,6 +69,7 @@ fi
 
 xclock -geometry 180x40-1+1 -digital&
 xterm -geometry 80x24 &
+scim&
 fvwm -f $HOME/.fvwm/.fvwm2rc || xterm
 
 if [ "$SSH_AGENT_PID" ]; then
