@@ -13,11 +13,8 @@ AddToDecor flatness
 + BorderStyle -- HiddenHandles NoInset
 Style "flatness" UseDecor flatness, Color black/LightGrey, HandleWidth 2
  
-Style "*" HilightFore yellow
-Style "*" HilightBack RoyalBlue
-Style "*" UseStyle flatness, Icon xlogo32, MiniIcon mini-x.xpm,BorderWidth 2, HandleWidth 4, KeepWindowGroupsOnDesk
+Style "*" UseStyle flatness, Icon xlogo32, MiniIcon mini-x.xpm,BorderWidth 2, HandleWidth 4
 
-Style "aterm-root" StaysOnBottom, BorderWidth 0, HandleWidth 0, NoTitle, GrabFocusTransientOff, WindowListSkip, CirculateSkip
 
 CursorStyle MENU 132
 CursorStyle SYS 132
@@ -34,15 +31,6 @@ Style "*" IconBox 740 5 800 600
 # Set the desk top size in units of physical screen size
 # and the reduction scale used for the panner/pager
 DeskTopSize 1x1
-
-#Animate
-Module FvwmAnimate
-*FvwmAnimate: Effect Frame3D
-*FvwmAnimate: Iterations 12
-*FvwmAnimate: Width 2
-*FvwmAnimate: Twist 0.500000
-*FvwmAnimate: Delay 1
-*FvwmAnimate: Color blue
 
 # Irix-5.2 like pager
 Style "FvwmPager" Handles, NoTitle

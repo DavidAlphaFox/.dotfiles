@@ -9,7 +9,7 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS="@im=SCIM"
+export XMODIFIERS='@im=SCIM'
 export XIM=scim 
 export XIM_PROGRAM=scim
 export GTK_IM_MODULE=scim
@@ -66,12 +66,11 @@ then
 fi
 
 # start some nice programs
-
+scim -d
 xclock -geometry 180x40-1+1 -digital&
 xterm -geometry 80x24 &
-scim -d -c socket -f x11 -e socket
-fvwm -f $HOME/.fvwm/.fvwm2rc || xterm
-
+exec fvwm -f $HOME/.fvwm/.fvwm2rc 
+killall scim
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
