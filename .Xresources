@@ -23,6 +23,6 @@ XTerm*bellIsUrgent: true
 XTerm*allowBoldFont: false
 XTerm*eightBitInput: false
 XTerm*backarrowKey: false
-
+!XTerm*inputMethod: scim
 !*.vt100.font: fixed
 *.vt100.encodingMode: true
