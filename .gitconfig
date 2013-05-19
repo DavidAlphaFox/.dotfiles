@@ -1,3 +1,5 @@
 [user]
 	name = David.Gao
 	email = david.alpha.fox@gmail.com
+[push]
+	default = simple
