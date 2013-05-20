@@ -128,7 +128,6 @@ AddToFunc   "Focus-and-Raise" "I" Raise
 #     Button	Context Modifi 	Function
 Mouse 1		R   	A       Menu "LongRootMenu" Nop
 # Mouse button 2 calls up the Tools menu in case GoodStuff doesn't work
-Mouse 2		R    	A       Menu "/Debian" Nop
 Mouse 3		R    	A       Menu "System" Nop
 
 # Now the title bar buttons
@@ -179,6 +178,7 @@ Key Down	A	SM	CursorMove +0   +20
 Key Escape      A       C       PopUp "/Debian" Nop
 Key Return      A       C       PopUp "Window-Ops" Nop
 Key F7		WFST	M	Move
+Key F12      WFST    M   Maximize
 Key F1          A       S       Menu "LongRootMenu" Nop
 Key Left        A       12       Desk -1 0
 Key Left        A       1       Desk -1 0
