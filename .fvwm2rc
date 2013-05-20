@@ -60,6 +60,7 @@ AddToMenu "System"
 # This defines the most common window operations
 AddToMenu "Window-Ops"
 +              "Move (Alt-F7)" Move
++			   "(Un)Maximize" Maximize
 +              "Minimize" Iconify
 +              "Destroy" Destroy
 +              "Close" Close
