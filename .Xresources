@@ -12,11 +12,11 @@ XTerm*locale: utf8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
 XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=18
-XTerm*faceNameDoublesize: xft:wenquanyi bitmap song:pixelsize=18:antialias=True
+XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 XTerm*metaSendsEscape: false
 XTerm*highlightSelection: true
 !XTerm*trimSelection: true
-!XTerm*locale: true
+XTerm*locale: true
 XTerm*xftAntialiass: true
 XTerm*cjkWidth: false
 XTerm*bellIsUrgent: true
@@ -25,5 +25,5 @@ XTerm*eightBitInput: false
 XTerm*backarrowKey: false
 XTerm*openIm: true
 *inputMethod: SCIM
-!*.vt100.font: fixed
+*.vt100.font: fixed
 *.vt100.encodingMode: true
