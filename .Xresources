@@ -8,20 +8,20 @@ Xft.rgba: rgb
 !Xcursor.theme: whitelarge
 Xcursor.size: 32
 XTerm*loginShell: true
-XTerm*locale: utf8
+XTerm*locale: UTF-8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
 XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=18
 XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
-XTerm*metaSendsEscape: false
+!XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true
-!XTerm*trimSelection: true
+XTerm*trimSelection: true
 XTerm*locale: true
 XTerm*xftAntialiass: true
 XTerm*cjkWidth: false
 XTerm*bellIsUrgent: true
-XTerm*allowBoldFont: false
-XTerm*eightBitInput: false
+XTerm*allowBoldFont: true
+XTerm*eightBitInput: true
 XTerm*backarrowKey: false
 XTerm*openIm: true
 *inputMethod: SCIM

@@ -9,6 +9,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export EDITOR="vim"
+export CLICOLOR=1
 export XMODIFIERS='@im=SCIM'
 export XIM=scim
 export XIM_PROGRAM=scim
