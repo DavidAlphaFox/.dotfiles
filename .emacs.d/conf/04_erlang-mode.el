@@ -10,7 +10,6 @@
 (add-to-list 'auto-mode-alist '("\\.hrl$" . erlang-mode))
 
 (require 'distel)
-(distel-setup)
 
 (defvar inferior-erlang-prompt-timeout t)
 (add-hook 'erlang-mode-hook
@@ -18,7 +17,7 @@
 			(setq inferior-erlang-machine-options '("-name" "emacs@127.0.0.1"))
 			(setq erl-nodename-cache 'emacs@127.0.0.1)
 			(erlang-shell)
-			(distel-init)
+			(distel-setup)
 			(other-window 1)
 			(previous-buffer)
 			))
