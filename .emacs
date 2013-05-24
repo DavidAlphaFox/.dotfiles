@@ -1,3 +1,8 @@
+(when
+	(<= emacs-major-version 24)
+  (setq load-path (append '(
+							"~/.emacs.d/elisp/package.el/"
+							) load-path)))
 (setq load-path
       (append '("~/.emacs.d/elisp"
                 "~/.emacs.d/elisp/js2-mode"
@@ -9,6 +14,7 @@
 				"~/.emacs.d/elisp/flymake"
                 "~/.emacs.d/elisp/slime"
                 "~/.emacs.d/elisp/distel/elisp"
+				"~/.emacs.d/elisp/haskell-mode/"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
 				"~/.emacs.d/themes/molokai-theme"
