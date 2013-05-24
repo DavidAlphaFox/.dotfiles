@@ -10,6 +10,7 @@
                 "~/.emacs.d/elisp/slime"
                 "~/.emacs.d/elisp/distel/elisp"
 				"~/.emacs.d/elisp/haskell-mode/"
+				"~/.emacs.d/elisp/ocaml-mode/"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
 				"~/.emacs.d/themes/molokai-theme"
