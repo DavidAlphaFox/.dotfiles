@@ -1,8 +1,3 @@
-(when
-	(<= emacs-major-version 24)
-  (setq load-path (append '(
-							"~/.emacs.d/elisp/package.el/"
-							) load-path)))
 (setq load-path
       (append '("~/.emacs.d/elisp"
                 "~/.emacs.d/elisp/js2-mode"
