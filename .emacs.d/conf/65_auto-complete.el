@@ -11,3 +11,7 @@
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
+
+(require 'auto-complete-distel)
+(add-to-list 'ac-modes 'erlang-mode)
+(add-to-list 'ac-modes 'erlang-shell-mode)

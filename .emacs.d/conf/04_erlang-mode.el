@@ -12,20 +12,15 @@
 (require 'distel)
 (distel-setup)
 
-;; prevent annoying hang-on-compile
 (defvar inferior-erlang-prompt-timeout t)
-;;(interactive)
-;; default node name to emacs@localhost
-(setq inferior-erlang-machine-options '("-name" "emacs@127.0.0.1"))
+(add-hook 'erlang-mode-hook
+		  (lambda ()
+			(setq inferior-erlang-machine-options '("-name" "emacs@127.0.0.1"))
+			(setq erl-nodename-cache 'emacs@127.0.0.1)
+			(erlang-shell)
+			(distel-init)
+			(other-window 1)
+			(previous-buffer)
+			))
 
 ;; tell distel to default to that node
-(setq erl-nodename-cache 'emacs@127.0.0.1)
-     ;; (make-symbol
-      ;; (concat
-       ;; "emacs@"
-        ;; Mac OS X uses "name.local" instead of "name", this should work
-        ;; pretty much anywhere without having to muck with NetInfo
-        ;; ... but I only tested it on Mac OS X.
-       ;; (car (split-string (shell-command-to-string "hostname"))))))
-;;(require 'erlang-flymake) 
-(require 'auto-complete-distel)
