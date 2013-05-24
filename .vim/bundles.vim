@@ -60,26 +60,26 @@ Bundle 'nvie/vim-togglemouse'
 "----------------------------------------
 "------- web backend ---------
 Bundle '2072/PHP-Indenting-for-VIm'
-"Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rails'
 Bundle 'lepture/vim-jinja'
-"Bundle 'digitaltoad/vim-jade'
+Bundle 'digitaltoad/vim-jade'
 
 "------- web frontend ----------
 Bundle 'othree/html5.vim'
-" Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-haml'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'nono/jquery.vim'
-" Bundle 'groenewege/vim-less'
-" Bundle 'wavded/vim-stylus'
-" Bundle 'nono/vim-handlebars'
+Bundle 'groenewege/vim-less'
+Bundle 'wavded/vim-stylus'
+Bundle 'nono/vim-handlebars'
 
 "------- markup language -------
 Bundle 'tpope/vim-markdown'
-" Bundle 'timcharper/textile.vim'
+Bundle 'timcharper/textile.vim'
 
 "------- Ruby --------
-" Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-endwise'
 
 "------- Go ----------
 Bundle 'jnwhiteh/vim-golang'

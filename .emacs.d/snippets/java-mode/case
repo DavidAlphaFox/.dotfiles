@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name : case
-# key : case
-# contributor : Michael Markert <markert.michael@googlemail.com>
-# --
-case ${1:cond} : ${2:block}; break;$0
