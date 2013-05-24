@@ -1,3 +1,4 @@
+(require 'ruby-mode)
 (defun ruby-eval-buffer()
    "Evaluate the buffer with ruby."
    (interactive)
@@ -32,6 +33,8 @@
 (add-to-list 'auto-mode-alist '("thor$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("jbuilder$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 
 ;; Better indention for multi-line paren blocks
 (setq ruby-deep-indent-paren-style nil)
