@@ -12,10 +12,3 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
-(require 'auto-complete-distel)
-(add-to-list 'ac-modes 'erlang-mode)
-(add-to-list 'ac-modes 'erlang-shell-mode)
-(defun ac-distel-setup ()
-   (setq ac-sources '(ac-source-distel)))
-(add-hook 'erlang-mode-hook 'ac-distel-setup)
-(add-hook 'erlang-shell-mode-hook 'ac-distel-setup)
