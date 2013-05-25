@@ -12,14 +12,11 @@
 (require 'distel)
 
 (defvar inferior-erlang-prompt-timeout t)
-(add-hook 'erlang-mode-hook
-		  (lambda ()
-			(setq inferior-erlang-machine-options '("-name" "emacs@127.0.0.1"))
-			(setq erl-nodename-cache 'emacs@127.0.0.1)
-			(erlang-shell)
-			(distel-setup)
-			(other-window 1)
-			(previous-buffer)
-			))
-
+(setq inferior-erlang-machine-options '("-name" "emacs@127.0.0.1"))
+(setq erl-nodename-cache 'emacs@127.0.0.1)
+(defun erlang-shell-distel ()
+  (interactive)
+  (erlang-shell)
+  (distel-setup)
+)
 ;; tell distel to default to that node

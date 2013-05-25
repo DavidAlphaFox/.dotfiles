@@ -13,7 +13,7 @@ XTerm*scrollBar: false
 *xterm.termName: xterm-256color
 XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=18
 XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
-!XTerm*metaSendsEscape: true
+XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true
 XTerm*trimSelection: true
 XTerm*locale: true
