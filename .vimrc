@@ -13,6 +13,7 @@ syntax on
 " Vim UI
 "--------
 " color scheme
+set t_ut=
 set background=dark
 color molokai
 
