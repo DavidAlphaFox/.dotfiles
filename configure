@@ -5,87 +5,128 @@ CURL=`which curl`
 GIT=`which git`
 
 ShellName=`echo "${SHELL}" | awk -F '/' '{print $NF}'`
-echo "It seems that you are using ${ShellName}"
+System=`uname`
 
+echo "It seems that you are using ${System} and ${ShellName}"
 
-if [ ! -x "$GIT" ]; then
-   echo "Can't find git"
-   exit
+promptyn () {
+	while true; do
+		read -p "$1 [Y/N]?" yn
+		case $yn in
+			[Yy]* ) return 0;;
+			[Nn]* ) return 1;;
+			* ) echo "Please answer Y or N.";;
+		esac
+	done
+}
+
+is_exsist () {
+	if [ ! -x "$1" ]; then
+		return 1
+	fi
+	return 0
+}
+
+conf_delete () {
+	for item in "$@"; do
+		if [ -d "$HOME/${item}" ]; then
+			if [ -L "$HOME/${item}" ]; then
+       			echo "Delete link ${item}"
+       			rm "$HOME/${item}"
+			else
+				echo "Delete directory ${item}"
+	  			rm -rf "$HOME/${item}"
+			fi
+		else
+			if [ -f "$HOME/${item}" ]; then
+				echo "Delete link or file ${item}"
+				rm "$HOME/${item}"	
+			fi
+		fi
+	done
+}
+
+emacs_conf_files=".emacs .emacs.d"
+vim_conf_files=".vimrc .vim"
+quicklisp_conf_files=".sbclrc quicklisp"
+erlang_conf_files=".erlang"
+tmux_conf_files=".tmux.conf"
+xresource_conf_files=".Xresources .Xresources-solarized"
+
+if promptyn "Enable Emacs"; then
+	echo "Delete and link conf files for Emacs"
+	conf_delete $emacs_conf_files
+	ln -s .dotfiles/.emacs ../.emacs
+	ln -s .dotfiles/.emacs.d ../.emacs.d
+	if [ -d "$HOME/.emacs.d/tmp" ]; then
+		echo "delete tmp of emacs"
+		mkdir "$HOME/.emacs.d/tmp"
+	fi
 fi
 
-conf_files=".emacs .sbclrc .vimrc .erlang .tmux.conf"
-conf_directories=".emacs.d quicklisp .vim"
+if promptyn "Enable Vim"; then
+	echo "Delete and link conf files for Vim"
+	conf_delete $vim_conf_files
+	ln -s .dotfiles/.vim ../.vim
+	ln -s .dotfiles/.vimrc ../.vimrc
 
-for item in ${conf_files}; do
-    if [ -f "$HOME/$item" ]; then
-       echo "Delete link or file $item"
-       rm "$HOME/$item"
-    fi
-done
+	if [ -d "$HOME/.vim/bundle/" ]; then
+		echo "Delete all files in .vim/bundle"
+		rm -rf "$HOME/.vim/bundle/"
+		mkdir "$HOME/.vim/bundle/"
+	fi
 
-for item in ${conf_directories}; do
-    if [ -d "$HOME/$item" ]; then
-       if [ -L "$HOME/$item" ]; then
-       	  echo "Delete link $item"
-       	  rm "$HOME/$item"
-       else
-		   echo "Delete directory $item"
-	  	   rm -rf "$HOME/$item"
-       fi
-    fi
-done
-
-echo "Create all links"
-ln -s .dotfiles/.emacs ../.emacs
-ln -s .dotfiles/.emacs.d ../.emacs.d
-ln -s .dotfiles/.vim ../.vim
-ln -s .dotfiles/.vimrc ../.vimrc
-ln -s .dotfiles/.erlang ../.erlang
-ln -s .dotfiles/.tmux.conf ../.tmux.conf
-mkdir "$HOME/.emacs.d/tmp"
-if [ -d "$HOME/.vim/bundle/" ]; then
-   echo "Delete all files in .vim/bundle"
-   rm -rf "$HOME/.vim/bundle/"
-   mkdir "$HOME/.vim/bundle/"
+	if is_exsist $GIT; then
+		echo "Clone vundle"
+		git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	 else
+		echo "You don't have git!!!"
+		echo "You should intatll github.com/gmarik/vundle.git into your ~/.vim/bundle/"
+	 fi
 fi
 
-if [ $(uname) == "OpenBSD" ]; then
-	echo "set up .Xresources for OpenBSD"
-	rm "$HOME/.Xresources"
-	rm "$HOME/.Xresources-solarized"
+if promptyn "Enable Tmux"; then
+	conf_delete $tmux_conf_files
+	ln -s .dotfiles/.tmux.conf ../.tmux.conf
+fi
+
+if promptyn "Enable Erlang"; then
+	conf_delete $erlang_conf_files
+	ln -s .dotfiles/.erlang ../.erlang
+fi
+
+if promptyn "Enable Xresource"; then
+	echo "set up .Xresources for ${System} and ${ShellName}"
+	conf_delete $xresource_conf_files
 	ln -s .dotfiles/.Xresources ../.Xresources
 	ln -s .dotfiles/.Xresources-solarized ../.Xresources-solarized
 fi
 
-echo "Clone vundle"
-git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-echo "Setup quicklisp"
-if [ ! -x "$SBCL" ]; then
-   echo "Can't find sbcl.Stop steuping quicklisp"
-   exit
+if promptyn "Setup quicklisp for sbcl"; then
+	if is_exsist $SBCL is_exsist $CURL; then
+		conf_delete $quicklisp_conf_files
+		if [ -d "$HOME/.dotfiles/quicklisp" ]; then
+			rm -rf "$HOME/.dotfiles/quicklisp/" 
+		fi
+		if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
+			rm "$HOME/.dotfiles/quicklisp.lisp"
+		fi
+		curl -O "http://beta.quicklisp.org/quicklisp.lisp"
+		sbcl --load ~/.dotfiles/pre_init.lisp
+		mv ~/quicklisp ~/.dotfiles/
+		ln -s .dotfiles/quicklisp ../quicklisp
+		sbcl --load ~/.dotfiles/after_init.lisp
+		ln -s .dotfiles/.sbclrc ../.sbclrc
+		rm ~/.dotfiles/quicklisp.lisp
+   else
+		echo "I can't find ${CURL} or ${SBCL}"
+   fi
 fi
 
-if [ ! -x "$CURL" ]; then
-   echo "Can't find curl.Stop setuping quicklisp"
-   exit
+if promptyn "Add configure into .profile"; then
+	cat "$HOME/.dotfiles/.profile_locale" >> "$HOME/.profile"
+	if [ $System == "OpenBSD" ]; then
+		echo "Setup package configure in OpenBSD"
+		echo "export PKG_PATH=http://ftp.kddlabs.co.jp/OpenBSD/5.3/packages/`machine -a`/" >> "$HOME/.profile"
+	fi
 fi
-
-if [ -d "$HOME/.dotfiles/quicklisp" ]; then
-   rm -rf "$HOME/.dotfiles/quicklisp/" 
-fi
-
-if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
-   rm "$HOME/.dotfiles/quicklisp.lisp"
-fi
-
-curl -O "http://beta.quicklisp.org/quicklisp.lisp"
-sbcl --load ~/.dotfiles/pre_init.lisp
-
-mv ~/quicklisp ~/.dotfiles/
-ln -s .dotfiles/quicklisp ../quicklisp
-
-sbcl --load ~/.dotfiles/after_init.lisp
-
-ln -s .dotfiles/.sbclrc ../.sbclrc
-rm ~/.dotfiles/quicklisp.lisp
