@@ -136,5 +136,8 @@ if promptyn "Conf Shell resources"; then
 	if [ $ShellName == "csh" ]; then
 		echo "Setup .cshrc for csh"
 		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
-	fi
+	elif [ $ShellName == "ksh" ]; then
+		echo "Setup .cshrc for ksh"
+		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
+	fi	
 fi
