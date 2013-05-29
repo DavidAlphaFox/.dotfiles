@@ -11,7 +11,8 @@ echo "It seems that you are using ${System} and ${ShellName}"
 
 promptyn () {
 	while true; do
-		read -p "$1 [Y/N]?" yn
+		echo "$1 [Y/N]?"
+		read  yn
 		case $yn in
 			[Yy]* ) return 0;;
 			[Nn]* ) return 1;;
