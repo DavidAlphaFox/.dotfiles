@@ -125,9 +125,16 @@ if promptyn "Setup quicklisp for sbcl"; then
 fi
 
 if promptyn "Add configure into .profile"; then
-	cat "$HOME/.dotfiles/.profile_locale" >> "$HOME/.profile"
+	cat "$HOME/.dotfiles/.profile_mine" >> "$HOME/.profile"
 	if [ $System == "OpenBSD" ]; then
 		echo "Setup package configure in OpenBSD"
 		echo "export PKG_PATH=http://ftp.kddlabs.co.jp/OpenBSD/5.3/packages/`machine -a`/" >> "$HOME/.profile"
+	fi
+fi
+
+if promptyn "Conf Shell resources"; then
+	if [ $ShellName == "csh" ]; then
+		echo "Setup .cshrc for csh"
+		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
 	fi
 fi
