@@ -73,6 +73,7 @@ Bundle 'nono/jquery.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'nono/vim-handlebars'
+Bundle 'briancollins/vim-jst'
 
 "------- markup language -------
 Bundle 'tpope/vim-markdown'
