@@ -61,8 +61,10 @@ if promptyn "Enable Emacs"; then
 	ln -s .dotfiles/.emacs.d ../.emacs.d
 	if [ -d "$HOME/.emacs.d/tmp" ]; then
 		echo "delete tmp of emacs"
-		mkdir "$HOME/.emacs.d/tmp"
+		rm -rf "$HOME/.emacs.d/tmp"
 	fi
+	mkdir "$HOME/.emacs.d/tmp"
+
 fi
 
 if promptyn "Enable Vim"; then
@@ -74,8 +76,8 @@ if promptyn "Enable Vim"; then
 	if [ -d "$HOME/.vim/bundle/" ]; then
 		echo "Delete all files in .vim/bundle"
 		rm -rf "$HOME/.vim/bundle/"
-		mkdir "$HOME/.vim/bundle/"
 	fi
+	mkdir "$HOME/.vim/bundle/"
 
 	if is_exsist $GIT; then
 		echo "Clone vundle"
