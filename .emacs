@@ -8,7 +8,6 @@
                 "~/.emacs.d/elisp/yaml-mode"
 				"~/.emacs.d/elisp/jade-mode"
 				"~/.emacs.d/elisp/go-mode"
-				"~/.emacs.d/elisp/yasnippet"
                 "~/.emacs.d/elisp/auto-complete"
 				"~/.emacs.d/elisp/flymake"
                 "~/.emacs.d/elisp/slime"
