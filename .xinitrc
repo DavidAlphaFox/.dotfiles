@@ -66,10 +66,11 @@ then
 fi
 
 # start some nice programs
+echo $DISPLAY
 scim -d
 xclock -geometry 180x40-1+1 -digital&
 xterm -geometry 80x24 &
-exec fvwm -f $HOME/.fvwm/.fvwm2rc 
+exec fvwm -f $HOME/.fvwm/.fvwm2rc -d $DISPLAY
 killall scim
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
