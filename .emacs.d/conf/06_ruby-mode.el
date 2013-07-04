@@ -37,4 +37,4 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 
 ;; Better indention for multi-line paren blocks
-(setq ruby-deep-indent-paren-style nil)
+;;(setq ruby-deep-indent-paren-style nil)
