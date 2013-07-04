@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Breakpoint
-# key: bp
-# contributor : Michael Markert <markert.michael@googlemail.com>
-# --
-(swank.core/break)

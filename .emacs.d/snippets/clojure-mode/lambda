@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name : lambda
-# key : fn
-# contributor : Michael Markert <markert.michael@googlemail.com>
-# --
-(fn [$1] $0)
