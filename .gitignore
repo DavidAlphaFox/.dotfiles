@@ -22,3 +22,4 @@ quicklisp
 quicklisp.lisp
 .emacs.d/rfc/*
 \*.elc
+quicklisp/
