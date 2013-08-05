@@ -23,15 +23,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -39,15 +31,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -68,7 +52,7 @@ fi
 # start some nice programs
 scim -d
 exec urxvtd &
-xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen&
+#xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen&
 exec fvwm -f $HOME/.fvwm/.fvwm2rc 
 killall scim
 if [ "$SSH_AGENT_PID" ]; then

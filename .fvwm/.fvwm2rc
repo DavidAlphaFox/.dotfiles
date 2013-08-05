@@ -1,8 +1,9 @@
 ###############################################################################
 #
 
-IconPath	/usr/X11R6/include/X11/bitmaps/:$HOME/.fvwm/icons:/usr/share/pixmaps
-PixmapPath	/usr/X11R6/include/X11/pixmaps/:$HOME/.fvwm/icons
+IconPath   /usr/X11R6/include/X11/bitmaps/:$HOME/.fvwm/icons:/usr/share/pixmaps
+PixmapPath /usr/X11R6/include/X11/pixmaps/:$HOME/.fvwm/icons 
+ImagePath  /usr/X11R6/share/fvwm/pixmaps
 ModulePath	$FVWM_MODULEDIR:$HOME/.fvwm-modules/
 
 OpaqueMoveSize 75
@@ -12,11 +13,13 @@ ClickTime 750
 DeskTopSize 3x3
 ColormapFocus FollowsFocus
 
-IconFont -B&H-lucidatypewriter-medium-r-*-*-14-*
+MenuStyle * Mwm, Foreground lightgrey, Background rgb:9f/45/5, Greyed lightgrey
+MenuStyle * Font "StringEncoding=utf-8:xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True"
 
-
+Style "*"                Font "StringEncoding=utf-8:xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True"
+Style "*"                IconFont "StringEncoding=utf-8:xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True"
 Style "*"                BorderWidth 2, HandleWidth 3 
-Style "*"                Color White/Gray40
+Style "*"                HilightFore lightgrey,  HilightBack rgb:9f/45/5
 Style "*"                SmartPlacement
 Style "*"                RandomPlacement
 Style "*"                UseDecor cyan-decor 
@@ -30,32 +33,13 @@ Style "FvwmWindowList"   BorderWidth 0
 Style "FvwmButtons"      BorderWidth 0, NoButton 2, NoButton 4
 Style "xcalc"            Icon xcalc.xpm
 Style "xcalc"            NoButton 2
-Style "x11amp"	         NoHandles, NoTitle, BorderWidth 0
+Style "x11amp"			          NoHandles, NoTitle, BorderWidth 0
 Style "FvwmButtonsPanel" NoTitle, NoHandles, BorderWidth 0
 Style "FvwmButtonsPanel" NoButton 2, NoButton 4, Sticky
 
-
-# This is when using the window list. Othervise icons would be
-# visible alltough the windowlist whas there.
-#
-# Style "*"		NoIcon
-# Style "*"		IconBox 205x646+891+211
-# Style "*"		IconBox 1152x100+0+0 
-# Style "*"		IconBox 850x80+302+784
-Style "*"		IconBox 850x80+0+944
-Style "Term"		IconBox 1024x80+0+0
-Style "*"		Icon deficon.xpm
-# Add sloppyfocus
-Style "*"		SloppyFocus
-
-Style xterm	Icon display.xpm, MiniIcon mini-display.xpm
-Style xclock   NoTitle, Icon mail1.xpm, MiniIcon mini-clock.xpm
-Style systime  NoTitle, NoHandles, Sticky, WindowListSkip, StaysOnTop,BorderWidth 0, NeverFocus, NoLenience
-Style systat   NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 0,NeverFocus, NoLenience, Layer 0
-Style xconsole NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 0,NeverFocus, NoLenience, Layer 1
-Style login    NoTitle, NoHandles, Sticky, WindowListSkip, StaysOnTop,BorderWidth 0,
-Style xman     Icon xman.xpm, ClickToFocus
-Style Console  Icon Monitor.xpm, Sticky, WindowListSkip, StaysOnTop,CenterPlacement
+# Styles for various common programs:
+Style systat   NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 0,NeverFocus, NoLenience, Layer -1
+Style xcalc    Icon xcalc.xpm, NoButton 2,ClickToFocus
 
 AddToDecor cyan-decor 
 + HilightColor Black Gray75
@@ -111,15 +95,16 @@ Mouse 2         TSFI    A       WindowShade
 ########################Initialization Functions ############################
 AddToFunc StartFunction
 +		  	"I" exec xsetroot -mod 2 2 -fg rgb:55/40/55 -bg rgb:80/50/80
-+ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+30+20 -bg rgb:80/50/80  -e systat 5
-+ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+515+20 -bg rgb:80/50/80  -e systat ifstat 5
-+ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+30+350 -bg rgb:80/50/80 -e top
+#+ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+30+20 -bg rgb:80/50/80 
++ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25-1+1 -bg rgb:80/50/80  -e top
++ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25-1+331 -bg rgb:80/50/80  -e systat 5
 +			"I" Module FvwmAnimate
 +           "I" Module FvwmButtons
++			"I" Refresh
 
 AddToFunc ExitFunction
 +		    "I" All (systat)   Close
-+ 			"I" All (xconsole) Close
+#+ 			"I" All (xconsole) Close
 
 ########################Menus ########################################
 AddToMenu "System"
@@ -272,16 +257,5 @@ AddToFunc Iconify-and-Raise     "I" Iconify
 *FvwmButtonsGeometry -1-1
 *FvwmButtonsRows 1
 
-*FvwmButtons(Size 100 100, Swallow(UseOld,NoKill) XClock 'Exec xclock -fg White -hl Cyan -bg Black -u 1')
+*FvwmButtons(Size 100 100, Swallow(UseOld,NoKill) XClock 'exec xclock -fg White -hl Cyan -bg Black &')
 *FvwmButtons(2x1, Swallow "FvwmPager" 'Module FvwmPager 0 0')
-
-################################################################################
-#
-*XosButtonsFore White
-*XosButtonsBack #C0C0C0
-
-*XosButtonsFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
-
-*XosButtonsGeometry -1+1
-*XosButtonsRows 1
-*XosButtons(Size 210 280, Swallow "xosview" 'Exec xosview +net -geometry 210x280')
