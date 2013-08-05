@@ -68,8 +68,8 @@ fi
 # start some nice programs
 echo $DISPLAY
 scim -d
+exec urxvtd &
 xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
-xterm -geometry 80x24 &
 exec fvwm -f $HOME/.fvwm/.fvwm2rc -d $DISPLAY
 killall scim
 if [ "$SSH_AGENT_PID" ]; then

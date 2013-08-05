@@ -14,29 +14,6 @@ ColormapFocus FollowsFocus
 
 IconFont -B&H-lucidatypewriter-medium-r-*-*-14-*
 
-Style "emacs*"	Icon xemacs.xpm, MiniIcon mini.emacs.xpm
-Style "Fvwm*"	StaysOnTop, Sticky, MiniIcon mini.fvwm.xpm 
-Style "rxvt*"	Icon display.xpm, MiniIcon mini-display.xpm
-Style "xterm"	Icon display.xpm, MiniIcon mini-display.xpm
-Style "xbiff"   NoTitle, Icon mail1.xpm, MiniIcon mini-mail.xpm
-Style "xcal"   NoTitle, Icon mail1.xpm, MiniIcon mini-mail.xpm
-Style "xclock"   NoTitle, Icon mail1.xpm, MiniIcon mini-clock.xpm
-Style "Procmeter*" Notitle
-
-AddToDecor cyan-decor 
-+ HilightColor Black Gray75
-+ WindowFont -adobe-helvetica-medium-r-*-*-16-*-*-*-*-*-*-*
-+ ButtonStyle 1 ActiveUp (Pixmap menu.xpm -- flat)
-+ ButtonStyle 1 ActiveDown (Pixmap menu.xpm -- raised)
-+ ButtonStyle 1 Inactive (Pixmap menu_hb.xpm -- flat)
-+ ButtonStyle 2 ActiveUp (Pixmap maxi.xpm -- flat)
-+ ButtonStyle 2 ActiveDown (Pixmap maxi.xpm -- raised)
-+ ButtonStyle 2 Inactive (Pixmap maxi_hb.xpm -- flat)
-+ ButtonStyle 4 ActiveUp (Pixmap icon.xpm -- flat)
-+ ButtonStyle 4 ActiveDown (Pixmap icon.xpm -- raised)
-+ ButtonStyle 4 Inactive (Pixmap icon_hb.xpm -- flat)
-+ TitleStyle -- flat
-+ BorderStyle -- HiddenHandles NoInset
 
 Style "*"                BorderWidth 2, HandleWidth 3 
 Style "*"                Color White/Gray40
@@ -70,6 +47,31 @@ Style "Term"		IconBox 1024x80+0+0
 Style "*"		Icon deficon.xpm
 # Add sloppyfocus
 Style "*"		SloppyFocus
+
+Style xterm	Icon display.xpm, MiniIcon mini-display.xpm
+Style xclock   NoTitle, Icon mail1.xpm, MiniIcon mini-clock.xpm
+Style systime  NoTitle, NoHandles, Sticky, WindowListSkip, StaysOnTop,BorderWidth 0, NeverFocus, NoLenience
+Style systat   NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 0,NeverFocus, NoLenience, Layer 0
+Style xconsole NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 0,NeverFocus, NoLenience, Layer 1
+Style login    NoTitle, NoHandles, Sticky, WindowListSkip, StaysOnTop,BorderWidth 0,
+Style xman     Icon xman.xpm, ClickToFocus
+Style Console  Icon Monitor.xpm, Sticky, WindowListSkip, StaysOnTop,CenterPlacement
+
+AddToDecor cyan-decor 
++ HilightColor Black Gray75
++ WindowFont -adobe-helvetica-medium-r-*-*-16-*-*-*-*-*-*-*
++ ButtonStyle 1 ActiveUp (Pixmap menu.xpm -- flat)
++ ButtonStyle 1 ActiveDown (Pixmap menu.xpm -- raised)
++ ButtonStyle 1 Inactive (Pixmap menu_hb.xpm -- flat)
++ ButtonStyle 2 ActiveUp (Pixmap maxi.xpm -- flat)
++ ButtonStyle 2 ActiveDown (Pixmap maxi.xpm -- raised)
++ ButtonStyle 2 Inactive (Pixmap maxi_hb.xpm -- flat)
++ ButtonStyle 4 ActiveUp (Pixmap icon.xpm -- flat)
++ ButtonStyle 4 ActiveDown (Pixmap icon.xpm -- raised)
++ ButtonStyle 4 Inactive (Pixmap icon_hb.xpm -- flat)
++ TitleStyle -- flat
++ BorderStyle -- HiddenHandles NoInset
+
 
 # press shift arrow + meta key, and move the pointer by 1/10 of a page
 Key Left	A	S	CursorMove -5 0
@@ -107,14 +109,17 @@ Mouse 3         TSFI    A       RaiseLower
 Mouse 2         TSFI    A       WindowShade
 
 ########################Initialization Functions ############################
-AddToFunc InitFunction  "I" exec xsetroot -solid rgb:0/40/67
-+			"I" exec xaniroc
+AddToFunc StartFunction
++		  	"I" exec xsetroot -mod 2 2 -fg rgb:55/40/55 -bg rgb:80/50/80
++ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+30+20 -bg rgb:80/50/80  -e systat 5
++ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+515+20 -bg rgb:80/50/80  -e systat ifstat 5
++ 			"I" exec urxvtc -tr +sb -fn 6x13 -name systat -geometry 80x25+30+350 -bg rgb:80/50/80 -e top
 +			"I" Module FvwmAnimate
 +           "I" Module FvwmButtons
 
-AddToFunc RestartFunction "I" exec xsetroot -solid rgb:0/40/67
-+			"I" Module FvwmButtons
-+			"I" Module FvwmAnimate
+AddToFunc ExitFunction
++		    "I" All (systat)   Close
++ 			"I" All (xconsole) Close
 
 ########################Menus ########################################
 AddToMenu "System"
