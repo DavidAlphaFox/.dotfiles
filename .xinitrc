@@ -68,7 +68,7 @@ fi
 # start some nice programs
 echo $DISPLAY
 scim -d
-xclock -geometry 180x40-1+1 -digital&
+xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 xterm -geometry 80x24 &
 exec fvwm -f $HOME/.fvwm/.fvwm2rc -d $DISPLAY
 killall scim
