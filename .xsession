@@ -53,8 +53,9 @@ fi
 scim -d
 exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen&
-exec fvwm -f $HOME/.fvwm/.fvwm2rc 
-killall scim
+awesome
+kill `ps -auxw | grep scim | awk '{print $2}'`
+kill `ps -auxw | grep urxvtd | awk '{print $2}'`
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
