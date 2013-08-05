@@ -1,0 +1,333 @@
+###############################################################################
+#
+
+PixmapPath /usr/X11R6/include/X11/pixmaps/:/usr/X11R6/lib/X11/xfm/pixmaps/:/usr/X11R6/include/X11/pixmaps/:~/.fvwm/icons/
+
+OpaqueMoveSize 75
+EdgeResistance 250 75
+EdgeScroll 100 100
+ClickTime 750
+DeskTopSize 3x3
+ColormapFocus FollowsFocus
+
+IconFont -B&H-lucidatypewriter-medium-r-*-*-14-*
+
+MenuStyle * Foreground White, Background Black, SeparatorsShort
+MenuStyle * Hilight3DOff, HilightBack White
+MenuStyle * Animation, TrianglesSolid, SideColor White
+MenuStyle * Font -adobe-helvetica-medium-r-*-*-20-*-*-*-*-*-*-*, PopupOffset 1 90
+MenuStyle * MenuFace VGradient 256 2 rgb:0/40/67 50 steelblue 50 rgb:AA/AA/FF
+#MenuStyle * MenuFace VGradient 256 2 rgb:5b/73/38 50 rgb:c8/c7/43 50 rgb:cf/df/83
+
+AddToDecor cyan-decor 
++ HilightColor Black Gray75
++ WindowFont -adobe-helvetica-medium-r-*-*-16-*-*-*-*-*-*-*
++ ButtonStyle 1 ActiveUp (Pixmap menu.xpm -- flat)
++ ButtonStyle 1 ActiveDown (Pixmap menu.xpm -- raised)
++ ButtonStyle 1 Inactive (Pixmap menu_hb.xpm -- flat)
++ ButtonStyle 2 ActiveUp (Pixmap maxi.xpm -- flat)
++ ButtonStyle 2 ActiveDown (Pixmap maxi.xpm -- raised)
++ ButtonStyle 2 Inactive (Pixmap maxi_hb.xpm -- flat)
++ ButtonStyle 4 ActiveUp (Pixmap icon.xpm -- flat)
++ ButtonStyle 4 ActiveDown (Pixmap icon.xpm -- raised)
++ ButtonStyle 4 Inactive (Pixmap icon_hb.xpm -- flat)
++ TitleStyle -- flat
++ BorderStyle -- HiddenHandles NoInset
+
+Style "*"                BorderWidth 2, HandleWidth 3 
+Style "*"                Color White/Gray40
+Style "*"                SmartPlacement
+Style "*"                RandomPlacement
+Style "*"                UseDecor cyan-decor 
+Style "*"                NakedTransient
+Style "Fvwm*"            NoTitle
+Style "Fvwm*"            Sticky
+Style "Fvwm*"            WindowListSkip
+Style "Fvwm*"            NoHandles
+Style "Fvwm*"            CirculateSkipIcon
+Style "FvwmWindowList"   BorderWidth 0
+Style "FvwmButtons"      BorderWidth 0, NoButton 2, NoButton 4
+Style "xcalc"            Icon xcalc.xpm
+Style "xcalc"            NoButton 2
+Style "GQmpeg*"		 NoTitle, NoHandles, BorderWidth 0
+Style "x11amp"	         NoHandles, NoTitle, BorderWidth 0
+Style "FvwmButtonsPanel" NoTitle, NoHandles, BorderWidth 0
+Style "FvwmButtonsPanel" NoButton 2, NoButton 4, Sticky
+
+
+# This is when using the window list. Othervise icons would be
+# visible alltough the windowlist whas there.
+#
+# Style "*"		NoIcon
+# Style "*"		IconBox 205x646+891+211
+# Style "*"		IconBox 1152x100+0+0 
+# Style "*"		IconBox 850x80+302+784
+Style "*"		IconBox 850x80+0+944
+Style "Term"		IconBox 1024x80+0+0
+Style "*"		Icon deficon.xpm
+# Add sloppyfocus
+Style "*"		SloppyFocus
+
+# press shift arrow + meta key, and move the pointer by 1/10 of a page
+# Key Left	A	SM	Scroll -100 0
+# Key Right	A	SM	Scroll +100 +0   
+# Key Up	A	SM	Scroll +0   -100 
+# Key Down	A	SM	Scroll +0   +100   
+Key Left	A	S	CursorMove -5 0
+Key Right	A	S	CursorMove +5 0
+Key Up		A	S	CursorMove 0 -5
+Key Down	A	S	CursorMove 0 +5
+Key Left	A	SM	CursorMove -1 0
+Key Right	A	SM	CursorMove +1 0
+Key Up		A	SM	CursorMove 0 -1
+Key Down	A	SM	CursorMove 0 +1
+
+Key Tab		A	M	CirculateUp
+
+# Keyboard accelerators
+Key F1		A	N	Popup "Utilities"
+Key F2		A	N	Popup "Window-Ops"
+Key F3		A	N	Popup "Module-Popup"
+Key F4		A	N	Windowlist
+Key F5		A	N	Iconify
+Key F6		A	N	Resize
+#Key F7		A	N	CirculateUp
+#Key F8		A	N	CirculateDown
+
+Key F1          A       M       GotoPage 0 0
+Key F2          A       M       GotoPage 1 0
+Key F3          A       M       GotoPage 2 0
+Key F4          A       M       GotoPage 0 1
+Key F5		A	M	GotoPage 1 1
+Key F6		A	M	GotoPage 2 1
+Key F7		A	M	GotoPage 0 2
+Key F8		A	M	GotoPage 1 2
+Key F9		A	M	GotoPage 2 2
+
+#Button		Context	Modifi	Function
+#Mouse 1		W	C	PopUp "sizeify"
+Mouse 1		R   	N       PopUp "Utilities"
+Mouse 2		R    	N      	PopUp "Window-Ops"
+Mouse 3         R       N       WindowList
+#Mouse 3		R    	A      	Module "winlist" FvwmWinList transient
+# Note the use of "Mouse 0" for AnyButton.
+Mouse 0		1    	A      	PopUp "Window-Ops2"
+# Mouse 0		1	A	Delete
+Mouse 0		2	A	Maximize 100 100
+Mouse 0		4	A	Iconify
+Mouse 1		F	A	Function "Resize-or-Raise"
+Mouse 1		TS	A	Function "Move-or-Raise"
+Mouse 1		I	A	Function "Move-or-Iconify"
+Mouse 2		I	A	Iconify
+Mouse 3         TSFI    A       RaiseLower
+Mouse 2         TSFI    A       WindowShade
+#Mouse 3	W	N	RaiseLower
+
+########################Initialization Functions ############################
+AddToFunc InitFunction  "I" exec xsetroot -solid rgb:0/40/67
++			"I" exec xaniroc
+#+			"I" exec xv -quit -rmode 5 -root /home/duck/fvwm2/hubble.jpg
++			"I" Module FvwmAnimate
++                       "I" Module FvwmButtons
+
+AddToFunc RestartFunction "I" exec xsetroot -solid rgb:0/40/67
+#+			"I" exec xsetroot -solid black 
+#+			"I" Module FvwmAnimate
++			"I" Module FvwmButtons
++			"I" Module FvwmAnimate
+
+########################Menus ########################################
+
+AddToMenu "Utilities"
++			"Utilities"	Title
++			"Term, bw (small)"	Exec rxvt -bg White -fg Black -ls -name "Term" -fn -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1 -geometry 80x40
++			"Term, bw (big)"	Exec rxvt -bg White -fg Black -ls -name "Term" -fn -Misc-Fixed-Medium-R-Normal--20-200-75-75-C-100-ISO8859-1
++			"Term, wb (big)"	Exec rxvt -bg Black -fg White -ls -name "Term" -fn -Misc-Fixed-Medium-R-Normal--20-200-75-75-C-100-ISO8859-1
++			"xlock"		Exec xlock -mode bouboule
++			"Applications"	Popup Applications
++                       ""              Nop
++			"Kill fvwm2"	Quit
++			"Restart"	Restart fvwm2
+
+AddToMenu "Applications"
++			"Terms"		Title
++			"Term (9x15)"	Exec rxvt -bg Black -fg White -ls -name "Term" -fn 9x15
++			"Graphics"	Title
++			"GIMP"		Exec /usr/local/bin/gimp &
++			"xv"		Exec xv &
++			"Misc"		Title
++			"Top"		Exec rxvt -rv -T Top -n Top -e top &
++			"xman"		Exec xman
++			"xmag"		Exec xmag
++			"Calculator"	Exec xcalc &
++			"XCalendar"	Exec xcalendar 
++			"Clock"		Exec xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
++			""		Nop
++			"Netscape"	Exec netscape &
+
+AddToMenu Window-Ops	"Window Ops"	Title		
++			"Move"		Move-or-Raise2
++			"Resize"	Resize-or-Raise2
++			"Raise"		Raise
++			"Lower"		Lower 
++		 	"(De)Iconify"	Iconify
++			"(Un)Stick"	Stick		
++			"(Un)Maximize"	maximize_func
++			""		Nop  
++			"Delete"	Delete	 
++			"Close"		Close	 
++			"Destroy"	Destroy
++			""		Nop
++			"Refresh Screen" Refresh
+
+AddToMenu MoveWindow	"Page 1"	MoveToPage 0 0
++			"Page 2"	MoveToPage 1 0
++			"Page 3"	MoveToPage 2 0
++			"Page 4"	MoveToPage 0 1
++			"Page 5"	MoveToPage 1 1
++			"Page 6"	MoveToPage 2 1
++			"Page 7"	MoveToPage 0 2
++			"Page 8"	MoveToPage 1 2
++			"Page 9"	MoveToPage 2 2
+
+AddToMenu Window-Ops2	"Move"		Move-or-Raise
++			"Resize"	Resize-or-Raise
++			"Raise"		Raise   	
++			"Lower"		Lower   	
++			"Iconify"	Iconify 	
++			"(Un)Stick"	Stick		
++			""		Nop     	
++			"Delete"	Delete	
++			"Close"		Close	  	
++			"Destroy"	Destroy 	
++			""		Nop 		
++			"Move to"	Popup MoveWindow
++			""		Nop
++			"ScrollBar" 	Module FvwmScroll 2 2	
++			"Print"         PrintFunction
+
+AddToMenu Module-Popup	"Modules"	Title	
++			"Button-Bar"	Module	FvwmButtons
++			"Clean-Up"	Module	FvwmClean
++			"Identify"	Module	FvwmIdent
++			"SaveDesktop"	Module  FvwmSave
++			"Debug"		Module	FvwmDebug
++			"Pager"		Module  FvwmPager 0 1
++			"WinList"	Module  FvwmWinList
++			"Background"	Module  FvwmBacker
++			"IconBox"	Module	FvwmIconBox
++			"Banner"	Module	FvwmBanner
++			"Talk"  	Module	FvwmTalk
++			"Prompt"	Module	FvwmPrompt "hello" raise
+
+AddToMenu Quit-Verify 	"Really Quit Fvwm?" Title	
++		      	"Yes, Really Quit"  Quit	
++                       "Restart Fvwm2"     Restart fvwm2
++		      	""		    Nop	
++		      	"No, Don't Quit"    Nop	
+
+########################Functions ########################################
+
+AddToFunc MailFunction	   "I" Next [$0] Iconify -1
++		           "I" Next [$0] focus
++			   "I" None [$0] Exec $0 $1
+
+AddToFunc Move-or-Raise		"I" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Move-or-Raise2	"M" Raise
++				"M" Move
++  				"D" Lower
+
+AddToFunc Maximize-Func		"M" Maximize	 0 100
++				"C" Maximize	 0 80
++				"D" Maximize	 100 100
+
+AddToFunc Move-or-Iconify	"I" Raise
++				"M" Move
++				"C" Iconify
+
+AddToFunc Resize-or-Raise	"I" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc Resize-or-Raise2	"M" Raise
++				"M" Resize
++				"D" Lower
+
+AddToFunc PrintFunction		"I" Raise
++				"I" Exec xdpr -id $w
+
+AddToFunc Iconify-and-Raise     "I" Iconify
++                               "I" Raise
+
+
+
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+# FvwmWinList
+*FvwmWinListBack Gray60
+*FvwmWinListFore White
+*FvwmWinListFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconfiy
+*FvwmWinListAction Click2 Module "FvwmIdent" FvwmIdent
+*FvwmWinListAction Click3 Iconify
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+
+*FvwmPagerBack #C0C0C0
+*FvwmPagerFore Black 
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerHilight White
+*FvwmPagerGeometry -1-1
+*FvwmPagerLabel 0 desktop
+*FvwmPagerSmallFont 5x8
+*FvwmPagerWindowColors White rgb:C0/C0/C0 White DarkCyan
+
+*FvwmIconMan*numManagers 1
+*FvwmIconMan*Resolution  global
+*FvwmIconMan*format      "%t"
+*FvwmIconMan*font        -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmIconMan*background  gray20
+*FvwmIconMan*foreground  light sea green
+*FvwmIconMan*buttongeometry 200x0
+*FvwmIconMan*managergeometry 1x3
+*FvwmIconMan*plainbutton          flat
+*FvwmIconMan*selectbutton         down
+*FvwmIconMan*focusbutton          up
+*FvwmIconMan*focusandselectButton down
+*FvwmIconMan*action      Mouse   1 N sendcommand Focus
+*FvwmIconMan*action      Mouse   2 N sendcommand "FvwmIdent"
+*FvwmIconMan*action      Mouse   3 N sendcommand "Iconify"
+
+################## FvwmButtons button-bar ################################
+# Colors
+*FvwmButtonsFore White
+*FvwmButtonsBack #C0C0C0
+
+# Font
+*FvwmButtonsFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+
+# Geometry - really likes to pick its own size, but giving a position is OK
+*FvwmButtonsGeometry -1-1
+*FvwmButtonsRows 1
+
+*FvwmButtons(Size 100 100, Swallow(UseOld,NoKill) XClock 'Exec xclock -fg White -hl Cyan -bg Black -u 1')
+*FvwmButtons(2x1, Swallow "FvwmPager" 'Module FvwmPager 0 0')
+
+################################################################################
+#
+*XosButtonsFore White
+*XosButtonsBack #C0C0C0
+
+*XosButtonsFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+
+*XosButtonsGeometry -1+1
+*XosButtonsRows 1
+*XosButtons(Size 210 280, Swallow "xosview" 'Exec xosview +net -geometry 210x280')
