@@ -67,7 +67,7 @@ fi
 
 # start some nice programs
 scim -d
-xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen
+xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen&
 xterm -geometry 80x24 &
 exec fvwm -f $HOME/.fvwm/.fvwm2rc 
 killall scim
