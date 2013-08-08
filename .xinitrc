@@ -53,7 +53,7 @@ fi
 scim -d
 exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
-exec fvwm -f $HOME/.fvwm/.fvwm2rc -d $DISPLAY
+openbox-session
 killall scim
 killall urxvtd
 if [ "$SSH_AGENT_PID" ]; then
