@@ -31,6 +31,7 @@ ibus-daemon -d -x
 #exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
+while true ; do date ; sleep 60 ; done | dzen2 -e '' -x 400 -w $off -ta r -fg $FG -bg $BG -p &
 exec xmonad
 killall ibus-daemon
 #killall urxvtd
