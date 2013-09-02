@@ -1,4 +1,4 @@
-#include "$HOME/.Xresources-solarized"
+#include ".Xresources-solarized"
 !Xft.dpi: 121
 Xft.antialias: true
 Xft.hinting: true
