@@ -31,7 +31,7 @@ ibus-daemon -d -x
 #exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
-exec xscreensaver -nosplash
+exec xscreensaver -nosplash &
 exec xmonad
 killall ibus-daemon
 #killall urxvtd

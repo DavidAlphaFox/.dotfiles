@@ -52,7 +52,7 @@ fi
 # start some nice programs
 #scim -d
 ibus-daemon -d -x
-exec xscreensaver -nosplash
+exec xscreensaver -nosplash &
 #exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
