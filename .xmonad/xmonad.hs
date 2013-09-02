@@ -14,7 +14,8 @@ main = do
         { terminal    = "xterm"
         , layoutHook = smartBorders (layoutHook conf)
 --      , manageHook = composeOne [ isFullscreen -?> doFullFloat ]
-        }
-         `additionalKeys`
-        [ ((modMask conf , xK_p), runOrRaisePrompt defaultXPConfig { position =
+		, modMask = mod4Mask
+        } `additionalKeys`
+        [((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock") 
+		,((modMask conf , xK_p), runOrRaisePrompt defaultXPConfig { position =
     Top })]
