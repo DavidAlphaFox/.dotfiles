@@ -23,3 +23,7 @@ quicklisp.lisp
 .emacs.d/rfc/*
 \*.elc
 quicklisp/
+.xmonad/xmonad-powerpc-linux
+.xmonad/xmonad.errors
+.xmonad/xmonad.hi
+.xmonad/xmonad.o
