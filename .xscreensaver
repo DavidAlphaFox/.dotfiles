@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.15 for david on Tue Sep  3 01:28:40 2013.
+# Written by xscreensaver-demo 5.15 for david on Tue Sep  3 01:47:45 2013.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	1:00:00
@@ -35,7 +35,7 @@ chooseRandomImages: False
 imageDirectory:	
 
 mode:		one
-selected:	157
+selected:	150
 
 textMode:	date
 textLiteral:	XScreenSaver
@@ -194,7 +194,7 @@ programs:								      \
 				piecewise -root				    \n\
 - GL: 				polytopes -root				    \n\
 				pong -root				    \n\
-				popsquares -root			    \n\
+				popsquares -root -delay 45000 -fg #008C8C   \n\
 - GL: 				surfaces -root				    \n\
 				xanalogtv -root				    \n\
 -				abstractile -root			    \n\
