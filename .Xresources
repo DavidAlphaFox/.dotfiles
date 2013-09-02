@@ -11,7 +11,7 @@ XTerm*loginShell: true
 XTerm*locale: UTF-8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
-XTerm*faceName: xft:monofur:pixelsize=18
+XTerm*faceName: xft:monofur:pixelsize=22
 XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true

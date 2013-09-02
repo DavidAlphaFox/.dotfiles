@@ -27,3 +27,4 @@ quicklisp/
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
+.xmonad/history
