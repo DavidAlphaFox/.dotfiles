@@ -24,6 +24,6 @@ XTerm*allowBoldFont: true
 XTerm*eightBitInput: true
 XTerm*backarrowKey: false
 XTerm*openIm: true
-*inputMethod: SCIM
+*inputMethod: ibus
 *.vt100.font: fixed
 *.vt100.encodingMode: true

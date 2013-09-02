@@ -9,11 +9,11 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS='@im=SCIM'
-export XIM=scim 
-export XIM_PROGRAM=scim
-export GTK_IM_MODULE=scim
-export QT_IM_MODULE=scim
+export XMODIFIERS='@im=ibus'
+export XIM=ibus
+export XIM_PROGRAM=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -50,13 +50,13 @@ then
 fi
 
 # start some nice programs
-#scim -d
+ibus-daemon -d -x
 #exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
-#killall scim
-#killall urxvtd
 exec xmonad
+killall ibus-daemon
+#killall urxvtd
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
