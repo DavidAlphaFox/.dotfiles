@@ -50,12 +50,13 @@ then
 fi
 
 # start some nice programs
-scim -d
-exec urxvtd &
+#scim -d
+#exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
-openbox-session
-killall scim
-killall urxvtd
+#openbox-session
+#killall scim
+#killall urxvtd
+exec xmonad
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`
