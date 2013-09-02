@@ -14,7 +14,7 @@ export XIM=ibus
 export XIM_PROGRAM=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
-
+xset +dpms
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources

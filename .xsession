@@ -14,7 +14,7 @@ export XIM=ibus
 export XIM_PROGRAM=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
-
+xset +dpms
 # if we have private ssh key(s), start ssh-agent and add the key(s)
 id1=$HOME/.ssh/identity
 id2=$HOME/.ssh/id_dsa
