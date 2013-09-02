@@ -58,6 +58,7 @@ exec xscreensaver -nosplash &
 #openbox-session
 exec xmonad
 killall ibus-daemon
+killall xscreensaver
 #killall scim
 #killall urxvtd
 if [ "$SSH_AGENT_PID" ]; then

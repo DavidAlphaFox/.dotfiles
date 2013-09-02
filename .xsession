@@ -34,6 +34,7 @@ ibus-daemon -d -x
 exec xscreensaver -nosplash &
 exec xmonad
 killall ibus-daemon
+killall xscreensaver
 #killall urxvtd
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
