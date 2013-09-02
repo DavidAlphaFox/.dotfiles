@@ -29,7 +29,7 @@ fi
 # start some nice programs
 ibus-daemon -d -x
 #exec urxvtd &
-#xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
+xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
 exec xmonad
 killall ibus-daemon
