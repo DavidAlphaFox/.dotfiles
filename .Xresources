@@ -1,8 +1,8 @@
-Xft.dpi: 121
-Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: hintfull
-Xft.rgba: rgb
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
 
 !Xcursor.theme: whitelarge
 Xcursor.size: 32
@@ -10,8 +10,8 @@ XTerm*loginShell: true
 XTerm*locale: UTF-8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
-XTerm*faceName: xft:monofur:pixelsize=23
-XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
+!XTerm*faceName: xft:monofur:pixelsize=23:antialias=True
+!XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true
 XTerm*trimSelection: true
@@ -24,8 +24,11 @@ XTerm*eightBitInput: true
 XTerm*backarrowKey: false
 XTerm*openIm: true
 *inputMethod: ibus
-*.vt100.font: fixed
-*.vt100.encodingMode: true
+*faceName: xft:monofur:pixelsize=23:antialias=True
+*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
+*font: xft:monofur:pixelsize=23:antialias=True
+!*.vt100.font: fixed
+!*.vt100.encodingMode: true
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 
