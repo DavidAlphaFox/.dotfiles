@@ -27,8 +27,15 @@ XTerm*openIm: true
 *faceName: xft:monofur:pixelsize=23:antialias=True
 *faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 *font: xft:monofur:pixelsize=23:antialias=True
-!*.vt100.font: fixed
-!*.vt100.encodingMode: true
+*headingFont: xft:monofur:pixelsize=23:antialias=True
+*bodyFont: xft:monofur:pixelsize=23:antialias=True
+*labelFont: xft:monofur:pixelsize=23:antialias=True
+*unameFont: xft:monofur:pixelsize=23:antialias=True
+*buttonFont: xft:monofur:pixelsize=23:antialias=True
+*dateFont: xft:monofur:pixelsize=23:antialias=True
+*passwdFont: xft:monofur:pixelsize=23:antialias=True
+*.vt100.font: fixed
+*.vt100.encodingMode: true
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 
