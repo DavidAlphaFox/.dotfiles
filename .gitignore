@@ -24,6 +24,7 @@ quicklisp.lisp
 \*.elc
 quicklisp/
 .xmonad/xmonad-powerpc-linux
+.xmonad/xmonad-i386-linux
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
