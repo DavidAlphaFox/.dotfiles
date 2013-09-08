@@ -15,7 +15,7 @@ main = do
         , layoutHook = smartBorders (layoutHook conf)
 --      , manageHook = composeOne [ isFullscreen -?> doFullFloat ]
 		, modMask = mod4Mask
-		, workspace = ["1","2","3","4","5","6"]
+		, workspaces = ["1","2","3","4"]
         } `additionalKeys`
         [((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock") 
 		,((modMask conf , xK_p), runOrRaisePrompt defaultXPConfig { position =
