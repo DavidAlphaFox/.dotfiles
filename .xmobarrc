@@ -1,7 +1,7 @@
-Config { font = "xft:monofur:pixelsize=23:antialias=True"
+Config { font = "xft:monofur:pixelsize=15:antialias=True"
 	   , bgColor = "black"
 	   , fgColor = "grey"
-	   , position = Bottom
+	   , position = BottomSize C 100 25
 	   , lowerOnStart = True
 	   , commands = [ 
 	   	 		  	   Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
@@ -12,5 +12,5 @@ Config { font = "xft:monofur:pixelsize=23:antialias=True"
 					 ]
 	   , sepChar = "%"
 	   , alignSep = "}{"
-	   , template = "%cpu% / %memory% / %eth0% / %wlan0% }{<fc=#ee9a00>%date%</fc>"
+	   , template = "%cpu% / %memory% / %eth0% / %wlan0% }{ <fc=#ee9a00>%date%</fc>"
 	   }

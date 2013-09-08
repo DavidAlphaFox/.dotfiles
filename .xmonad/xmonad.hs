@@ -13,7 +13,7 @@ main = do
     xmonad $ conf
         { terminal    = "xterm"
         , layoutHook = smartBorders (layoutHook conf)
---      , manageHook = composeOne [ isFullscreen -?> doFullFloat ]
+--		, manageHook = composeOne [ isFullscreen -?> doFullFloat ]
 		, modMask = mod4Mask
 		, workspaces = ["1","2","3","4"]
         } `additionalKeys`
