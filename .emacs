@@ -31,9 +31,9 @@
 (setq load-path
       (append '("~/.emacs.d/elisp/config"
 				"~/.emacs.d/elpa/*"
-				"~/.emacs.d/distel"
-				"~/.emacs.d/esense"
-				"~/.emacs.d/auto-complete-distel"
+				"~/.emacs.d/elisp/distel"
+				"~/.emacs.d/elisp/esense"
+				"~/.emacs.d/elisp/auto-complete-distel"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
 				"~/.emacs.d/themes/molokai-theme"
