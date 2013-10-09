@@ -25,7 +25,8 @@
 
 
 (setq load-path
-      (append '("~/.emacs.d/elisp/config"           
+      (append '("~/.emacs.d/elisp/config"
+				"~/.emacs.d/elpa/*"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
 				"~/.emacs.d/themes/molokai-theme"
