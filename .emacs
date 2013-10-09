@@ -1,14 +1,6 @@
 
 (when (< emacs-major-version 23)
-  ;;(setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
- (let ((buffer (url-retrieve-synchronously
-				       "http://tromey.com/elpa/package-install.el")))
-  (save-excursion
-    (set-buffer buffer)
-    (goto-char (point-min))
-    (re-search-forward "^$" nil 'move)
-    (eval-region (point) (point-max))
-    (kill-buffer (current-buffer))))
+  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
 )
 
 (when (and (< emacs-major-version 24) (> emacs-major-version 22))
@@ -57,4 +49,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
