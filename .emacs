@@ -30,7 +30,7 @@
 
 (setq load-path
       (append '("~/.emacs.d/elisp/config"
-				"~/.emacs.d/elpa/*"
+				"~/.emacs.d/elpa"
 				"~/.emacs.d/elisp/distel/elisp"
 				"~/.emacs.d/elisp/esense"
                 "~/.emacs.d/themes/solarized-emacs" 

@@ -6,6 +6,8 @@
   (setq inferior-lisp-program "/usr/bin/sbcl") 
   )
 
+(add-to-list 'load-path "~/emacs.d/elpa/slime-*/")
+
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy))
 (add-to-list 'auto-mode-alist '("\\.lisp$" . lisp-mode))

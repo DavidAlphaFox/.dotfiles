@@ -806,7 +806,7 @@
 	   [(20130312 1839)
 	    nil "Support sequential operation which omitted prefix keys. [github]" single])
  (smartparens .
-	      [(20131008 1850)
+	      [(20131009 1805)
 	       ((cl-lib
 		 (0 1))
 		(dash
@@ -878,7 +878,7 @@
 	       [(20130908 1604)
 		nil "pure elisp HTTP server [github]" single])
  (simple-call-tree+ .
-		    [(20131008 2229)
+		    [(20131009 1412)
 		     nil "Extensions to simple-call-tree [wiki]" single])
  (simple-call-tree .
 		   [(20130330 940)
@@ -1404,10 +1404,10 @@
 		   (1 2 1)))
 		 "multiple-cursors extension for phi-search [github]" single])
  (phi-search .
-	     [(20131008 2122)
+	     [(20131009 2047)
 	      nil "another incremental search command, compatible with \"multiple-cursors\" [github]" tar])
  (phi-rectangle .
-		[(20130916 2248)
+		[(20131009 2048)
 		 nil "another rectangle-mark command (rewrite of rect-mark) [github]" single])
  (ph .
      [(20130312 2037)
@@ -1699,6 +1699,12 @@
 	      (org
 	       (6 1)))
 	     "basic support for magit links [github]" single])
+ (org-mac-link .
+	       [(20130908 756)
+		nil "Grab links and url from various mac [git]" single])
+ (org-mac-iCal .
+	       [(20130310 1757)
+		nil "Imports events from iCal.app to the Emacs diary [git]" single])
  (org-journal .
 	      [(20131002 1649)
 	       nil "a simple org-mode based journaling mode [github]" single])
@@ -2634,7 +2640,7 @@
 	      [(20121016 957)
 	       nil "convert english words between singular and plural [github]" single])
  (inf-ruby .
-	   [(20131009 316)
+	   [(20131009 1604)
 	    nil "Run a Ruby process in a buffer [github]" single])
  (inf-php .
 	  [(20130414 1621)
@@ -3540,7 +3546,7 @@
 		   (0 6 0)))
 		 "Cask support in Flycheck [github]" single])
  (flycheck .
-	   [(20131004 1534)
+	   [(20131009 1256)
 	    ((s
 	      (1 6 0))
 	     (dash
@@ -5021,12 +5027,6 @@
 	     (request
 	      (0 2 0)))
 	    "Open and evaluate 4clojure.com questions [github]" single])
- (org-mac-link .
-	       [(20130908 756)
-		nil "Grab links and url from various mac [git]" single])
- (org-mac-iCal .
-	       [(20130310 1757)
-		nil "Imports events from iCal.app to the Emacs diary [git]" single])
  (helm-c-moccur .
 		[(20130216 1417)
 		 nil "helm source for color-moccur.el [github]" single]))

@@ -3,7 +3,7 @@
 (global-auto-complete-mode t)
 (ac-config-default)
 
-(require 'ac-slime)
+(require 'ac-slime-autoloads)
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 (eval-after-load "auto-complete"
