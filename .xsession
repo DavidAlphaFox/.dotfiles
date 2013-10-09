@@ -9,45 +9,19 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS='@im=SCIM'
-export XIM=scim 
-export XIM_PROGRAM=scim
-export GTK_IM_MODULE=scim
-export QT_IM_MODULE=scim
-
+export XMODIFIERS='@im=ibus'
+export XIM=ibus
+export XIM_PROGRAM=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+xset +dpms
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
-if [ -f $sysresources ]; then
-
-
-
-
-
-
-
-    xrdb -merge $sysresources
-
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
-    xrdb -merge "$userresources"
-
+    xrdb "$userresources"
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -66,11 +40,15 @@ then
 fi
 
 # start some nice programs
-scim -d
-xclock -geometry 180x40-1+1 -digital&
-xterm -geometry 80x24 &
-exec fvwm -f $HOME/.fvwm/.fvwm2rc 
-killall scim
+ibus-daemon -d -x
+#exec urxvtd &
+#xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
+#openbox-session
+exec xscreensaver -nosplash &
+exec xmonad
+killall ibus-daemon
+killall xscreensaver
+#killall urxvtd
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval `ssh-agent -s -k`

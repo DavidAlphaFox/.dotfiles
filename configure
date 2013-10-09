@@ -52,7 +52,7 @@ vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
 erlang_conf_files=".erlang"
 tmux_conf_files=".tmux.conf"
-xresource_conf_files=".Xresources .Xresources-solarized"
+xresource_conf_files=".Xresources"
 
 if promptyn "Enable Emacs"; then
 	echo "Delete and link conf files for Emacs"
@@ -102,7 +102,6 @@ if promptyn "Enable Xresource"; then
 	echo "set up .Xresources for ${System} and ${ShellName}"
 	conf_delete $xresource_conf_files
 	ln -s .dotfiles/.Xresources ../.Xresources
-	ln -s .dotfiles/.Xresources-solarized ../.Xresources-solarized
 fi
 
 if promptyn "Setup quicklisp for sbcl"; then
