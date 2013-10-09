@@ -16,10 +16,14 @@
   )
 
 (require 'package)
+(when (>= emacs-major-version 24)
+  (add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(when (and (< emacs-major-version 24) (> emacs-major-version 22))
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+  )
 
 (package-initialize)
 
