@@ -1,5 +1,5 @@
 
-(when (< emacs-major-version 23)
+(when (<= emacs-major-version 22)
   (when (and (not (file-exists-p "~/.emacs.d/elpa/archives/-pkg.el"))
 			 (file-exists-p "~/.emacs.d/elpa/archives"))
 	(save-excursion
@@ -12,7 +12,7 @@
 )
 
 (when (and (< emacs-major-version 24) (> emacs-major-version 22))
-  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
+  (setq load-path (append '("~/.emacs.d/elisp/package23") load-path))
   )
 
 (require 'package)
