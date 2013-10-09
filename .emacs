@@ -1,5 +1,13 @@
 
 (when (< emacs-major-version 23)
+  (when (and (not (file-exists-p "~/.emacs.d/elpa/archives/-pkg.el"))
+			 (file-exists-p "~/.emacs.d/elpa/archives"))
+	(save-excursion
+	  (set-buffer (generate-new-buffer "-pkg.el"))
+	  (write-file "~/.emacs.d/elpa/archives/-pkg.el")
+	  (kill-buffer (current-buffer))
+	  )
+	)
   (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
 )
 
