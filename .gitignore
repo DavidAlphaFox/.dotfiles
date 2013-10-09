@@ -13,7 +13,7 @@ quicklisp/dists
 auto-save-list
 tramp
 .\#*
-
+*.elc
 # Org-mode
 .org-id-locations
 *_archive
