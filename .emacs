@@ -1,16 +1,23 @@
+
+(when (< emacs-major-version 23)
+  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
+)
+
+(when (and (< emacs-major-version 24) (> emacs-major-version 22))
+  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
+  )
+
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
 
+
 (setq load-path
-      (append '("~/.emacs.d/elisp"           
-				"~/.emacs.d/elpa"  
+      (append '("~/.emacs.d/elisp/config"           
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
 				"~/.emacs.d/themes/molokai-theme"
@@ -42,5 +49,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 
