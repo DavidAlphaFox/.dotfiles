@@ -9,6 +9,7 @@ quicklisp/dists
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
+/.emacs.d/epla
 .elc
 auto-save-list
 tramp

@@ -1,16 +1,25 @@
-(setq load-path
+(require 'package)
 
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+(package-initialize)
+
+(setq load-path
       (append '("~/.emacs.d/elisp"           
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
-		"~/.emacs.d/themes/molokai-theme"
+				"~/.emacs.d/themes/molokai-theme"
 		) load-path))
 
 (when (>= emacs-major-version 24)
   (setq custom-theme-load-path (append '(
                                          "~/.emacs.d/themes/solarized-emacs" 
                                          "~/.emacs.d/themes/zenburn-emacs"
-					 "~/.emacs.d/themes/molokai-theme")
+										 "~/.emacs.d/themes/molokai-theme")
                                        custom-theme-load-path)))
 ;;(load "config-loader")
 ;;(my-run-directories "~/.emacs.d/conf")
