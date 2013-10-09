@@ -1,21 +1,5 @@
-(when (< emacs-major-version 23)
-  (setq load-path (append '("~/.emacs.d/elisp/ruby-mode")
-						  load-path)))
-						 
 (setq load-path
-      (append '("~/.emacs.d/elisp"
-                "~/.emacs.d/elisp/js2-mode"
-                "~/.emacs.d/elisp/yaml-mode"
-				"~/.emacs.d/elisp/jade-mode"
-				"~/.emacs.d/elisp/go-mode"
-                "~/.emacs.d/elisp/auto-complete"
-				"~/.emacs.d/elisp/flymake"
-                "~/.emacs.d/elisp/slime"
-				"~/.emacs.d/elisp/ac-slime"
-                "~/.emacs.d/elisp/distel/elisp"
-				"~/.emacs.d/elisp/haskell-mode"
-				"~/.emacs.d/elisp/ocaml-mode"
-				"~/.emacs.d/elisp/esense"
+      (append '("~/.emacs.d/elisp"           
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
 				"~/.emacs.d/themes/molokai-theme"
