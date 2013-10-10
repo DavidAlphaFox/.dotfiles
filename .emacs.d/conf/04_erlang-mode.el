@@ -1,8 +1,12 @@
-(add-to-list 'load-path 
-             (car (file-expand-wildcards "/usr/local/lib/erlang/lib/tools-*/emacs")))
+(when (file-exists-p "/usr/local/lib/erlang")
+  (setq erlang-root-dir "/usr/local/lib/erlang")
+  (setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+)
 
-(setq erlang-root-dir "/usr/local/lib/erlang")
-(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+(when (file-exists-p "/usr/lib/erlang")
+  (setq erlang-root-dir "/usr/lib/erlang")
+  (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+)
 
 (require 'erlang-start)
 

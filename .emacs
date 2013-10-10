@@ -1,19 +1,35 @@
-(when (< emacs-major-version 23)
-  (setq load-path (append '("~/.emacs.d/elisp/ruby-mode")
-						  load-path)))
-						 
+
+(when (<= emacs-major-version 22)
+  (when (and (not (file-exists-p "~/.emacs.d/elpa/archives/-pkg.el"))
+			 (file-exists-p "~/.emacs.d/elpa/archives"))
+	(save-excursion
+	  (set-buffer (generate-new-buffer "-pkg.el"))
+	  (write-file "~/.emacs.d/elpa/archives/-pkg.el")
+	  (kill-buffer (current-buffer))
+	  )
+	)
+  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
+)
+
+(when (and (< emacs-major-version 24) (> emacs-major-version 22))
+  (setq load-path (append '("~/.emacs.d/elisp/package23") load-path))
+  )
+
+(require 'package)
+
+  (add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+
+(package-initialize)
+
+
 (setq load-path
-      (append '("~/.emacs.d/elisp"
-                "~/.emacs.d/elisp/js2-mode"
-                "~/.emacs.d/elisp/yaml-mode"
-				"~/.emacs.d/elisp/jade-mode"
-				"~/.emacs.d/elisp/go-mode"
-                "~/.emacs.d/elisp/auto-complete"
-				"~/.emacs.d/elisp/flymake"
-                "~/.emacs.d/elisp/slime"
-				"~/.emacs.d/elisp/ac-slime"
-                "~/.emacs.d/elisp/distel/elisp"
-				"~/.emacs.d/elisp/ocaml-mode"
+      (append '("~/.emacs.d/elisp/config"
+				"~/.emacs.d/elpa"
+				"~/.emacs.d/elisp/distel/elisp"
 				"~/.emacs.d/elisp/esense"
                 "~/.emacs.d/themes/solarized-emacs" 
                 "~/.emacs.d/themes/zenburn-emacs"
@@ -46,5 +62,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-
