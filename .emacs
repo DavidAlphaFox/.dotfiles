@@ -1,4 +1,3 @@
-
 (when (<= emacs-major-version 22)
   (when (and (not (file-exists-p "~/.emacs.d/elpa/archives/-pkg.el"))
 			 (file-exists-p "~/.emacs.d/elpa/archives"))
@@ -17,30 +16,31 @@
 
 (require 'package)
 
-  (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") )
+;;(add-to-list 'package-archives
+;;             '("marmalade" . "http://marmalade-repo.org/packages/") )
+(add-to-list 'package-archives 
+	     '("gnu" . "http://elpa.gnu.org/packages/") )
 
 (package-initialize)
 
 
 (setq load-path
       (append '("~/.emacs.d/elisp/config"
-				"~/.emacs.d/elpa"
-				"~/.emacs.d/elisp/distel/elisp"
-				"~/.emacs.d/elisp/esense"
-                "~/.emacs.d/themes/solarized-emacs" 
-                "~/.emacs.d/themes/zenburn-emacs"
-				"~/.emacs.d/themes/molokai-theme"
+		"~/.emacs.d/elpa"
+		"~/.emacs.d/elisp/distel/elisp"
+		"~/.emacs.d/elisp/esense"
+        "~/.emacs.d/themes/solarized-emacs" 
+        "~/.emacs.d/themes/zenburn-emacs"
+		"~/.emacs.d/themes/molokai-theme"
 		) load-path))
 
 (when (>= emacs-major-version 24)
   (setq custom-theme-load-path (append '(
                                          "~/.emacs.d/themes/solarized-emacs" 
                                          "~/.emacs.d/themes/zenburn-emacs"
-										 "~/.emacs.d/themes/molokai-theme")
+					 "~/.emacs.d/themes/molokai-theme")
                                        custom-theme-load-path)))
 ;;(load "config-loader")
 ;;(my-run-directories "~/.emacs.d/conf")
