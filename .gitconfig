@@ -3,3 +3,7 @@
 	email = david.alpha.fox@gmail.com
 [push]
 	default = simple
+[i18n]
+	commitencoding = utf-8
+[core]
+	quotepath = false
