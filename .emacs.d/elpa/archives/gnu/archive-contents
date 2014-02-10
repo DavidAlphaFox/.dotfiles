@@ -6,7 +6,7 @@
 		   ("tools" "processes" "convenience"))
 	(:url . "https://github.com/leoliu/ack-el"))])
  (ada-mode .
-	   [(5 0)
+	   [(5 0 1)
 	    ((wisi
 	      (1 0)))
 	    "major-mode for editing Ada sources" tar
@@ -249,7 +249,7 @@
 	    ((:url . "http://elpa.gnu.org/packages/omn-mode.html")
 	     (:keywords quote nil))])
  (org .
-      [(20140130)
+      [(20140210)
        nil "Outline-based notes management and organizer" tar nil])
  (quarter-plane .
 		[(0 1)
@@ -346,11 +346,11 @@
 		   ((:keywords quote nil)
 		    (:url . "http://elpa.gnu.org/packages/uni-confusables.html"))])
  (vlf .
-      [(1 2)
-       nil "View Large Files" single
-       ((:url . "https://github.com/m00natic/vlfi")
-	(:keywords quote
-		   ("large files" "utilities")))])
+      [(1 4)
+       nil "View Large Files" tar
+       ((:keywords quote
+		   ("large files" "utilities"))
+	(:url . "https://github.com/m00natic/vlfi"))])
  (w3 .
      [(4 0 49)
       nil "Fully customizable, largely undocumented web browser for Emacs" tar
