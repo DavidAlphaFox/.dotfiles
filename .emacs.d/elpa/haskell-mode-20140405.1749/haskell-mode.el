@@ -639,6 +639,15 @@ If nil, use the Hoogle web-site."
                  (const "ghc -fno-code")
                  (string :tag "Other command")))
 
+(defcustom haskell-completing-read-function 'ido-completing-read
+  "Default function to use for completion."
+  :group 'haskell
+  :type '(choice
+          (function-item :tag "ido" :value ido-completing-read)
+          (function-item :tag "helm" :value helm--completing-read-default)
+          (function-item :tag "completing-read" :value completing-read)
+          (function :tag "Custom function")))
+
 (defcustom haskell-stylish-on-save nil
   "Whether to run stylish-haskell on the buffer before saving."
   :group 'haskell
@@ -715,7 +724,7 @@ Brings up the documentation for haskell-mode-hook."
     (cond ((save-excursion (forward-word -1)
                            (looking-at "^import$"))
            (insert " ")
-           (let ((module (ido-completing-read "Module: " (haskell-session-all-modules))))
+           (let ((module (funcall haskell-completing-read-function "Module: " (haskell-session-all-modules))))
              (insert module)
              (haskell-mode-format-imports)))
           ((not (string= "" (save-excursion (forward-char -1) (haskell-ident-at-point))))
@@ -734,11 +743,10 @@ Brings up the documentation for haskell-mode-hook."
     (ignore-errors (when (and (boundp 'haskell-session) haskell-session)
                      (haskell-process-generate-tags))))
   (when haskell-stylish-on-save
-    (ignore-errors (haskell-mode-stylish-buffer)))
-  (let ((before-save-hook '())
-        (after-save-hook '()))
-    (basic-save-buffer))
-  )
+    (ignore-errors (haskell-mode-stylish-buffer))
+    (let ((before-save-hook '())
+          (after-save-hook '()))
+      (basic-save-buffer))))
 
 (defun haskell-mode-buffer-apply-command (cmd)
   "Execute shell command CMD with current buffer as input and

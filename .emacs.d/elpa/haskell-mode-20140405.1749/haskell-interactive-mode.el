@@ -47,6 +47,10 @@ at the beginning of the line. This should prevent any
 interference with prompts that look like haskell expressions."
   (concat "^" (regexp-quote haskell-interactive-prompt)))
 
+(defvar haskell-interactive-mode-prompt-start
+  nil
+  "Mark used for the beginning of the prompt.")
+
 (defcustom haskell-interactive-mode-eval-mode
   nil
   "Use the given mode's font-locking to render some text."
@@ -114,7 +118,6 @@ Key bindings:
 
   (haskell-interactive-mode-prompt))
 
-
 (defface haskell-interactive-face-prompt
   '((t :inherit 'font-lock-function-name-face))
   "Face for the prompt."
@@ -135,10 +138,16 @@ Key bindings:
   "Face for the result."
   :group 'haskell-interactive)
 
+(defface haskell-interactive-face-garbage
+  '((t :inherit 'font-lock-string-face))
+  "Face for trailing garbage after a command has completed."
+  :group 'haskell-interactive)
+
 (defun haskell-interactive-mode-newline-indent ()
   "Make newline and indent."
   (interactive)
-  (insert "\n" (make-string (length haskell-interactive-prompt) ? )))
+  (newline)
+  (indent-according-to-mode))
 
 ;;;###autoload
 (defun haskell-interactive-bring ()
@@ -164,9 +173,11 @@ Key bindings:
 (defun haskell-interactive-mode-return ()
   "Handle the return key."
   (interactive)
-  (if (haskell-interactive-at-compile-message)
-      (next-error-internal)
-    (haskell-interactive-handle-line)))
+  (cond
+   ((haskell-interactive-at-compile-message)
+    (next-error-internal))
+   (t
+    (haskell-interactive-handle-expr))))
 
 (defun haskell-interactive-mode-space (n)
   "Handle the space key."
@@ -174,59 +185,117 @@ Key bindings:
   (if (and (bound-and-true-p god-local-mode)
            (fboundp 'god-mode-self-insert))
       (call-interactively 'god-mode-self-insert)
-      (if (haskell-interactive-at-compile-message)
-          (next-error-no-select 0)
-        (self-insert-command n))))
+    (if (haskell-interactive-at-compile-message)
+        (next-error-no-select 0)
+      (self-insert-command n))))
 
 (defun haskell-interactive-at-prompt ()
   "If at prompt, returns start position of user-input, otherwise returns nil."
-  (let ((current-point (point)))
-    (save-excursion (goto-char (point-max))
-                    (search-backward-regexp (haskell-interactive-prompt-regex))
-                    (when (> current-point (point))
-                      (+ (length haskell-interactive-prompt) (point))))))
+  (if (>= (point)
+          haskell-interactive-mode-prompt-start)
+      haskell-interactive-mode-prompt-start
+    nil))
 
-(defun haskell-interactive-handle-line ()
+
+(defun haskell-interactive-handle-expr ()
+  "Handle an inputted expression at the REPL."
   (when (haskell-interactive-at-prompt)
     (let ((expr (haskell-interactive-mode-input)))
       (when (not (string= "" (replace-regexp-in-string " " "" expr)))
+        (set-marker haskell-interactive-mode-prompt-start (point-max))
         (haskell-interactive-mode-history-add expr)
-        (haskell-interactive-mode-run-line expr)))))
+        (haskell-interactive-mode-run-expr expr)))))
 
-(defun haskell-interactive-mode-run-line (line)
-  "Run the given line."
+(defun haskell-interactive-mode-run-expr (expr)
+  "Run the given expression."
   (let ((session (haskell-session))
-        (process (haskell-process)))
+        (process (haskell-process))
+        (lines (length (split-string expr "\n"))))
     (goto-char (point-max))
     (haskell-process-queue-command
      process
      (make-haskell-command
-      :state (list session process line 0)
+      :state (list session process expr 0)
       :go (lambda (state)
+            (insert "\n")
             (haskell-process-send-string (cadr state)
-                                         (caddr state)))
+                                         (haskell-interactive-mode-multi-line (caddr state))))
       :live (lambda (state buffer)
               (unless (and (string-prefix-p ":q" (caddr state))
                            (string-prefix-p (caddr state) ":quit"))
                 (let* ((cursor (cadddr state))
                        (next (replace-regexp-in-string
                               haskell-process-prompt-regex
-                              "\n"
+                              ""
                               (substring buffer cursor))))
-                  (when (= 0 cursor) (insert "\n"))
                   (haskell-interactive-mode-eval-result (car state) next)
+
                   (setf (cdddr state) (list (length buffer)))
                   nil)))
       :complete (lambda (state response)
-                  (cond
-                   (haskell-interactive-mode-eval-mode
-                    (haskell-interactive-mode-eval-as-mode (car state) response))
-                   ((haskell-interactive-mode-line-is-query (elt state 2))
-                    (let ((haskell-interactive-mode-eval-mode 'haskell-mode))
-                      (haskell-interactive-mode-eval-as-mode (car state) response)))
-                   (haskell-interactive-mode-eval-pretty
-                    (haskell-interactive-mode-eval-pretty-result (car state) response)))
+                  (let ((response (haskell-interactive-mode-cleanup-response
+                                   (caddr state) response)))
+                    (cond
+                     (haskell-interactive-mode-eval-mode
+                      (haskell-interactive-mode-eval-as-mode (car state) response))
+                     ((haskell-interactive-mode-line-is-query (elt state 2))
+                      (let ((haskell-interactive-mode-eval-mode 'haskell-mode))
+                        (haskell-interactive-mode-eval-as-mode (car state) response)))
+                     (haskell-interactive-mode-eval-pretty
+                      (haskell-interactive-mode-eval-pretty-result (car state) response))))
                   (haskell-interactive-mode-prompt (car state)))))))
+
+(defun haskell-interactive-mode-cleanup-response (expr response)
+  "Ignore the mess that GHCi outputs on multi-line input."
+  (if (not (string-match "\n" expr))
+      response
+    (let ((i 0)
+          (out "")
+          (lines (length (split-string expr "\n"))))
+      (loop for part in (split-string response "| ")
+            do (setq out
+                     (concat out
+                             (if (> i lines)
+                                 (concat (if (or (= i 0) (= i (1+ lines))) "" "| ") part)
+                               "")))
+            do (setq i (1+ i)))
+      out)))
+
+(defun haskell-interactive-mode-multi-line (expr)
+  "If a multi-line expression has been entered, then reformat it to be:
+
+:{
+do the
+   multi-liner
+   expr
+:}
+"
+  (if (not (string-match "\n" expr))
+      expr
+    (let* ((i 0)
+           (lines (split-string expr "\n"))
+           (len (length lines))
+           (indent (make-string (length haskell-interactive-prompt)
+                                ? )))
+      (mapconcat 'identity
+                 (loop for line in lines
+                       collect (cond ((= i 0)
+                                      (concat ":{" "\n" line))
+                                     ((= i (1- len))
+                                      (concat (haskell-interactive-trim line) "\n" ":}"))
+                                     (t
+                                      (haskell-interactive-trim line)))
+                       do (setq i (1+ i)))
+                 "\n"))))
+
+(defun haskell-interactive-trim (line)
+  "Trim indentation off of lines in the REPL."
+  (if (and (string-match "^[ ]+" line)
+           (> (length line)
+              (length haskell-interactive-prompt)))
+      (substring line
+                 (length haskell-interactive-prompt))
+    line))
 
 (defun haskell-interactive-mode-line-is-query (line)
   "Is LINE actually a :t/:k/:i?"
@@ -263,8 +332,8 @@ Key bindings:
 (defun haskell-interactive-mode-beginning ()
   "Go to the start of the line."
   (interactive)
-  (if (search-backward-regexp (haskell-interactive-prompt-regex) (line-beginning-position) t 1)
-      (search-forward-regexp (haskell-interactive-prompt-regex) (line-end-position) t 1)
+  (if (haskell-interactive-at-prompt)
+      (goto-char haskell-interactive-mode-prompt-start)
     (move-beginning-of-line nil)))
 
 (defun haskell-interactive-mode-clear ()
@@ -275,7 +344,7 @@ Key bindings:
       (let ((inhibit-read-only t))
         (set-text-properties (point-min) (point-max) nil))
       (delete-region (point-min) (point-max))
-      (mapc 'delete-overlay (overlays-in (point-min) (point-max)))
+      (remove-overlays)
       (haskell-interactive-mode-prompt session)
       (haskell-session-set session 'next-error-region nil)
       (haskell-session-set session 'next-error-locus nil))))
@@ -289,13 +358,9 @@ Key bindings:
 
 (defun haskell-interactive-mode-input ()
   "Get the interactive mode input."
-  (substring
-   (buffer-substring-no-properties
-    (save-excursion
-      (goto-char (point-max))
-      (search-backward-regexp (haskell-interactive-prompt-regex)))
-    (line-end-position))
-   (length haskell-interactive-prompt)))
+  (buffer-substring-no-properties
+   haskell-interactive-mode-prompt-start
+   (point-max)))
 
 (defun haskell-interactive-mode-prompt (&optional session)
   "Show a prompt at the end of the REPL buffer.
@@ -310,7 +375,16 @@ SESSION, otherwise operate on the current buffer.
                         'face 'haskell-interactive-face-prompt
                         'read-only t
                         'rear-nonsticky t
-                        'prompt t))))
+                        'prompt t))
+    (let ((marker (set (make-local-variable 'haskell-interactive-mode-prompt-start)
+                       (make-marker))))
+      (set-marker marker
+                  (point)
+                  (current-buffer))
+      (when nil
+        (let ((o (make-overlay (point) (point-max) nil nil t)))
+          (overlay-put o 'line-prefix (make-string (length haskell-interactive-prompt)
+                                                   ? )))))))
 
 (defun haskell-interactive-mode-eval-result (session text)
   "Insert the result of an eval as plain text."
@@ -326,11 +400,8 @@ SESSION, otherwise operate on the current buffer.
 (defun haskell-interactive-mode-eval-as-mode (session text)
   "Insert TEXT font-locked according to `haskell-interactive-mode-eval-mode'."
   (with-current-buffer (haskell-session-interactive-buffer session)
-    (let ((start-point (save-excursion (search-backward-regexp (haskell-interactive-prompt-regex))
-                                       (forward-line 1)
-                                       (point)))
-          (inhibit-read-only t))
-      (delete-region start-point (point))
+    (let ((inhibit-read-only t))
+      (delete-region (1+ haskell-interactive-mode-prompt-start) (point))
       (goto-char (point-max))
       (insert (haskell-fontify-as-mode (concat text "\n")
                                        haskell-interactive-mode-eval-mode)))))
@@ -339,11 +410,8 @@ SESSION, otherwise operate on the current buffer.
   "Insert the result of an eval as a pretty printed Showable, if
   parseable, or otherwise just as-is."
   (with-current-buffer (haskell-session-interactive-buffer session)
-    (let ((start-point (save-excursion (search-backward-regexp (haskell-interactive-prompt-regex))
-                                       (forward-line 1)
-                                       (point)))
-          (inhibit-read-only t))
-      (delete-region start-point (point))
+    (let ((inhibit-read-only t))
+      (delete-region haskell-interactive-mode-prompt-start (point))
       (goto-char (point-max))
       (haskell-show-parse-and-insert text)
       (insert "\n"))))
@@ -398,6 +466,16 @@ SESSION, otherwise operate on the current buffer.
                               'read-only t
                               'rear-nonsticky t)))))))
 
+(defun haskell-interactive-mode-insert-garbage (session message)
+  "Echo a read only piece of text before the prompt."
+  (with-current-buffer (haskell-session-interactive-buffer session)
+    (save-excursion
+      (haskell-interactive-mode-goto-end-point)
+      (insert (propertize message
+                          'face 'haskell-interactive-face-garbage
+                          'read-only t
+                          'rear-nonsticky t)))))
+
 (defun haskell-interactive-mode-insert (session message)
   "Echo a read only piece of text before the prompt."
   (with-current-buffer (haskell-session-interactive-buffer session)
@@ -409,8 +487,8 @@ SESSION, otherwise operate on the current buffer.
 
 (defun haskell-interactive-mode-goto-end-point ()
   "Go to the 'end' of the buffer (before the prompt.)"
-  (goto-char (point-max))
-  (when (search-backward-regexp (haskell-interactive-prompt-regex) (point-min) t 1)))
+  (goto-char haskell-interactive-mode-prompt-start)
+  (goto-char (line-beginning-position)))
 
 (defun haskell-interactive-mode-history-add (input)
   "Add item to the history."
@@ -455,10 +533,8 @@ SESSION, otherwise operate on the current buffer.
 (defun haskell-interactive-mode-set-prompt (p)
   "Set (and overwrite) the current prompt."
   (with-current-buffer (haskell-session-interactive-buffer (haskell-session))
-    (goto-char (point-max))
-    (goto-char (line-beginning-position))
-    (search-forward-regexp (haskell-interactive-prompt-regex))
-    (delete-region (point) (line-end-position))
+    (goto-char haskell-interactive-mode-prompt-start)
+    (delete-region (point) (point-max))
     (insert p)))
 
 (defun haskell-interactive-buffer ()

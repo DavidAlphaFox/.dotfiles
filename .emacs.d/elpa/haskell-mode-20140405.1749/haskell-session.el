@@ -29,6 +29,7 @@
 
 (require 'haskell-cabal)
 (require 'haskell-string)
+(require 'haskell-mode)
 (with-no-warnings (require 'cl))
 
 (declare-function haskell-interactive-mode "haskell-interactive-mode" ())
@@ -200,7 +201,7 @@ If DONTCREATE is non-nil don't create a new session."
 (defun haskell-session-choose ()
   "Find a session by choosing from a list of the current sessions."
   (when haskell-sessions
-    (let* ((session-name (ido-completing-read
+    (let* ((session-name (funcall haskell-completing-read-function
                           "Choose Haskell session: "
                           (mapcar 'haskell-session-name haskell-sessions)))
            (session (find-if (lambda (session)

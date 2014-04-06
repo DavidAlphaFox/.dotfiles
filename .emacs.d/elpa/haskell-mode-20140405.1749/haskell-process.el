@@ -43,6 +43,7 @@
 (declare-function haskell-interactive-mode-insert "haskell-interactive-mode" (session message))
 (declare-function haskell-interactive-mode-reset-error "haskell-interactive-mode" (session))
 (declare-function haskell-interactive-show-load-message "haskell-interactive-mode" (session type module-name file-name echo))
+(declare-function haskell-interactive-mode-insert-garbage "haskell-interactive-mode" (session message))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Configuration
@@ -131,7 +132,7 @@ See `haskell-process-do-cabal' for more details."
   :group 'haskell-interactive)
 
 (defcustom haskell-process-suggest-hoogle-imports
-  t
+  nil
   "Suggest to add import statements using Hoogle as a backend."
   :type 'boolean
   :group 'haskell-interactive)
@@ -197,7 +198,7 @@ imports become available?"
   :group 'haskell-interactive)
 
 (defvar haskell-imported-suggested nil)
-(defvar haskell-process-prompt-regex "\\(^[> ]*> $\\|\n[> ]*> $\\)")
+(defvar haskell-process-prompt-regex "\4")
 (defvar haskell-reload-p nil)
 
 (defvar haskell-process-greetings
@@ -211,6 +212,30 @@ imports become available?"
 (defconst haskell-process-logo
   (expand-file-name "logo.svg" haskell-mode-pkg-base-dir)
   "Haskell logo for notifications.")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Accessing commands -- using cl 'defstruct'
+(defstruct haskell-command
+  "Data structure representing a command to be executed when with
+  a custom state and three callback."
+  ;; hold the custom command state
+  ;; state :: a
+  state
+  ;; called when to execute a command
+  ;; go :: a -> ()
+  go
+  ;; called whenever output was collected from the haskell process
+  ;; live :: a -> Response -> Bool
+  live
+  ;; called when the output from the haskell process indicates that the command
+  ;; is complete
+  ;; complete :: a -> Response -> ()
+  complete)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Accessing commands
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Specialised commands
@@ -432,8 +457,8 @@ for various things, but is optional."
   "Prompts for a Cabal command to run."
   (interactive)
   (haskell-process-do-cabal
-   (ido-completing-read "Cabal command: "
-                        haskell-cabal-commands)))
+   (funcall haskell-completing-read-function "Cabal command: "
+            haskell-cabal-commands)))
 
 (defun haskell-process-add-cabal-autogen ()
   "Add <cabal-project-dir>/dist/build/autogen/ to the ghci search
@@ -496,6 +521,11 @@ to be loaded by ghci."
                              (caddr state)
                              message-count)))
             (haskell-interactive-mode-echo session msg)
+            (when (= message-count 0)
+              (haskell-interactive-mode-echo
+               session
+               "No compiler messages, dumping complete output:")
+              (haskell-interactive-mode-echo session response))
             (haskell-mode-message-line msg)
             (when (and haskell-notify-p
                        (fboundp 'notifications-notify))
@@ -521,7 +551,7 @@ to be loaded by ghci."
   (setf (cdddr state) (list (length buffer)))
   nil)
 
-(defun haskell-process-load-complete (session process buffer reload module-buffer)
+(defun haskell-process-load-complete (session process buffer reload module-buffer &optional cont)
   "Handle the complete loading response. BUFFER is the string of
 text being sent over the process pipe. MODULE-BUFFER is the
 actual Emacs buffer of the module being loaded."
@@ -538,7 +568,9 @@ actual Emacs buffer of the module being loaded."
                  (haskell-process-reload-with-fbytecode process module-buffer)
                (haskell-process-import-modules process (car modules)))
              (haskell-mode-message-line
-              (if reload "Reloaded OK." "OK.")))))
+              (if reload "Reloaded OK." "OK."))
+             (when cont
+               (funcall cont t)))))
         ((haskell-process-consume process "Failed, modules loaded: \\(.+\\)\\.$")
          (let* ((modules (haskell-process-extract-modules buffer))
                 (cursor (haskell-process-response-cursor process))
@@ -549,7 +581,9 @@ actual Emacs buffer of the module being loaded."
            (if (and (not reload) haskell-process-reload-with-fbytecode)
                (haskell-process-reload-with-fbytecode process module-buffer)
              (haskell-process-import-modules process (car modules)))
-           (haskell-interactive-mode-compile-error session "Compilation failed.")))))
+           (haskell-interactive-mode-compile-error session "Compilation failed.")
+           (when cont
+             (funcall cont nil))))))
 
 (defun haskell-process-reload-with-fbytecode (process module-buffer)
   "Reload FILE-NAME with -fbyte-code set, and then restore -fobject-code."
@@ -755,7 +789,7 @@ now."
            ((> (length modules) 1)
             (when (y-or-n-p (format "Identifier `%s' not in scope, choose module to import?"
                                     ident))
-              (ido-completing-read "Module: " modules)))
+              (funcall haskell-completing-read-function "Module: " modules)))
            ((= (length modules) 1)
             (when (y-or-n-p (format "Identifier `%s' not in scope, import `%s'?"
                                     ident
@@ -990,7 +1024,7 @@ now."
     :state process
 
     :go (lambda (process)
-          (haskell-process-send-string process ":set prompt \"> \"")
+          (haskell-process-send-string process ":set prompt \"\\4\"")
           (haskell-process-send-string process "Prelude.putStrLn \"\"")
           (haskell-process-send-string process ":set -v1"))
 
@@ -1037,10 +1071,13 @@ If I break, you can:
   (haskell-process-log (format "<- %S\n" response))
   (let ((session (haskell-process-project-by-proc proc)))
     (when session
-      (when (haskell-process-cmd (haskell-session-process session))
-        (haskell-process-collect session
-                                 response
-                                 (haskell-session-process session))))))
+      (if (haskell-process-cmd (haskell-session-process session))
+          (haskell-process-collect session
+                                   response
+                                   (haskell-session-process session))
+        (haskell-interactive-mode-insert-garbage
+         session
+         (replace-regexp-in-string "\4" "" response))))))
 
 (defun haskell-process-log (msg)
   "Write MSG to the process log (if enabled)."
@@ -1300,6 +1337,44 @@ Returns nil if queue is empty."
                  (y-or-n-p "Restart GHCi process now? "))
         (haskell-process-restart)))))
 
+(defun haskell-process-reload-devel-main ()
+  "Reload the module `DevelMain' and then run
+`DevelMain.update'. This is for doing live update of the code of
+servers or GUI applications. Put your development version of the
+program in `DevelMain', and define `update' to auto-start the
+program on a new thread, and use the `foreign-store' package to
+access the running context across :load/:reloads in GHCi."
+  (interactive)
+  (with-current-buffer (get-buffer "DevelMain.hs")
+    (let ((session (haskell-session)))
+      (let ((process (haskell-process)))
+        (haskell-process-queue-command
+         process
+         (make-haskell-command
+          :state (list :session session
+                       :process process
+                       :buffer (current-buffer))
+          :go (lambda (state)
+                (haskell-process-send-string (plist-get state ':process)
+                                             ":l DevelMain"))
+          :live (lambda (state buffer)
+                  (haskell-process-live-build (plist-get state ':process)
+                                              buffer
+                                              nil))
+          :complete (lambda (state response)
+                      (haskell-process-load-complete
+                       (plist-get state ':session)
+                       (plist-get state ':process)
+                       response
+                       nil
+                       (plist-get state ':buffer)
+                       (lambda (ok)
+                         (when ok
+                           (haskell-process-queue-without-filters
+                            (haskell-process)
+                            "DevelMain.update")
+                           (message "DevelMain updated.")))))))))))
+
 (defun haskell-process-unignore-file (session file)
   "
 
@@ -1328,28 +1403,6 @@ function and remove this comment.
                   (string= path file))
                 files))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Accessing commands -- using cl 'defstruct'
-(defstruct haskell-command
-  "Data structure representing a command to be executed when with
-  a custom state and three callback."
-  ;; hold the custom command state
-  ;; state :: a
-  state
-  ;; called when to execute a command
-  ;; go :: a -> ()
-  go
-  ;; called whenever output was collected from the haskell process
-  ;; live :: a -> Response -> Bool
-  live
-  ;; called when the output from the haskell process indicates that the command
-  ;; is complete
-  ;; complete :: a -> Response -> ()
-  complete)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Accessing commands
-
 (defun haskell-command-exec-go (command)
   "Call the command's go function."
   (let ((go-func (haskell-command-go command)))
@@ -1371,6 +1424,12 @@ function and remove this comment.
       (funcall live-func
                (haskell-command-state command)
                response))))
+
+(defun haskell-process-cabal-macros ()
+  "Send the cabal macros string."
+  (interactive)
+  (haskell-process-queue-without-filters (haskell-process)
+                                         ":set -optP-include -optPdist/build/autogen/cabal_macros.h"))
 
 (provide 'haskell-process)
 
