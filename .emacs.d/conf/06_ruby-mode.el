@@ -1,4 +1,5 @@
 (require 'ruby-mode)
+(require 'rsense)
 (defun ruby-eval-buffer()
    "Evaluate the buffer with ruby."
    (interactive)
