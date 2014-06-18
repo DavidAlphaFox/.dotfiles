@@ -3,7 +3,7 @@
 SBCL=`which sbcl`
 CURL=`which curl`
 GIT=`which git`
-
+RUBY=`which ruby`
 ShellName=`echo "${SHELL}" | awk -F '/' '{print $NF}'`
 System=`uname`
 
@@ -104,6 +104,28 @@ if promptyn "Enable Xresource"; then
 	ln -s .dotfiles/.Xresources ../.Xresources
 fi
 
+if promptyn "Setup ruby"; then
+	if is_exsist $RUBY is_exsist $CURL; then
+		sudo gem sources --remove https://rubygems.org/
+		sudo gem sources -a https://ruby.taobao.org/
+		case $System in
+			"Linux")
+				curl -sSL https://get.rvm.io | bash -s stable
+				sed -i 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
+				;;
+			 "Darwin")
+			 	curl -sSL https://get.rvm.io | bash -s stable
+				sed -i .bak 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
+				;;
+				*)
+				echo "no support for ${System}"
+				;;
+		esac
+	else
+		echo "no ruby or curl"
+	fi
+fi
+
 if promptyn "Setup quicklisp for sbcl"; then
 	if is_exsist $SBCL is_exsist $CURL; then
 		conf_delete $quicklisp_conf_files
@@ -142,3 +164,4 @@ if promptyn "Conf Shell resources"; then
 		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
 	fi	
 fi
+
