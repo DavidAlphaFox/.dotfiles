@@ -1,3 +1,4 @@
+
 #!/bin/sh
 # $OpenBSD: xinitrc.cpp,v 1.6 2011/03/19 15:40:02 matthieu Exp $
 export LANG="en_US.UTF-8"
@@ -9,11 +10,11 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS='@im=ibus'
-export XIM=ibus
-export XIM_PROGRAM=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
+export XMODIFIERS='@im=SCIM'
+export XIM=scim
+export XIM_PROGRAM=scim
+export GTK_IM_MODULE=scim
+export QT_IM_MODULE=scim
 xset +dpms
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -29,27 +30,27 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # if we have private ssh key(s), start ssh-agent and add the key(s)
-id1=$HOME/.ssh/identity
-id2=$HOME/.ssh/id_dsa
-id3=$HOME/.ssh/id_rsa
-id4=$HOME/.ssh/id_ecdsa
-if [ -x /usr/bin/ssh-agent ] && [ -f $id1 -o -f $id2 -o -f $id3 -o -f $id4 ];
-then
-	eval `ssh-agent -s`
-	ssh-add < /dev/null
-fi
+#id1=$HOME/.ssh/identity
+#id2=$HOME/.ssh/id_dsa
+#id3=$HOME/.ssh/id_rsa
+#id4=$HOME/.ssh/id_ecdsa
+#if [ -x /usr/bin/ssh-agent ] && [ -f $id1 -o -f $id2 -o -f $id3 -o -f $id4 ];
+#then
+#	eval `ssh-agent -s`
+#	ssh-add < /dev/null
+#fi
 
 # start some nice programs
-ibus-daemon -d -x
+scim -d
 #exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
 exec xscreensaver -nosplash &
-exec fvwm -f $HOME/.fvwm/.fvwm2rc -d $DISPLAY
-killall ibus-daemon
+exec fvwm  -d $DISPLAY
+killall scim
 killall xscreensaver
 #killall urxvtd
-if [ "$SSH_AGENT_PID" ]; then
-	ssh-add -D < /dev/null
-	eval `ssh-agent -s -k`
-fi
+#if [ "$SSH_AGENT_PID" ]; then
+#	ssh-add -D < /dev/null
+#	eval `ssh-agent -s -k`
+#fi
