@@ -3,7 +3,7 @@
 #
 
 EdgeResistance 250 10
-EdgeScroll 100 100
+EdgeScroll 0 0
 ClickTime 750
 
 DeskTopSize 2x2
@@ -90,51 +90,25 @@ AddToFunc SessionInitFunction
 DestroyMenu MenuFvwmRoot
 AddToMenu MenuFvwmRoot  "$[gt.Root Menu]"             Title
 +                       "&1. XTerm"             Exec exec xterm
-+                       "&2. Rxvt"              Exec exec rxvt
-+                       ""              Nop
-+                       "&R. $[gt.Remote Logins]"     Popup MenuFvwmLogins
 +                       ""              Nop
 +                       "&U. $[gt.Utilities]"         Popup MenuFvwmUtilities
-+                       ""              Nop
-+                       "&M. $[gt.Fvwm Modules]"      Popup MenuFvwmModules
-+                       "&W. $[gt.Fvwm Window Ops]"   Popup MenuFvwmWindowOps
-+                       "&S. $[gt.Fvwm Config Ops]"   Popup MenuFvwmConfig
-+                       ""              Nop
-+                       "&F. $[gt.Refresh Screen]"   Refresh
-+                       "&C. $[gt.Recapture Screen]" Recapture
 +                       ""              Nop
 +                       "&X. $[gt.Exit Fvwm]" Popup MenuFvwmQuitVerify
 
 DestroyMenu MenuFvwmUtilities
 AddToMenu MenuFvwmUtilities     "$[gt.Utilities]" Title
-+                       "&T. Top"       Exec exec xterm -T Top -n Top -e top
-+                       "&C. Calculator" Exec exec xcalc
-+                       "&M. Xman"      Exec exec xman
-+                       "&G. Xmag"      Exec exec xmag
-+                       "&R. Editres"   Exec exec editres
-+                       ""              Nop
-+                       "&E. XEmacs"    Exec exec xemacs
-+                       "&A. Xmh Mail"  FuncFvwmMailXmh xmh "-font fixed"
-+                       ""              Nop
++                       "&E. Emacs"    Exec exec xterm -T Emacs -n Emacs -e emacs
++                       "&V. VIM"      Exec exec xterm -T VIM -n VIM -e vim
 +                       "&L. XLock"     Exec exec xlock -mode random
-+                       ""              Nop
-+                       "&D. $[gt.Reset X defaults]" Exec xrdb -load $HOME/.Xdefaults
 
-DestroyMenu MenuFvwmConfig
-AddToMenu MenuFvwmConfig "$[gt.Fvwm Config Ops]" Title
-+ "&S. $[gt.Sloppy Focus]"        FuncFvwmFocusPolicyChange SloppyFocus
-+ "&C. $[gt.Click To Focus]"      FuncFvwmFocusPolicyChange ClickToFocus
-+ "&F. $[gt.Focus Follows Mouse]" FuncFvwmFocusPolicyChange FocusFollowsMouse
-+ "" Nop
-+ "&1. $[gt.Colormap Follows Mouse]" ColormapFocus FollowsMouse
-+ "&2. $[gt.Colormap Follows Focus]" ColormapFocus FollowsFocus
-+ "" Nop
-+ "&3. $[gt.Full Paging ON]"           EdgeScroll 100 100
-+ "&4. $[gt.All Paging OFF]"           EdgeScroll 0 0
-+ "&5. $[gt.Horizontal Paging Only]"   EdgeScroll 100 0
-+ "&6. $[gt.Vertical Paging Only]"     EdgeScroll 0 100
-+ "&7. $[gt.Partial Paging]"           EdgeScroll 50 50
-+ "&8. $[gt.Full Paging && Edge Wrap]" EdgeScroll 100000 100000
+DestroyMenu MenuFvwmQuitVerify
+AddToMenu MenuFvwmQuitVerify "$[gt.Really Quit Fvwm?]" Title
++ "&Q. $[gt.Yes, Really Quit]" Quit
++ ""                     Nop
++ "&R. $[gt.Restart]"          Restart
++ ""                     Nop
++ "&N. $[gt.No, Don't Quit]"   Nop
+
 
 # The window Ops menus exhibit a different HotKey style.
 # There are 2 versions of the WindowOps Menu, meant to be bound to different
@@ -172,87 +146,6 @@ FuncFvwmWindowCommon MenuFvwmWindowOps2
 + "&$[gt.Print]"           FuncFvwmPrint
 + "$[gt.Print Re&verse]" FuncFvwmPrintReverse
 
-# 3 different ways to log on, take your pick:
-DestroyFunc FuncFvwmRloginXterm
-AddToFunc FuncFvwmRloginXterm \
-  I Exec xterm -name $0 -title "$USER @ $0" -e rlogin $0
-DestroyFunc FuncFvwmRloginRxvt
-AddToFunc FuncFvwmRloginRxvt \
-  I Exec rxvt -name $0 -n $0 -title $USER@$0 -e rlogin $0
-DestroyFunc FuncFvwmRloginSshRxvt
-AddToFunc FuncFvwmRloginSshRxvt \
-  I Exec Exec ssh $0 rxvt -display $HOSTDISPLAY
-
-# be sure to fill these in with your correct machine names:
-DestroyMenu MenuFvwmLogins
-AddToMenu MenuFvwmLogins
-+ &dopey  FuncFvwmRloginXterm dopey
-+ &snoopy FuncFvwmRloginXterm snoopy
-+ s&ignal Exec rxterm signal
-
-DestroyMenu MenuFvwmModules
-AddToMenu MenuFvwmModules "$[gt.Fvwm Modules]"        Title
-+ "&1. $[gt.Control Animation]" Popup  MenuFvwmAnimate
-+ "&B. Button-Bar"        Module FvwmButtons
-+ "&O. IconBox"           FuncFvwmConfigureIconBox
-+ "&F. Forms"             Popup  MenuFvwmForms
-+ "&I. Identify"          Module FvwmIdent
-+ "&M. IconMan"           Module FvwmIconMan
-+ "&N. Banner"            Module FvwmBanner
-+ "&C. Console"           Module FvwmConsole
-+ "&P. Pager"             Module FvwmPager 0 0
-+ "&2. Pager (2 $[gt.desks])"   Module FvwmPager 0 1
-+ "&R. Backer"            Module FvwmBacker
-+ "&S. ScrollBar"         Module FvwmScroll 50 50
-+ "&T. FvwmTaskBar"       Module FvwmTaskBar
-+ "&U. AutoRaise"         Module FvwmAuto 200 Raise Nop
-+ "&W. WinList"           Module FvwmWinList
-+ "&X. $[gt.Stop Module Menu]"  Popup  MenuFvwmStopModule
-
-DestroyMenu MenuFvwmStopModule
-AddToMenu MenuFvwmStopModule "$[gt.Stop Fvwm Modules]" Title
-+ "&B. $[gt.Stop] Button-Bar"  KillModule FvwmButtons
-+ "&O. $[gt.Stop] IconBox"     KillModule FvwmIconBox
-+ "&M. $[gt.Stop] IconMan"     KillModule FvwmIconMan
-+ "&P. $[gt.Stop] Pager"       KillModule FvwmPager
-+ "&R. $[gt.Stop] Backer"      KillModule FvwmBacker
-+ "&S. $[gt.Stop] ScrollBar"   KillModule FvwmScroll
-+ "&T. $[gt.Stop] FvwmTaskBar" KillModule FvwmTaskBar
-+ "&U. $[gt.Stop] AutoRaise"   KillModule FvwmAuto
-+ "&W. $[gt.Stop] WinList"     KillModule FvwmWinList
-
-DestroyMenu MenuFvwmForms
-AddToMenu MenuFvwmForms
-+ "&C. Capture"       Module FvwmForm FvwmForm-Capture
-+ "&D. Form Defaults" Module FvwmForm FvwmForm-Form
-+ "&R. Rlogin"        Module FvwmForm FvwmForm-Rlogin
-+ "&P. RootCursor"    Module FvwmForm FvwmForm-RootCursor
-+ "&S. Setup"         Module FvwmForm FvwmForm-Setup
-+ "&T. Talk Form"     Module FvwmForm FvwmForm-Talk
-+ "&Q. QuitVerify"    Module FvwmForm FvwmForm-QuitVerify
-
-# Configure and start using an iconbox on the fly
-DestroyFunc FuncFvwmConfigureIconBox
-AddToFunc FuncFvwmConfigureIconBox
-+ I Module FvwmIconBox
-+ I Style     *  NoIcon
-
-DestroyMenu MenuFvwmQuitVerify
-AddToMenu MenuFvwmQuitVerify "$[gt.Really Quit Fvwm?]" Title
-+ "&Q. $[gt.Yes, Really Quit]" Quit
-+ ""                     Nop
-+ "&R. $[gt.Restart]"          Restart
-+ ""                     Nop
-+ "&T. $[gt.Start] twm"        Restart twm
-+ "&C. $[gt.Start] ctwm"       Restart ctwm
-+ "&2. $[gt.Start] tvtwm"      Restart tvtwm
-+ "&V. $[gt.Start] vtwm"       Restart vtwm
-+ "&M. $[gt.Start] mwm"        Restart mwm
-+ "&O. $[gt.Start] olwm"       Restart /usr/openwin/bin/olwm
-+ ""                     Nop
-+ "&X. $[gt.Just an Xterm]"    Restart xterm -n '"X Console"' -T '"X Console"'
-+ ""                     Nop
-+ "&N. $[gt.No, Don't Quit]"   Nop
 
 ######################## Sample Functions ##########################
 
@@ -303,12 +196,12 @@ AddToFunc FuncFvwmFocusPolicyChange
 + I Recapture
 
 # Read config files for modules:
-read ConfigFvwmBacker
+#read ConfigFvwmBacker
 read ConfigFvwmButtons
-read ConfigFvwmIconBox
+#read ConfigFvwmIconBox
 read ConfigFvwmIconMan
-read ConfigFvwmIdent
-read ConfigFvwmPager
-read ConfigFvwmScroll
-read ConfigFvwmTaskBar
-read ConfigFvwmWinList
+#read ConfigFvwmIdent
+#read ConfigFvwmPager
+#read ConfigFvwmScroll
+#read ConfigFvwmTaskBar
+#read ConfigFvwmWinList
