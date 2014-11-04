@@ -46,7 +46,8 @@ scim -d
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
 exec xscreensaver -nosplash &
-exec fvwm  -d $DISPLAY
+exec fvwm2 -f $HOME/.fvwm/.fvwm2rc  -d $DISPLAY
+#exec fvwm2  -d $DISPLAY
 killall scim
 killall xscreensaver
 #killall urxvtd
