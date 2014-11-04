@@ -56,7 +56,7 @@ exec xscreensaver -nosplash &
 #exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
 #openbox-session
-exec xmonad
+exec fvwm -f $HOME/.fvwm/.fvwm2rc -d $DISPLAY
 killall ibus-daemon
 killall xscreensaver
 #killall scim
