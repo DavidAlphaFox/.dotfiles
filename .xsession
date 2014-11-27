@@ -42,9 +42,8 @@ fi
 
 # start some nice programs
 scim -d
-#exec urxvtd &
 #xclock -fg LightSteelBlue -bg Black -hl LightSeaGreen &
-#openbox-session
+openbox-session
 exec xscreensaver -nosplash &
 exec fvwm2 -f $HOME/.fvwm/.fvwm2rc  -d $DISPLAY
 #exec fvwm2  -d $DISPLAY
