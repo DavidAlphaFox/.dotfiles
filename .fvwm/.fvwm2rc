@@ -89,7 +89,8 @@ AddToFunc SessionInitFunction
 ######################## Menus ###################
 DestroyMenu MenuFvwmRoot
 AddToMenu MenuFvwmRoot  "$[gt.Root Menu]"             Title
-+                       "&1. XTerm"             Exec exec xterm
++                       "&T. XTerm"             Exec exec xterm
++                       "&F. FireFox"             Exec exec firefox
 +                       ""              Nop
 +                       "&U. $[gt.Utilities]"         Popup MenuFvwmUtilities
 +                       ""              Nop
@@ -197,9 +198,9 @@ AddToFunc FuncFvwmFocusPolicyChange
 
 # Read config files for modules:
 #read ConfigFvwmBacker
-read ConfigFvwmButtons
+#read ConfigFvwmButtons
 #read ConfigFvwmIconBox
-read ConfigFvwmIconMan
+#read ConfigFvwmIconMan
 #read ConfigFvwmIdent
 #read ConfigFvwmPager
 #read ConfigFvwmScroll
