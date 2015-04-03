@@ -8,6 +8,7 @@
 [core]
 	quotepath = false
 	excludesfile = /Users/david/.gitignore_global
+	ignorecase = false    
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
