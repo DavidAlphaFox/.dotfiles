@@ -44,3 +44,6 @@
   (distel-setup)
   )
 ;; tell distel to default to that node
+(setq erlang-mode-hook
+	  (function (lambda ()
+                (setq indent-tabs-mode nil))))
