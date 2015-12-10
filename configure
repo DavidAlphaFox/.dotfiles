@@ -51,8 +51,6 @@ emacs_conf_files=".emacs .emacs.d"
 vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
 erlang_conf_files=".erlang"
-tmux_conf_files=".tmux.conf"
-xresource_conf_files=".Xresources"
 
 if promptyn "Enable Emacs"; then
 	echo "Delete and link conf files for Emacs"
@@ -88,21 +86,6 @@ if promptyn "Enable Vim"; then
 	 fi
 fi
 
-if promptyn "Enable Tmux"; then
-	conf_delete $tmux_conf_files
-	ln -s .dotfiles/.tmux.conf ../.tmux.conf
-fi
-
-if promptyn "Enable Erlang"; then
-	conf_delete $erlang_conf_files
-	ln -s .dotfiles/.erlang ../.erlang
-fi
-
-if promptyn "Enable Xresource"; then
-	echo "set up .Xresources for ${System} and ${ShellName}"
-	conf_delete $xresource_conf_files
-	ln -s .dotfiles/.Xresources ../.Xresources
-fi
 
 if promptyn "Setup ruby"; then
 	if is_exsist $RUBY is_exsist $CURL; then
@@ -147,21 +130,4 @@ if promptyn "Setup quicklisp for sbcl"; then
    fi
 fi
 
-if promptyn "Add configure into .profile"; then
-	cat "$HOME/.dotfiles/.profile_mine" >> "$HOME/.profile"
-	if [ $System == "OpenBSD" ]; then
-		echo "Setup package configure in OpenBSD"
-		echo "export http://www.ftp.ne.jp/OpenBSD/`uname -r`/packages/`machine -a`/" >> "$HOME/.profile"
-	fi
-fi
-
-if promptyn "Conf Shell resources"; then
-	if [ $ShellName == "csh" ]; then
-		echo "Setup .cshrc for csh"
-		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
-	elif [ $ShellName == "ksh" ]; then
-		echo "Setup .cshrc for ksh"
-		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
-	fi	
-fi
 
