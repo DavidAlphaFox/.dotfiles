@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "ac-slime" "ac-slime.el" (22121 35446 0 0))
-;;; Generated autoloads from ac-slime.el
+;;;### (autoloads nil "ac-slime" "../../../../.emacs.d/elpa/ac-slime-20150729.2035/ac-slime.el"
+;;;;;;  "7377d66c5535fed01942785fb1d656d3")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ac-slime-20150729.2035/ac-slime.el
 
 (defface ac-slime-menu-face '((t (:inherit ac-candidate-face))) "\
 Face for slime candidate menu." :group (quote auto-complete))
@@ -22,6 +23,12 @@ Source for slime completion.")
 Add an optionally FUZZY slime completion source to `ac-sources'.
 
 \(fn &optional FUZZY)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ac-slime-20150729.2035/ac-slime-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/ac-slime-20150729.2035/ac-slime.el")
+;;;;;;  (22122 4123 717948 0))
 
 ;;;***
 

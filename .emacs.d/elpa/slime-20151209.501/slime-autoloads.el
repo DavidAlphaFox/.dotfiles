@@ -47,7 +47,10 @@
 ;; no-byte-compile: t
 ;; End:
 
-;;;### (autoloads nil nil ("slime-pkg.el" "slime-tests.el" "slime.el")
-;;;;;;  (22121 34739 254785 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/slime-20151209.501/slime-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/slime-20151209.501/slime-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/slime-20151209.501/slime-tests.el"
+;;;;;;  "../../../../.emacs.d/elpa/slime-20151209.501/slime.el")
+;;;;;;  (22122 4092 640940 0))
 
 ;;;***
