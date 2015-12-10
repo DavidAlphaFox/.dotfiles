@@ -13,3 +13,10 @@
 (add-to-list 'auto-mode-alist '("\\.lisp$" . lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.asd$" . lisp-mode))
 (setq slime-net-coding-system 'utf-8-unix)
+
+(require 'ac-slime-autoloads)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
+
