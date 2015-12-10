@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "cider" "cider.el" (22121 323 0 0))
-;;; Generated autoloads from cider.el
+;;;### (autoloads nil "cider" "../../../../.emacs.d/elpa/cider-20151209.1341/cider.el"
+;;;;;;  "ea28f5afe21651a757f6c676897f8cfd")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider.el
 
 (autoload 'cider-version "cider" "\
 Display CIDER's version.
@@ -40,9 +41,9 @@ gets associated with it.
 
 ;;;***
 
-;;;### (autoloads nil "cider-apropos" "cider-apropos.el" (22121 323
-;;;;;;  0 0))
-;;; Generated autoloads from cider-apropos.el
+;;;### (autoloads nil "cider-apropos" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-apropos.el"
+;;;;;;  "61edd77a2f3ce4100388aed9d03bbe82")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-apropos.el
 
 (autoload 'cider-apropos "cider-apropos" "\
 Show all symbols whose names match QUERY, a regular expression.
@@ -58,9 +59,9 @@ Shortcut for (cider-apropos <query> nil t).
 
 ;;;***
 
-;;;### (autoloads nil "cider-browse-ns" "cider-browse-ns.el" (22121
-;;;;;;  323 0 0))
-;;; Generated autoloads from cider-browse-ns.el
+;;;### (autoloads nil "cider-browse-ns" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-browse-ns.el"
+;;;;;;  "8cee42d6f6d8c50fa186f221884212a3")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-browse-ns.el
 
 (autoload 'cider-browse-ns "cider-browse-ns" "\
 List all NAMESPACE's vars in BUFFER.
@@ -74,9 +75,9 @@ List all loaded namespaces in BUFFER.
 
 ;;;***
 
-;;;### (autoloads nil "cider-classpath" "cider-classpath.el" (22121
-;;;;;;  323 0 0))
-;;; Generated autoloads from cider-classpath.el
+;;;### (autoloads nil "cider-classpath" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-classpath.el"
+;;;;;;  "dfdf78fb18f3b1ca06f297f5a3e83659")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-classpath.el
 
 (autoload 'cider-classpath "cider-classpath" "\
 List all classpath entries.
@@ -90,9 +91,9 @@ Open a classpath entry.
 
 ;;;***
 
-;;;### (autoloads nil "cider-debug" "cider-debug.el" (22121 323 0
-;;;;;;  0))
-;;; Generated autoloads from cider-debug.el
+;;;### (autoloads nil "cider-debug" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-debug.el"
+;;;;;;  "9ba3d89b0e026f49db8bb2c256ab03be")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-debug.el
 
 (autoload 'cider-debug-defun-at-point "cider-debug" "\
 Instrument the \"top-level\" expression at point.
@@ -107,9 +108,9 @@ a number of keys will be prompted to the user.
 
 ;;;***
 
-;;;### (autoloads nil "cider-grimoire" "cider-grimoire.el" (22121
-;;;;;;  323 0 0))
-;;; Generated autoloads from cider-grimoire.el
+;;;### (autoloads nil "cider-grimoire" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-grimoire.el"
+;;;;;;  "37cf22d1a7f2a5a05d649a1344de006e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-grimoire.el
 
 (autoload 'cider-grimoire-web "cider-grimoire" "\
 Open grimoire documentation in the default web browser.
@@ -131,9 +132,9 @@ opposite of what that option dictates.
 
 ;;;***
 
-;;;### (autoloads nil "cider-inspector" "cider-inspector.el" (22121
-;;;;;;  323 0 0))
-;;; Generated autoloads from cider-inspector.el
+;;;### (autoloads nil "cider-inspector" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-inspector.el"
+;;;;;;  "7767bf15d12c8c2cf79f5dcfac5a4113")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-inspector.el
 
 (autoload 'cider-inspect-last-sexp "cider-inspector" "\
 Inspect the result of the the expression preceding point.
@@ -155,9 +156,9 @@ With a second prefix argument it prompts for an expression to eval and inspect.
 
 ;;;***
 
-;;;### (autoloads nil "cider-macroexpansion" "cider-macroexpansion.el"
-;;;;;;  (22121 323 0 0))
-;;; Generated autoloads from cider-macroexpansion.el
+;;;### (autoloads nil "cider-macroexpansion" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-macroexpansion.el"
+;;;;;;  "b28bb4e2a08786db2c4ddde5a59ed0c6")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-macroexpansion.el
 
 (autoload 'cider-macroexpand-1 "cider-macroexpansion" "\
 Invoke 'macroexpand-1' on the expression preceding point.
@@ -173,8 +174,9 @@ Invoke 'clojure.walk/macroexpand-all' on the expression preceding point.
 
 ;;;***
 
-;;;### (autoloads nil "cider-mode" "cider-mode.el" (22121 323 0 0))
-;;; Generated autoloads from cider-mode.el
+;;;### (autoloads nil "cider-mode" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-mode.el"
+;;;;;;  "892d4ca91b6ce682260232ed644f341c")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-mode.el
 
 (defvar cider-mode-line '(:eval (format " cider[%s]" (cider--modeline-info))) "\
 Mode line lighter for `cider-mode'.
@@ -199,9 +201,9 @@ Minor mode for REPL interaction from a Clojure buffer.
 
 ;;;***
 
-;;;### (autoloads nil "cider-scratch" "cider-scratch.el" (22121 323
-;;;;;;  0 0))
-;;; Generated autoloads from cider-scratch.el
+;;;### (autoloads nil "cider-scratch" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-scratch.el"
+;;;;;;  "f95bc79513089c9eec9fdc5f98600214")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-scratch.el
 
 (autoload 'cider-scratch "cider-scratch" "\
 Create a scratch buffer.
@@ -210,9 +212,9 @@ Create a scratch buffer.
 
 ;;;***
 
-;;;### (autoloads nil "cider-selector" "cider-selector.el" (22121
-;;;;;;  323 0 0))
-;;; Generated autoloads from cider-selector.el
+;;;### (autoloads nil "cider-selector" "../../../../.emacs.d/elpa/cider-20151209.1341/cider-selector.el"
+;;;;;;  "956e844c5140cb551bc80bd4c3a95c0a")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/cider-20151209.1341/cider-selector.el
 
 (autoload 'cider-selector "cider-selector" "\
 Select a new buffer by type, indicated by a single character.
@@ -226,11 +228,34 @@ See `def-cider-selector-method' for defining new methods.
 
 ;;;***
 
-;;;### (autoloads nil nil ("cider-client.el" "cider-common.el" "cider-compat.el"
-;;;;;;  "cider-doc.el" "cider-eldoc.el" "cider-interaction.el" "cider-overlays.el"
-;;;;;;  "cider-pkg.el" "cider-popup.el" "cider-repl.el" "cider-resolve.el"
-;;;;;;  "cider-stacktrace.el" "cider-test.el" "cider-util.el" "nrepl-client.el")
-;;;;;;  (22121 323 987691 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/cider-20151209.1341/cider-apropos.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-browse-ns.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-classpath.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-client.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-common.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-compat.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-debug.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-doc.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-eldoc.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-grimoire.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-inspector.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-interaction.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-macroexpansion.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-mode.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-overlays.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-popup.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-repl.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-resolve.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-scratch.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-selector.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-stacktrace.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-test.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider-util.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/cider.el"
+;;;;;;  "../../../../.emacs.d/elpa/cider-20151209.1341/nrepl-client.el")
+;;;;;;  (22121 34440 796969 0))
 
 ;;;***
 

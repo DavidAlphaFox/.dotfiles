@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "company-ghc" "company-ghc.el" (22121 265 0
-;;;;;;  0))
-;;; Generated autoloads from company-ghc.el
+;;;### (autoloads nil "company-ghc" "../../../../.emacs.d/elpa/company-ghc-20151126.439/company-ghc.el"
+;;;;;;  "d43ceac94842612c71b863024ef5758c")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/company-ghc-20151126.439/company-ghc.el
 
 (autoload 'company-ghc "company-ghc" "\
 `company-mode' completion back-end for `haskell-mode' via ghc-mod.
@@ -17,6 +17,12 @@ Provide completion info according to COMMAND and ARG.  IGNORED, not used.
 Show diagnostic info of the current buffer in other buffer.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/company-ghc-20151126.439/company-ghc-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/company-ghc-20151126.439/company-ghc.el")
+;;;;;;  (22121 34457 72542 0))
 
 ;;;***
 

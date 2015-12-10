@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "ac-cider" "ac-cider.el" (22121 3134 0 0))
-;;; Generated autoloads from ac-cider.el
+;;;### (autoloads nil "ac-cider" "../../../../.emacs.d/elpa/ac-cider-20151012.308/ac-cider.el"
+;;;;;;  "9cfe9f3cd8df9a6377f4b99096c9d911")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/ac-cider-20151012.308/ac-cider.el
 
 (defface ac-cider-candidate-face '((t (:inherit ac-candidate-face))) "\
 Face for nrepl candidates." :group (quote auto-complete))
@@ -28,6 +29,12 @@ This affects only the current buffer.
 A popup alternative to `cider-doc'.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ac-cider-20151012.308/ac-cider-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/ac-cider-20151012.308/ac-cider.el")
+;;;;;;  (22121 34954 382555 0))
 
 ;;;***
 

@@ -1,11 +1,11 @@
 ;;; flymake-shell-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flymake-shell-load) "flymake-shell" "flymake-shell.el"
-;;;;;;  (21870 58855 0 0))
-;;; Generated autoloads from flymake-shell.el
+;;;### (autoloads nil "flymake-shell" "../../../../.emacs.d/elpa/flymake-shell-20121104.1100/flymake-shell.el"
+;;;;;;  "e21a0ef2dc2f5cc861f8c3013594961e")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/flymake-shell-20121104.1100/flymake-shell.el
 
 (autoload 'flymake-shell-load "flymake-shell" "\
 Configure flymake mode to check the current buffer's shell-script syntax.
@@ -14,16 +14,15 @@ Configure flymake mode to check the current buffer's shell-script syntax.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-shell-pkg.el") (21870 58855 958221
-;;;;;;  0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/flymake-shell-20121104.1100/flymake-shell-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/flymake-shell-20121104.1100/flymake-shell.el")
+;;;;;;  (22121 34361 701515 0))
 
 ;;;***
 
-(provide 'flymake-shell-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flymake-shell-autoloads.el ends here

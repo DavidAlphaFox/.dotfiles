@@ -1,11 +1,11 @@
 ;;; flymake-yaml-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flymake-yaml-load) "flymake-yaml" "flymake-yaml.el"
-;;;;;;  (21240 57163 0 0))
-;;; Generated autoloads from flymake-yaml.el
+;;;### (autoloads nil "flymake-yaml" "../../../../.emacs.d/elpa/flymake-yaml-20130423.848/flymake-yaml.el"
+;;;;;;  "dc8c8bf1d5702097883a554f40dce6e7")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/flymake-yaml-20130423.848/flymake-yaml.el
 
 (autoload 'flymake-yaml-load "flymake-yaml" "\
 Configure flymake mode to check the current buffer's YAML syntax.
@@ -14,16 +14,15 @@ Configure flymake mode to check the current buffer's YAML syntax.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-yaml-pkg.el") (21240 57163 167546
-;;;;;;  0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/flymake-yaml-20130423.848/flymake-yaml-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/flymake-yaml-20130423.848/flymake-yaml.el")
+;;;;;;  (22121 34360 574692 0))
 
 ;;;***
 
-(provide 'flymake-yaml-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flymake-yaml-autoloads.el ends here
