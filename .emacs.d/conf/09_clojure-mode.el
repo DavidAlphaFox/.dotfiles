@@ -1,6 +1,5 @@
 (require 'clojure-mode)
 (setq auto-mode-alist (cons '("\\.cljs$" . clojure-mode) auto-mode-alist))
-(setq inferior-lisp-program "lein repl")
 
 
 (require 'yasnippet)
