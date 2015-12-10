@@ -48,9 +48,7 @@ conf_delete () {
 }
 
 emacs_conf_files=".emacs .emacs.d"
-vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
-erlang_conf_files=".erlang"
 
 if promptyn "Enable Emacs"; then
 	echo "Delete and link conf files for Emacs"
@@ -63,50 +61,6 @@ if promptyn "Enable Emacs"; then
 	fi
 	mkdir "$HOME/.emacs.d/tmp"
 
-fi
-
-if promptyn "Enable Vim"; then
-	echo "Delete and link conf files for Vim"
-	conf_delete $vim_conf_files
-	ln -s .dotfiles/.vim ../.vim
-	ln -s .dotfiles/.vimrc ../.vimrc
-
-	if [ -d "$HOME/.vim/bundle/" ]; then
-		echo "Delete all files in .vim/bundle"
-		rm -rf "$HOME/.vim/bundle/"
-	fi
-	mkdir "$HOME/.vim/bundle/"
-
-	if is_exsist $GIT; then
-		echo "Clone vundle"
-		git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	 else
-		echo "You don't have git!!!"
-		echo "You should intatll github.com/gmarik/vundle.git into your ~/.vim/bundle/"
-	 fi
-fi
-
-
-if promptyn "Setup ruby"; then
-	if is_exsist $RUBY is_exsist $CURL; then
-		sudo gem sources --remove https://rubygems.org/
-		sudo gem sources -a https://ruby.taobao.org/
-		case $System in
-			"Linux")
-				curl -sSL https://get.rvm.io | bash -s stable
-				sed -i 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
-				;;
-			 "Darwin")
-			 	curl -sSL https://get.rvm.io | bash -s stable
-				sed -i .bak 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
-				;;
-				*)
-				echo "no support for ${System}"
-				;;
-		esac
-	else
-		echo "no ruby or curl"
-	fi
 fi
 
 if promptyn "Setup quicklisp for sbcl"; then

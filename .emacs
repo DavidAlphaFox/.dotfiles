@@ -1,13 +1,17 @@
-(setq load-path (append '("~/.emacs.d/elisp/package23") load-path))
+;; support emacs 23
+(when (and (< emacs-major-version 24) (> emacs-major-version 22))
+  (setq load-path (append '("~/.emacs.d/elisp/package23") load-path)))
 
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") )
-;;(add-to-list 'package-archives
-;;             '("marmalade" . "http://marmalade-repo.org/packages/") )
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives 
-	     '("gnu" . "http://elpa.gnu.org/packages/") )
+			 '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives
+			 '("org" . "http://orgmode.org/elpa/"))
 
 (package-initialize)
 
@@ -27,9 +31,12 @@
 									   "~/.emacs.d/themes/zenburn-emacs"
 									   "~/.emacs.d/themes/molokai-theme")
 									 custom-theme-load-path))
-;;(load "config-loader")
-;;(my-run-directories "~/.emacs.d/conf")
-(ignore-errors (load "config-loader"))
+(cond
+ ((>= emacs-major-version 24)
+  (ignore-errors (load "config-loader")))
+ (t
+  (condition-case nil (load "config-loader") nil)
+  ))
 
 (eval-after-load "config-loader" '(my-run-directories "~/.emacs.d/conf"))
 (custom-set-variables
