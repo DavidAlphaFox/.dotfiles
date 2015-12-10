@@ -1,18 +1,4 @@
-(when (<= emacs-major-version 22)
-  (when (and (not (file-exists-p "~/.emacs.d/elpa/archives/-pkg.el"))
-			 (file-exists-p "~/.emacs.d/elpa/archives"))
-	(save-excursion
-	  (set-buffer (generate-new-buffer "-pkg.el"))
-	  (write-file "~/.emacs.d/elpa/archives/-pkg.el")
-	  (kill-buffer (current-buffer))
-	  )
-	)
-  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
-)
-
-(when (and (< emacs-major-version 24) (> emacs-major-version 22))
-  (setq load-path (append '("~/.emacs.d/elisp/package23") load-path))
-  )
+(setq load-path (append '("~/.emacs.d/elisp/package23") load-path))
 
 (require 'package)
 
@@ -36,18 +22,14 @@
 		"~/.emacs.d/themes/molokai-theme"
 		) load-path))
 
-(when (>= emacs-major-version 24)
-  (setq custom-theme-load-path (append '(
-                                         "~/.emacs.d/themes/solarized-emacs" 
-                                         "~/.emacs.d/themes/zenburn-emacs"
-					 "~/.emacs.d/themes/molokai-theme")
-                                       custom-theme-load-path)))
+(setq custom-theme-load-path (append '(
+									   "~/.emacs.d/themes/solarized-emacs" 
+									   "~/.emacs.d/themes/zenburn-emacs"
+									   "~/.emacs.d/themes/molokai-theme")
+									 custom-theme-load-path))
 ;;(load "config-loader")
 ;;(my-run-directories "~/.emacs.d/conf")
-(cond 
- ((>= emacs-major-version 24) (ignore-errors (load "config-loader")))
- (t (condition-case nil (load "config-loader") nil))
- )
+(ignore-errors (load "config-loader"))
 
 (eval-after-load "config-loader" '(my-run-directories "~/.emacs.d/conf"))
 (custom-set-variables
