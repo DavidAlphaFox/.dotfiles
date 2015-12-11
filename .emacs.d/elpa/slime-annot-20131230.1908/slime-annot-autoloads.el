@@ -5,7 +5,7 @@
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/slime-annot-20131230.1908/slime-annot-autoloads.el"
 ;;;;;;  "../../../../.emacs.d/elpa/slime-annot-20131230.1908/slime-annot.el")
-;;;;;;  (22122 4090 802352 0))
+;;;;;;  (22122 4929 702682 0))
 
 ;;;***
 

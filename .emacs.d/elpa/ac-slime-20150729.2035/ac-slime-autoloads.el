@@ -28,7 +28,7 @@ Add an optionally FUZZY slime completion source to `ac-sources'.
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ac-slime-20150729.2035/ac-slime-autoloads.el"
 ;;;;;;  "../../../../.emacs.d/elpa/ac-slime-20150729.2035/ac-slime.el")
-;;;;;;  (22122 4123 717948 0))
+;;;;;;  (22122 4623 919375 0))
 
 ;;;***
 

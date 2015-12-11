@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "erlang" "erlang.el" (22121 35964 0 0))
-;;; Generated autoloads from erlang.el
+;;;### (autoloads nil "erlang" "../../../../.emacs.d/elpa/erlang-20151013.157/erlang.el"
+;;;;;;  "22b50fd6b57f517976dab1262f7543f9")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/erlang-20151013.157/erlang.el
 
 (autoload 'erlang-mode "erlang" "\
 Major mode for editing Erlang source files in Emacs.
@@ -118,9 +119,9 @@ editing control characters:
 
 ;;;***
 
-;;;### (autoloads nil "erlang-start" "erlang-start.el" (22121 35964
-;;;;;;  0 0))
-;;; Generated autoloads from erlang-start.el
+;;;### (autoloads nil "erlang-start" "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-start.el"
+;;;;;;  "0bd901dbd0f835873c36420400830d1d")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/erlang-20151013.157/erlang-start.el
 
 (let ((a '("\\.erl\\'" . erlang-mode)) (b '("\\.hrl\\'" . erlang-mode))) (or (assoc (car a) auto-mode-alist) (setq auto-mode-alist (cons a auto-mode-alist))) (or (assoc (car b) auto-mode-alist) (setq auto-mode-alist (cons b auto-mode-alist))))
 
@@ -130,9 +131,16 @@ editing control characters:
 
 ;;;***
 
-;;;### (autoloads nil nil ("erlang-eunit.el" "erlang-flymake.el"
-;;;;;;  "erlang-pkg.el" "erlang-skels-old.el" "erlang-skels.el" "erlang_appwiz.el")
-;;;;;;  (22121 35964 798504 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/erlang-20151013.157/erlang-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-eunit.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-flymake.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-skels-old.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-skels.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang-start.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang.el"
+;;;;;;  "../../../../.emacs.d/elpa/erlang-20151013.157/erlang_appwiz.el")
+;;;;;;  (22122 4944 157546 0))
 
 ;;;***
 

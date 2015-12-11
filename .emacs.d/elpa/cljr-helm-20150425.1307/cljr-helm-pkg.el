@@ -1,1 +1,0 @@
-(define-package "cljr-helm" "20150425.1307" "Wraps clojure refactor commands with helm" '((clj-refactor "0.13.0") (helm "1.5.6")) :url "https://github.com/philjackson/cljr-helm" :keywords '("helm" "clojure" "refactor"))

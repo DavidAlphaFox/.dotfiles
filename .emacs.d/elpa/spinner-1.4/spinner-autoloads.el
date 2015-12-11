@@ -61,8 +61,8 @@ this time, in which case it won't display at all.
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/spinner-1.4/spinner-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/spinner-1.4/spinner.el") (22121
-;;;;;;  34428 5139 0))
+;;;;;;  "../../../../.emacs.d/elpa/spinner-1.4/spinner.el") (22122
+;;;;;;  5157 463018 0))
 
 ;;;***
 

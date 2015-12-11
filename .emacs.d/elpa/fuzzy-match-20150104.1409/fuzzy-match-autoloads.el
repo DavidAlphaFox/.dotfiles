@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "fuzzy-match" "fuzzy-match.el" (22122 3040
-;;;;;;  0 0))
-;;; Generated autoloads from fuzzy-match.el
+;;;### (autoloads nil "fuzzy-match" "../../../../.emacs.d/elpa/fuzzy-match-20150104.1409/fuzzy-match.el"
+;;;;;;  "b706fe3301de899b715f9e2e8120c822")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/fuzzy-match-20150104.1409/fuzzy-match.el
 
 (autoload 'FM-offer-corrections "fuzzy-match" "\
 Offer corrections for ITEM from CANDIDATES.  Maybe replace ITEM.
@@ -30,6 +30,12 @@ To minimize matching effort and results, the first character of the
 symbol is assumed to be correct.  See also `FM-offer-corrections'.
 
 \(fn PROMPT)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/fuzzy-match-20150104.1409/fuzzy-match-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/fuzzy-match-20150104.1409/fuzzy-match.el")
+;;;;;;  (22122 5252 898956 0))
 
 ;;;***
 

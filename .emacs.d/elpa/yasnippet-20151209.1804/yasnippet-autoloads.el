@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "yasnippet" "yasnippet.el" (22121 34325 0 0))
-;;; Generated autoloads from yasnippet.el
+;;;### (autoloads nil "yasnippet" "../../../../.emacs.d/elpa/yasnippet-20151209.1804/yasnippet.el"
+;;;;;;  "4b3299650c9e77097c326c2ecc99efc1")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/yasnippet-20151209.1804/yasnippet.el
 
 (autoload 'yas-minor-mode "yasnippet" "\
 Toggle YASnippet mode.
@@ -45,8 +46,10 @@ See `yas-minor-mode' for more information on Yas minor mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("yasnippet-pkg.el") (22121 34325 284645
-;;;;;;  0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/yasnippet-20151209.1804/yasnippet-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/yasnippet-20151209.1804/yasnippet-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/yasnippet-20151209.1804/yasnippet.el")
+;;;;;;  (22122 4978 730421 0))
 
 ;;;***
 

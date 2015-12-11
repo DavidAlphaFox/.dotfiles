@@ -49,7 +49,7 @@ Major mode for editing ClojureX code.
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/clojure-mode-20151209.731/clojure-mode-autoloads.el"
 ;;;;;;  "../../../../.emacs.d/elpa/clojure-mode-20151209.731/clojure-mode.el")
-;;;;;;  (22121 34430 491243 0))
+;;;;;;  (22122 5162 50014 0))
 
 ;;;***
 

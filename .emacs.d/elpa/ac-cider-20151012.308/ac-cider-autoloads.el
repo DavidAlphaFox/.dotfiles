@@ -34,7 +34,7 @@ A popup alternative to `cider-doc'.
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/ac-cider-20151012.308/ac-cider-autoloads.el"
 ;;;;;;  "../../../../.emacs.d/elpa/ac-cider-20151012.308/ac-cider.el")
-;;;;;;  (22121 34954 382555 0))
+;;;;;;  (22122 5168 281529 0))
 
 ;;;***
 

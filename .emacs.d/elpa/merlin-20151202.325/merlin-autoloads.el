@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "merlin" "merlin.el" (22121 34367 0 0))
-;;; Generated autoloads from merlin.el
+;;;### (autoloads nil "merlin" "../../../../.emacs.d/elpa/merlin-20151202.325/merlin.el"
+;;;;;;  "8a01fcd89b68bee0c950a686173c24d1")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/merlin-20151202.325/merlin.el
 
 (autoload 'merlin-mode "merlin" "\
 Minor mode for interacting with a merlin process.
@@ -17,9 +18,15 @@ Short cuts:
 
 ;;;***
 
-;;;### (autoloads nil nil ("merlin-ac.el" "merlin-cap.el" "merlin-company.el"
-;;;;;;  "merlin-compat.el" "merlin-iedit.el" "merlin-pkg.el") (22121
-;;;;;;  34367 141165 0))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/merlin-20151202.325/merlin-ac.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin-cap.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin-company.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin-compat.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin-iedit.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/merlin-20151202.325/merlin.el")
+;;;;;;  (22122 5136 528842 0))
 
 ;;;***
 

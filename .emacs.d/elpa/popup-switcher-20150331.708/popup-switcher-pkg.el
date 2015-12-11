@@ -1,0 +1,1 @@
+(define-package "popup-switcher" "20150331.708" "switch to other buffers and files via popup." '((cl-lib "0.3") (popup "0.5.2")) :url "https://github.com/kostafey/popup-switcher" :keywords '("popup" "switch" "buffers" "functions"))

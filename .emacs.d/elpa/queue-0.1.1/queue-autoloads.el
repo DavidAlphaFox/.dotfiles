@@ -13,8 +13,8 @@ Create an empty queue data structure.")
 ;;;***
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/queue-0.1.1/queue-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/queue-0.1.1/queue.el") (22121
-;;;;;;  34428 539984 0))
+;;;;;;  "../../../../.emacs.d/elpa/queue-0.1.1/queue.el") (22122
+;;;;;;  5158 71058 0))
 
 ;;;***
 

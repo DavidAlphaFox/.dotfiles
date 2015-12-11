@@ -1,1 +1,0 @@
-(define-package "helm-cider-history" "20150719.1420" "Helm interface for cider history" '((helm "1.4.0") (cider "0.9.0")) :url "https://github.com/Kungi/helm-cider-history" :keywords '("convenience"))
