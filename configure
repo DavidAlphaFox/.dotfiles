@@ -3,13 +3,12 @@
 SBCL=`which sbcl`
 CURL=`which curl`
 GIT=`which git`
-RUBY=`which ruby`
 ShellName=`echo "${SHELL}" | awk -F '/' '{print $NF}'`
 System=`uname`
 
 echo "It seems that you are using ${System} and ${ShellName}"
 
-promptyn () {
+prompt_query () {
 	while true; do
 		echo "$1 [Y/N]?"
 		read  yn
@@ -50,7 +49,7 @@ conf_delete () {
 emacs_conf_files=".emacs .emacs.d"
 quicklisp_conf_files=".sbclrc quicklisp"
 
-if promptyn "Enable Emacs"; then
+if prompt_query "Enable Emacs"; then
 	echo "Delete and link conf files for Emacs"
 	conf_delete $emacs_conf_files
 	ln -s .dotfiles/.emacs ../.emacs
@@ -63,7 +62,7 @@ if promptyn "Enable Emacs"; then
 
 fi
 
-if promptyn "Setup quicklisp for sbcl"; then
+if prompt_query "Setup quicklisp for sbcl"; then
 	if is_exsist $SBCL is_exsist $CURL; then
 		conf_delete $quicklisp_conf_files
 		if [ -d "$HOME/.dotfiles/quicklisp" ]; then
