@@ -1,27 +1,17 @@
-(when (<= emacs-major-version 22)
-  (when (and (not (file-exists-p "~/.emacs.d/elpa/archives/-pkg.el"))
-			 (file-exists-p "~/.emacs.d/elpa/archives"))
-	(save-excursion
-	  (set-buffer (generate-new-buffer "-pkg.el"))
-	  (write-file "~/.emacs.d/elpa/archives/-pkg.el")
-	  (kill-buffer (current-buffer))
-	  )
-	)
-  (setq load-path (append '("~/.emacs.d/elisp/package22") load-path))
-)
-
+;; support emacs 23
 (when (and (< emacs-major-version 24) (> emacs-major-version 22))
-  (setq load-path (append '("~/.emacs.d/elisp/package23") load-path))
-  )
+  (setq load-path (append '("~/.emacs.d/elisp/package23") load-path)))
 
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") )
-;;(add-to-list 'package-archives
-;;             '("marmalade" . "http://marmalade-repo.org/packages/") )
-(add-to-list 'package-archives 
-	     '("gnu" . "http://elpa.gnu.org/packages/") )
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
+;(add-to-list 'package-archives
+;             '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives 
+;			 '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives
+			 '("org" . "http://orgmode.org/elpa/"))
 
 (package-initialize)
 
@@ -36,18 +26,17 @@
 		"~/.emacs.d/themes/molokai-theme"
 		) load-path))
 
-(when (>= emacs-major-version 24)
-  (setq custom-theme-load-path (append '(
-                                         "~/.emacs.d/themes/solarized-emacs" 
-                                         "~/.emacs.d/themes/zenburn-emacs"
-					 "~/.emacs.d/themes/molokai-theme")
-                                       custom-theme-load-path)))
-;;(load "config-loader")
-;;(my-run-directories "~/.emacs.d/conf")
-(cond 
- ((>= emacs-major-version 24) (ignore-errors (load "config-loader")))
- (t (condition-case nil (load "config-loader") nil))
- )
+(setq custom-theme-load-path (append '(
+									   "~/.emacs.d/themes/solarized-emacs" 
+									   "~/.emacs.d/themes/zenburn-emacs"
+									   "~/.emacs.d/themes/molokai-theme")
+									 custom-theme-load-path))
+(cond
+ ((>= emacs-major-version 24)
+  (ignore-errors (load "config-loader")))
+ (t
+  (condition-case nil (load "config-loader") nil)
+  ))
 
 (eval-after-load "config-loader" '(my-run-directories "~/.emacs.d/conf"))
 (custom-set-variables
@@ -62,4 +51,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(put 'downcase-region 'disabled nil)
