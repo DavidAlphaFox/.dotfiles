@@ -3,13 +3,12 @@
 SBCL=`which sbcl`
 CURL=`which curl`
 GIT=`which git`
-RUBY=`which ruby`
 ShellName=`echo "${SHELL}" | awk -F '/' '{print $NF}'`
 System=`uname`
 
 echo "It seems that you are using ${System} and ${ShellName}"
 
-promptyn () {
+prompt_query () {
 	while true; do
 		echo "$1 [Y/N]?"
 		read  yn
@@ -48,13 +47,9 @@ conf_delete () {
 }
 
 emacs_conf_files=".emacs .emacs.d"
-vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
-erlang_conf_files=".erlang"
-tmux_conf_files=".tmux.conf"
-xresource_conf_files=".Xresources"
 
-if promptyn "Enable Emacs"; then
+if prompt_query "Enable Emacs"; then
 	echo "Delete and link conf files for Emacs"
 	conf_delete $emacs_conf_files
 	ln -s .dotfiles/.emacs ../.emacs
@@ -67,66 +62,7 @@ if promptyn "Enable Emacs"; then
 
 fi
 
-if promptyn "Enable Vim"; then
-	echo "Delete and link conf files for Vim"
-	conf_delete $vim_conf_files
-	ln -s .dotfiles/.vim ../.vim
-	ln -s .dotfiles/.vimrc ../.vimrc
-
-	if [ -d "$HOME/.vim/bundle/" ]; then
-		echo "Delete all files in .vim/bundle"
-		rm -rf "$HOME/.vim/bundle/"
-	fi
-	mkdir "$HOME/.vim/bundle/"
-
-	if is_exsist $GIT; then
-		echo "Clone vundle"
-		git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	 else
-		echo "You don't have git!!!"
-		echo "You should intatll github.com/gmarik/vundle.git into your ~/.vim/bundle/"
-	 fi
-fi
-
-if promptyn "Enable Tmux"; then
-	conf_delete $tmux_conf_files
-	ln -s .dotfiles/.tmux.conf ../.tmux.conf
-fi
-
-if promptyn "Enable Erlang"; then
-	conf_delete $erlang_conf_files
-	ln -s .dotfiles/.erlang ../.erlang
-fi
-
-if promptyn "Enable Xresource"; then
-	echo "set up .Xresources for ${System} and ${ShellName}"
-	conf_delete $xresource_conf_files
-	ln -s .dotfiles/.Xresources ../.Xresources
-fi
-
-if promptyn "Setup ruby"; then
-	if is_exsist $RUBY is_exsist $CURL; then
-		sudo gem sources --remove https://rubygems.org/
-		sudo gem sources -a https://ruby.taobao.org/
-		case $System in
-			"Linux")
-				curl -sSL https://get.rvm.io | bash -s stable
-				sed -i 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
-				;;
-			 "Darwin")
-			 	curl -sSL https://get.rvm.io | bash -s stable
-				sed -i .bak 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
-				;;
-				*)
-				echo "no support for ${System}"
-				;;
-		esac
-	else
-		echo "no ruby or curl"
-	fi
-fi
-
-if promptyn "Setup quicklisp for sbcl"; then
+if prompt_query "Setup quicklisp for sbcl"; then
 	if is_exsist $SBCL is_exsist $CURL; then
 		conf_delete $quicklisp_conf_files
 		if [ -d "$HOME/.dotfiles/quicklisp" ]; then
@@ -147,21 +83,4 @@ if promptyn "Setup quicklisp for sbcl"; then
    fi
 fi
 
-if promptyn "Add configure into .profile"; then
-	cat "$HOME/.dotfiles/.profile_mine" >> "$HOME/.profile"
-	if [ $System == "OpenBSD" ]; then
-		echo "Setup package configure in OpenBSD"
-		echo "export http://www.ftp.ne.jp/OpenBSD/`uname -r`/packages/`machine -a`/" >> "$HOME/.profile"
-	fi
-fi
-
-if promptyn "Conf Shell resources"; then
-	if [ $ShellName == "csh" ]; then
-		echo "Setup .cshrc for csh"
-		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
-	elif [ $ShellName == "ksh" ]; then
-		echo "Setup .cshrc for ksh"
-		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
-	fi	
-fi
 
