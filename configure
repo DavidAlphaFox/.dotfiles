@@ -135,7 +135,7 @@ if promptyn "Setup quicklisp for sbcl"; then
 		if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
 			rm "$HOME/.dotfiles/quicklisp.lisp"
 		fi
-		curl -O "http://beta.quicklisp.org/quicklisp.lisp"
+		curl -O "https://beta.quicklisp.org/quicklisp.lisp"
 		sbcl --load ~/.dotfiles/pre_init.lisp
 		mv ~/quicklisp ~/.dotfiles/
 		ln -s .dotfiles/quicklisp ../quicklisp
