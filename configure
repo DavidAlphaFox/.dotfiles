@@ -103,6 +103,8 @@ if prompt_yn "Configure .Xorg"; then
 	echo "set up .Xorg for ${System} and ${ShellName}"
 	conf_delete $xorg_conf_files
 	ln -s .dotfiles/xorg/.Xresources ../.Xresources
+	ln -s .dotfiles/xorg/.xinitrc ../.xinitrc
+	ln -s .dotfiles/xorg/.xsession ../.xsession
 fi
 
 
