@@ -1,16 +1,16 @@
 !Xft.dpi:        96
 Xft.antialias:  true
-Xft.rgba:       rgba
+Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 !Xcursor.theme: whitelarge
-Xcursor.size: 20
+Xcursor.size: 32
 XTerm*loginShell: true
 XTerm*locale: UTF-8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
-!XTerm*faceName: xft:monofur:pixelsize=23:antialias=True
+!XTerm*faceName: xft:monofur:pixelsize=18:antialias=True
 !XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true
@@ -23,17 +23,17 @@ XTerm*allowBoldFont: true
 XTerm*eightBitInput: true
 XTerm*backarrowKey: false
 XTerm*openIm: true
-*inputMethod: SCIM
-*faceName: xft:monofur:pixelsize=20:antialias=True
-*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=20:antialias=True
-*font: xft:monofur:pixelsize=20:antialias=True
-*headingFont: xft:monofur:pixelsize=20:antialias=True
-*bodyFont: xft:monofur:pixelsize=20:antialias=True
-*labelFont: xft:monofur:pixelsize=20:antialias=True
-*unameFont: xft:monofur:pixelsize=20:antialias=True
-*buttonFont: xft:monofur:pixelsize=20:antialias=True
-*dateFont: xft:monofur:pixelsize=20:antialias=True
-*passwdFont: xft:monofur:pixelsize=20:antialias=True
+*inputMethod: scim
+*faceName: xft:monofur:pixelsize=18:antialias=True
+*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
+*font: xft:monofur:pixelsize=18:antialias=True
+*headingFont: xft:monofur:pixelsize=18:antialias=True
+*bodyFont: xft:monofur:pixelsize=18:antialias=True
+*labelFont: xft:monofur:pixelsize=18:antialias=True
+*unameFont: xft:monofur:pixelsize=18:antialias=True
+*buttonFont: xft:monofur:pixelsize=18:antialias=True
+*dateFont: xft:monofur:pixelsize=18:antialias=True
+*passwdFont: xft:monofur:pixelsize=18:antialias=True
 *.vt100.font: fixed
 *.vt100.encodingMode: true
 
