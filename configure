@@ -9,7 +9,7 @@ System=`uname`
 
 echo "It seems that you are using ${System} and ${ShellName}"
 
-promptyn () {
+prompt_yn () {
     while true; do
 	echo "$1 [Y/N]?"
 	read  yn
