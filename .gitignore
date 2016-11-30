@@ -29,3 +29,7 @@ sbcl/quicklisp/
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
 .xmonad/history
+
+.config/vlc/*
+.config/QtProject.conf
+

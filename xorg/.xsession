@@ -8,11 +8,13 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS='@im=SCIM'
-export XIM=SCIM
-export XIM_PROGRAM=SCIM
-export GTK_IM_MODULE=SCIM
-export QT_IM_MODULE=SCIM
+export XMODIFIERS='@im=ibus'
+export XIM=ibus
+export XIM_PROGRAM=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XIM_PROGRAM="ibus-daemon"
+export XIM_ARGS="--daemonize --xim"
 
 userresources=$HOME/.Xresources
 xrdb -merge $userresources
