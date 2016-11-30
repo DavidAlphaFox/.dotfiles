@@ -23,27 +23,27 @@ prompt_yn () {
 
 is_exsist () {
     if [ ! -x "$1" ]; then
-	return 1
+				return 1
     fi
     return 0
 }
 
 conf_delete () {
     for item in "$@"; do
-	if [ -d "$HOME/${item}" ]; then
-	    if [ -L "$HOME/${item}" ]; then
-       		echo "Delete link ${item}"
-       		rm "$HOME/${item}"
-	    else
-		echo "Delete directory ${item}"
-	  	rm -rf "$HOME/${item}"
-	    fi
-	else
-	    if [ -f "$HOME/${item}" ]; then
-		echo "Delete link or file ${item}"
-		rm "$HOME/${item}"	
-	    fi
-	fi
+				if [ -d "$HOME/${item}" ]; then
+						if [ -L "$HOME/${item}" ]; then
+       					echo "Delete link ${item}"
+       					rm "$HOME/${item}"
+						else
+								echo "Delete directory ${item}"
+	  						rm -rf "$HOME/${item}"
+						fi
+				else
+						if [ -f "$HOME/${item}" ]; then
+								echo "Delete link or file ${item}"
+								rm "$HOME/${item}"	
+						fi
+				fi
     done
 }
 
@@ -53,6 +53,7 @@ quicklisp_conf_files=".sbclrc quicklisp"
 erlang_conf_files=".erlang"
 tmux_conf_files=".tmux.conf"
 xorg_conf_files=".Xresources .xinitrc .xsession"
+config_dir=".config"
 
 if prompt_yn "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
@@ -107,6 +108,10 @@ if prompt_yn "Configure .Xorg"; then
 	ln -s .dotfiles/xorg/.xsession ../.xsession
 fi
 
+if prompt_yn "Linking .config"; then
+	conf_delete $config_dir
+	ln -s .dotfiles/.config ../.config
+fi
 
 if prompt_yn "Setup quicklisp for sbcl"; then
     if is_exsist $SBCL is_exsist $CURL; then
