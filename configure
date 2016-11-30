@@ -10,41 +10,41 @@ System=`uname`
 echo "It seems that you are using ${System} and ${ShellName}"
 
 promptyn () {
-	while true; do
-		echo "$1 [Y/N]?"
-		read  yn
-		case $yn in
-			[Yy]* ) return 0;;
-			[Nn]* ) return 1;;
-			* ) echo "Please answer Y or N.";;
-		esac
-	done
+    while true; do
+	echo "$1 [Y/N]?"
+	read  yn
+	case $yn in
+	    [Yy]* ) return 0;;
+	    [Nn]* ) return 1;;
+	    * ) echo "Please answer Y or N.";;
+	esac
+    done
 }
 
 is_exsist () {
-	if [ ! -x "$1" ]; then
-		return 1
-	fi
-	return 0
+    if [ ! -x "$1" ]; then
+	return 1
+    fi
+    return 0
 }
 
 conf_delete () {
-	for item in "$@"; do
-		if [ -d "$HOME/${item}" ]; then
-			if [ -L "$HOME/${item}" ]; then
-       			echo "Delete link ${item}"
-       			rm "$HOME/${item}"
-			else
-				echo "Delete directory ${item}"
-	  			rm -rf "$HOME/${item}"
-			fi
-		else
-			if [ -f "$HOME/${item}" ]; then
-				echo "Delete link or file ${item}"
-				rm "$HOME/${item}"	
-			fi
-		fi
-	done
+    for item in "$@"; do
+	if [ -d "$HOME/${item}" ]; then
+	    if [ -L "$HOME/${item}" ]; then
+       		echo "Delete link ${item}"
+       		rm "$HOME/${item}"
+	    else
+		echo "Delete directory ${item}"
+	  	rm -rf "$HOME/${item}"
+	    fi
+	else
+	    if [ -f "$HOME/${item}" ]; then
+		echo "Delete link or file ${item}"
+		rm "$HOME/${item}"	
+	    fi
+	fi
+    done
 }
 
 emacs_conf_files=".emacs .emacs.d"
@@ -52,116 +52,99 @@ vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
 erlang_conf_files=".erlang"
 tmux_conf_files=".tmux.conf"
-xresource_conf_files=".Xresources"
+xorg_conf_files=".Xresources .xinitrc .xsession"
 
-if promptyn "Enable Emacs"; then
-	echo "Delete and link conf files for Emacs"
-	conf_delete $emacs_conf_files
-	ln -s .dotfiles/.emacs ../.emacs
-	ln -s .dotfiles/.emacs.d ../.emacs.d
-	if [ -d "$HOME/.emacs.d/tmp" ]; then
-		echo "delete tmp of emacs"
-		rm -rf "$HOME/.emacs.d/tmp"
+if prompt_yn "Configure Emacs"; then
+    echo "Delete and link conf files for Emacs"
+    conf_delete $emacs_conf_files
+    ln -s .dotfiles/emacs/.emacs ../.emacs
+    ln -s .dotfiles/emacs/.emacs.d ../.emacs.d
+
+    if [ -d "$HOME/.emacs.d/tmp" ]; then
+	echo "delete tmp of emacs"
+	rm -rf "$HOME/.emacs.d/tmp"
+    fi
+    mkdir "$HOME/.emacs.d/tmp"
+
+fi
+
+if prompt_yn "Configure Vim"; then
+    echo "Delete and link conf files for Vim"
+    conf_delete $vim_conf_files
+    ln -s .dotfiles/vim/.vim ../.vim
+    ln -s .dotfiles/vim/.vimrc ../.vimrc
+    
+    if [ -d "$HOME/.vim/bundle/" ]; then
+	echo "Delete all files in .vim/bundle"
+	rm -rf "$HOME/.vim/bundle/"
+    fi
+    mkdir "$HOME/.vim/bundle/"
+    
+    if is_exsist $GIT; then
+	echo "Clone vundle"
+	git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    else
+	echo "You don't have git!!!"
+	echo "You should intatll github.com/gmarik/vundle.git into your ~/.vim/bundle/"
+    fi
+fi
+
+if prompt_yn "Configure Tmux"; then
+    conf_delete $tmux_conf_files
+    ln -s .dotfiles/.tmux.conf ../.tmux.conf
+fi
+
+if prompt_yn "Configure Erlang"; then
+    conf_delete $erlang_conf_files
+    ln -s .dotfiles/.erlang ../.erlang
+fi
+
+if prompt_yn "Configure .Xorg"; then
+	echo "set up .Xorg for ${System} and ${ShellName}"
+	conf_delete $xorg_conf_files
+	ln -s .dotfiles/xorg/.Xresources ../.Xresources
+fi
+
+
+if prompt_yn "Setup quicklisp for sbcl"; then
+    if is_exsist $SBCL is_exsist $CURL; then
+	conf_delete $quicklisp_conf_files
+	if [ -d "$HOME/.dotfiles/quicklisp" ]; then
+	    rm -rf "$HOME/.dotfiles/quicklisp/" 
 	fi
-	mkdir "$HOME/.emacs.d/tmp"
-
-fi
-
-if promptyn "Enable Vim"; then
-	echo "Delete and link conf files for Vim"
-	conf_delete $vim_conf_files
-	ln -s .dotfiles/.vim ../.vim
-	ln -s .dotfiles/.vimrc ../.vimrc
-
-	if [ -d "$HOME/.vim/bundle/" ]; then
-		echo "Delete all files in .vim/bundle"
-		rm -rf "$HOME/.vim/bundle/"
+	if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
+	    rm "$HOME/.dotfiles/quicklisp.lisp"
 	fi
-	mkdir "$HOME/.vim/bundle/"
-
-	if is_exsist $GIT; then
-		echo "Clone vundle"
-		git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	 else
-		echo "You don't have git!!!"
-		echo "You should intatll github.com/gmarik/vundle.git into your ~/.vim/bundle/"
-	 fi
-fi
-
-if promptyn "Enable Tmux"; then
-	conf_delete $tmux_conf_files
-	ln -s .dotfiles/.tmux.conf ../.tmux.conf
-fi
-
-if promptyn "Enable Erlang"; then
-	conf_delete $erlang_conf_files
-	ln -s .dotfiles/.erlang ../.erlang
-fi
-
-if promptyn "Enable Xresource"; then
-	echo "set up .Xresources for ${System} and ${ShellName}"
-	conf_delete $xresource_conf_files
-	ln -s .dotfiles/.Xresources ../.Xresources
-fi
-
-if promptyn "Setup ruby"; then
-	if is_exsist $RUBY is_exsist $CURL; then
-		sudo gem sources --remove https://rubygems.org/
-		sudo gem sources -a https://ruby.taobao.org/
-		case $System in
-			"Linux")
-				curl -sSL https://get.rvm.io | bash -s stable
-				sed -i 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
-				;;
-			 "Darwin")
-			 	curl -sSL https://get.rvm.io | bash -s stable
-				sed -i .bak 's!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!' $rvm_path/config/db
-				;;
-				*)
-				echo "no support for ${System}"
-				;;
-		esac
-	else
-		echo "no ruby or curl"
-	fi
-fi
-
-if promptyn "Setup quicklisp for sbcl"; then
-	if is_exsist $SBCL is_exsist $CURL; then
-		conf_delete $quicklisp_conf_files
-		if [ -d "$HOME/.dotfiles/quicklisp" ]; then
-			rm -rf "$HOME/.dotfiles/quicklisp/" 
-		fi
-		if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
-			rm "$HOME/.dotfiles/quicklisp.lisp"
-		fi
-		curl -O "https://beta.quicklisp.org/quicklisp.lisp"
-		sbcl --load ~/.dotfiles/pre_init.lisp
-		mv ~/quicklisp ~/.dotfiles/
-		ln -s .dotfiles/quicklisp ../quicklisp
-		sbcl --load ~/.dotfiles/after_init.lisp
-		ln -s .dotfiles/.sbclrc ../.sbclrc
-		rm ~/.dotfiles/quicklisp.lisp
+	curl -O "https://beta.quicklisp.org/quicklisp.lisp"
+	sbcl --load ~/.dotfiles/sbcl/pre_init.lisp
+	mv ~/quicklisp ~/.dotfiles/sbcl/
+	ln -s .dotfiles/sbcl/quicklisp ../quicklisp
+	#sbcl --load ~/.dotfiles/after_init.lisp
+	ln -s .dotfiles/sbcl/.sbclrc ../.sbclrc
+	rm ~/.dotfiles/quicklisp.lisp
    else
-		echo "I can't find ${CURL} or ${SBCL}"
+       echo "I can't find ${CURL} or ${SBCL}"
    fi
 fi
 
-if promptyn "Add configure into .profile"; then
-	cat "$HOME/.dotfiles/.profile_mine" >> "$HOME/.profile"
+if prompt_yn "Configure .profile"; then
+	cat "$HOME/.dotfiles/shell/.profile" >> "$HOME/.profile"
 	if [ $System == "OpenBSD" ]; then
-		echo "Setup package configure in OpenBSD"
-		echo "export http://www.ftp.ne.jp/OpenBSD/`uname -r`/packages/`machine -a`/" >> "$HOME/.profile"
+	    echo "Setup package configure in OpenBSD"
+	    echo "export http://www.ftp.ne.jp/OpenBSD/`uname -r`/packages/`machine -a`/" >> "$HOME/.profile"
 	fi
 fi
 
-if promptyn "Conf Shell resources"; then
+if prompt_yn "Configure csh/tcsh/ksh "; then
 	if [ $ShellName == "csh" ]; then
-		echo "Setup .cshrc for csh"
-		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
+	    echo "Setup .cshrc for csh"
+	    cat "$HOME/.dotfiles/shell/.cshrc" >> "$HOME/.cshrc"
+	elif [ $ShellName == "tcsh" ]; then
+	    echo "Setup .cshrc for tcsh"
+	    cat "$HOME/.dotfiles/shell/.cshrc" >> "$HOME/.cshrc"
 	elif [ $ShellName == "ksh" ]; then
-		echo "Setup .cshrc for ksh"
-		cat "$HOME/.dotfiles/.cshrc_mine" >> "$HOME/.cshrc"
+	    echo "Setup .cshrc for ksh"
+	    cat "$HOME/.dotfiles/shell/.cshrc" >> "$HOME/.cshrc"
 	fi	
 fi
 
