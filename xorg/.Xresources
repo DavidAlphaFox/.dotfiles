@@ -23,7 +23,7 @@ XTerm*allowBoldFont: true
 XTerm*eightBitInput: true
 XTerm*backarrowKey: false
 XTerm*openIm: true
-*inputMethod: scim
+*inputMethod: ibus
 *faceName: xft:monofur:pixelsize=18:antialias=True
 *faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 *font: xft:monofur:pixelsize=18:antialias=True
