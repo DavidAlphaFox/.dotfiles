@@ -80,14 +80,21 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 
 #Pulse Audio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
-
+set $sink `pactl list short sinks | grep RUNNING | cut -f1`	
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -5% 
+bindsym $mod+plus exec --no-startup-id pactl set-sink-volume $sink +5% 
+bindsym $mod+minus exec --no-startup-id pactl set-sink-volume $sink -5% 
+bindcode --release 140  exec --no-startup-id pactl set-sink-mute $sink toggle
+#Fn+F10 Fn+F11  
 bindsym XF86AudioPrev exec xbacklight -inc 20
 bindsym XF86AudioNext exec xbacklight -dec 20
 	
 workspace_layout tabbed
 
+exec --no-startup-id volumeicon
+
 bar {
     status_command i3status
 }
+	
