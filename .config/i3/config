@@ -83,8 +83,8 @@ bindsym $mod+Shift+e exit
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`	
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -5% 
-bindsym $mod+plus exec --no-startup-id pactl set-sink-volume $sink +5% 
-bindsym $mod+minus exec --no-startup-id pactl set-sink-volume $sink -5% 
+bindsym $mod+plus exec --no-startup-id mixer -s vol +10
+bindsym $mod+minus exec --no-startup-id mixer -s vol -10
 bindcode --release 140  exec --no-startup-id pactl set-sink-mute $sink toggle
 #Fn+F10 Fn+F11  
 bindsym XF86AudioPrev exec xbacklight -inc 20

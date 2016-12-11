@@ -36,7 +36,8 @@ XTerm*openIm: true
 *passwdFont: xft:monofur:pixelsize=18:antialias=True
 *.vt100.font: fixed
 *.vt100.encodingMode: true
-
+xterm*backarrowKeyIsErase:      true
+		
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
