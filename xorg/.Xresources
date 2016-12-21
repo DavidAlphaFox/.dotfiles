@@ -10,8 +10,6 @@ XTerm*loginShell: true
 XTerm*locale: UTF-8
 XTerm*scrollBar: false
 *xterm.termName: xterm-256color
-XTerm*faceName: xft:monofur:pixelsize=18:antialias=True
-XTerm*faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 XTerm*metaSendsEscape: true
 XTerm*highlightSelection: true
 XTerm*trimSelection: true
@@ -25,8 +23,8 @@ XTerm*openIm: true
 *inputMethod: ibus
 *faceName: xft:monofur:pixelsize=18:antialias=True
 *faceNameDoublesize: xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
-!*font: xft:monofur:style=Regular:pixelsize=18
-*font:	xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
+*font: xft:monofur:style=Regular:pixelsize=18:antialias=True
+!*font:	xft:WenQuanYi Bitmap Song:pixelsize=18:antialias=True
 *headingFont: xft:monofur:pixelsize=18:antialias=True
 *bodyFont: xft:monofur:pixelsize=18:antialias=True
 *labelFont: xft:monofur:pixelsize=18:antialias=True
