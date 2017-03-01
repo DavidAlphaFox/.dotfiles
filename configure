@@ -52,8 +52,7 @@ vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
 erlang_conf_files=".erlang"
 tmux_conf_files=".tmux.conf"
-xorg_conf_files=".Xresources .xinitrc .xsession"
-config_dir=".config"
+
 
 if prompt_yn "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
@@ -100,18 +99,6 @@ if prompt_yn "Configure Erlang"; then
     ln -s .dotfiles/.erlang ../.erlang
 fi
 
-if prompt_yn "Configure .Xorg"; then
-	echo "set up .Xorg for ${System} and ${ShellName}"
-	conf_delete $xorg_conf_files
-	ln -s .dotfiles/xorg/.Xresources ../.Xresources
-	ln -s .dotfiles/xorg/.xinitrc ../.xinitrc
-	ln -s .dotfiles/xorg/.xsession ../.xsession
-fi
-
-if prompt_yn "Linking .config"; then
-	conf_delete $config_dir
-	ln -s .dotfiles/.config ../.config
-fi
 
 if prompt_yn "Setup quicklisp for sbcl"; then
     if is_exsist $SBCL is_exsist $CURL; then
@@ -132,26 +119,5 @@ if prompt_yn "Setup quicklisp for sbcl"; then
    else
        echo "I can't find ${CURL} or ${SBCL}"
    fi
-fi
-
-if prompt_yn "Configure .profile"; then
-	cat "$HOME/.dotfiles/shell/.profile" >> "$HOME/.profile"
-	if [ $System == "OpenBSD" ]; then
-	    echo "Setup package configure in OpenBSD"
-	    echo "export http://www.ftp.ne.jp/OpenBSD/`uname -r`/packages/`machine -a`/" >> "$HOME/.profile"
-	fi
-fi
-
-if prompt_yn "Configure csh/tcsh/ksh "; then
-	if [ $ShellName == "csh" ]; then
-	    echo "Setup .cshrc for csh"
-	    cat "$HOME/.dotfiles/shell/.cshrc" >> "$HOME/.cshrc"
-	elif [ $ShellName == "tcsh" ]; then
-	    echo "Setup .cshrc for tcsh"
-	    cat "$HOME/.dotfiles/shell/.cshrc" >> "$HOME/.cshrc"
-	elif [ $ShellName == "ksh" ]; then
-	    echo "Setup .cshrc for ksh"
-	    cat "$HOME/.dotfiles/shell/.cshrc" >> "$HOME/.cshrc"
-	fi	
 fi
 
