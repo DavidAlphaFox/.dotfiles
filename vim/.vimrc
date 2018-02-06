@@ -15,7 +15,7 @@ syntax on
 " color scheme
 set t_ut=
 set background=dark
-color molokai
+color zenburn
 
 " highlight current line
 "au WinLeave * set nocursorline nocursorcolumn
