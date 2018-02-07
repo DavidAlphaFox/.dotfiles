@@ -39,8 +39,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 "--------------
 " IDE features
 "--------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'humiaozuzu/TabBar'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'humiaozuzu/TabBar'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
@@ -74,7 +74,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
 Plugin 'nono/vim-handlebars'
 Plugin 'briancollins/vim-jst'
-
+Plugin 'posva/vim-vue'
 "------- markup language -------
 Plugin 'tpope/vim-markdown'
 Plugin 'timcharper/textile.vim'
@@ -82,14 +82,9 @@ Plugin 'timcharper/textile.vim'
 "------- Ruby --------
 Plugin 'tpope/vim-endwise'
 
-"------- Go ----------
-Plugin 'jnwhiteh/vim-golang'
-
 "------- FPs ------
 Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'wlangstroth/vim-racket'
-" Plugin 'vim-scripts/VimClojure'
-" Plugin 'rosstimson/scala-vim-support'
+Plugin 'vim-scripts/VimClojure'
 Plugin 'oscarh/vimerl'
 "--------------
 " Color Schemes
