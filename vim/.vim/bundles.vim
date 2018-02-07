@@ -39,7 +39,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 "--------------
 " IDE features
 "--------------
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'humiaozuzu/TabBar'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
