@@ -5,6 +5,9 @@
 (when (file-exists-p "/usr/bin/sbcl")
   (setq inferior-lisp-program "/usr/bin/sbcl") 
   )
+;(when (file-exists-p "/usr/bin/clisp")
+;  (setq inferior-lisp-program "/usr/bin/clisp") 
+;  )
 
 (add-to-list 'load-path "~/emacs.d/elpa/slime-*/")
 
