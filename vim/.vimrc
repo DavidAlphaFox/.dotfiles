@@ -146,9 +146,9 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 set completeopt-=preview
 
 " NERDTree
-augroup ProjectDrawer
-  autocmd VimEnter * :NERDTree
-augroup END
+"augroup ProjectDrawer
+"  autocmd VimEnter * :NERDTree
+"augroup END
 
 imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
