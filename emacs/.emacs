@@ -49,7 +49,7 @@
 		("a7e47993e8887d433c83ac082c954bfe566bcfb1fcf0165c3e52fc9ccd37cf9b" "36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(package-selected-packages
 	 (quote
-		(vue-html-mode vue-mode yaml-tomato yaml-mode popwin popup-switcher popup-kill-ring popup-complete merlin material-theme haskell-snippets fuzzy-match fuzzy-format fuzzy flyspell-popup flyspell-lazy flymake-yaml flymake-shell flymake-hlint flymake-haskell-multi erlang ac-slime ac-haskell-process ac-etags ac-dabbrev))))
+		(helm helm-css-scss less-css-mode vue-html-mode vue-mode yaml-tomato yaml-mode popwin popup-switcher popup-kill-ring popup-complete merlin material-theme haskell-snippets fuzzy-match fuzzy-format fuzzy flyspell-popup flyspell-lazy flymake-yaml flymake-shell flymake-hlint flymake-haskell-multi erlang ac-slime ac-haskell-process ac-etags ac-dabbrev))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
