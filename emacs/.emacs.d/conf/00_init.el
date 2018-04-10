@@ -1,7 +1,7 @@
 (setq indent-tabs-mode nil) 
-(setq default-tab-width 2)
-(setq tab-width 2)
-(setq indent-line-function 'insert-tab)
+;;(setq default-tab-width 2)
+;;(setq tab-width 2)
+;;(setq indent-line-function 'insert-tab)
 
 ;;(setq tab-stop-list ()) 
 ;;(setq tab-stop-list '(2 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96)) 
