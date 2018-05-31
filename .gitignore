@@ -31,4 +31,6 @@ sbcl/quicklisp/
 .xmonad/history
 .config/
 !.config/i3/*
-emacs/.emacs.d
+emacs/emacs.d
+sbcl/sbclrc
+sbcl/quicklisp
