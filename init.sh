@@ -59,7 +59,6 @@ if ask_to_confirm "Configure Emacs"; then
     fi
     cd $HOME/.dotfiles
     ln -s .dotfiles/emacs/emacs.d ../.emacs.d
-    
 fi
 
 
