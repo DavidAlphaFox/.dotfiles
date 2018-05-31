@@ -22,10 +22,15 @@ quicklisp
 quicklisp.lisp
 .emacs.d/rfc/*
 \*.elc
-quicklisp/
+sbcl/quicklisp/
 .xmonad/xmonad-powerpc-linux
 .xmonad/xmonad-i386-linux
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
 .xmonad/history
+.config/
+!.config/i3/*
+emacs/emacs.d
+sbcl/sbclrc
+sbcl/quicklisp
