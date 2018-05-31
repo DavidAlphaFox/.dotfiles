@@ -47,7 +47,7 @@ conf_delete () {
     done
 }
 
-emacs_conf_files=".emacs .emacs.d"
+emacs_conf_files=".emacs.d"
 vim_conf_files=".vimrc .vim"
 quicklisp_conf_files=".sbclrc quicklisp"
 erlang_conf_files=".erlang"
@@ -57,20 +57,16 @@ tmux_conf_files=".tmux.conf"
 if prompt_yn "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
     conf_delete $emacs_conf_files
-    if [ -d "$HOME/.dotfiles/emacs/.emacs.d" ]; then
-	cd "$HOME/.dotfiles/emacs/.emacs.d" && git pull
+    if [ -d "$HOME/.dotfiles/emacs/.emacs.d/" ]; then
+	echo "update spacemacs"
+	cd $HOME/.dotfiles/emacs/.emacs.d && git pull
     else
-	cd "$HOME/.dotfiles/emacs/" && git clone https://github.com/syl20bnr/spacemacs .emacs.d
+	echo "install spacemacs"
+	cd $HOME/.dotfiles/emacs/ && git clone https://github.com/syl20bnr/spacemacs ./.emacs.d
     fi
-    
+    cd $HOME/.dotfiles
     ln -s .dotfiles/emacs/.emacs.d ../.emacs.d
-
-    if [ -d "$HOME/.emacs.d/tmp" ]; then
-	echo "delete tmp of emacs"
-	rm -rf "$HOME/.emacs.d/tmp"
-    fi
-    mkdir "$HOME/.emacs.d/tmp"
-
+    
 fi
 
 if prompt_yn "Configure Vim"; then
