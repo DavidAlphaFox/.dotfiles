@@ -42,7 +42,7 @@ delete_files () {
     done
 }
 
-emacs_conf_files=".emacs.d"
+emacs_conf_files=".emacs.d .spacemacs.d .dotfiles/emacs/spacemacs.d/init.el"
 quicklisp_conf_files=".sbclrc quicklisp"
 tmux_conf_files=".tmux.conf"
 
@@ -51,14 +51,15 @@ if ask_to_confirm "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
     delete_files $emacs_conf_files
     if [ -d "$HOME/.dotfiles/emacs/emacs.d/" ]; then
-	echo "update spacemacs"
-	cd $HOME/.dotfiles/emacs/emacs.d && git pull
+	      echo "update spacemacs"
+	      cd $HOME/.dotfiles/emacs/emacs.d && git pull
     else
-	echo "install spacemacs"
-	cd $HOME/.dotfiles/emacs/ && git clone https://github.com/syl20bnr/spacemacs emacs.d
+	      echo "install spacemacs"
+	      cd $HOME/.dotfiles/emacs/ && git clone https://github.com/syl20bnr/spacemacs emacs.d
     fi
     cd $HOME/.dotfiles
-    ln -s .dotfiles/emacs/emacs.d ../.emacs.d
+    ln -s $HOME/.dotfiles/emacs/emacs.d $HOME/.emacs.d
+    ln -s $HOME/.dotfiles/emacs/spacemacs.d $HOME/.spacemacs.d
 fi
 
 
