@@ -57,7 +57,12 @@ tmux_conf_files=".tmux.conf"
 if prompt_yn "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
     conf_delete $emacs_conf_files
-    ln -s .dotfiles/emacs/.emacs ../.emacs
+    if [ -d "$HOME/.dotfiles/emacs/.emacs.d" ]; then
+	cd "$HOME/.dotfiles/emacs/.emacs.d" && git pull
+    else
+	cd "$HOME/.dotfiles/emacs/" && git clone https://github.com/syl20bnr/spacemacs .emacs.d
+    fi
+    
     ln -s .dotfiles/emacs/.emacs.d ../.emacs.d
 
     if [ -d "$HOME/.emacs.d/tmp" ]; then
