@@ -42,11 +42,9 @@ delete_files () {
     done
 }
 
+
+
 emacs_conf_files=".emacs.d .spacemacs.d .dotfiles/emacs/spacemacs.d/init.el"
-quicklisp_conf_files=".sbclrc quicklisp"
-tmux_conf_files=".tmux.conf"
-
-
 if ask_to_confirm "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
     delete_files $emacs_conf_files
@@ -63,12 +61,14 @@ if ask_to_confirm "Configure Emacs"; then
 fi
 
 
+tmux_conf_files=".tmux.conf"
 if ask_to_confirm "Configure Tmux"; then
     delete_files $tmux_conf_files
     ln -s $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 fi
 
 
+quicklisp_conf_files=".sbclrc quicklisp"
 if ask_to_confirm "Setup quicklisp for sbcl"; then
     if is_app_exsist $CURL && is_app_exsist $SBCL; then
 	      delete_files $quicklisp_conf_files
@@ -85,5 +85,11 @@ if ask_to_confirm "Setup quicklisp for sbcl"; then
     else
         echo "I can't find curl or sbcl"
     fi
+fi
+
+i3_conf_files=".config/i3"
+if ask_to_confirm "Setup i3 tilling wm"; then
+   delete_files $i3_conf_files
+   ln -s $HOME/.dotfiles/i3 $HOME/.config/i3
 fi
 
