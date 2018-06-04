@@ -190,3 +190,4 @@ exec  nm-applet &
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xscreensaver -no-splash
 exec pasystray &
+exec gnome-keyring-daemon --replace
