@@ -177,6 +177,9 @@ bindcode --release 140  exec --no-startup-id pactl set-sink-mute $sink toggle
 ## screen brightness
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 21
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+## screenshot
+bindsym Print                      exec gnome-screenshot
+bindsym $alt+Print                 exec gnome-screenshot --window
 ## system menus
 set $mode_system select: lock(L) exit(E) reboot(R) poweroff(O) cancel(Esc)
 bindsym $mod+Shift+e mode "$mode_system"
