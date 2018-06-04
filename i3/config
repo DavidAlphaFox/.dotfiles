@@ -73,15 +73,21 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+z split h
-
-# split in vertical orientation
-bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+
+set $mode_split select: split in horizontal(h) in vertical(v) 
+
+bindsym $mod+v mode "$mode_split"
+mode "$mode_split" {
+    bindsym h split h, mode "default"
+    bindsym v split v, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+v mode "default"
+}
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -187,7 +193,9 @@ mode "$mode_system" {
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym o exec --no-startup-id systemctl poweroff, mode "default"
+    bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+Shift+e mode "default"
 }
 
 # Start i3bar to display a workspace bar (plus the system information i3status
