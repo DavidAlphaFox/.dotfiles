@@ -198,9 +198,11 @@ bar {
 
 exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id xautolock -time 5 -locker "xscreensaver-command --lock" &
-exec  nm-applet &
+exec --no-startup-id nm-applet --sm-disable  &
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xscreensaver -no-splash
 exec --no-startup-id sleep 3 && xfce4-power-manager
 exec pasystray &
+exec clipit
+exec blueman-applet 
 exec gnome-keyring-daemon --replace
