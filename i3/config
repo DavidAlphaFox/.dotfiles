@@ -140,8 +140,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -173,11 +171,20 @@ bindsym $mod+r mode "resize"
 ## pulseaudio
 
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`	
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +5% 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -5% 
-bindsym $mod+plus exec --no-startup-id pactl set-sink-volume $sink +5% 
-bindsym $mod+minus exec --no-startup-id pactl set-sink-volume $sink -5% 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +5% unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -5% unmute
 bindcode --release 140  exec --no-startup-id pactl set-sink-mute $sink toggle
+
+set $mode_system select: lock(L) exit(E) reboot(R) poweroff(O) cancel(Esc)
+bindsym $mod+Shift+e mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec --no-startup-id xscreensaver-command --lock, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym o exec --no-startup-id systemctl poweroff, mode "default"
+    bindsym Escape mode "default"
+}
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -189,5 +196,6 @@ exec --no-startup-id xautolock -time 5 -locker "xscreensaver-command --lock" &
 exec  nm-applet &
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xscreensaver -no-splash
+exec --no-startup-id sleep 3 && xfce4-power-manager
 exec pasystray &
 exec gnome-keyring-daemon --replace
