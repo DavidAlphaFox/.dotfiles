@@ -78,7 +78,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+f fullscreen toggle
 
 
-set $mode_split select: split in horizontal(h) in vertical(v) 
+set $mode_split select: split in horizontal(h) in vertical(v) cancel(Esc) 
 
 bindsym $mod+v mode "$mode_split"
 mode "$mode_split" {
