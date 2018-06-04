@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
+set $alt Mod1
 set $up k
 set $down j
 set $left h
@@ -178,8 +178,7 @@ bindcode --release 140  exec --no-startup-id pactl set-sink-mute $sink toggle
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 21
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 ## screenshot
-bindsym Print                      exec gnome-screenshot
-bindsym $alt+Print                 exec gnome-screenshot --window
+bindsym Print                      exec gnome-screenshot -i
 ## system menus
 set $mode_system select: lock(L) exit(E) reboot(R) poweroff(O) cancel(Esc)
 bindsym $mod+Shift+e mode "$mode_system"
