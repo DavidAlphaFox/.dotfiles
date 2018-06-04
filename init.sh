@@ -44,7 +44,7 @@ delete_files () {
 
 
 
-emacs_conf_files=".emacs.d .spacemacs.d .dotfiles/emacs/spacemacs.d/init.el"
+emacs_conf_files=".emacs.d .spacemacs.d"
 if ask_to_confirm "Configure Emacs"; then
     echo "Delete and link conf files for Emacs"
     delete_files $emacs_conf_files
