@@ -17,4 +17,4 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode))
 
-(neotree-toggle)
+;;(neotree-toggle)
