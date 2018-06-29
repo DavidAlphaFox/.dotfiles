@@ -6,7 +6,7 @@
   (setq default-buffer-file-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (prefer-coding-system 'utf-8))
-(setq indent-tabs-mode nil) 
+(setq indent-tabs-mode t) 
 (setq default-tab-width 2)
 (setq tab-width 2)
 (setq indent-line-function 'insert-tab)
