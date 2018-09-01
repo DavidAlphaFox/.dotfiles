@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 SBCL=`which sbcl`
 CURL=`which curl`
@@ -32,7 +32,7 @@ is_app_exsist () {
 
 delete_files () {
     for item in "$@"; do
-        if [[ ( -L "$HOME/${item}" ) || ( -f "$HOME/${item}" ) ]]; then
+        if [[ -L "$HOME/${item}"  ||  -f "$HOME/${item}"  ]]; then
 		        echo "Delete link or file ${item}"
 						rm "$HOME/${item}"	
         else
