@@ -17,5 +17,8 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode)
 )
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
 
-;;(neotree-toggle)
+(require 'slime)
+		;;(neotree-toggle)
