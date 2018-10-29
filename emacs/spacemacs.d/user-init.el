@@ -17,7 +17,14 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode)
 )
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(when (file-exists-p "/usr/local/bin/sbcl")
+  (setq inferior-lisp-program "/usr/local/bin/sbcl") 
+  )
+
+(when (file-exists-p "/usr/bin/sbcl")
+  (setq inferior-lisp-program "/usr/bin/sbcl") 
+  )
+
 (setq slime-contribs '(slime-fancy))
 
 (require 'slime)
