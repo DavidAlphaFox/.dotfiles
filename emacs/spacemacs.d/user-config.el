@@ -1,3 +1,5 @@
+(load-file "~/.spacemacs.d/config/slime-repl-ansi-color.el")
+
 (progn
   (set-language-environment "UTF-8")
   (set-terminal-coding-system 'utf-8)
@@ -17,16 +19,7 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode)
 )
-;;(when (file-exists-p "/usr/local/bin/sbcl")
-;;  (setq inferior-lisp-program "/usr/local/bin/sbcl") 
-;;  )
 
-;;(when (file-exists-p "/usr/bin/sbcl")
-;;  (setq inferior-lisp-program "/usr/bin/sbcl") 
-;;  )
 (setq inferior-lisp-program "ros -Q run")
-
-(setq slime-contribs '(slime-fancy))
-
 (require 'slime)
-		;;(neotree-toggle)
+(slime-repl-ansi-on)

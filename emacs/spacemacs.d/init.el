@@ -318,7 +318,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
-  (load-file "~/.spacemacs.d/user-init.el")
+  (load-file "~/.spacemacs.d/user-config.el")
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
