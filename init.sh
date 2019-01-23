@@ -68,25 +68,6 @@ if ask_to_confirm "Configure Tmux"; then
 fi
 
 
-quicklisp_conf_files=".sbclrc quicklisp"
-if ask_to_confirm "Setup quicklisp for sbcl"; then
-    if is_app_exsist $CURL && is_app_exsist $SBCL; then
-	      delete_files $quicklisp_conf_files
-	      if [ -x "$HOME/.dotfiles/sbcl/quicklisp.lisp" ]; then
-	          rm "$HOME/.dotfiles/sbcl/quicklisp.lisp"
-	      fi
-	      cd $HOME/.dotfiles/sbcl && curl -O "https://beta.quicklisp.org/quicklisp.lisp"
-	      sbcl --load ~/.dotfiles/sbcl/init_quicklisp.lisp
-              mv $HOME/quicklisp $HOME/.dotfiles/sbcl/
-              mv $HOME/.sbclrc $HOME/.dotfiles/sbcl/sbclrc
-	      ln -s $HOME/.dotfiles/sbcl/quicklisp $HOME/quicklisp
-	      ln -s $HOME/.dotfiles/sbcl/sbclrc $HOME/.sbclrc
-	      rm $HOME/.dotfiles/sbcl/quicklisp.lisp
-    else
-        echo "I can't find curl or sbcl"
-    fi
-fi
-
 i3_conf_files=".config/i3"
 if ask_to_confirm "Setup i3 tilling wm"; then
    delete_files $i3_conf_files
