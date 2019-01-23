@@ -1,5 +1,3 @@
-(load-file "~/.spacemacs.d/config/slime-repl-ansi-color.el")
-
 (progn
   (set-language-environment "UTF-8")
   (set-terminal-coding-system 'utf-8)
@@ -22,4 +20,5 @@
 
 (setq inferior-lisp-program "ros -Q run")
 (require 'slime)
+(load-file "~/.spacemacs.d/elisp/slime-repl-ansi-color.el")
 (slime-repl-ansi-on)
