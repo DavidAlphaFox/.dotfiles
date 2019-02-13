@@ -1,0 +1,24 @@
+/* XPM */
+static char *mini_youtube[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 4 1 ",
+"  c #CC191E",
+". c #FFFEFE",
+"X c white",
+"o c None",
+/* pixels */
+"oooo      oooo",
+"ooo        ooo",
+"oo          oo",
+"o            o",
+"   XXXXXXXX   ",
+"   XXXXXXXX   ",
+"   XXX  XXX   ",
+"   XXX .XXX   ",
+"   XXXXXXXX   ",
+"   XXXXXXXX   ",
+"o            o",
+"oo          oo",
+"ooo        ooo",
+"oooo      oooo"
+};

@@ -1,0 +1,32 @@
+/* XPM */
+static char *mini_calc[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 12 1 ",
+"  c gray28",
+". c gray32",
+"X c gray35",
+"o c gray40",
+"O c #06C286",
+"+ c #07CE8E",
+"@ c gray52",
+"# c gray55",
+"$ c gray65",
+"% c #83E7C7",
+"& c white",
+"* c None",
+/* pixels */
+"**************",
+"*$$$$$$XXXXXX*",
+"*$$$$$$XXXXXX*",
+"*$$$$$$XXXXXX*",
+"*$$@@@$XX  XX*",
+"*$$$$$$XXXXXX*",
+"*$$$$$$XXXXXX*",
+"*######o++++o*",
+"*######++++++*",
+"*##&&##++&&+++",
+"*##&&##++%%+++",
+"*######++++++*",
+"*######.+++++*",
+"*********O+***"
+};

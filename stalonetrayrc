@@ -1,0 +1,11 @@
+kludges force_icons_size
+no_shrink  true
+skip_taskbar true
+sticky true
+dockapp_mode simple
+parent_bg true
+transparent false
+geometry 2x2
+max_geometry 2x2
+icon_size 26
+slot_size 26

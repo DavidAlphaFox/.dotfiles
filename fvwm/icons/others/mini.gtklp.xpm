@@ -1,0 +1,29 @@
+/* XPM */
+static char *mini_gtklp[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1 ",
+"  c black",
+". c red",
+"X c green",
+"o c #808080",
+"O c #C0C0C0",
+"+ c white",
+"@ c None",
+/* pixels */
+"@@@@@@@@@ooo@@@@",
+"@@@@@@@@o+++oo@@",
+"@@@@@@@o++++++  ",
+"@@@@@oo++++++ @@",
+"@@@oo+o+++++ @@@",
+"@oo+OOOoo++ O  @",
+"o+OOXXOOOoo Ooo ",
+"o+++OO..OOOoooo ",
+"o+OO++OOOoooooo ",
+"o+OOOO+oooooooo ",
+"ooOOOOOoooooo  @",
+"@oooOOOoooo  o @",
+"@ OOooOoo  oo  @",
+"@@  OOo  oo  @@@",
+"@@@@  Ooo  @@@@@",
+"@@@@@@   @@@@@@@"
+};

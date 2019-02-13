@@ -1,0 +1,23 @@
+/* XPM */
+static char *mini_wifi[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 3 1 ",
+"  c #0083FF",
+". c white",
+"X c None",
+/* pixels */
+"XXXXX    XXXXX",
+"XXX        XXX",
+"XX          XX",
+"X   ......   X",
+"X ..      .. X",
+"  . ...... .  ",
+"   ..    ..   ",
+"     ....     ",
+"     .  .     ",
+"X     ..     X",
+"X     ..     X",
+"XX          XX",
+"XXX        XXX",
+"XXXXX    XXXXX"
+};

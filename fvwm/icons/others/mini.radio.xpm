@@ -1,0 +1,35 @@
+/* XPM */
+static char *mini_radio[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 15 1 ",
+"  c #006D99",
+". c #0990BE",
+"X c #0991BF",
+"o c #11B0E0",
+"O c #12B0E0",
+"+ c #4DC4E8",
+"@ c #83D6EF",
+"# c #DBF3FA",
+"$ c #E5F6FC",
+"% c #F6FCFE",
+"& c #F8FDFE",
+"* c #FAFDFE",
+"= c #FEFFFF",
+"- c white",
+"; c None",
+/* pixels */
+";;;;;;;;o;;;;;",
+";;;;;oo;;;;;;;",
+";;;o;;;;;;;;;;",
+"oooooooooooooo",
+"o            o",
+"o...........Xo",
+"oooooooO--$ooo",
+"o-o-%o-o----oo",
+"oooooo--o&--oo",
+"ooooo+--=#o--o",
+"oooooo--oo--@o",
+"oooooo-o*---oo",
+"ooooooo----ooo",
+";oooooooooooo;"
+};

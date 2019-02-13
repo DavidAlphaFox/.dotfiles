@@ -1,0 +1,35 @@
+/* XPM */
+static char *mini_urxvt[] = {
+/* columns rows colors chars-per-pixel */
+"14 14 15 1 ",
+"  c #03232F",
+". c #022732",
+"X c #002A35",
+"o c #002B36",
+"O c #07303B",
+"+ c #476467",
+"@ c #758A89",
+"# c #839496",
+"$ c #93A199",
+"% c #94A19B",
+"& c #94A29C",
+"* c #FDF6E3",
+"= c #FEF7E4",
+"- c #FEF9E5",
+"; c white",
+/* pixels */
+";;;;;;;;;;;;;;",
+"#............#",
+"#oooooooooooo#",
+"#ooo======ooo#",
+"#ooX%oooo+ooo#",
+"#ooX&oooooooo#",
+"#ooX& ****Xoo#",
+"#ooX&oooooooo#",
+"#ooX$oooo@Xoo#",
+"#ooo------ooo#",
+"#oooooooooooo#",
+"#OOOOOOOOOOOO#",
+";;;;;;;;;;;;;;",
+";;;;######;;;;"
+};
