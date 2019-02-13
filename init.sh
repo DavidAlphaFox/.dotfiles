@@ -68,9 +68,4 @@ if ask_to_confirm "Configure Tmux"; then
 fi
 
 
-i3_conf_files=".config/i3"
-if ask_to_confirm "Setup i3 tilling wm"; then
-   delete_files $i3_conf_files
-   ln -s $HOME/.dotfiles/i3 $HOME/.config/i3
-fi
 
