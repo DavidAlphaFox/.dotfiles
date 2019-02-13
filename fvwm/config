@@ -91,7 +91,7 @@ Key F4          A       M       Desk 0 3
 DestroyFunc StartFunction
 AddToFunc StartFunction
 + I Module FvwmCommandS
-+ I Module FvwmPager
++ I Module FvwmPager 0 3
 + I Module FvwmButtons CDEdock
 + I Module FvwmButtons StatusBar 
 + I Module FvwmAnimate
@@ -250,7 +250,7 @@ Style FvwmPager MouseFocusClickRaises
 *FvwmPager: BalloonFont xft:Inconsolata Nerd Font Mono:medium:size=9:antialias=True
 *FvwmPager: BalloonFore #000000
 *FvwmPager: BalloonYOffset +2
-*FvwmPager: Geometry 50x200+0+0
+*FvwmPager: Geometry 200x200+0+0
 *FvwmPager: Hilight #4991A6
 *FvwmPager: SmallFont 5x8
 
