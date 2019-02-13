@@ -77,10 +77,10 @@ Key 3		A     	M	Maximize 100 0  # horizontal
 Key 4		A     	M	Maximize 100 100
 Key t   A       M Exec exec xfce4-terminal
 Key r		A				M	Exec exec rofi -width 15 -xoffset -810 -yoffset 365 -show run                                 
-Key F1          A       M       Desk 0 0
-Key F2          A       M       Desk 0 1
-Key F3          A       M       Desk 0 2
-Key F4          A       M       Desk 0 3
+Key F1          A       M       GotoDesk 0 0
+Key F2          A       M       GotoDesk 0 1
+Key F3          A       M       GotoDesk 0 2
+Key F4          A       M       GotoDesk 0 3
 
 ###############################################################################
 #                                                                             #
@@ -151,7 +151,7 @@ AddToFunc Maximize-Func		M Maximize	 0 100
 ###############################################################################
 ImagePath ${HOME}/.fvwm:${HOME}/.fvwm/icons/cde:${HOME}/.fvwm/icons/irix:${HOME}/.fvwm/icons/others
 ClickTime 750
-DeskTopSize 1x4
+DeskTopSize 1x1
 EdgeResistance 250
 EdgeScroll 0 0
 TitleStyle Center
@@ -250,7 +250,9 @@ Style FvwmPager MouseFocusClickRaises
 *FvwmPager: BalloonFont xft:Inconsolata Nerd Font Mono:medium:size=9:antialias=True
 *FvwmPager: BalloonFore #000000
 *FvwmPager: BalloonYOffset +2
-*FvwmPager: Geometry 200x200+0+0
+*FvwmPager: Geometry 50x200+0+0
+*FvwmPager: Rows 4
+*FvwmPager: Columns 1
 *FvwmPager: Hilight #4991A6
 *FvwmPager: SmallFont 5x8
 
@@ -332,14 +334,14 @@ Style CDEdock !Maximizable, !Iconifiable, !Title, !Borders, \
     *CDEdock: (Size 1x1, Icon terminal2.png, \
                    Action (Mouse 1) Exec xfce4-terminal, \
                    Action (Mouse 3) Popup cde_term)
-    *CDEdock(Back #4089A0, Size 4x1,  Icon cde_1.xpm, Action "Desk 0 0")
-    *CDEdock(Back #4089A0, Size 4x1, Icon cde_2.xpm, Action "Desk 0 1")
+    *CDEdock(Back #4089A0, Size 4x1,  Icon cde_1.xpm, Action "GotoDesk 0 0")
+    *CDEdock(Back #4089A0, Size 4x1, Icon cde_2.xpm, Action "GotoDesk 0 1")
     *CDEdock(Size1x1,Icon media-flash.png, \
                  Action (Mouse1) Exec dsbmc)
     *CDEdock(Size 1x1, Icon help-info.png, \
                  Action (Mouse1) Popup cde_system)
-	*CDEdock(Back #4089A0, Size 4x1, Icon cde_3.xpm, Action "Desk 0 2")
-	*CDEdock(Back #4089A0, Size 4x1, Icon cde_4.xpm, Action "Desk 0 3")
+	*CDEdock(Back #4089A0, Size 4x1, Icon cde_3.xpm, Action "GotoDesk 0 2")
+	*CDEdock(Back #4089A0, Size 4x1, Icon cde_4.xpm, Action "GotoDesk 0 3")
     *CDEdock: (Size1x1, Icon shutdown.png, \
                    Action (Mouse 1) Popup cde_exit) 
 *CDEdock: (End)
@@ -379,7 +381,7 @@ Style StatusBar !Maximizable, !Iconifiable, !Title, !Borders, \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmclock" \
              `Exec exec wmclock -s -led orange`)
 *StatusBar: (Size 1x1, Padding 2, Frame 2, \
-             Swallow(UseOld,NoClose,NoTitle) "stalonetray" \
+             Swallow(UseOld,NoClose,Respawn,NoTitle) "stalonetray" \
              `Exec exec stalonetray`)
 *StatusBar: (Size 1x1, Padding 2, Frame 2,  \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmsmixer" \
