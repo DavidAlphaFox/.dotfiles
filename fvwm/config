@@ -44,11 +44,11 @@ Key Page_Down A CM    Scroll  100000 0
 
 # Ctrl+Alt program shortcuts
 #
-Key C A CM            Exec exec xclock
+Key L A CM            Exec exec xlock
 Key K A CM            Close
 Key M A CM            Menu RootMenu Nop
-Key R A CM            Exec exec rofi -width 15 -xoffset -810 -yoffset 365 -show run                                 
-Key T A CM            Exec exec xfce4-terminal
+Key R A CM            Restart
+
 
 # Simple default mouse bindings for the root window:
 #
@@ -71,13 +71,12 @@ Mouse 2	I A           Iconify
 Mouse 2	FST A         Menu Window-Ops Nop
 Mouse 3	TSIF A        RaiseLower
 
-Key 1		A	M	Iconify
+Key 1		A				M	Iconify
 Key 2		A     	M	Maximize 0 100  # vertical
 Key 3		A     	M	Maximize 100 0  # horizontal
 Key 4		A     	M	Maximize 100 100
-Key q		A	M	Close
-Key m       A       M       Popup RootMenu
-Key r		A	M	Restart
+Key t   A       M Exec exec xfce4-terminal
+Key r		A				M	Exec exec rofi -width 15 -xoffset -810 -yoffset 365 -show run                                 
 Key F1          A       M       Desk 0 0
 Key F2          A       M       Desk 0 1
 Key F3          A       M       Desk 0 2
