@@ -100,11 +100,11 @@ AddToFunc StartFunction
 + I Read cde quiet
 + I TestRc (-1) Read $./cde quiet
 + I Exec exec ibus-daemon -d -r -x
-+ I Exec exec networkmgr &
-+ I Exec exec sbxkb &
+
 DestroyFunc InitFunction
 AddToFunc InitFunction
-+ I Nop
++ I Exec exec networkmgr &
++ I Exec exec sbxkb &
 
 DestroyFunc RestartFunction
 AddToFunc RestartFunction
