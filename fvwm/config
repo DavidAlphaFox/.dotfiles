@@ -368,25 +368,25 @@ Style StatusBar !Maximizable, !Iconifiable, !Title, !Borders, \
 	Sticky, NeverFocus, StaysPut, WindowListSkip, CirculateSkip,\
 	FixedSize, !Closable, !FixedPosition
 
-#*StatusBar: Geometry 272x68-0+0
-*StatusBar: Geometry 544x68-0+0
+*StatusBar: Geometry 272x204-0+0
+#*StatusBar: Geometry 554x68-0+0
 *StatusBar: Font "Shadow=3 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=True"
-*StatusBar: Rows 1
-*StatusBar: Columns 6
+*StatusBar: Rows 3
+*StatusBar: Columns 3
 *StatusBar: Fore black
 *StatusBar: Back #4089A0
 *StatusBar: BoxSize dumb
 
-*StatusBar: (Size 1x1, Padding 2, Frame 2, \
+*StatusBar: (Size 1x1, Padding 1, Frame 2, \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmclock" \
              `Exec exec wmclock -s -led orange`)
-*StatusBar: (Size 1x1, Padding 2, Frame 2, \
+*StatusBar: (Size 1x1, Padding 1, Frame 2, \
              Swallow(UseOld,NoClose,Respawn,NoTitle) "stalonetray" \
-             `Exec exec stalonetray`)
-*StatusBar: (Size 1x1, Padding 2, Frame 2,  \
+             `Exec exec stalonetray --scrollbars-size 2`)
+*StatusBar: (Size 1x1, Padding 1, Frame 2,  \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmsmixer" \
              `Exec exec wmsmixer -s -l orange`)
-*StatusBar: (Size 3x1, Padding 2, Frame 2, \
+*StatusBar: (Size 3x2, Padding 1, Frame 2, \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "xosview" \
              `Exec exec xosview`)
 

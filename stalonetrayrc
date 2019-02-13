@@ -9,3 +9,4 @@ geometry 2x2
 max_geometry 2x2
 icon_size 26
 slot_size 26
+scrollbars horizontal
