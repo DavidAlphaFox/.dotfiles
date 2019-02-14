@@ -166,27 +166,27 @@ IgnoreModifiers L25
 ###############################################################################
 
 DefaultColors \#000000 \#c0c0c0
-DefaultFont xft:Inconsolara:size=11:antialias=True
+DefaultFont "xft:WenQuanYi Bitmap Song:size=11:antialias=True,xft:Inconsolara:size=11:antialias=True"
 Emulate Mwm
 MenuStyle * Mwm
 MenuStyle * Hilight3DOff
 MenuStyle * SeparatorsLong
 MenuStyle * BorderWidth 1
 MenuStyle * VerticalMargins 10 10
-MenuStyle * Font "xft:Inconsolata Nerd Font Mono:medium:size=11:antialias:True"
+MenuStyle * Font "xft:WenQuanYi Bitmap Song:medium:Regular:size=11:antialias:True,xft:Inconsolata Nerd Font Mono:medium:size=11:antialias:True"
 MenuStyle * Foreground white, Background "#c0c0c0"
 MenuStyle * ActiveFore white, HilightBack "#02a5d8"
 MenuStyle * VerticalItemSpacing 2 3, VerticalTitleSpacing 0 2
 BorderStyle Inactive -- HiddenHandles NoInset
 BorderStyle Active -- HiddenHandles NoInset
 TitleStyle Centered Height 17
-TitleStyle * Font xft:Inconsolata Nerd Font Mono:medium:Bold:size=12:antialias:True
+TitleStyle * Font "xft:WenQuanYi Bitmap Song:medium:Bold:size=12:antialias:True,xft:Inconsolata Nerd Font Mono:medium:Bold:size=12:antialias:True"
 Style * BackColor \#c0c0c0
 Style * ClickToFocus
 Style * DecorateTransient
 Style * EdgeMoveDelay 250
 Style * EdgeMoveResistance 10
-Style * Font xft:Inconsolata Nerd Font Mono:medium:Bold:size=12:antialias=True
+Style * Font "xft:WenQuanYi Bitmap Song:medium:size=12:antialias:True,xft:Inconsolata Nerd Font Mono:medium:Bold:size=12:antialias=True"
 Style * ForeColor \#606060
 Style * FPLenient
 Style * HilightBack \#c0c0c0
@@ -247,7 +247,7 @@ Style FvwmPager MouseFocusClickRaises
 *FvwmPager: BalloonBack #ffffff
 *FvwmPager: BalloonBorderColor #000000
 *FvwmPager: BalloonBorderWidth 1
-*FvwmPager: BalloonFont xft:Inconsolata Nerd Font Mono:medium:size=9:antialias=True
+*FvwmPager: BalloonFont "xft:WenQuanYi Bitmap Song:Bold:size=9:antialias:True,xft:Inconsolata Nerd Font Mono:medium:size=9:antialias=True"
 *FvwmPager: BalloonFore #000000
 *FvwmPager: BalloonYOffset +2
 *FvwmPager: Geometry 50x200+0+0
@@ -262,27 +262,27 @@ Style FvwmPager MouseFocusClickRaises
 Style FvwmIconMan	BorderWidth 0
 Style FvwmIconMan  Color black/SlateGray, HilightBack SlateGray, Sticky
 Style * IconBox 50x650+0+225 
-Style * IconFont "Shadow=0 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=true:antialias:True"
+Style * IconFont "Shadow=0 SE:xft:WenQuanYi Bitmap Song:medium:pixelsize=12:minspace=true:antialias:True,Shadow=0 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=true:antialias:True"
 *FvwmIconMan*numManagers 1
 
 *FvwmIconMan*1*title                ""
 *FvwmIconMan*1*managergeometry      0x0+0+0
 *FvwmIconMan*1*Colorset           2
 *FvwmIconMan*1*shape true
-*FvwmIconMan*1*Font  "Shadow=0 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=16:minspace=true"
+*FvwmIconMan*1*Font  "Shadow=0 SE:xft:WenQuanYi Bitmap Song:medium:pixelsize=16:minspace=true,Shadow=0 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=16:minspace=true"
 
 # FVWM banner
 *FvwmBanner: NoDecor
 *FvwmBanner: Pixmap Logo.png
 # FVWM Identify app from root menu
-*FvwmIdent: Font "xft:Inconsolata Nerd Font Mono:medium:size=10"
+*FvwmIdent: Font "xft:WenQuanYi Bitmap Song:medium:size=10,xft:Inconsolata Nerd Font Mono:medium:size=10"
 *FvwmIdent: Fore white
 *FvwmIdent: Back #454749
 *FvwmIdent: MinimalLayer 6
 # FVWM quit dialog
-*FvwmFormDefault: Font "xft:Inconsolata Nerd Font Mono:mediumsize=10"
-*FvwmFormDefault: ButtonFont "xft:Inconsolata Nerd Font Mono:medium:size=10"
-*FvwmFormDefault: TimeoutFont "xft:Inconsolata Nerd Font Mono:medium:size=8"
+*FvwmFormDefault: Font "xft:WenQuanYi Bitmap Song:mediumsize=10,xft:Inconsolata Nerd Font Mono:mediumsize=10"
+*FvwmFormDefault: ButtonFont "xft:WenQuanYi Bitmap Song:medium:size=10,xft:Inconsolata Nerd Font Mono:medium:size=10"
+*FvwmFormDefault: TimeoutFont "xft:WenQuanYi Bitmap Song:medium:size=8,xft:Inconsolata Nerd Font Mono:medium:size=8"
 *FvwmFormDefault: Fore white
 *FvwmFormDefault: Back #454749
 *FvwmFormDefault: ItemFore white
@@ -304,7 +304,7 @@ Style CDEdock !Maximizable, !Iconifiable, !Title, !Borders, \
 
 
 *CDEdock: Geometry 1064x76+428-0
-*CDEdock: Font "Shadow=3 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=True"
+*CDEdock: Font "Shadow=3 SE:xft:WenQuanYi Bitmap Song:medium:pixelsize=12:minspace=True,Shadow=3 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=True"
 *CDEdock: Rows 1
 *CDEdock: Columns 9
 *CDEdock: Fore black
@@ -370,7 +370,7 @@ Style StatusBar !Maximizable, !Iconifiable, !Title, !Borders, \
 
 *StatusBar: Geometry 272x204-0+0
 #*StatusBar: Geometry 554x68-0+0
-*StatusBar: Font "Shadow=3 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=True"
+*StatusBar: Font "Shadow=3 SE:xft:WenQuanYi Bitmap Song:medium:pixelsize=12:minspace=True,Shadow=3 SE:xft:Inconsolata Nerd Font Mono:medium:pixelsize=12:minspace=True"
 *StatusBar: Rows 3
 *StatusBar: Columns 3
 *StatusBar: Fore black
