@@ -173,7 +173,7 @@ MenuStyle * Hilight3DOff
 MenuStyle * SeparatorsLong
 MenuStyle * BorderWidth 1
 MenuStyle * VerticalMargins 10 10
-MenuStyle * Font "xft:WenQuanYi Bitmap Song:medium:Regular:size=11:antialias:True,xft:Inconsolata Nerd Font Mono:medium:size=11:antialias:True"
+MenuStyle * Font "xft:Inconsolata Nerd Font Mono:medium:size=11:antialias:True"
 MenuStyle * Foreground white, Background "#c0c0c0"
 MenuStyle * ActiveFore white, HilightBack "#02a5d8"
 MenuStyle * VerticalItemSpacing 2 3, VerticalTitleSpacing 0 2
