@@ -315,7 +315,7 @@ Style CDEdock !Maximizable, !Iconifiable, !Title, !Borders, \
 #    *CDEdock: (Back #909090, Size 2x12, Frame 0)
 #    *CDEdock: (Back #909090, Size 10x2, Frame 0)
     *CDEdock: (Size 10x10, Icon n.png, \
-                   Action (Mouse 1) Exec gvim )
+                   Action (Mouse 1) Exec emacs )
 *CDEdock: (End)
 
 *CDEdock: (Size 1x1, Container(rows 12, columns 1, Frame 0))
