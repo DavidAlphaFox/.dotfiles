@@ -321,7 +321,7 @@ Style CDEdock !Maximizable, !Iconifiable, !Title, !Borders, \
 *CDEdock: (Size 1x1, Container(rows 12, columns 1, Frame 0))
    # *CDEdock(Back #909090, Size 1x2)
     *CDEdock: (Size 1x10, Icon folder.png, \
-                   Action (Mouse 1) Exec  pcmanfm )
+                   Action (Mouse 1) Exec xfe )
 *CDEdock: (End)
 
 *CDEdock: (Size 1x1, Container(rows 12, columns 1, Frame 0))
