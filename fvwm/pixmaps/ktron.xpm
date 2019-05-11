@@ -1,0 +1,37 @@
+/* XPM */
+static char *ktron[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 15 1 ",
+"  c black",
+". c #181818",
+"X c gray19",
+"o c #400000",
+"O c #000040",
+"+ c #000060",
+"@ c #585858",
+"# c #800000",
+"$ c #A00000",
+"% c #C00000",
+"& c #E00000",
+"* c #000080",
+"= c #0000A0",
+"- c #0000E0",
+"; c blue",
+/* pixels */
+"                ",
+" XXX*-------OXX@",
+" XXX*=OOOOO-OXX@",
+" ***;=.XXX.-OXX@",
+" -===*.XXX.-OXX@",
+" -O##### X.-OXX@",
+" -O&$$$%oX.-OXX@",
+" -O&o. &oX.-OXX@",
+" -O&oX.&oX.+ XX@",
+" -O..X.&%##### @",
+" -OXXX.$$$$$$%o@",
+" + XXXX..... &o@",
+" XXXXXXX.... &o@",
+" XXXXXX.&&&&&%o@",
+" XXXXXX.oooooo @",
+"@@@@@@@@@@@@@@@@"
+};

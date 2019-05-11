@@ -1,0 +1,32 @@
+/* XPM */
+static char *home_small[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 10 1 ",
+"  c black",
+". c #800000",
+"X c red",
+"o c #008000",
+"O c navy",
+"+ c blue",
+"@ c #800080",
+"# c #808080",
+"$ c #C0C0C0",
+"% c None",
+/* pixels */
+"%%%%%%%%% %%%%%%",
+"%%     %   %%%%%",
+"%  oo          %",
+"  oooo  O+  .X %",
+" ooooo O@.O  . %",
+"  ooo OO#..+   %",
+"     O+O@..++   ",
+"    O+++++++++  ",
+"    OOOO@+++++ %",
+"%   +O$#@+...+ %",
+"%% .+O#..+...+O%",
+"% o.+O$#@+...+O%",
+"  ooOOoo.+...+O%",
+"  o O ooO+...+O%",
+"%   O   OO###O %",
+"%%             %"
+};

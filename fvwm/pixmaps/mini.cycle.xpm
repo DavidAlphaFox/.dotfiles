@@ -1,0 +1,31 @@
+/* XPM */
+static char *cycle[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 9 1 ",
+"  c black",
+". c gray25",
+"X c #606060",
+"o c #008080",
+"O c #60A0A0",
+"+ c #808080",
+"@ c #C0C0C0",
+"# c white",
+"$ c None",
+/* pixels */
+"$++++ $  ++++$$ ",
+"$ @@@X oo+@@@# X",
+"$#@@@Xoooo+@@@@X",
+"+@@@@XOoo $+@@@X",
+"+@@+ X$@ $$ @@@X",
+"+@+$$$$$$$ XXXX ",
+"++o $$$$$$$$oo $",
+" ooo $$$$$$oooo ",
+" oooO$$$$$$ ooo ",
+"$ oo$$$$$$$$ o#X",
+" ++++ $$$$$$$#@X",
+"+@@@ $$ @$+ #@@X",
+"+@@@#$ ooO+@@@@.",
+"+@@@@#Oooo+@@@+$",
+"+ +@@@#oo +@@@ $",
+" $$.XXX  $ XXXX$"
+};

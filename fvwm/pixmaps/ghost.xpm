@@ -1,0 +1,26 @@
+/* XPM */
+static char *ghost[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1 ",
+"  c black",
+". c #808080",
+"X c white",
+"o c None",
+/* pixels */
+"oooooooooooooooo",
+"oooooo .. oooooo",
+"oooooXXXXXXooooo",
+"oooo XXXXXX oooo",
+"oooo.X XX X.oooo",
+"ooXXXX.XX.X.. oo",
+"ooXXXXXXXXXXXXoo",
+"oooXXXXXXXXXX.oo",
+"ooooXXXXXXXXoooo",
+"ooooXXXXXXXX ooo",
+"ooooXXXXXXXXXooo",
+"ooo XXXXXXXXXXoo",
+"oooXXXXXXX.XXX.o",
+"oo.XXX XXX XXX o",
+"oo XX.oooooooooo",
+"oooooooooooooooo"
+};

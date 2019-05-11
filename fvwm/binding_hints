@@ -1,0 +1,60 @@
+#======== Useful Syntax and Buttons/Windows/Mods/Mouse IDs for Bindings 
+
+# Default Binding Syntax
+ Key 	{(window)} [key] 	[Context] 	[Modifier] 	[Action]
+ Mouse  {(window)} [button] 	[Context] 	[Modifier] 	[Action]
+
+      Button: 0=any, 1, 2 or 3
+      |       Context: R=RootWdw,  W=AppsWdw, T=TitleBar, S=Sides
+      |       |        F=Frame (corners), I=IconWindow, 0-9=WindowButtons
+      |       |        
+      |       |       Modifiers: None,Control,Shift,Meta,Any,4=hyper
+      |       |       |       Function
+      +------ +------ +------ +-------
+
+
+
+#  Window Buttons and Window ID
++--------------------------------------------------------+
+|        Root Window                                     |
+| Icon                                                   |
+|                                                        |
+| F------------------------S--------------------------F| |
+| | 1 3 5 7 9         Title Bar (T)      0  8  6  4  2 | |
+| +----------------------------------------------------+ |
+| |                                                    | |
+| S                        W                           S |
+| |                                                    | |
+| F------------------------S--------------------------F  |
+|                                                        |
+
+# Contexts:
+    R = Root Window
+    W = Application Window (anywhere inside borders)
+    F = Frame Corners
+    S = Frame Sides
+    T = Title Bar
+    I = Icon (Iconified in the IconBox) 
+    A = Anywhere         
+
+# Valid Modifiers
+    N = None
+    C = Control
+    S = Shift
+    M = Meta (Alt)
+    4 = Hyper (Start/Win Key)
+    L = Caps Lock
+    A = Any modifier
+
+
+# Mouse Buttons Numbering
+
+    1 = left button
+    2 = middle button (pressing the scroll wheel)
+    3 = right button
+    4 = turn scroll wheel up
+    5 = turn scroll wheel down
+    6 = push scroll wheel left
+    7 = push scroll wheel right
+    8 = 4th button (aka browser backward button)
+    9 = 5th button (aka browser forward button)

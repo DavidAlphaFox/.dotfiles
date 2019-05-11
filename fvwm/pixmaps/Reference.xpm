@@ -1,0 +1,23 @@
+/* XPM */
+static char *Reference[] = {
+/* columns rows colors chars-per-pixel */
+"16 12 5 1 ",
+"  c black",
+". c #514451445144",
+"X c #A699A289A699",
+"o c #F7DEF3CEF7DE",
+"O c None",
+/* pixels */
+"OOOXXXXOOOOOOOOO",
+"OooooooXOXXXX.OO",
+" o oooXXooooooo ",
+" oXooooXoooooXo ",
+" oXooooooooooXo ",
+" oXooooXoooo oo ",
+" oooo oXooXoooo ",
+" ooooXooooXoooo ",
+" ooooooXooXoooo ",
+" ooX  .oooooooo ",
+" .  .. .o.  Xoo ",
+"                "
+};

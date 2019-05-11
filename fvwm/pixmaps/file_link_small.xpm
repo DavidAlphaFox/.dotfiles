@@ -1,0 +1,28 @@
+/* XPM */
+static char *file_link_small[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1 ",
+"  c black",
+". c #7DF77DF77DF7",
+"X c #820782078207",
+"o c #BEFBBEFBBEFB",
+"O c white",
+"+ c None",
+/* pixels */
+"++.........+++++",
+"++.OOOOOOO. ++++",
+"++.OOOOOOO.. +++",
+"++.OOOOOOO.O. ++",
+"++.OOOOOOO.    +",
+"++.OOOOOOOOOOo +",
+"++.OOOOOOOOOOo +",
+"XXXXXXXXOOOOOo +",
+"XOOOOOO OOOOOo +",
+"XOO   O OOOOOo +",
+"XOOO  O OOOOOo +",
+"XOO O O OOOOOo +",
+"XO OOOO OOOOOo +",
+"XO OOOO OOOOOo +",
+"XOOOOOO oooooo +",
+"               +"
+};

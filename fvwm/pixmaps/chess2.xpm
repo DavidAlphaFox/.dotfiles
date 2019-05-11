@@ -1,0 +1,31 @@
+/* XPM */
+static char *chess2[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 9 1 ",
+"  c black",
+". c #384048",
+"X c #5F5F5F",
+"o c SlateGray",
+"O c #808080",
+"+ c #979FA7",
+"@ c gray",
+"# c #DFDFDF",
+"$ c white",
+/* pixels */
+"   $$O$$$$$.+   ",
+"OO OO@ OOOO OOOO",
+"$    X   $$O@ $$",
+"    $+  $$$XX $$",
+"OOO #@. OOOOOOOO",
+"$$$$$+         $",
+"$$$ $Xo       $$",
+"$$$$#@o      $$$",
+"OOO OX OOOOO OOO",
+"   $@@+ $$$     ",
+"  O+@@@.$$      ",
+" $$ ...$$       ",
+"$$$$$$$$        ",
+"        $$$$$$$$",
+"       $$$$$$$$ ",
+"      $$$$$$$$  "
+};

@@ -1,0 +1,36 @@
+/* XPM */
+static char *suitcase[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 14 1 ",
+"  c black",
+". c #404000",
+"X c gray25",
+"o c #606060",
+"O c #808000",
+"+ c #C0C000",
+"@ c #808040",
+"# c #A0A060",
+"$ c #808080",
+"% c #A0A0A0",
+"& c #C0C080",
+"* c #C0C0C0",
+"= c #E0E0E0",
+"- c None",
+/* pixels */
+"----------------",
+"------OOO-------",
+"------o--XO+O.--",
+"-----Oo++ *O  --",
+"-O# #.     *OO -",
+"OO *       $*OO.",
+"&OO *  $OOOO%*..",
+"&OO.@*OOOOOOO=..",
+"&OO*O=oOOOOOO=..",
+"&OO=*=oOOOOOO=..",
+"&OO=$*oOOOOOO# .",
+"&OO*$O#$OOOOO=. ",
+"-OO*$@ OOOO..---",
+"- O*$*o. -------",
+"-- .------------",
+"----------------"
+};

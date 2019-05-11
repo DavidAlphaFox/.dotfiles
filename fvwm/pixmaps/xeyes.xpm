@@ -1,0 +1,26 @@
+/* XPM */
+static char *xeyes[] = {
+/* columns rows colors chars-per-pixel */
+"16 14 6 1 ",
+"  c black",
+". c gray25",
+"X c #808080",
+"o c gainsboro",
+"O c white",
+"+ c None",
+/* pixels */
+"++++++++++++++++",
+"++++++++++++++++",
+"++   ++++   ++++",
+"+ oOOo + oOOo ++",
+" oOOOOo oOOOOo++",
+" OOOOOO OOOOOO +",
+" OOOOOO OOOOOO X",
+" O  OOO O  OOO X",
+"+o  OOo o  OOo X",
+"+ oOOo . oOOo XX",
+"+++   XX++   XX+",
+"+++XXX+++++XXX++",
+"++++++++++++++++",
+"++++++++++++++++"
+};

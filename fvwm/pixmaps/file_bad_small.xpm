@@ -1,0 +1,27 @@
+/* XPM */
+static char *file_bad_small[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1 ",
+"  c black",
+". c gray50",
+"X c gray",
+"o c white",
+"O c None",
+/* pixels */
+"OO.o.o.o.o.OOOOO",
+"OOoooooooo. OOOO",
+"OO.ooooooo...OOO",
+"OOoooooooo.o. OO",
+"OO.ooooooo.    O",
+"OOoooooooooooX.O",
+"OO.ooooooooooX O",
+"OOoooooooooooX.O",
+"OO.ooooooooooX O",
+"OOoooooooooooX.O",
+"OO.ooooooooooX O",
+"OOoooooooooooX.O",
+"OO.ooooooooooX O",
+"OOoooooooooooX.O",
+"OO.XXXXXXXXXXX.O",
+"OO. . . .  . . O"
+};

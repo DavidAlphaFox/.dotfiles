@@ -1,0 +1,27 @@
+/* XPM */
+static char *folder_bad_small[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1 ",
+"  c black",
+". c #9C9CFF",
+"X c #CECEFF",
+"o c white",
+"O c None",
+/* pixels */
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOOOOOOOOOOOOOOO",
+"OOO o OOOOOOOOOO",
+"OO XXX OOOOOOOOO",
+"O XXXXX o o o oO",
+" ooooooooooooooo",
+"ooXoXoXoXoXoXo. ",
+" XoXoXoXoXoXoX.o",
+"ooXoXoXoXoXoXo. ",
+" XoXoXoXoXoXoX.o",
+"ooXoXoXoXoXoXo. ",
+" XoXoXoXoXoXoX.o",
+"ooXoXoXoXoXoXo. ",
+" XoXoXoXoXoXoX.o",
+"o o o o o o o o "
+};

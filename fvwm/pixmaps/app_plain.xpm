@@ -1,0 +1,28 @@
+/* XPM */
+static char *app_plain[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1 ",
+"  c black",
+". c #3C3C3C",
+"X c #777777",
+"o c #FFFFCC",
+"O c white",
+"+ c None",
+/* pixels */
+"+++++++ ++++++++",
+"++++++  X+++++++",
+"+++++  Xoo++++++",
+"++++  Xoooo+++++",
+"+++  Xoooooo++++",
+"++  Xoooooooo+++",
+"+  Xoooooooooo++",
+"  Xoooooooooooo+",
+"+.ooooooooooooo ",
+"++Oooooooooooo +",
+"+++Oooooooooo ++",
+"++++Oooooooo +++",
+"+++++Oooooo ++++",
+"++++++Oooo +++++",
+"+++++++Oo ++++++",
+"++++++++ +++++++"
+};

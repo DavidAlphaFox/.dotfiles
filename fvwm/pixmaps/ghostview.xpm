@@ -1,0 +1,28 @@
+/* XPM */
+static char *ghostview[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1 ",
+"  c black",
+". c yellow",
+"X c blue",
+"o c #808080",
+"O c white",
+"+ c None",
+/* pixels */
+"+++++++o++++++++",
+"++++++ OO+++++++",
+"+++++++oOO++++++",
+"+++++++OOOO+++++",
+"+++++  OOOO+++++",
+"++++ OOOOOO ++++",
+"+O  OOOOOOOO +  ",
+" oOOOOOOOOOOOoO ",
+"+OoOOOOOOOOOOOo+",
+"++++OOOOOO ++ ++",
+"+++OOOOOOOO ++++",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXoXXXXXXXX",
+"XXXXXo.ooXooXXXX",
+"XXX.XooXXX.X.XXX",
+"XXXXXXXoXXXXXXXX"
+};

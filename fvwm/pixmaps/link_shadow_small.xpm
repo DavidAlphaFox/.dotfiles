@@ -1,0 +1,26 @@
+/* XPM */
+static char *link_shadow_small[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1 ",
+"  c black",
+". c #808080",
+"X c white",
+"o c None",
+/* pixels */
+"oooooooooooooooo",
+"oooooooooooooooo",
+"oooooooooooooooo",
+"oooooooooooooooo",
+"oooooooooooooooo",
+"oooooooooooooooo",
+"oooooooooooooooo",
+".X.X.X.Xoooooooo",
+"XXXXXXX oooooooo",
+".XX X XXoooooooo",
+"XXXX XX oooooooo",
+".XX X XXoooooooo",
+"XX XXXX oooooooo",
+".X XXXXXoooooooo",
+"XXXXXXX oooooooo",
+" X X X Xoooooooo"
+};

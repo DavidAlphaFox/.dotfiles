@@ -1,0 +1,28 @@
+/* XPM */
+static char *folder_bad[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1 ",
+"  c black",
+". c #B5B5FF",
+"X c #CECEFF",
+"o c #E7E7FF",
+"O c white",
+"+ c None",
+/* pixels */
+"++++++++++++++++",
+"++++++++++++++++",
+"++++++++++++++++",
+"++++++++++++++++",
+"++XXXX +++++++++",
+"+XXXXXX ++++++++",
+"ooooooooooooooo+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOO.+",
+"OOOOOOOOOOOOOOX+"
+};

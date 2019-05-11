@@ -1,0 +1,29 @@
+/* XPM */
+static char *xfmail[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1 ",
+"  c black",
+". c #602C00",
+"X c #80542C",
+"o c #C05800",
+"O c #FFA858",
+"+ c white",
+"@ c None",
+/* pixels */
+"@@XXXXXXX . @@@@",
+"@         oo@@@@",
+"@O  + + Oooo@@@@",
+"@O      Xooo@@@@",
+"@OOOOOOOXooo@@@@",
+"@OXXXXXXXooo @@@",
+"@XOOOOOXXooo @@@",
+"@XOOOOOXXooo@@@@",
+"@XOOOOOXXooo   @",
+"@XXXXX XXooo    ",
+"@OOOOOOOXooo    ",
+"@OOOOOOOXo .    ",
+"@O      X. .   @",
+"@ +      .    @@",
+"@   @@@@ .  @@@@",
+"@ @@@@@@ @@@@@@@"
+};
