@@ -319,7 +319,7 @@ Key r		A				M	Exec exec rofi -show run
 
 # General 
 Emulate Mwm
-DefaultFont "xft:Terminus\ (TTF):medium:antialias=true:size=10"
+DefaultFont "xft:WenQuanYi Bitmap Song:size=11:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 
 
 # Color scheme
@@ -350,7 +350,7 @@ Style *   StackTransientParent
 Style *   EWMHUseStackingOrderHints
 Style *   EdgeMoveDelay 250
 Style *   EdgeMoveResistance 10
-Style *   Font "xft:Terminus\ (TTF):medium:antialias=true:size=10"
+Style *   Font "xft:WenQuanYi Bitmap Song:size=11:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 Style *   WindowShadeSteps 64
 Style *   WindowShadeShrinks
 Style *   HintOverride
