@@ -319,7 +319,7 @@ Key r		A				M	Exec exec rofi -show run
 
 # General 
 Emulate Mwm
-DefaultFont "xft:WenQuanYi Bitmap Song:size=11:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
+DefaultFont "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 
 
 # Color scheme
@@ -350,7 +350,7 @@ Style *   StackTransientParent
 Style *   EWMHUseStackingOrderHints
 Style *   EdgeMoveDelay 250
 Style *   EdgeMoveResistance 10
-Style *   Font "xft:WenQuanYi Bitmap Song:size=11:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
+Style *   Font "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 Style *   WindowShadeSteps 64
 Style *   WindowShadeShrinks
 Style *   HintOverride
@@ -471,7 +471,7 @@ Style * IconBox 48x480+0+25, IconFill Left Top, IconGrid 90 90, \
         IconBackgroundPadding 0, IconSize 48 48, IconTitleColorset 1, \
         IconBackgroundColorset 0, HilightIconTitleColorset 2
 
-Style * IconFont "xft:Terminus\ (TTF):medium:antialias=true:size=9"
+Style * IconFont "xft:WenQuanYi Bitmap Song:size=9:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=9"
 
 Style * StickyIcon, !StickyStippledIconTitle
 
