@@ -554,6 +554,7 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 	+ ""                  Nop
 	+ "&Window Ops%mini.windows.xpm%"     Popup Window-Ops
 	+ "&X11 Session%mini.bx2.xpm%"      	Popup X11-Session
+  + "&System%mini.computer.png%"        Popup System
 
   AddToMenu "Window-Ops"
   + "&Move%mini.move1.xpm%"               Move
@@ -573,11 +574,15 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 	+ "Lock Screen%mini.lock.xpm%"          Exec exec xscreensaver-command -lock
 	+ "Exit FVWM%mini.exit.xpm%"            Quit
 
+  AddToMenu System
+  + "Shutdown" Exec exec  doas poweroff
+  + "Restart"  Exec exec  doas reboot
+
   AddtoMenu Applications
 	+ "&Editors%mini.editor.png%"           Popup Editors
 	+ "&File Managers%mini.folder1.xpm%"    Popup FM
 	+ "&Network%mini.netscape1.xpm%"        Popup Network
-	+ "&System%mini.computer.png%"          Popup Settings
+	+ "&Settings%mini.gears.xpm%"          Popup Settings
 
   AddtoMenu Editors
 	+ "Emacs%mini.emacs.xpm%"		        Exec exec emacs
