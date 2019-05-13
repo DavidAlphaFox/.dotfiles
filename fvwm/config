@@ -257,10 +257,10 @@ AddToFunc HideShowPanel
 #===============[Key]	    [Context] [Mod]    [Action]
 
 # Ctrl + Arrow scrolls by 1 page.
-  Key           Left		A	S	Scroll -100 0
-  Key           Right		A	S	Scroll +100 +0
-  Key           Up      	A	S	Scroll +0   -100
-  Key           Down		A	S	Scroll +0   +100
+  Key           Left		A	C	Scroll -100 0
+  Key           Right		A	C	Scroll +100 +0
+  Key           Up      A	C	Scroll +0   -100
+  Key           Down		A	C	Scroll +0   +100
 
 # Ctrl-Alt + Arrow moves windows to different pages
   Key 		Up	A	CM 	MoveToPage +0p -1p
@@ -450,7 +450,7 @@ Style FvwmPager BorderWidth 1,HandleWidth 1, FixedPosition, \
 *FvwmPager: 	BalloonBorderColor #000000
 *FvwmPager: 	BalloonBorderWidth 1
 *FvwmPager: 	BalloonStringFormat %i
-*FvwmPager: 	BalloonFont "xft:Terminus\ (TTF):medium:antialias=true:size=10"
+*FvwmPager: 	BalloonFont "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 *FvwmPager: 	BalloonYOffset +2
 *FvwmPager: 	Geometry 136x68-0-137
 *FvwmPager: 	SmallFont 5x8
@@ -511,7 +511,7 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 
 
 *StatusBar:	Geometry 340x136-0-0
-*StatusBar:	Font "xft:Terminus\ (TTF):medium:antialias=true:size=10"
+*StatusBar:	Font "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 *StatusBar:	Rows 2
 *StatusBar:	Columns 5
 *StatusBar:	Fore black
@@ -527,12 +527,12 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 *StatusBar: (Size 1x1, Padding 2, Frame 2, \
              Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) "asclock" \
              `Exec exec asclock -12 -l "#f77bf7"`)
-*StatusBar: (Size 2x1, Padding 2, Frame 2, \
-             Swallow(UseOld,NoClose,Respawn,NoTitle) "stalonetray" \
-             `Exec exec stalonetray --scrollbars-size 2`)
 *StatusBar: (Size 1x1, Padding 1, Frame 2,  \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmsmixer" \
              `Exec exec wmsmixer -s -l orange`)
+*StatusBar: (Size 3x1, Padding 2, Frame 2, \
+             Swallow(UseOld,NoClose,Respawn,NoTitle) "stalonetray" \
+             `Exec exec stalonetray --scrollbars horizontal`)
 	    
 	    
 
