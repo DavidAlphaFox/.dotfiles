@@ -302,7 +302,7 @@ Key 		F10     A       N       HideShowPanel
 Key 		F11     A       N       FullScreen
 Key 		F12     A	N	Popup X11-Session
 
-Key t   A       M Exec exec xfce4-terminal
+Key t   A       M Exec exec konsole 
 Key r		A				M	Exec exec rofi -show run
   
 
