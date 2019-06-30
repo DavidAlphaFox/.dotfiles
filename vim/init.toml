@@ -51,4 +51,7 @@ default_height = 30
   name = "lange#javascript"
 
 [[layers]]
+  name = "checkers"
+
+[[layers]]
    name = "format"
