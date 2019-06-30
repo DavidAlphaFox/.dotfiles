@@ -43,6 +43,12 @@ default_height = 30
 
 [[layers]]
   name = "lang#ocaml"
+
 [[layers]]
   name = "lange#lisp"
 
+[[layers]]
+  name = "lange#javascript"
+
+[[layers]]
+   name = "format"
