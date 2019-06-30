@@ -23,7 +23,7 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = false
-    guifont="Hack Regular:h14"
+    guifont="Hack Regular 14"
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
