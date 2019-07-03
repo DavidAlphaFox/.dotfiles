@@ -22,7 +22,7 @@
 (setq indent-tabs-mode nil)
 (setq default-tab-width 2)
 (setq tab-width 2)
-(setq indent-line-function 'insert-tab)
+;;(setq indent-line-function 'insert-tab)
 
 (defun my-setup-indent (n)
   ;; java/c/c++
