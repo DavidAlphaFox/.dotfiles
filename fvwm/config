@@ -452,7 +452,7 @@ Style FvwmPager BorderWidth 1,HandleWidth 1, FixedPosition, \
 *FvwmPager: 	BalloonStringFormat %i
 *FvwmPager: 	BalloonFont "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 *FvwmPager: 	BalloonYOffset +2
-*FvwmPager: 	Geometry 136x68-0-137
+*FvwmPager: 	Geometry 136x68+0-137
 *FvwmPager: 	SmallFont 5x8
 
 
@@ -510,27 +510,27 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 	HandleWidth 0 
 
 
-*StatusBar:	Geometry 340x136-0-0
+*StatusBar:	Geometry 204x272-0+0
 *StatusBar:	Font "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
-*StatusBar:	Rows 2
-*StatusBar:	Columns 5
+*StatusBar:	Rows 4
+*StatusBar:	Columns 3
 *StatusBar:	Fore black
 *StatusBar:	Back #afadbf
 *StatusBar:	BoxSize dumb
 
 
-*StatusBar: (Size 2x1, Padding 2, Frame 2, \
-             Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) FvwmPager
 *StatusBar: (Size 3x1, Padding 2, Frame 2, \
+             Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) FvwmPager
+*StatusBar: (Size 3x2, Padding 2, Frame 2, \
              Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) "xosview" \
              `Exec exec xosview`)	     
-*StatusBar: (Size 1x1, Padding 2, Frame 2, \
+*StatusBar: (Size 1x1, Padding 1, Frame 2, \
              Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) "asclock" \
              `Exec exec asclock -12 -l "#f77bf7"`)
 *StatusBar: (Size 1x1, Padding 1, Frame 2,  \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmsmixer" \
              `Exec exec wmsmixer -s -l orange`)
-*StatusBar: (Size 3x1, Padding 2, Frame 2, \
+*StatusBar: (Size 1x1, Padding 1, Frame 2, \
              Swallow(UseOld,NoClose,Respawn,NoTitle) "stalonetray" \
              `Exec exec stalonetray --scrollbars horizontal`)
 	    
