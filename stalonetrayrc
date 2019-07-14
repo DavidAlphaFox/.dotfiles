@@ -13,7 +13,7 @@
 kludges force_icons_size
 transparent false
 dockapp_mode simple
-geometry 10x2+0+0
+geometry 8x2+0+0
 #max_geometry 1x5-0-325
 #background "#163d49"
 parent_bg true

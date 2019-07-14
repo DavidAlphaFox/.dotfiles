@@ -511,18 +511,18 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 	HandleWidth 0 
 
 
-*StatusBar:	Geometry 340x272-0+0
+*StatusBar:	Geometry 272x272-0+0
 *StatusBar:	Font "xft:WenQuanYi Bitmap Song:size=10:antialias=True,xft:Terminus\ (TTF):medium:antialias=true:size=10"
 *StatusBar:	Rows 4
-*StatusBar:	Columns 5
+*StatusBar:	Columns 4
 *StatusBar:	Fore black
 *StatusBar:	Back #afadbf
 *StatusBar:	BoxSize dumb
 
-*StatusBar: (Size 5x1, Padding 1, Frame 2, \
+*StatusBar: (Size 4x1, Padding 1, Frame 2, \
              Swallow(UseOld,NoClose,Respawn,NoTitle) "stalonetray" \
              `Exec exec stalonetray`)
-*StatusBar: (Size 3x1, Padding 2, Frame 2, \
+*StatusBar: (Size 2x1, Padding 2, Frame 2, \
              Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) FvwmPager
 *StatusBar: (Size 1x1, Padding 2, Frame 2, \
              Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) "asclock" \
@@ -530,7 +530,7 @@ Style StatusBar !Maximizable, StaysOnBottom, !Borders, !Title, \
 *StatusBar: (Size 1x1, Padding 2, Frame 2,  \
              Swallow(UseOld,NoClose,NoHints,Respawn,NoTitle) "wmsmixer" \
              `Exec exec wmsmixer -s -l orange`)
-*StatusBar: (Size 5x2, Padding 2, Frame 2, \
+*StatusBar: (Size 4x2, Padding 2, Frame 2, \
              Swallow(UseOld, NoClose, NoHints, Respawn, NoTitle) "xosview" \
              `Exec exec xosview`)	     
 
