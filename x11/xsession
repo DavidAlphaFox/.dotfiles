@@ -20,5 +20,6 @@ xidle -timeout 300 &
 #sleep 3 && sbxkb &
 #xsetroot -solid "#5A80A7"
 xbacklight -set 45
+$HOME/.xlayout
 exec fvwm2
 
