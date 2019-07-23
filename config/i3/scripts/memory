@@ -14,28 +14,36 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-DIR="${BLOCK_INSTANCE:-$HOME}"
-ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
+TYPE="${BLOCK_INSTANCE:-mem}"
 
-df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
-/\/.*/ {
-	# full text
-	print $4
-
-	# short text
-	print $4
-
-	use=$5
-
-	# no need to continue parsing
-	exit 0
+awk -v type=$TYPE '
+/^MemTotal:/ {
+	mem_total=$2
 }
-
+/^MemFree:/ {
+	mem_free=$2
+}
+/^Buffers:/ {
+	mem_free+=$2
+}
+/^Cached:/ {
+	mem_free+=$2
+}
+/^SwapTotal:/ {
+	swap_total=$2
+}
+/^SwapFree:/ {
+	swap_free=$2
+}
 END {
-	gsub(/%$/,"",use)
-	if (100 - use < alert_low) {
-		# color
-		print "#FF0000"
-	}
+	# full text
+	if (type == "swap")
+		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
+	else
+		printf("%.1fG\n", mem_free/1024/1024)
+
+	# TODO: short text
+
+	# TODO: color (if less than X%)
 }
-'
+' /proc/meminfo

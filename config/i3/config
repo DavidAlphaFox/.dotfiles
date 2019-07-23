@@ -176,7 +176,7 @@ bar {
         i3bar_command i3bar -t
         position top
         separator_symbol " "
-	      height 45
+	      height 28
         strip_workspace_numbers yes
 
 	      colors {

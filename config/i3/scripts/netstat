@@ -17,5 +17,5 @@ else
 	DOWN1=$((($DOWN2-$DOWN1)/1024))
 	UP1=$((($UP2-$UP1)/1024))
 
-	echo 🠳 $DOWN1'Kb' 🠱 $UP1'Kb'
+	echo -e '\uF019' $DOWN1'Kb' '\uF093' $UP1'Kb'
 fi
