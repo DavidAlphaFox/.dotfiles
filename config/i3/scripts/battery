@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $(cat /sys/class/power_supply/BAT0/status) == "Charging" ]
+then
+	echo "<span color='lime'>$(cat /sys/class/power_supply/BAT0/capacity)%</span>"
+else
+	echo $(cat /sys/class/power_supply/BAT0/capacity)%
+fi

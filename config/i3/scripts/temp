@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TEMP=$(cat /sys/class/thermal/thermal_zone0/temp)
+
+if [ $TEMP -gt 70000 ]
+then
+	echo "<span color='orange'>$(echo "scale=1; $TEMP / 1000" | bc)°C</span>"
+else
+	echo $(echo "scale=1; $TEMP / 1000" | bc)°C
+fi
+

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $(free -h | awk '{if(NR==2) print $3}')'/'$(free -h | awk '{if(NR==2) print $2}')

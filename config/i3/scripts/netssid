@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DEVICE=$(ip link | awk '{if(NR==3) print $2}' | cut -d ':' -f 1)
+
+if [ "$(iw dev $DEVICE link)" == "Not connected." ]
+then
+        echo "<span color='red'>Offline</span>"
+else
+	SIGSTR=$(iw dev $DEVICE link | awk '{if(NR==6) print $2}')
+	SIGSTR=$(echo "scale=2; 100 * (1 - (-30 - $SIGSTR) / (-10 - -90))" | bc | cut -d '.' -f 1)
+	echo $(iw dev $DEVICE link | awk '{if(NR==2) print $2}') $SIGSTR%
+fi

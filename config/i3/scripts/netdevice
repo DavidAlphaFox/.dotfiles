@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(ip link | awk '{if(NR==3) print $2}' | cut -d ':' -f 1) 

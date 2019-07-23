@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo $(df -h | awk '{if(NR==4) print $3}' | cut -d 'G' -f1)/$(df -h | awk '{if(NR==4) print $2}' | cut -d 'G' -f1)GB
+ 
