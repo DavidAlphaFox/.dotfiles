@@ -205,6 +205,7 @@ gaps outer 8
 exec --no-startup-id ~/.dotfiles/config/i3/clipboard_fix.sh
 # Set a random wallpaper everytime you restart i3
 #exec --no-startup-id ~/.dotfiles/config/i3/random_wallpaper.sh
+exec --no-startup-id feh --bg-fill ~/.config/i3/wallpapers/wall.png
 # Set keyboard repeat to go faster
 exec --no-startup-id xset r rate 200 30
 # Compton
