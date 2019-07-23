@@ -211,5 +211,5 @@ exec --no-startup-id xset r rate 200 30
 # Compton
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 # Login screen
-# exec --no-startup-id ~/.dotfiles/config/i3/betterlockscreen -l
+#exec --no-startup-id ~/.dotfiles/config/i3/betterlockscreen -l
 exec --no-startup-id ibus-daemon -d -r -x

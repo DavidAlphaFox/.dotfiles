@@ -1,9 +1,12 @@
 #!/bin/sh
 export XIM=ibus
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
-export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export GTK3_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export QT4_IM_MODULE=ibus
+export XMODIFIERS="@im=ibus"
 export XIM_PROGRAM=ibus
+
 
 xset s on +dpms 
 xrdb $HOME/.Xresources 
@@ -19,6 +22,6 @@ xidle -timeout 300 &
 #sleep 3 && networkmgr &
 #sleep 3 && sbxkb &
 #xsetroot -solid "#5A80A7"
-xbacklight -set 45
-exec fvwm2
+#exec fvwm2 
+exec i3
 
