@@ -29,7 +29,7 @@ font pango:Inconsolata Nerd Font Medium 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole -e /bin/zsh
+bindsym $mod+Return exec konsole -e /usr/local/bin/zsh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -191,7 +191,7 @@ bar {
 	font pango:Inconsolata 10
 	position top
 	tray_output none
-  status_command bumblebee-status -m nic disk:root cpu memory battery date time pasink pasource -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+  status_command bumblebee-status -m nic disk:root cpu battery date time  -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-light 
 }
 # i3-lock
 bindsym $mod+x exec ~/.dotfiles/config/i3/betterlockscreen -l
@@ -212,3 +212,4 @@ exec --no-startup-id xset r rate 200 30
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 # Login screen
 # exec --no-startup-id ~/.dotfiles/config/i3/betterlockscreen -l
+exec --no-startup-id ibus-daemon -d -r -x
