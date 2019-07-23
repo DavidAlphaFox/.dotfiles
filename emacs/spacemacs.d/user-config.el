@@ -23,6 +23,8 @@
 (setq default-tab-width 2)
 (setq tab-width 2)
 ;;(setq indent-line-function 'insert-tab)
+(global-prettify-symbols-mode 1)
+
 
 (defun my-setup-indent (n)
   ;; java/c/c++
