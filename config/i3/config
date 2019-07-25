@@ -200,7 +200,11 @@ bindsym $mod+x exec ~/.dotfiles/config/i3/betterlockscreen -l
 for_window [class="^.*"] border pixel 3
 gaps inner 8
 gaps outer 8
+exec --no-startup-id ibus-daemon -d -r -x
 
+exec --no-startup-id export GTK_IM_MODULE=ibus
+exec --no-startup-id export XMODIFIERS=@im=ibus
+exec --no-startup-id export QT_IM_MODULE=ibus
 # Fix VM copy pasta
 exec --no-startup-id ~/.dotfiles/config/i3/clipboard_fix.sh
 # Set a random wallpaper everytime you restart i3
@@ -212,4 +216,4 @@ exec --no-startup-id xset r rate 200 30
 exec --no-startup-id compton -b --config ~/.config/compton/compton.conf
 # Login screen
 #exec --no-startup-id ~/.dotfiles/config/i3/betterlockscreen -l
-exec --no-startup-id ibus-daemon -d -r -x
+

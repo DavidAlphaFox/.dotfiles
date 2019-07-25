@@ -9,10 +9,10 @@ export XIM_PROGRAM=ibus
 
 xset s on +dpms 
 xrdb $HOME/.Xresources 
-unclutter -root -onescreen &
-xbindkeys &
-autocutsel &
-numlockx on &
+#unclutter -root -onescreen &
+#xbindkeys &
+#autocutsel &
+#numlockx on &
 xidle -timeout 300 &
 #compton --config ~/.compton/compton.conf &
 #urxvtd -q -o -f & 
