@@ -4,15 +4,14 @@ export GTK_IM_MODULE=ibus
 export GTK3_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export QT4_IM_MODULE=ibus
-export XMODIFIERS="@im=ibus"
+export XMODIFIERS=@im=ibus
 export XIM_PROGRAM=ibus
-
 
 xset s on +dpms 
 xrdb $HOME/.Xresources 
 #unclutter -root -onescreen &
 #xbindkeys &
-#autocutsel &                                                                         
+#autocutsel &                                
 #numlockx on &
 xidle -timeout 300 &
 #compton --config ~/.compton/compton.conf &
