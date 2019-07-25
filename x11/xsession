@@ -1,8 +1,10 @@
 #!/bin/sh
 export XIM=ibus
 export GTK_IM_MODULE=ibus
+export GTK3_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
+export QT4_IM_MODULE=ibus
+export XMODIFIERS="@im=ibus"
 export XIM_PROGRAM=ibus
 
 xset s on +dpms 

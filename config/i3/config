@@ -29,7 +29,7 @@ font pango:Inconsolata Nerd Font Medium 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole -e /usr/local/bin/zsh
+bindsym $mod+Return exec xfce4-terminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
