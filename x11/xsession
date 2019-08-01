@@ -9,10 +9,11 @@
 
 export XIM=fcitx
 export GTK_IM_MODULE=fcitx
+export GTK3_IM_MODULE=fcitx
 export QT_IM_MODULE=xim
 export XMODIFIERS=@im=fcitx
-export XIM_PROGRAM="fcitx"
-export XIM_ARGS="-d -r"
+#export XIM_PROGRAM="fcitx"
+#export XIM_ARGS="-d -r"
 
 xset s on +dpms 
 xrdb $HOME/.Xresources 
