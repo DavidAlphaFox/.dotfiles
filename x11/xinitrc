@@ -11,9 +11,9 @@
 export XIM=fcitx
 export GTK_IM_MODULE=fcitx
 export GTK3_IM_MODULE=fcitx
-export QT_IM_MODULE=xim
+export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-#export XIM_PROGRAM="fcitx"
+export XIM_PROGRAM="fcitx"
 #export XIM_ARGS="-d -r"
 
 
