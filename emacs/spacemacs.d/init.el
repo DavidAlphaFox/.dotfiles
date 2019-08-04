@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     typescript
      yaml
      sql
      ;; ----------------------------------------------------------------
@@ -43,8 +42,6 @@ values."
      auto-completion
      ocaml
      erlang
-     ruby
-     ruby-on-rails
      common-lisp
      chrome
      colors
