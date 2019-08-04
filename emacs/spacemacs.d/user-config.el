@@ -14,11 +14,11 @@
   (auto-fill-mode)
 )
 
-(when (file-exists-p "/usr/local/bin/sbcl")
-  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+;(when (file-exists-p "/usr/local/bin/sbcl")
+ ; (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
-(when (file-exists-p "/usr/bin/sbcl")
-  (setq inferior-lisp-program "/usr/bin/sbcl"))
+;(when (file-exists-p "/usr/bin/sbcl")
+;  (setq inferior-lisp-program "/usr/bin/sbcl"))
 
 ;;(setq inferior-lisp-program "ros -Q run")
 
