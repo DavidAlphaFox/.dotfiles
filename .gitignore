@@ -32,5 +32,3 @@ sbcl/quicklisp/
 .config/
 !.config/i3/*
 emacs/emacs.d
-sbcl/sbclrc
-sbcl/quicklisp

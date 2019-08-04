@@ -67,5 +67,22 @@ if ask_to_confirm "Configure Tmux"; then
     ln -s $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 fi
 
-
-
+if ask_to_confirm "Setup quicklisp for sbcl"; then
+    if is_app_exsist $SBCL is_app_exsist $CURL; then
+        conf_delete $quicklisp_conf_files
+        if [ -d "$HOME/.dotfiles/quicklisp" ]; then
+            rm -rf "$HOME/.dotfiles/quicklisp/"
+        fi
+        if [ -x "$HOME/.dotfiles/quicklisp.lisp" ]; then
+            rm "$HOME/.dotfiles/quicklisp.lisp"
+        fi
+        curl -O "http://beta.quicklisp.org/quicklisp.lisp"
+        sbcl --load ~/.dotfiles/sbcl/init.lisp
+        mv ~/quicklisp ~/.dotfiles/
+        ln -s .dotfiles/quicklisp ../quicklisp
+        ln -s .dotfiles/sbcl/sbclrc ../.sbclrc
+        rm ~/.dotfiles/quicklisp.lisp
+    else
+        echo "I can't find ${CURL} or ${SBCL}"
+    fi
+fi
