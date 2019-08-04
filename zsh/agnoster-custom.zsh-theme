@@ -89,7 +89,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment 240 default "%(!.%{%F{white}%}.)%n"
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
   fi
 }
 
@@ -151,7 +151,7 @@ prompt_bzr() {
         else
             if [[ $status_all -gt 0 ]] ; then
                 prompt_segment yellow black
-                echo -n "bzr@"$revision
+                  echo -n "bzr@"$revision
 
             else
                 prompt_segment green black
@@ -202,13 +202,6 @@ prompt_dir() {
   prompt_segment blue $CURRENT_FG '%~'
 }
 
-# Virtualenv: current working virtualenv
-prompt_virtualenv() {
-  local virtualenv_path="$VIRTUAL_ENV"
-  if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment 8 default "`basename $virtualenv_path`"
-  fi
-}
 
 # Status:
 # - was there an error
@@ -226,7 +219,6 @@ prompt_status() {
 build_prompt() {
   RETVAL=$?
   prompt_status
-  prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_git
