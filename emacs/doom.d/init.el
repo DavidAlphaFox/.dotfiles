@@ -8,11 +8,6 @@
 ;; More information about these modules (and what flags they support) can be
 ;; found in modules/README.org.
 
-(def-package-hook! doom-themes
-   :pre-config
-     (setq doom-neotree-file-icons t)
-       nil)
-
 (setq doom-leader-key "M-m"
       doom-localleader-key "M-S-m")
 
