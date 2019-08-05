@@ -13,6 +13,9 @@
      (setq doom-neotree-file-icons t)
        nil)
 
+(setq doom-leader-key "M-m"
+      doom-localleader-key "M-S-m")
+
 (doom! :input
        ;;chinese
        ;;japanese
