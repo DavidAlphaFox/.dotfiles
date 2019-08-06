@@ -1,5 +1,4 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
-
 (require 'doom-themes)
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
