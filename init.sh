@@ -50,14 +50,14 @@ if ask_to_confirm "Configure Emacs"; then
 #    delete_files $emacs_conf_files
     if [[ -d "$HOME/.emacs.d" && -d "$HOME/.emacs.d/.git" ]]; then
 	      echo "update doom emacs"
-	      cd $HOME/.dotfiles/emacs/emacs.d && git pull
+	      cd $HOME/.emacs.d && git pull
     else
 	    echo "install doom emacs"
       echo "Delete .emacs.d"
       delete_files $emacs_conf_files
 	    cd $HOME && git clone https://github.com/hlissner/doom-emacs .emacs.d
     fi
-    ln -s $HOME/.dotfiles/emacs/doom.d $HOME/.doom.d
+    cd $HOME && ln -s $HOME/.dotfiles/emacs/doom.d $HOME/.doom.d
 fi
 
 
