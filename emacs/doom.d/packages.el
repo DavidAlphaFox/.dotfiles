@@ -6,6 +6,7 @@
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 (package! doom-themes)
+(package! geiser)
 (cond
  ((eq system-type 'darwin)
   (package! xclip :disable t)))

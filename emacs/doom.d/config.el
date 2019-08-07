@@ -16,13 +16,7 @@
 
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
-
-(progn
-  (when (file-exists-p "/usr/local/bin/sbcl")
-    (setq inferior-lisp-program "/usr/local/bin/sbcl"))
-  (when (file-exists-p "/usr/bin/sbcl")
-    (setq inferior-lisp-program "/usr/bin/sbcl"))
-)
+(global-prettify-symbols-mode 1)
 
 (progn
   (set-language-environment "UTF-8")
@@ -32,6 +26,26 @@
   (setq default-buffer-file-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (prefer-coding-system 'utf-8))
+
+
+(progn
+  (when (file-exists-p "/usr/local/bin/sbcl")
+    (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+  (when (file-exists-p "/usr/bin/sbcl")
+    (setq inferior-lisp-program "/usr/bin/sbcl")))
+
+(progn
+  (setq geiser-active-implementations '(chez))
+  (cond
+   ((eq system-type 'darwin)
+    (progn
+      (setq scheme-program-name "chez")
+      (setq geiser-chez-binary "/usr/local/bin/chez")))
+   ((eq system-type 'berkeley-unix)
+    (progn
+      (setq scheme-program-name "chez-scheme")
+      (setq geiser-chez-binary "/usr/local/bin/chez-scheme")))))
+
 
 (progn
   (setq-default fill-column 80)
@@ -44,8 +58,6 @@
 (setq default-tab-width 2)
 (setq tab-width 2)
 ;;(setq indent-line-function 'insert-tab)
-(global-prettify-symbols-mode 1)
-
 (defun my-setup-indent (n)
   ;; java/c/c++
   (setq c-basic-offset n)
