@@ -44,20 +44,20 @@ delete_files () {
 
 
 
-emacs_conf_files=".emacs.d .doom.d"
+emacs_conf_files=".emacs.d"
 if ask_to_confirm "Configure Emacs"; then
-    echo "Delete and link conf files for Emacs"
-    delete_files $emacs_conf_files
-    if [ -d "$HOME/.dotfiles/emacs/emacs.d/" ]; then
+#    echo "Delete and link conf files for Emacs"
+#    delete_files $emacs_conf_files
+    if [[ -d "$HOME/.emacs.d" && -d "$HOME/.emacs.d/.git" ]]; then
 	      echo "update doom emacs"
-	      cd $HOME/.dotfiles/emacs/emacs.d && git pull
+	      cd $HOME/.emacs.d && git pull
     else
-	      echo "install doom emacs"
-	      cd $HOME/.dotfiles/emacs/ && git clone https://github.com/hlissner/doom-emacs emacs.d
+	    echo "install doom emacs"
+      echo "Delete .emacs.d"
+      delete_files $emacs_conf_files
+	    cd $HOME && git clone https://github.com/hlissner/doom-emacs .emacs.d
     fi
-    cd $HOME/.dotfiles
-    ln -s $HOME/.dotfiles/emacs/emacs.d $HOME/.emacs.d
-   #ln -s $HOME/.dotfiles/emacs/spacemacs.d $HOME/.spacemacs.d
+    cd $HOME && ln -s $HOME/.dotfiles/emacs/doom.d $HOME/.doom.d
 fi
 
 
