@@ -6,10 +6,18 @@
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 (package! doom-themes)
-(package! geiser)
+
 (cond
  ((eq system-type 'darwin)
-  (package! xclip :disable t)))
+  (progn
+    (package! geiser)
+    (package! xclip :disable t)))
+ ((eq system-type 'gnu/linux)
+  (progn
+    (packages! geiser :disable t)))
+ ((eq system-type 'berkeley-unix)
+  (progn
+    (package! geiser))))
 
 
 ;;(package! doom-themes :recipe (:fetcher github :repo "hlissner/emacs-doom-themes"))
