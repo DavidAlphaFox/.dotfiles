@@ -29,7 +29,7 @@ font pango:Inconsolata Nerd Font Medium 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal 
+bindsym $mod+Return exec sakura
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,7 +202,7 @@ gaps inner 8
 gaps outer 8
 exec --no-startup-id ibus-daemon -d -r -x
 #exec --no-startup-id fcitx
-exec --no-startup-id pulseaudio --start 
+exec pulseaudio --start -D
 # Fix VM copy pasta
 #exec --no-startup-id ~/.dotfiles/config/i4/clipboard_fix.sh
 # Set a random wallpaper everytime you restart i3
