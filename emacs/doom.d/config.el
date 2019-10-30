@@ -8,7 +8,9 @@
 ;; may have their own settings.
 ;;(load-theme 'doom-one t)
 ;;(doom-themes-visual-bell-config)
-(load-theme 'doom-spacegrey t)
+(if (display-graphic-p)
+    (load-theme 'doom-solarized-light t)
+  (load-theme 'doom-molokai t))
 (doom-themes-visual-bell-config)
 ;; Enable custom neotree theme (all-the-icons must be installed!)
 (doom-themes-neotree-config)
