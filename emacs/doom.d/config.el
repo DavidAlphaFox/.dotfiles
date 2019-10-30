@@ -6,9 +6,10 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(load-theme 'doom-one t)
+;;(load-theme 'doom-one t)
 ;;(doom-themes-visual-bell-config)
-
+(load-theme 'doom-spacegrey t)
+(doom-themes-visual-bell-config)
 ;; Enable custom neotree theme (all-the-icons must be installed!)
 (doom-themes-neotree-config)
 ;; or for treemacs users
