@@ -75,8 +75,8 @@ urxvt*boldItalicFont: xft:DejaVu Sans Mono:medium:italic:bold:antialias=true:pix
 
 !gvim.font: Monospace:antialias=true:pixelsize=18
 
-emacs.FontBackend: xft
-Emacs*useXIM: true
+Emacs.FontBackend: xft
+Emacs*useXIM: true 
 
 #define nord0 #2E3440
 #define nord1 #3B4252
