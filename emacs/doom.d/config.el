@@ -29,11 +29,11 @@
 (setq lsp-ui-sideline-enable nil)
 (setq lsp-ui-doc-enable t)
 (setq lsp-log-io nil)
-(progn
-  (when (file-exists-p "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
-  (progn
-    (setq lsp-erlang-server-path "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
-    (add-hook 'erlang-mode-hook #'lsp))))
+;(progn
+;  (when (file-exists-p "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
+;  (progn
+;    (setq lsp-erlang-server-path "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
+;    (add-hook 'erlang-mode-hook #'lsp))))
 
 (progn
   (set-language-environment "UTF-8")
