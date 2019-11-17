@@ -1,4 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+(setq auto-save-default nil)
 (require 'doom-themes)
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -26,10 +27,11 @@
 (require 'lsp-ui)
 
 (setq lsp-ui-sideline-enable nil)
-(setq lsp-ui-doc-enable t)  
+(setq lsp-ui-doc-enable t)
+(setq lsp-log-io nil)
 (progn
   (when (file-exists-p "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
-  (progn 
+  (progn
     (setq lsp-erlang-server-path "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
     (add-hook 'erlang-mode-hook #'lsp))))
 
