@@ -45,13 +45,12 @@ default_height = 30
   name = "lang#ocaml"
 
 [[layers]]
-  name = "lange#lisp"
+  name = "lang#javascript"
 
 [[layers]]
-  name = "lange#javascript"
-
+  name = "lang#rust"
 [[layers]]
-  name = "lange#rust"
+  name = "lang#python"
 
 [[layers]]
   name = "checkers"

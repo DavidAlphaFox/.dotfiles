@@ -45,11 +45,6 @@
   (prefer-coding-system 'utf-8))
 
 
-(progn
-  (when (file-exists-p "/usr/local/bin/sbcl")
-    (setq inferior-lisp-program "/usr/local/bin/sbcl"))
-  (when (file-exists-p "/usr/bin/sbcl")
-    (setq inferior-lisp-program "/usr/bin/sbcl")))
 
 (progn
   (setq geiser-active-implementations '(chez))
