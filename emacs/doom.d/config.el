@@ -10,7 +10,7 @@
 ;;(load-theme 'doom-one t)
 ;;(doom-themes-visual-bell-config)
 (if (display-graphic-p)
-    (load-theme 'doom-solarized-light t)
+    (load-theme 'doom-one t)
   (load-theme 'doom-molokai t))
 (doom-themes-visual-bell-config)
 ;; Enable custom neotree theme (all-the-icons must be installed!)
