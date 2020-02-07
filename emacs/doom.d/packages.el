@@ -10,11 +10,10 @@
 (cond
  ((eq system-type 'darwin)
   (progn
-    (package! geiser)
-    (package! xclip :disable t)))
+    (package! geiser)))
  ((eq system-type 'gnu/linux)
   (progn
-    (packages! geiser :disable t)))
+    (package! geiser :disable t)))
  ((eq system-type 'berkeley-unix)
   (progn
     (package! geiser))))
