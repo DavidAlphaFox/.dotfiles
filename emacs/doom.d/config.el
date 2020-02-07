@@ -20,7 +20,7 @@
 
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
-(global-prettify-symbols-mode 1)
+;;(global-prettify-symbols-mode 1)
 
 
 (require 'lsp-mode)
