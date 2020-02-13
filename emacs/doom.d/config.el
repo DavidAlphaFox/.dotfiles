@@ -6,7 +6,7 @@
 (require 'doom-themes)
 
 (require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
@@ -90,10 +90,11 @@
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
-  (setq erlang-mode-hook
+  (add-hook 'erlang-mode-hook
         (function (lambda ()
                     (setq indent-tabs-mode nil)
                     (setq erlang-indent-level n)
                     (setq erlang-indent-guard n)
                     (setq erlang-argument-indent n)))))
 (my-setup-indent 2)
+(exec-path-from-shell-initialize)
