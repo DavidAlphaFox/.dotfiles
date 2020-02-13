@@ -6,7 +6,7 @@
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 (package! doom-themes)
-
+(package! exec-path-from-shell)
 (cond
  ((eq system-type 'darwin)
   (progn
