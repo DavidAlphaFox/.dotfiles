@@ -15,11 +15,10 @@
 ;; may have their own settings.
 ;;(load-theme 'doom-one t)
 ;;(doom-themes-visual-bell-config)
-;;(if (display-graphic-p)
-;;    (load-theme 'doom-one t)
-  ;;(load-theme 'doom-molokai t))
-;;(load-theme 'doom-dracula t)
-(load-theme 'doom-molokai t)
+(if (display-graphic-p)
+    (load-theme 'doom-dracula t)
+  (load-theme 'doom-molokai t))
+
 (doom-themes-visual-bell-config)
 ;; Enable custom neotree theme (all-the-icons must be installed!)
 (doom-themes-neotree-config)
