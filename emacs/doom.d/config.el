@@ -100,3 +100,9 @@
                     (setq erlang-argument-indent n)))))
 (my-setup-indent 2)
 (exec-path-from-shell-initialize)
+
+(cond
+ ((eq system-type 'darwin)
+  (progn
+   (setq anaconda-mode-localhost-address "localhost")
+   (setq python-shell-interpreter "/usr/local/bin/python3"))))
