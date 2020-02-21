@@ -106,3 +106,4 @@
   (progn
    (setq anaconda-mode-localhost-address "localhost")
    (setq python-shell-interpreter "/usr/local/bin/python3"))))
+(setq undo-tree-visualizer-diff nil)
