@@ -6,8 +6,8 @@
 (setq display-line-numbers-type t)
 
 (setq auto-save-default nil)
-(require 'doom-themes)
 
+(require 'doom-themes)
 (require 'exec-path-from-shell)
 
 ;; Global settings (defaults)
@@ -24,10 +24,10 @@
 
 (doom-themes-visual-bell-config)
 ;; Enable custom neotree theme (all-the-icons must be installed!)
-(doom-themes-neotree-config)
+;;(doom-themes-neotree-config)
 ;; or for treemacs users
 (doom-themes-treemacs-config)
-
+(setq treemacs-position 'right)
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
 ;;(global-prettify-symbols-mode 1)
@@ -106,4 +106,6 @@
   (progn
    (setq anaconda-mode-localhost-address "localhost")
    (setq python-shell-interpreter "/usr/local/bin/python3"))))
-(setq undo-tree-visualizer-diff nil)
+
+;;(global-undo-tree-mode)
+;;(setq undo-tree-visualizer-diff nil)
