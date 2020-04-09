@@ -39,7 +39,7 @@ default_height = 30
   name = "lsp"
 
 [[layers]]
-  name = "lange#sql"
+  name = "lang#sql"
 
  [[layers]]
   name = "lang#erlang"
