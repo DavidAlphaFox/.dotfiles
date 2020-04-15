@@ -1,4 +1,6 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+(setq user-full-name "David Gao"
+  user-mail-address "david.alpha.fox@gmail.com")
 (cond
  ((eq system-type 'darwin)
   (setq doom-font (font-spec :family "monospace" :size 14)))
