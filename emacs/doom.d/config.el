@@ -9,6 +9,7 @@
 
 (setq auto-save-default nil)
 
+
 (require 'doom-themes)
 
 ;; Global settings (defaults)
@@ -22,6 +23,11 @@
 (if (display-graphic-p)
     (load-theme 'doom-dracula t)
   (load-theme 'doom-molokai t))
+
+
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
 
 (doom-themes-visual-bell-config)
 ;; Enable custom neotree theme (all-the-icons must be installed!)
@@ -56,6 +62,7 @@
       (setq lsp-ui-doc-enable nil)
       (setq lsp-ui-doc-position 'bottom)
       (add-hook 'erlang-mode-hook #'lsp-deferred)))))
+(setq utop-command "opam config exec -- utop -emacs")
 
 (progn
   (setq geiser-active-implementations '(chez))
@@ -105,6 +112,7 @@
   (progn
    (setq anaconda-mode-localhost-address "localhost")
    (setq python-shell-interpreter "/usr/local/bin/python3"))))
+
 
 (global-undo-fu-session-mode)
 ;;(setq desktop-save-mode t)
