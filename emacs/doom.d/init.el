@@ -3,7 +3,7 @@
 ;; This file controls what Doom modules are enabled and what order they load in.
 ;; Remember to run 'doom sync' after modifying it!
 
-;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
+;; NOTE Press 'SPC h d h' (or 'C-h dimd h' for non-vim users) to access Doom's
 ;;      documentation. There you'll find information about all of Doom's modules
 ;;      and what flags they support.
 

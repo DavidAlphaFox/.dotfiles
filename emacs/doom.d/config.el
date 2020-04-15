@@ -10,8 +10,7 @@
 (setq auto-save-default nil)
 
 (require 'doom-themes)
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
@@ -34,19 +33,6 @@
 (doom-themes-org-config)
 ;;(global-prettify-symbols-mode 1)
 
-
-(require 'lsp-mode)
-(require 'lsp-ui)
-
-(setq lsp-ui-sideline-enable nil)
-(setq lsp-ui-doc-enable t)
-(setq lsp-log-io nil)
-(progn
-  (when (file-exists-p "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
-  (progn
-    (setq lsp-erlang-server-path "~/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
-    (add-hook 'erlang-mode-hook #'lsp))))
-
 (progn
   (set-language-environment "UTF-8")
   (set-terminal-coding-system 'utf-8)
@@ -57,6 +43,19 @@
   (prefer-coding-system 'utf-8))
 
 
+(progn
+  (let ((erlang-lsp-file (concat (getenv "HOME")
+                                 "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")))
+  (when (file-exists-p erlang-lsp-file)
+    (progn
+      (setq lsp-erlang-server-path erlang-lsp-file)
+      (require 'lsp-mode)
+      (require 'lsp-ui)
+      (setq lsp-log-io nil)
+      (setq lsp-ui-sideline-enable nil)
+      (setq lsp-ui-doc-enable nil)
+      (setq lsp-ui-doc-position 'bottom)
+      (add-hook 'erlang-mode-hook #'lsp-deferred)))))
 
 (progn
   (setq geiser-active-implementations '(chez))
@@ -75,8 +74,7 @@
   (setq-default fill-column 80)
   (setq text-mode-hook 'turn-on-auto-fill)
   (setq default-major-mode 'text-mode)
-  (auto-fill-mode)
-)
+  (auto-fill-mode))
 
 (setq indent-tabs-mode nil)
 (setq default-tab-width 2)
@@ -108,5 +106,5 @@
    (setq anaconda-mode-localhost-address "localhost")
    (setq python-shell-interpreter "/usr/local/bin/python3"))))
 
-;;(global-undo-tree-mode)
-;;(setq undo-tree-visualizer-diff nil)
+(global-undo-fu-session-mode)
+;;(setq desktop-save-mode t)
