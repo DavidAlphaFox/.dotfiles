@@ -11,7 +11,7 @@
 
 (require 'doom-themes)
 (require 'exec-path-from-shell)
-
+(exec-path-from-shell-initialize)
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
@@ -101,7 +101,6 @@
                     (setq erlang-indent-guard n)
                     (setq erlang-argument-indent n)))))
 (my-setup-indent 2)
-(exec-path-from-shell-initialize)
 
 (cond
  ((eq system-type 'darwin)
