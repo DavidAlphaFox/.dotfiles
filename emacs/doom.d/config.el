@@ -55,6 +55,7 @@
   (when (file-exists-p erlang-lsp-file)
     (progn
       (setq lsp-erlang-server-path erlang-lsp-file)
+      (setq lsp-erlang-server-connection-type 'tcp)
       (require 'lsp-mode)
       (require 'lsp-ui)
       (setq lsp-log-io nil)
