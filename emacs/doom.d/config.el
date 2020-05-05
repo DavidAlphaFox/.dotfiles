@@ -59,8 +59,6 @@
       (require 'lsp-ui)
       (require 'yasnippet)
       (yas-global-mode t)
-      (require 'company-lsp)
-      (push 'company-lsp company-backends)
       (setq lsp-log-io nil)
       (setq lsp-ui-sideline-enable t)
       (setq lsp-ui-doc-enable t)
