@@ -3,8 +3,40 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#E5E9F0" "#99324B" "#4F894C" "#9A7500" "#3B6EA8" "#97365B" "#398EAC" "#3B4252"])
  '(custom-safe-themes
-   '("e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" "99ea831ca79a916f1bd789de366b639d09811501e8c092c85b2cb7d697777f93" "f2927d7d87e8207fa9a0a003c0f222d45c948845de162c885bf6ad2a255babfd" "e6ff132edb1bfa0645e2ba032c44ce94a3bd3c15e3929cdf6c049802cf059a2a" "4a8d4375d90a7051115db94ed40e9abb2c0766e80e228ecad60e06b3b397acab" "5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "37144b437478e4c235824f0e94afa740ee2c7d16952e69ac3c5ed4352209eefb" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" default)))
+   '("e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" "4a8d4375d90a7051115db94ed40e9abb2c0766e80e228ecad60e06b3b397acab" default))
+ '(fci-rule-color "#AEBACF")
+ '(jdee-db-active-breakpoint-face-colors (cons "#F0F4FC" "#5d86b6"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#F0F4FC" "#4F894C"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#F0F4FC" "#B8C5DB"))
+ '(objed-cursor-color "#99324B")
+ '(pdf-view-midnight-colors (cons "#3B4252" "#E5E9F0"))
+ '(rustic-ansi-faces
+   ["#E5E9F0" "#99324B" "#4F894C" "#9A7500" "#3B6EA8" "#97365B" "#398EAC" "#3B4252"])
+ '(vc-annotate-background "#E5E9F0")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#4F894C")
+    (cons 40 "#688232")
+    (cons 60 "#817b19")
+    (cons 80 "#9A7500")
+    (cons 100 "#a0640c")
+    (cons 120 "#a65419")
+    (cons 140 "#AC4426")
+    (cons 160 "#a53f37")
+    (cons 180 "#9e3a49")
+    (cons 200 "#97365B")
+    (cons 220 "#973455")
+    (cons 240 "#983350")
+    (cons 260 "#99324B")
+    (cons 280 "#a0566f")
+    (cons 300 "#a87b93")
+    (cons 320 "#b0a0b6")
+    (cons 340 "#AEBACF")
+    (cons 360 "#AEBACF")))
+ '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

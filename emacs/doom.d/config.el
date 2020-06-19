@@ -111,7 +111,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-;;(if (display-graphic-p)
-;;    (load-theme 'doom-nord-light t)
-;;    (load-theme 'doom-tomorrow-day t))
-(load-theme 'doom-nord-light t)
+(if (display-graphic-p)
+    (load-theme 'doom-nord-light t)
+    (load-theme 'doom-gruvbox-light t))
+;;(load-theme 'doom-nord-light t)
