@@ -60,7 +60,6 @@
       (yas-global-mode t)
       (setq lsp-log-io nil)
       (setq lsp-ui-sideline t)
-      (setq lsp-ui-doc-enable t)
       (add-hook 'erlang-mode-hook #'lsp-deferred)))))
 (setq utop-command "opam config exec -- utop -emacs")
 
