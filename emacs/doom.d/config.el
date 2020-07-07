@@ -60,9 +60,7 @@
       (require 'yasnippet)
       (yas-global-mode t)
       (setq lsp-log-io nil)
-      (setq lsp-ui-sideline-enable t)
-      (setq lsp-ui-doc-enable t)
-      (setq lsp-ui-doc-position 'at-point)
+      (setq lsp-ui-sideline t)
       (add-hook 'erlang-mode-hook #'lsp-deferred)))))
 (setq utop-command "opam config exec -- utop -emacs")
 
@@ -101,12 +99,13 @@
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
-  (add-hook 'erlang-mode-hook
-        (function (lambda ()
-                    (setq indent-tabs-mode nil)
-                    (setq erlang-indent-level n)
-                    (setq erlang-indent-guard n)
-                    (setq erlang-argument-indent n)))))
+  (add-hook 'erlang-mode-hook 
+    (lambda ()
+      (setq indent-tabs-mode nil)
+      (setq erlang-indent-level n)
+      (setq erlang-indent-guard n)
+      (setq erlang-argument-indent n))))
+
 (my-setup-indent 2)
 
 (cond
@@ -116,5 +115,5 @@
    (setq python-shell-interpreter "/usr/local/bin/python3"))))
 
 
-(global-undo-fu-session-mode)
+;;(global-undo-fu-session-mode)
 ;;(setq desktop-save-mode t)
