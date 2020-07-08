@@ -43,19 +43,20 @@ default_height = 30
 
  [[layers]]
   name = "lang#erlang"
+  default_indent=2
 
 [[layers]]
   name = "lang#ocaml"
-
+  default_indent=2
 [[layers]]
   name = "lang#javascript"
-
+  default_indent=2
 [[layers]]
   name = "lang#rust"
-
+  default_indent=2
 [[layers]]
   name = "lang#python"
-
+  default_indent=2
 [[layers]]
   name = "checkers"
 
