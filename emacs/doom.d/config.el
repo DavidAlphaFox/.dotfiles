@@ -82,7 +82,7 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode))
 
-(setq indent-tabs-mode nil)
+(setq indent-tabs-mode t)
 (setq default-tab-width 2)
 (setq tab-width 2)
 ;;(setq indent-line-function 'insert-tab)
