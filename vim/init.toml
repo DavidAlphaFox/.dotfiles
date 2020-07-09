@@ -11,7 +11,8 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    default_indent=2
+    default_indent = 2
+    expand_tab = false
     colorscheme = "gruvbox"
     background = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
