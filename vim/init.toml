@@ -53,7 +53,8 @@ default_height = 30
   name = "lang#javascript"
 
 [[layers]]
-  name = "lang#rust"
+  name = "lang#scheme"
+	scheme_dialect = 'guile'
 
 [[layers]]
   name = "lang#python"
