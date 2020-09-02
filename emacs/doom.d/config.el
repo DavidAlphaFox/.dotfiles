@@ -63,18 +63,6 @@
       (add-hook 'erlang-mode-hook #'lsp-deferred)))))
 (setq utop-command "opam config exec -- utop -emacs")
 
-(progn
-  (setq geiser-active-implementations '(guile))
-  (cond
-   ((eq system-type 'darwin)
-    (progn
-      (setq scheme-program-name "guile")
-      (setq geiser-guile-binary "/usr/local/bin/guile")))
-   ((eq system-type 'berkeley-unix)
-    (progn
-      (setq scheme-program-name "guile")
-      (setq geiser-guile-binary "/usr/local/bin/guile")))))
-
 
 (progn
   (setq-default fill-column 80)
