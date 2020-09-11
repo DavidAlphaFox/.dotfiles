@@ -41,19 +41,10 @@ default_height = 30
   name = "lsp"
 
 [[layers]]
-  name = "lang#erlang"
-
-[[layers]]
-  name = "lang#ocaml"
-
-[[layers]]
   name = "lang#javascript"
 
 [[layers]]
   name = "lang#html"
-
-[[layers]]
-  name = "lang#lisp"
 
 [[layers]]
   name = "lang#python"
