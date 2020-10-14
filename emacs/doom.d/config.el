@@ -151,6 +151,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-(if (display-graphic-p)
-    (load-theme 'doom-nord-light t)
-    (load-theme 'doom-acario-light t))
+;;(if (display-graphic-p)
+;;    (load-theme 'doom-nord-light t)
+;;    (load-theme 'doom-acario-light t))
+(load-theme 'doom-solarized-light t)
