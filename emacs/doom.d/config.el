@@ -114,4 +114,5 @@
 ;;(if (display-graphic-p)
 ;;    (load-theme 'doom-nord-light t)
 ;;    (load-theme 'doom-tomorrow-day t))
-(load-theme 'doom-tomorrow-day t)
+;;(load-theme 'doom-tomorrow-day t)
+(load-theme 'doom-nord-light t)
