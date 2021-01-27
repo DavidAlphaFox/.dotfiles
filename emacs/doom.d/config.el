@@ -1,10 +1,12 @@
-;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+;;; ~/.doom.d/config.el 
+;;; -*- lexical-binding: t; -*-
 (setq user-full-name "David Gao"
   user-mail-address "david.alpha.fox@gmail.com")
+(require 'cl-lib)
 (cond
- ((eq system-type 'darwin)
-  (setq doom-font (font-spec :family "monospace" :size 14)))
+ (IS-MAC (setq doom-font (font-spec :family "monospace" :size 14)))
  (t (setq doom-font (font-spec :family "monospace" :size 16))))
+
 (setq display-line-numbers-type t)
 
 (setq auto-save-default nil)
@@ -38,37 +40,19 @@
 (doom-themes-org-config)
 ;;(global-prettify-symbols-mode 1)
 
-(progn
-  (set-language-environment "UTF-8")
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-buffer-file-coding-system 'utf-8)
-  (setq default-buffer-file-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  (prefer-coding-system 'utf-8))
+(set-language-environment "UTF-8")
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(prefer-coding-system 'utf-8)
 
 
-(progn
-  (let ((erlang-lsp-file (concat (getenv "HOME")
-                                 "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")))
-  (when (file-exists-p erlang-lsp-file)
-    (progn
-      (setq lsp-erlang-server-path erlang-lsp-file)
-      (require 'lsp-mode)
-      (require 'lsp-ui)
-      (require 'yasnippet)
-      (yas-global-mode t)
-      (setq lsp-log-io nil)
-      (setq lsp-ui-sideline t)
-      (add-hook 'erlang-mode-hook #'lsp-deferred)))))
-(setq utop-command "opam config exec -- utop -emacs")
-
-
-(progn
-  (setq-default fill-column 80)
-  (setq text-mode-hook 'turn-on-auto-fill)
-  (setq default-major-mode 'text-mode)
-  (auto-fill-mode))
+(setq-default fill-column 80)
+(setq text-mode-hook 'turn-on-auto-fill)
+(setq default-major-mode 'text-mode)
+(auto-fill-mode)
 
 (setq default-tab-width 2)
 (setq tab-width 2)
@@ -94,6 +78,24 @@
       (setq erlang-argument-indent n))))
 
 (my-setup-indent 2)
+
+(let ((erlang-lsp-files
+       (cl-remove-if-not (lambda (erlang-lsp-location) (file-exists-p erlang-lsp-location))
+			 (list (concat (getenv "HOME") "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
+			       "/usr/local/bin/erlang_ls"
+			       "/usr/bin/erlang_ls"))))
+  (when (not (null erlang-lsp-files))
+    (setq lsp-erlang-server-path (car erlang-lsp-files))
+    (require 'lsp-mode)
+    (require 'lsp-ui)
+    (require 'yasnippet)
+    (yas-global-mode t)
+    (setq lsp-log-io nil)
+    (setq lsp-ui-sideline t)
+    (add-hook 'erlang-mode-hook #'lsp-deferred)))
+
+(setq utop-command "opam config exec -- utop -emacs")
+
 
 (when IS-BSD
   (setq anaconda-mode-localhost-address "localhost")
