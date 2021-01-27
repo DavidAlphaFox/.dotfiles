@@ -70,7 +70,6 @@
   (setq default-major-mode 'text-mode)
   (auto-fill-mode))
 
-(setq indent-tabs-mode t)
 (setq default-tab-width 2)
 (setq tab-width 2)
 ;;(setq indent-line-function 'insert-tab)
@@ -86,6 +85,7 @@
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
+	(setq-hook! python-mode python-indent-offset n) ; python-mode
   (add-hook 'erlang-mode-hook 
     (lambda ()
       (setq indent-tabs-mode nil)
@@ -95,11 +95,25 @@
 
 (my-setup-indent 2)
 
-(cond
- ((eq system-type 'darwin)
-  (progn
-   (setq anaconda-mode-localhost-address "localhost")
-   (setq python-shell-interpreter "/usr/local/bin/python3"))))
+(when IS-BSD
+  (setq anaconda-mode-localhost-address "localhost")
+  (setq python-shell-interpreter "/usr/local/bin/python3"))
+(when IS-MAC
+	(add-hook 'clojure-mode-hook 'lsp)
+	(add-hook 'clojurescript-mode-hook 'lsp)
+	(add-hook 'clojurec-mode-hook 'lsp)
+	(setq 
+		gc-cons-threshold (* 100 1024 1024)
+    read-process-output-max (* 1024 1024)
+    treemacs-space-between-root-nodes nil
+    company-idle-delay 0.0
+    company-minimum-prefix-length 1
+    lsp-lens-enable t
+    lsp-signature-auto-activate nil 
+    ; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
+    ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+  ))
+
 
 
 ;;(global-undo-fu-session-mode)
