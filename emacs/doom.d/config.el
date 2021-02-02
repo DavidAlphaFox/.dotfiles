@@ -82,6 +82,7 @@
 (let ((erlang-lsp-files
        (cl-remove-if-not (lambda (erlang-lsp-location) (file-exists-p erlang-lsp-location))
 			 (list (concat (getenv "HOME") "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
+                               (concat (getenv "HOME") "/bin/erlang_ls/_build/defalut/bin/erlang_ls")
 			       "/usr/local/bin/erlang_ls"
 			       "/usr/bin/erlang_ls"))))
   (when (not (null erlang-lsp-files))
