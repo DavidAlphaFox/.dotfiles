@@ -99,10 +99,27 @@
 
 (let ((pythons
        (cl-remove-if-not (lambda (python) (file-exists-p python))
-			 (list "/usr/local/bin/python3" "/usr/bin/python3"))))
+			 (list "/usr/local/bin/python3"
+                               "/usr/bin/python3"))))
   (when (not (null pythons))
     (setq anaconda-mode-localhost-address "localhost")
     (setq python-shell-interpreter (car pythons))))
+
+(setq geiser-active-implementations '(chez))
+(cond
+ (IS-MAC
+  (progn
+    (setq scheme-program-name "chez")
+    (setq geiser-chez-binary "/usr/local/bin/chez")))
+ (IS-LINUX
+  (progn
+    (setq scheme-program-name "chezscheme")
+    (setq (geiser-chez-binary "/usr/bin/chezscheme"))))
+ (IS-BSD
+  (progn
+    (setq scheme-program-name "chez-scheme")
+    (setq geiser-guile-binary "/usr/local/bin/chez-scheme"))))
+
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
   (add-hook 'clojurescript-mode-hook 'lsp)
