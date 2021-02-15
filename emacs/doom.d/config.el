@@ -105,20 +105,15 @@
     (setq anaconda-mode-localhost-address "localhost")
     (setq python-shell-interpreter (car pythons))))
 
-(setq geiser-active-implementations '(chez))
-(cond
- (IS-MAC
-  (progn
-    (setq scheme-program-name "chez")
-    (setq geiser-chez-binary "/usr/local/bin/chez")))
- (IS-LINUX
-  (progn
-    (setq scheme-program-name "chezscheme")
-    (setq (geiser-chez-binary "/usr/bin/chezscheme"))))
- (IS-BSD
-  (progn
-    (setq scheme-program-name "chez-scheme")
-    (setq geiser-guile-binary "/usr/local/bin/chez-scheme"))))
+(let ((chez-binary (cl-remove-if-not (lambda (f) (file-exists-p f))
+                              (list "/usr/local/bin/chez"
+                                    "/usr/bin/chezscheme"
+                                    "/usr/local/bin/chez-scheme"))))
+  (when (not (null chez-binary))
+    (setq geiser-active-implementations '(chez))
+    (let ((chez-file (car chez-binary)))
+      (setq scheme-program-name (file-name-base chez-file))
+      (setq geiser-chez-binary chez-file))))
 
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
