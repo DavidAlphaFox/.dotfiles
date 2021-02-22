@@ -70,7 +70,11 @@
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
   (setq-hook! python-mode python-indent-offset n) ; python-mode
-  (add-hook 'erlang-mode-hook 
+  (add-hook 'python-mode-hook
+    (lambda ()
+			(setq python-indent-offset 2)
+			(setq tab-width 2)))
+	(add-hook 'erlang-mode-hook 
     (lambda ()
       (setq indent-tabs-mode nil)
       (setq erlang-indent-level n)
