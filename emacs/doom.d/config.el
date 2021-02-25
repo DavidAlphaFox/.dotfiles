@@ -102,9 +102,6 @@
           (lambda ()
             (setq python-indent-offset 4)
             (setq tab-width 4)
-            (pipenv-mode)
-            (pipenv-deactivate)
-            (pipenv-activate)
             (lsp-deferred)))
 
 (let ((chez-binary (cl-remove-if-not (lambda (f) (file-exists-p f))
