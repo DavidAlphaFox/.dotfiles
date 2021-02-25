@@ -80,10 +80,10 @@
 
 (let ((erlang-lsp-files
        (cl-remove-if-not (lambda (erlang-lsp-location) (file-exists-p erlang-lsp-location))
-			 (list (concat (getenv "HOME") "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
+                         (list (concat (getenv "HOME") "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
                                (concat (getenv "HOME") "/bin/erlang_ls/_build/default/bin/erlang_ls")
-			       "/usr/local/bin/erlang_ls"
-			       "/usr/bin/erlang_ls"))))
+                               "/usr/local/bin/erlang_ls"
+                               "/usr/bin/erlang_ls"))))
   (when (not (null erlang-lsp-files))
     (setq lsp-erlang-server-path (car erlang-lsp-files))
     (require 'lsp-mode)
@@ -95,18 +95,17 @@
     (add-hook 'erlang-mode-hook #'lsp-deferred)))
 
 (setq utop-command "opam config exec -- utop -emacs")
-
-(let ((pythons
-       (cl-remove-if-not (lambda (python) (file-exists-p python))
-                         (list "/usr/local/bin/python3"
-                               "/usr/bin/python3"))))
-  (when (not (null pythons))
-    (add-hook 'python-mode-hook
-              (lambda ()
-                (setq python-indent-offset 4)
-                (setq tab-width 4)))
-    (setq anaconda-mode-localhost-address "localhost")
-    (setq python-shell-interpreter (car pythons))))
+;; 延迟lsp的启动
+;; 需要lsp-install-server安装对应的lsp server
+;; 需要安装对应的python包
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq python-indent-offset 4)
+            (setq tab-width 4)
+            (pipenv-mode)
+            (pipenv-deactivate)
+            (pipenv-activate)
+            (lsp-deferred)))
 
 (let ((chez-binary (cl-remove-if-not (lambda (f) (file-exists-p f))
                               (list "/usr/local/bin/chez"
