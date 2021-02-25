@@ -69,12 +69,7 @@
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
-  (setq-hook! python-mode python-indent-offset n) ; python-mode
-  (add-hook 'python-mode-hook
-    (lambda ()
-			(setq python-indent-offset 2)
-			(setq tab-width 2)))
-	(add-hook 'erlang-mode-hook 
+  (add-hook 'erlang-mode-hook
     (lambda ()
       (setq indent-tabs-mode nil)
       (setq erlang-indent-level n)
@@ -103,9 +98,13 @@
 
 (let ((pythons
        (cl-remove-if-not (lambda (python) (file-exists-p python))
-			 (list "/usr/local/bin/python3"
+                         (list "/usr/local/bin/python3"
                                "/usr/bin/python3"))))
   (when (not (null pythons))
+    (add-hook 'python-mode-hook
+              (lambda ()
+                (setq python-indent-offset 4)
+                (setq tab-width 4)))
     (setq anaconda-mode-localhost-address "localhost")
     (setq python-shell-interpreter (car pythons))))
 
