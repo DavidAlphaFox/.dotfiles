@@ -54,8 +54,8 @@
 (setq default-major-mode 'text-mode)
 (auto-fill-mode)
 
-(setq default-tab-width 2)
-(setq tab-width 2)
+;;(setq default-tab-width 2)
+;;(setq tab-width 2)
 ;;(setq indent-line-function 'insert-tab)
 (defun my-setup-indent (n)
   ;; java/c/c++
@@ -71,7 +71,9 @@
   (setq css-indent-offset n) ; css-mode
   (add-hook 'erlang-mode-hook
     (lambda ()
-      (setq indent-tabs-mode nil)
+      (setq indent-tabs-mode t)
+			(setq default-tab-width n)
+			(setq tab-width n)
       (setq erlang-indent-level n)
       (setq erlang-indent-guard n)
       (setq erlang-argument-indent n))))
