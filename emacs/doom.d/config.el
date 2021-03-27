@@ -60,6 +60,7 @@
 (defun my-setup-indent (n)
   ;; java/c/c++
   (setq c-basic-offset n)
+  (setq lisp-indent-offset n)
   ;; web development
   (setq coffee-tab-width n) ; coffeescript
   (setq javascript-indent-level n) ; javascript-mode
