@@ -4,8 +4,15 @@
   user-mail-address "david.alpha.fox@gmail.com")
 (require 'cl-lib)
 (cond
- (IS-MAC (setq doom-font (font-spec :family "monospace" :size 14)))
- (t (setq doom-font (font-spec :family "monospace" :size 16))))
+  (IS-MAC (if (and (member "TerminessTTF Nerd Font Mono" (font-family-list))
+                (display-graphic-p))
+            (setq doom-font (font-spec :font "TerminessTTF Nerd Font Mono" :style "Medium" :size 14))
+            (setq doom-font (font-spec :family "monospace" :size 14))))
+
+  (t (if (and (member "Terminess TTF Nerd Font Mono" (font-family-list))
+           (display-graphic-p))
+       (setq doom-font (font-spec :font "Terminess TTF Nerd Font Mono" :style "Medium" :size 16))
+       (setq doom-font (font-spec :family "monospace" :size 16))))
 
 (setq display-line-numbers-type t)
 
