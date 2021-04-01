@@ -12,7 +12,7 @@
   (t (if (and (member "Terminess TTF Nerd Font Mono" (font-family-list))
            (display-graphic-p))
        (setq doom-font (font-spec :font "Terminess TTF Nerd Font Mono" :style "Medium" :size 16))
-       (setq doom-font (font-spec :family "monospace" :size 16))))
+       (setq doom-font (font-spec :family "monospace" :size 16)))))
 
 (setq display-line-numbers-type t)
 
