@@ -102,12 +102,25 @@
             (setq tab-width 4)
             (lsp-deferred)))
 
-(let ((chez-binary (cl-remove-if-not (lambda (f) (file-exists-p f))
-                              (list "/usr/local/bin/chez"
-                                    "/usr/bin/chezscheme"
-                                    "/usr/local/bin/chez-scheme"))))
+(setq geiser-active-implementations '())
+
+(let ((racket-binary
+        (cl-remove-if-not (lambda (f) (file-exists-p f))
+          (list "/usr/local/bin/racket"
+            "/usr/bin/racket"))))
+  (when (not (null racket-binary))
+    (setq geiser-active-implementations '(racket))
+    (let ((racket-file (car racket-binary)))
+      (setq scheme-program-name (file-name-base racket-file))
+      (setq geiser-racket-binary racket-file))))
+
+(let ((chez-binary
+        (cl-remove-if-not (lambda (f) (file-exists-p f))
+          (list "/usr/local/bin/chez"
+            "/usr/bin/chezscheme"
+            "/usr/local/bin/chez-scheme"))))
   (when (not (null chez-binary))
-    (setq geiser-active-implementations '(chez))
+    (push 'chez geiser-active-implementations)
     (let ((chez-file (car chez-binary)))
       (setq scheme-program-name (file-name-base chez-file))
       (setq geiser-chez-binary chez-file))))
