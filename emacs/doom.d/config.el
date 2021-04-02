@@ -117,16 +117,6 @@
       (setq scheme-program-name (file-name-base racket-file))
       (setq geiser-racket-binary racket-file))))
 
-(let ((chez-binary
-        (cl-remove-if-not (lambda (f) (file-exists-p f))
-          (list "/usr/local/bin/chez"
-            "/usr/bin/chezscheme"
-            "/usr/local/bin/chez-scheme"))))
-  (when (not (null chez-binary))
-    (push 'chez geiser-active-implementations)
-    (let ((chez-file (car chez-binary)))
-      (setq scheme-program-name (file-name-base chez-file))
-      (setq geiser-chez-binary chez-file))))
 
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
