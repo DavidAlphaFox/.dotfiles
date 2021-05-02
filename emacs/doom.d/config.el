@@ -102,18 +102,6 @@
             (setq tab-width 4)
             (lsp-deferred)))
 
-(setq geiser-active-implementations '())
-
-(let ((racket-binary
-        (cl-remove-if-not (lambda (f) (file-exists-p f))
-          (list "/usr/local/bin/racket"
-            "/usr/bin/racket"))))
-  (when (not (null racket-binary))
-    (setq geiser-active-implementations '(racket))
-    (let ((racket-file (car racket-binary)))
-      (setq scheme-program-name (file-name-base racket-file))
-      (setq geiser-racket-binary racket-file))))
-
 
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
