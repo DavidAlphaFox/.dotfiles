@@ -51,6 +51,10 @@ default_height = 30
   name = "lang#erlang"
 
 [[layers]]
+  name = 'lang#c'
+  enable_clang_syntax_highlight = true
+
+[[layers]]
   name = "checkers"
 
 [[layers]]
