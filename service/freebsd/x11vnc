@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# PROVIDE: x11vnc
+# REQUIRE: dbus slim
+# KEYWORD: shutdown 
+
+. /etc/rc.subr
+
+name="x11vnc"
+rcvar=`set rcvar`
+load_rc_config $name
+
+command="/usr/local/bin/x11vnc"
+command_args="-many -xkb -dpms -display :0 -rfbport 5901 -auth /var/run/slim.auth -no6"
+
+x11vnc_enable=${x11vnc_enable-"NO"}
+x11vnc_pidfile=${x11vnc_pidfile-"/var/run/x11vnc.pid"}
+
+pidfile="${x11vnc_pidfile}"
+
+start_cmd="x11vnc_start"
+stop_cmd="x11vnc_stop"
+status_cmd="x11vnc_status"
+
+
+
+x11vnc_start() {
+    /usr/sbin/daemon -P ${pidfile} -R3 -f $command $command_args
+}
+
+
+x11vnc_stop() {
+        if [ -e "${pidfile}" ]; then
+                kill -s TERM `cat ${pidfile}`
+        else
+                echo "${name} is not running"
+        fi
+
+}
+
+x11vnc_status() {
+        if [ -e "${pidfile}" ]; then
+                echo "${name} is running as pid `cat ${pidfile}`"
+        else
+                echo "${name} is not running"
+        fi
+}
+
+run_rc_command "$1"
