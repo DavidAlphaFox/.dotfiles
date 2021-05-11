@@ -74,6 +74,7 @@
   (setq erlang-indent-guard n)
   (setq erlang-argument-indent n))
 
+(setq-default indent-tabs-mode nil)
 (my-setup-indent 2)
 
 (let ((erlang-lsp-files
@@ -97,10 +98,10 @@
 ;; 需要lsp-install-server安装对应的lsp server
 ;; 需要安装对应的python包
 (add-hook 'python-mode-hook
-          (lambda ()
-            (setq python-indent-offset 4)
-            (setq tab-width 4)
-            (lsp-deferred)))
+  (lambda ()
+    (setq python-indent-offset 4)
+    (setq tab-width 4)
+    (lsp-deferred)))
 
 
 (when (or IS-MAC IS-LINUX)
