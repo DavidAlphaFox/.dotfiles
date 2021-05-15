@@ -3,9 +3,13 @@
 (setq user-full-name "David Gao"
   user-mail-address "david.alpha.fox@gmail.com")
 (require 'cl-lib)
-(cond
-  (IS-MAC  (setq doom-font (font-spec :family "monospace" :size 14)))
-  (t (setq doom-font (font-spec :family "monospace" :size 16))))
+(if (display-graphic-p)
+  (cond
+    (IS-MAC  (setq doom-font (font-spec :family "monospace" :size 14)))
+    (IS-LINUX (setq doom-font (font-spec :family "monospace" :size 16)))
+    (IS-BSD (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)))
+    (t (setq doom-font (font-spec :family "monospace" :size 16)))))
+
 
 (setq display-line-numbers-type t)
 
