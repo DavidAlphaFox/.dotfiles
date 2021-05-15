@@ -5,7 +5,7 @@
 (require 'cl-lib)
 (cond
   (IS-MAC  (setq doom-font (font-spec :family "monospace" :size 14)))
-  (t (setq doom-font (font-spec :family "monospace" :size 16))))
+  (t (setq doom-font (font-spec :family "JetBrainsMono Nerd Font"  :size 16))))
 
 (setq display-line-numbers-type t)
 
