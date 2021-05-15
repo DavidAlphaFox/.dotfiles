@@ -5,7 +5,7 @@
 (require 'cl-lib)
 (if (display-graphic-p)
   (cond
-    (IS-MAC  (setq doom-font (font-spec :family "monospace" :size 14)))
+    (IS-MAC  (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14)))
     (IS-LINUX (setq doom-font (font-spec :family "monospace" :size 16)))
     (IS-LINUX (setq doom-font (font-spec :family "JetBrainsMono Nerd Font"  :size 16)))
     (IS-BSD (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)))
