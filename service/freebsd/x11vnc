@@ -11,7 +11,7 @@ rcvar=`set rcvar`
 load_rc_config $name
 
 command="/usr/local/bin/x11vnc"
-command_args="-many -xkb -dpms -display :0 -rfbport 5901 -auth /var/run/slim.auth -no6"
+command_args="-reopen -many -xkb -dpms -display :0 -rfbport 5901 -auth /var/run/slim.auth -no6"
 
 x11vnc_enable=${x11vnc_enable-"NO"}
 x11vnc_pidfile=${x11vnc_pidfile-"/var/run/x11vnc.pid"}

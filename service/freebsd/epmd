@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# $FreeBSD: branches/2020Q2/lang/erlang/files/epmd.in 340872 2014-01-24 00:14:07Z mat $
+#
+# PROVIDE: epmd
+# REQUIRE: LOGIN
+#
+# Add the following line to /etc/rc.conf to enable epmd:
+#
+# epmd_enable="YES"
+#
+
+epmd_enable=${epmd_enable:-"NO"}
+
+. /etc/rc.subr
+
+name=epmd
+rcvar=epmd_enable
+
+procname=/usr/local/bin/epmd
+start_cmd="/usr/local/lib/otp-24/bin/epmd -daemon"
+stop_cmd="/usr/local/lib/otp-24/bin/epmd -kill >/dev/null"
+
+load_rc_config ${name}
+run_rc_command "$1"

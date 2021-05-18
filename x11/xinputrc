@@ -1,0 +1,9 @@
+# im-config(8) generated on Mon, 03 May 2021 22:38:49 +0800
+run_im fcitx
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export GTK3_IM_MODULE=fcitx
+export XIM=fcitx
+export XMODIFIERS=@im=fcitx
+
+# im-config signature: 3fe1e73b24d3b7226640f11c76f0ef4b  -
