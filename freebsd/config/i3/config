@@ -191,5 +191,3 @@ exec --no-startup-id ibus-daemon -d -x -r
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xfsettingsd
 exec --no-startup-id /usr/local/libexec/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/local/bin/gpg-agent --sh --daemon
-exec_always ~/.config/i3/scripts/gnome-keyring.sh
