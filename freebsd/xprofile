@@ -1,0 +1,6 @@
+export QT_IM_MODULE=xim
+export GTK_IM_MODULE=xim
+export GTK3_IM_MODULE=ibus
+export XIM=ibus
+export XMODIFIERS=@im=ibus
+
