@@ -108,6 +108,7 @@
     (setq tab-width 4)
     (lsp-deferred)))
 
+(setq scheme-program-name "racket")
 
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
