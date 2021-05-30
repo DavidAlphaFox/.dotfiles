@@ -110,6 +110,16 @@
 
 (setq scheme-program-name "racket")
 
+(let ((luas
+       (cl-remove-if-not (lambda (f) (file-exists-p f))
+         (list
+           "/usr/local/bin/lua54"
+           "/usr/local/bin/lua53"
+           "/usr/local/bin/lua52"))))
+  (when (not (null luas))
+    (setq lua-default-application
+      (file-name-base (car luas)))))
+
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
   (add-hook 'clojurescript-mode-hook 'lsp)
