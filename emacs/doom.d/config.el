@@ -82,12 +82,16 @@
 (setq-default indent-tabs-mode nil)
 (my-setup-indent 2)
 
-(let ((erlang-lsp-files
-       (cl-remove-if-not (lambda (erlang-lsp-location) (file-exists-p erlang-lsp-location))
-                         (list (concat (getenv "HOME") "/.local/bin/erlang_ls/_build/default/bin/erlang_ls")
-                               (concat (getenv "HOME") "/bin/erlang_ls/_build/default/bin/erlang_ls")
-                               "/usr/local/bin/erlang_ls"
-                               "/usr/bin/erlang_ls"))))
+(defun find-files (locations)
+ (cl-remove-if-not 
+  (lambda (f) (file-exists-p f))
+  locations))
+
+(let ((erlang-lsp-files 
+       (find-files
+        (list
+          "/usr/local/bin/erlang_ls"
+          "/usr/bin/erlang_ls"))))
   (when (not (null erlang-lsp-files))
     (setq lsp-erlang-server-path (car erlang-lsp-files))
     (require 'lsp-mode)
@@ -111,8 +115,8 @@
 (setq scheme-program-name "racket")
 
 (let ((luas
-       (cl-remove-if-not (lambda (f) (file-exists-p f))
-         (list
+      (find-files 
+       (list
            "/usr/local/bin/lua54"
            "/usr/local/bin/lua53"
            "/usr/local/bin/lua52"))))
