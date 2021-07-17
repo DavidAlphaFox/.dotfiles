@@ -1,0 +1,1 @@
+./configure --prefix=/usr/local  --with-x-toolkit=gtk3 --with-xft --with-wide-int  --with-modules --with-cairo --with-harfbuzz --with-xpm=ifavailable --with-jpeg --with-gif --with-tiff --with-gnutls

@@ -1,0 +1,1 @@
+KERL_CONFIGURE_OPTIONS="--with-wx-config=/usr/bin/wx-config  --enable-systemd"
