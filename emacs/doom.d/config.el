@@ -5,7 +5,7 @@
 (require 'cl-lib)
 (if (display-graphic-p)
   (cond
-    (IS-MAC  (setq doom-font (font-spec :family "JetBrainsMono Nerd Font"  :size 14)))
+    (IS-MAC  (setq doom-font (font-spec :name "TerminessTTF Nerd Font"  :size 14)))
     (IS-LINUX (setq doom-font (font-spec :name "TerminessTTF Nerd Font" :size 19)))
     (IS-BSD (setq doom-font (font-spec :name "TerminessTTF Nerd Font" :size 19)))
     (t (setq doom-font (font-spec :family "monospace" :size 16)))))
