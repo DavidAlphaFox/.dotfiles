@@ -20,8 +20,9 @@
 
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold nil    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+      doom-themes-enable-italic nil) ; if nil, italics is universally disabled
 
+(load-theme 'doom-gruvbox-light t)
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
 ;;(load-theme 'doom-one t)
@@ -38,10 +39,11 @@
 ;; Enable custom neotree theme (all-the-icons must be installed!)
 ;;(doom-themes-neotree-config)
 ;; or for treemacs users
+(setq doom-themes-treemacs-theme "doom-colors")
 (doom-themes-treemacs-config)
-(setq treemacs-position 'right)
+
 ;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
+;;(doom-themes-org-config)
 ;;(global-prettify-symbols-mode 1)
 
 (set-language-environment "UTF-8")
@@ -153,4 +155,3 @@
 ;;(if (display-graphic-p)
 ;;    (load-theme 'doom-nord-light t)
 ;;    (load-theme 'doom-gruvbox-light t))
-(load-theme 'doom-gruvbox-light t)
