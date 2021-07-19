@@ -36,12 +36,12 @@
 
 
 (doom-themes-visual-bell-config)
-;; Enable custom neotree theme (all-the-icons must be installed!)
-;;(doom-themes-neotree-config)
-;; or for treemacs users
-(setq doom-themes-treemacs-theme "doom-colors")
-(doom-themes-treemacs-config)
 
+;; or for treemacs users
+(doom-themes-treemacs-config)
+(setq doom-themes-treemacs-theme "doom-colors")
+(setq treemacs-space-between-root-nodes nil)
+(setq treemacs-position 'right)
 ;; Corrects (and improves) org-mode's native fontification.
 ;;(doom-themes-org-config)
 ;;(global-prettify-symbols-mode 1)
