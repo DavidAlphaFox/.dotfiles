@@ -89,10 +89,7 @@
   locations))
 
 (let ((erlang-lsp-files 
-       (find-files
-        (list
-          "/usr/local/bin/erlang_ls"
-          "/usr/bin/erlang_ls"))))
+        (find-files (list "/usr/local/bin/erlang_ls" "/usr/bin/erlang_ls"))))
   (when (not (null erlang-lsp-files))
     (setq lsp-erlang-server-path (car erlang-lsp-files))
     (require 'lsp-mode)
@@ -113,17 +110,27 @@
     (setq tab-width 4)
     (lsp-deferred)))
 
-(setq scheme-program-name "racket")
+(require 'geiser)
+(require 'geiser-chez)
 
-(let ((luas
-      (find-files 
-       (list
-           "/usr/local/bin/lua54"
-           "/usr/local/bin/lua53"
-           "/usr/local/bin/lua52"))))
-  (when (not (null luas))
+(setq scheme-program-name "racket")
+(let ((chez-scheme
+        (find-files (list "/usr/local/bin/chez-scheme"
+                      "/usr/local/bin/chezscheme"
+                      "/usr/bin/chez-scheme"
+                      "/usr/bin/chezscheme"))))
+  (when (not (null chez-scheme))
+    (setq geiser-chez-binary (car chez-scheme))))
+
+(let ((lua-binary
+        (find-files (list "/usr/local/bin/lua54"
+                      "/usr/local/bin/lua53"
+                      "/usr/local/bin/lua52"
+                      "/usr/local/bin/lua"
+                      "/usr/bin/lua"))))
+  (when (not (null lua-binary))
     (setq lua-default-application
-      (file-name-base (car luas)))))
+      (file-name-base (car lua-binary)))))
 
 (when (or IS-MAC IS-LINUX)
   (add-hook 'clojure-mode-hook 'lsp)
