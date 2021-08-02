@@ -117,8 +117,10 @@
 (let ((chez-scheme
         (find-files (list "/usr/local/bin/chez-scheme"
                       "/usr/local/bin/chezscheme"
+                      "/usr/local/bin/chez"
                       "/usr/bin/chez-scheme"
-                      "/usr/bin/chezscheme"))))
+                      "/usr/bin/chezscheme"
+                      "/usr/bin/chez"))))
   (when (not (null chez-scheme))
     (setq geiser-chez-binary (car chez-scheme))))
 
