@@ -17,7 +17,7 @@
 
 
 (require 'doom-themes)
-
+(setq org-directory "~/org/")
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold nil    ; if nil, bold is universally disabled
       doom-themes-enable-italic nil) ; if nil, italics is universally disabled
