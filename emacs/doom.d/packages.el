@@ -7,6 +7,6 @@
 ;; (package! builtin-package :disable t)
 (package! doom-themes)
 (package! exec-path-from-shell)
-
+;;(package! map :pin "bb50dba")
 
 ;;(package! doom-themes :recipe (:fetcher github :repo "hlissner/emacs-doom-themes"))
