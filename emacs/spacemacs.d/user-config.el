@@ -64,8 +64,9 @@
 (setq treemacs-space-between-root-nodes nil)
 (setq lsp-ui-doc-position 'at-point)
 
-(require 'lsp-racket)
 (require 'lsp-ocaml)
 (add-hook 'tuareg-mode-hook #'lsp-deferred)
-(add-hook 'racket-mode-hook #'lsp-deferred)
+(when (display-graphic-p)
+  (require 'lsp-racket)
+  (add-hook 'racket-mode-hook #'lsp-deferred))
 
