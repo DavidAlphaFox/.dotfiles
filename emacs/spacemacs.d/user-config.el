@@ -58,3 +58,4 @@
       (file-name-base (car lua-binary)))))
 
 (setq-default treemacs-position 'right)
+(global-company-mode)
