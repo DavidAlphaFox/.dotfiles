@@ -57,5 +57,14 @@
     (setq lua-default-application
       (file-name-base (car lua-binary)))))
 
-(setq-default treemacs-position 'right)
-(global-company-mode)
+
+(setq treemacs-lock-width t)
+(setq treemacs-position 'right)
+
+(setq lsp-ui-doc-position 'at-point)
+
+(require 'lsp-racket)
+(require 'lsp-ocaml)
+(add-hook 'tuareg-mode-hook #'lsp-deferred)
+(add-hook 'racket-mode-hook #'lsp-deferred)
+
