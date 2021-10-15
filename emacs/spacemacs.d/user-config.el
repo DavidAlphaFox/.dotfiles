@@ -56,3 +56,5 @@
   (when (not (null lua-binary))
     (setq lua-default-application
       (file-name-base (car lua-binary)))))
+
+(setq-default treemacs-position 'right)
