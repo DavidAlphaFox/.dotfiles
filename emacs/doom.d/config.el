@@ -91,14 +91,14 @@
 (let ((erlang-lsp-files 
         (find-files (list "/usr/local/bin/erlang_ls" "/usr/bin/erlang_ls"))))
   (when (not (null erlang-lsp-files))
-    (setq lsp-erlang-server-path (car erlang-lsp-files))
-    (require 'lsp-mode)
-    (require 'lsp-ui)
-    (require 'yasnippet)
-    (yas-global-mode t)
-    (setq lsp-log-io nil)
-    (setq lsp-ui-sideline t)
-    (add-hook 'erlang-mode-hook #'lsp-deferred)))
+    (setq lsp-erlang-server-path (car erlang-lsp-files))))
+    ;;(require 'lsp-mode)
+    ;;(require 'lsp-ui)
+    ;;(require 'yasnippet)
+    ;;(yas-global-mode t)
+    ;;(setq lsp-log-io nil)
+    ;;(setq lsp-ui-sideline t)
+    ;;(add-hook 'erlang-mode-hook #'lsp-deferred)))
 
 (setq utop-command "opam config exec -- utop -emacs")
 ;; 延迟lsp的启动

@@ -8,5 +8,5 @@
 (package! doom-themes)
 (package! exec-path-from-shell)
 ;;(package! map :pin "bb50dba")
-
+;;(package! erlang :pin "118cb37")
 ;;(package! doom-themes :recipe (:fetcher github :repo "hlissner/emacs-doom-themes"))
