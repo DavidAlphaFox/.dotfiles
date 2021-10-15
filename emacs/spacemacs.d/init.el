@@ -15,15 +15,13 @@
 (defun build-dotspacemacs-layers ()
   (let ((base-layers '((auto-completion :variables
                          auto-completion-enable-help-tooltip t
-                         auto-completion-enable-snippets-in-popup t)
-                         ;auto-completion-use-company-box t)
-                        syntax-checking
-                        better-defaults
+                         auto-completion-enable-snippets-in-popup t
+                         auto-completion-use-company-box t)
+                        syntax-checking                   
                         git
-                        ivy
+                        helm
                         (lsp :variables
                           lsp-use-lsp-ui t)
-;;                          lsp-lens-enable t)
                         markdown
                         multiple-cursors
                         org
