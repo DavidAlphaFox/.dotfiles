@@ -61,7 +61,7 @@
 
 (setq treemacs-lock-width t)
 (setq treemacs-position 'right)
-
+(setq treemacs-space-between-root-nodes nil)
 (setq lsp-ui-doc-position 'at-point)
 
 (require 'lsp-racket)
