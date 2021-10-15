@@ -17,7 +17,7 @@
                          auto-completion-enable-help-tooltip t
                          auto-completion-enable-snippets-in-popup t
                          auto-completion-use-company-box t)
-                        syntax-checking                   
+                        syntax-checking
                         git
                         helm
                         (lsp :variables
@@ -269,10 +269,10 @@ It should only modify the values of Spacemacs settings."
     dotspacemacs-default-font (if (display-graphic-p)
                                 (cond
                                   (IS-MAC  '("JetBrainsMono Nerd Font"  :size 14.0 :weight normal :width normal))
-                                  (IS-LINUX '("JetBrainsMono Nerd Font"  :size 14.0 :weight normal :width normal))
-                                  (IS-BSD '("JetBrainsMono Nerd Font"  :size 14.0 :weight normal :width normal))
-                                  (t '("Source Code Pro" :size 14.0 :weight normal :width normal)))
-                                '("monospace" :size 14.0 :weight normal :width normal))
+                                  (IS-LINUX '("JetBrainsMono Nerd Font"  :size 12.0 :weight normal :width normal))
+                                  (IS-BSD '("JetBrainsMono Nerd Font"  :size 12.0 :weight normal :width normal))
+                                  (t '("Source Code Pro" :size 12.0 :weight normal :width normal)))
+                                '("monospace" :size 12.0 :weight normal :width normal))
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
