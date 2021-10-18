@@ -17,9 +17,9 @@
                          auto-completion-enable-help-tooltip t
                          auto-completion-enable-snippets-in-popup t
                          auto-completion-use-company-box t)
-                        syntax-checking                   
+                        syntax-checking
                         git
-                        helm
+                        ivy
                         (lsp :variables
                           lsp-use-lsp-ui t)
                         markdown
