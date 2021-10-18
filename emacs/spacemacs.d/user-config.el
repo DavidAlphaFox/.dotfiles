@@ -24,6 +24,7 @@
   (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq web-mode-attr-indent-offset n)
   (setq css-indent-offset n) ; css-mode
   (setq erlang-indent-level n)
   (setq erlang-indent-guard n)
@@ -60,11 +61,12 @@
 
 (setq treemacs-lock-width t)
 (setq treemacs-position 'right)
-
+(setq treemacs-space-between-root-nodes nil)
 (setq lsp-ui-doc-position 'at-point)
 
-(require 'lsp-racket)
 (require 'lsp-ocaml)
 (add-hook 'tuareg-mode-hook #'lsp-deferred)
-(add-hook 'racket-mode-hook #'lsp-deferred)
+(when (display-graphic-p)
+  (require 'lsp-racket)
+  (add-hook 'racket-mode-hook #'lsp-deferred))
 
