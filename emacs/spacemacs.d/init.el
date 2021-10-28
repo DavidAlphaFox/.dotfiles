@@ -14,12 +14,15 @@
 ;; ----------------------------------------------------------------
 (defun build-dotspacemacs-layers ()
   (let ((base-layers '((auto-completion :variables
-                         auto-completion-enable-help-tooltip t
-                         auto-completion-enable-snippets-in-popup t
+                         auto-completion-enable-help-tooltip nil
+                         auto-completion-enable-snippets-in-popup nil
                          auto-completion-use-company-box t)
                         syntax-checking
                         git
-                        ivy
+                        helm
+;                        (ivy :variables
+;                          ivy-enable-advanced-buffer-information t
+;                          ivy-enable-icons t)
                         (lsp :variables
                           lsp-use-lsp-ui t)
                         markdown

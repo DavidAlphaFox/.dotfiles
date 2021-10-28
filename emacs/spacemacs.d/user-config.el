@@ -1,4 +1,3 @@
-
 (set-language-environment "UTF-8")
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -64,9 +63,30 @@
 (setq treemacs-space-between-root-nodes nil)
 (setq lsp-ui-doc-position 'at-point)
 
-(require 'lsp-ocaml)
-(add-hook 'tuareg-mode-hook #'lsp-deferred)
+;; setup racket, racket-langserver can only work with gui
 (when (display-graphic-p)
   (require 'lsp-racket)
   (add-hook 'racket-mode-hook #'lsp-deferred))
 
+;; setup ocaml
+(require 'lsp-ocaml)
+(add-hook 'tuareg-mode-hook #'lsp-deferred)
+
+;; (require 'merlin)
+;; (require 'merlin-eldoc)
+;; (require 'tuareg)
+;; (require 'utop)
+;; (setq merlin-use-auto-complete-mode t)
+;; (setq tuareg-opam-insinuate t)
+
+;; (tuareg-opam-update-env (tuareg-opam-current-compiler))
+
+;;(autoload 'merlin-mode "merlin" "Merlin mode" t)
+;;(add-hook 'tuareg-mode-hook 'merlin-mode)
+;;(add-hook 'utop-mode-hook 'merlin-mode)
+;;(add-hook 'tuareg-mode-hook 'merlin-eldoc-setup)
+;;(add-hook 'utop-mode-hook 'merlin-eldoc-setup)
+
+;;(autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+;;(add-hook 'tuareg-mode-hook 'utop-minor-mode)
+;;(add-hook 'utop-mode-hook 'company-mode)
