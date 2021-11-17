@@ -34,7 +34,7 @@
                         themes-megapack
                         treemacs
                         version-control
-                        sql-mode
+                        sql
                         erlang
                         emacs-lisp
                         common-lisp
