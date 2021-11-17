@@ -84,11 +84,7 @@
    dotspacemacs-configuration-layer-path '()
 
    ;; List of configuration layers to load.
-    dotspacemacs-configuration-layers (sql
-                                        sql
-                                        sql
-                                        sql
-                                        build-dotspacemacs-layers)
+    dotspacemacs-configuration-layers (build-dotspacemacs-layers)
 
 
    ;; List of additional packages that will be installed without being wrapped
