@@ -34,6 +34,7 @@
                         themes-megapack
                         treemacs
                         version-control
+                        sql
                         erlang
                         emacs-lisp
                         common-lisp
@@ -83,7 +84,7 @@
    dotspacemacs-configuration-layer-path '()
 
    ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers (build-dotspacemacs-layers)
+    dotspacemacs-configuration-layers (build-dotspacemacs-layers)
 
 
    ;; List of additional packages that will be installed without being wrapped
