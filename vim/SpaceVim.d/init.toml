@@ -63,3 +63,13 @@ default_height = 30
 
 [[layers]]
    name = "format"
+
+[[layers]]
+    name = "denite"
+
+[[layers]]
+    name = 'git'
+
+[[layers]]
+    name = 'VersionControl'
+
