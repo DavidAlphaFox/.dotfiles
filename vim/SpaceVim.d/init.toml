@@ -53,8 +53,6 @@ default_height = 30
     ''
   ]
 
-[[layers]]
-  name = "lang#erlang"
 
 [[layers]]
   name = 'lang#c'
