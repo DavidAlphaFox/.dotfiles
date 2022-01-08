@@ -37,13 +37,13 @@ bspc config active_border_color         "#073642"
 # Notifications
 /usr/bin/dunst &
 # Polkit
-/usr/libexec/polkit-gnome-authentication-agent-1 &
+#/usr/libexec/polkit-gnome-authentication-agent-1 &
 # Wallpaper
 #nitrogen --restore &
 # Dex
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
 # Picom
-#picom -CGb &
+picom -CGb &
 # Network Applet
 nm-applet --indicator &
 

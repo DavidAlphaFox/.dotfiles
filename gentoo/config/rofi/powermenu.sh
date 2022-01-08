@@ -5,13 +5,14 @@ lock="......Lock"
 logout=".....Logout"
 shutdown="....Shutdown"
 reboot="....Reboot"
-#sleep="....Sleep"
+sleep="....Sleep"
 
 # Get answer from user via rofi
 selected_option=$(echo "$lock
 $logout
 $reboot
-$shutdown" | rofi -dmenu\
+$shutdown
+$sleep" | rofi -dmenu\
                   -i\
                   -p "Power"\
                   -config "~/.config/rofi/powermenu.rasi"\
@@ -25,20 +26,21 @@ $shutdown" | rofi -dmenu\
 # Do something based on selected option
 if [ "$selected_option" == "$lock" ]
 then
-    /home/$USER/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh
+    #/home/$USER/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh
+    dm-tool lock
 elif [ "$selected_option" == "$logout" ]
 then
     bspc quit
 elif [ "$selected_option" == "$shutdown" ]
 then
-    shutdown -h now
+    systemctl shutdown 
 elif [ "$selected_option" == "$reboot" ]
 then
-    reboot
-#elif [ "$selected_option" == "$sleep" ]
-#then
-#    amixer set Master mute
-#    systemctl suspend
+    systemctl reboot
+elif [ "$selected_option" == "$sleep" ]
+then
+    amixer set Master mute
+    systemctl suspend
 else
     echo "No match"
 fi
