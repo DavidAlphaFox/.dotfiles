@@ -13,9 +13,7 @@
 ;; `M-m f e R' (Emacs style) to install them.
 ;; ----------------------------------------------------------------
 (defun build-dotspacemacs-layers ()
-  (let ((base-layers '((unicode-fonts :variables
-                         unicode-fonts-enable-ligatures t)
-                        (auto-completion :variables
+  (let ((base-layers '((auto-completion :variables
                          auto-completion-enable-help-tooltip nil
                          auto-completion-enable-snippets-in-popup nil
                          auto-completion-use-company-box t)
