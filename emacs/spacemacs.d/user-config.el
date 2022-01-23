@@ -67,8 +67,7 @@
   (let ((symbol-font-name
           (cond
             (IS-MAC (when (member "Apple Symbols" (font-family-list)) "Apple Symbols"))
-            (IS-LINUX (when (member "Symbola" (font-family-list)) "Symbola"))
-            (IS-BSD (when (member "Symbola" (font-family-list)) "Symbola"))
+            ((or IS-LINUX IS-BSD) (when (member "Symbola" (font-family-list)) "Symbola"))
             (t nil)))
          (emoji-font-name
            (cond
@@ -77,7 +76,18 @@
              ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
              ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
              ((member "Symbola" (font-family-list)) "Symbola")
+             (t nil)))
+         (chinese-font-name
+           (cond
+             (IS-MAC
+               (cond
+                 ((member "Hei" (font-family-list)) "Hei")
+                 ((member "Heiti SC" (font-family-list)) "Heiti SC")
+                 ((member "Heiti TC" (font-family-list)) "Heiti TC")
+                 (t nil)))
+             ((or IS-BSD IS-LINUX) (when (member "WenQuanYi Micro Hei" (font-family-list)) "WenQuanYi Micro Hei"))
              (t nil))))
+  (set-fontset-font t 'han chinese-font-name)
   (set-fontset-font t 'symbol symbol-font-name)
   (set-fontset-font t '(#x1f300 . #x1fad0) emoji-font-name)))
 
