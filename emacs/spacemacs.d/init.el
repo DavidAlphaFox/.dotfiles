@@ -5,7 +5,7 @@
 (defconst IS-MAC     (eq system-type 'darwin))
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-(defconst IS-BSD     (or IS-MAC (eq system-type 'berkeley-unix)))
+(defconst IS-BSD     (eq system-type 'berkeley-unix))
 
 ;; ----------------------------------------------------------------
 ;; Example of useful layers you may want to use right away.

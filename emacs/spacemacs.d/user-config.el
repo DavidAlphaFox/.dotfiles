@@ -63,6 +63,25 @@
 (setq treemacs-space-between-root-nodes nil)
 (setq lsp-ui-doc-position 'at-point)
 
+(when (display-graphic-p)
+  (let ((symbol-font-name
+          (cond
+            (IS-MAC (when (member "Apple Symbols" (font-family-list)) "Apple Symbols"))
+            (IS-LINUX (when (member "Symbola" (font-family-list)) "Symbola"))
+            (IS-BSD (when (member "Symbola" (font-family-list)) "Symbola"))
+            (t nil)))
+         (emoji-font-name
+           (cond
+             ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
+             ((member "Noto Color Emoji" (font-family-list)) "Noto Color Emoji")
+             ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
+             ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
+             ((member "Symbola" (font-family-list)) "Symbola")
+             (t nil))))
+  (set-fontset-font t 'symbol symbol-font-name)
+  (set-fontset-font t '(#x1f300 . #x1fad0) emoji-font-name)))
+
+
 ;; setup racket, racket-langserver can only work with gui
 (when (display-graphic-p)
   (require 'lsp-racket)
