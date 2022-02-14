@@ -45,7 +45,7 @@
                         react
                         html
                         (scheme :variables
-                         scheme-implementations '(racket))
+                         scheme-implementations '(racket guile))
                         yaml
                         (c-c++ :variables
                           c-c++-enable-clang-support t)
