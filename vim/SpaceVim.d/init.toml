@@ -37,9 +37,26 @@ default_height = 30
 
 [[layers]]
   name = "lsp"
+  filetypes = [
+    "javascript",
+    "javascriptreact",
+    "css",
+    "c",
+    "cpp"
+  ]
+  enabled_clients = [
+    'typescript-language-server', 
+    'html-languageserver',
+    'css-languageserver',
+    'clangd'
+  ]
+
 
 [[layers]]
   name = "lang#javascript"
+
+[[layers]]
+  name = "lang#typescript"
 
 [[layers]]
   name = "lang#html"
