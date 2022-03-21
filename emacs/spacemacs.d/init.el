@@ -19,10 +19,10 @@
                          auto-completion-use-company-box t)
                         syntax-checking
                         git
-                        ;;helm
-                        (ivy :variables
-                          ivy-enable-advanced-buffer-information t
-                          ivy-enable-icons t)
+                        helm
+                        ;;(ivy :variables
+                        ;;  ivy-enable-advanced-buffer-information t
+                        ;;  ivy-enable-icons t)
                         (lsp :variables
                           lsp-use-lsp-ui t)
                         markdown
