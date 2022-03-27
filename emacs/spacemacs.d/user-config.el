@@ -62,6 +62,7 @@
 (setq treemacs-position 'right)
 (setq treemacs-space-between-root-nodes nil)
 (setq lsp-ui-doc-position 'at-point)
+(setq undo-tree-auto-save-history nil)
 
 (when (display-graphic-p)
   (let ((symbol-font-name
