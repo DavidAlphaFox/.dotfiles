@@ -49,7 +49,9 @@
                         yaml
                         (c-c++ :variables
                           c-c++-enable-clang-support t)
-                        ocaml)))
+                        ocaml
+                        rust
+			                  (python :variables python-backend 'lsp))))
     (if (or IS-MAC IS-LINUX)
       (cons 'clojure base-layers)
       base-layers)))
