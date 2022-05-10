@@ -1,6 +1,0 @@
-#!/bin/sh
-
-CCL_DEFAULT_DIRECTORY=/usr/local/lib/ccl
-export CCL_DEFAULT_DIRECTORY
-
-exec /usr/local/lib/ccl/lx86cl64 "$@"
