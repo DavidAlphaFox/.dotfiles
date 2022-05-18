@@ -515,7 +515,6 @@ See the header of this file for more information."
 )
 
 (defun dotspacemacs/user-init ()
-  (load-file "~/.spacemacs.d/user-config.el")
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
@@ -538,6 +537,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (load-file "~/.spacemacs.d/user-config.el")
 )
 
 
