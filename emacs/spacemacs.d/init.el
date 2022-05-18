@@ -2,64 +2,14 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-(defconst IS-MAC     (eq system-type 'darwin))
-(defconst IS-LINUX   (eq system-type 'gnu/linux))
-(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-(defconst IS-BSD     (eq system-type 'berkeley-unix))
-
-;; ----------------------------------------------------------------
-;; Example of useful layers you may want to use right away.
-;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-;; `M-m f e R' (Emacs style) to install them.
-;; ----------------------------------------------------------------
-(defun build-dotspacemacs-layers ()
-  (let ((base-layers '((auto-completion :variables
-                         auto-completion-enable-help-tooltip nil
-                         auto-completion-enable-snippets-in-popup nil
-                         auto-completion-use-company-box t)
-                        syntax-checking
-                        git
-                        helm
-                        ;;(ivy :variables
-                        ;;  ivy-enable-advanced-buffer-information t
-                        ;;  ivy-enable-icons t)
-                        (lsp :variables
-                          lsp-use-lsp-ui t)
-                        markdown
-                        multiple-cursors
-                        org
-                        (shell :variables
-                          shell-default-height 30
-                          shell-default-position 'bottom)
-                        themes-megapack
-                        treemacs
-                        version-control
-                        sql
-                        erlang
-                        emacs-lisp
-                        common-lisp
-                        racket
-                        lua
-                        javascript
-                        typescript
-                        react
-                        html
-                        (scheme :variables
-                         scheme-implementations '(racket))
-                        yaml
-                        (c-c++ :variables
-                          c-c++-enable-clang-support t)
-                        ocaml
-                        rust
-			                  (python :variables python-backend 'lsp))))
-    (if (or IS-MAC IS-LINUX)
-      (cons 'clojure base-layers)
-      base-layers)))
-
+(load-file "~/.spacemacs.d/const.el")
+(load-file "~/.spacemacs.d/my-layers.el")
+(load-file "~/.spacemacs.d/my-fonts.el")
+(load-file "~/.spacemacs.d/my-utils.el")
 
 (defun dotspacemacs/layers ()
   "Layer configuration:
-  This function should only modify configuration layer settings."
+This function should only modify configuration layer settings."
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
@@ -86,8 +36,7 @@
    dotspacemacs-configuration-layer-path '()
 
    ;; List of configuration layers to load.
-    dotspacemacs-configuration-layers (build-dotspacemacs-layers)
-
+    dotspacemacs-configuration-layers my-layers/dotspacemacs
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -103,7 +52,7 @@
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-    dotspacemacs-excluded-packages '(flycheck-ocaml)
+   dotspacemacs-excluded-packages '()
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -122,9 +71,13 @@ It should only modify the values of Spacemacs settings."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
-   ;; If non-nil then enable support for the portable dumper. You'll need
-   ;; to compile Emacs 27 from source following the instructions in file
+   ;; If non-nil then enable support for the portable dumper. You'll need to
+   ;; compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
+   ;;
+   ;; WARNING: pdumper does not work with Native Compilation, so it's disabled
+   ;; regardless of the following setting when native compilation is in effect.
+   ;;
    ;; (default nil)
    dotspacemacs-enable-emacs-pdumper nil
 
@@ -231,6 +184,11 @@ It should only modify the values of Spacemacs settings."
    ;; The minimum delay in seconds between number key presses. (default 0.4)
    dotspacemacs-startup-buffer-multi-digit-delay 0.4
 
+   ;; If non-nil, show file icons for entries and headings on Spacemacs home buffer.
+   ;; This has no effect in terminal or if "all-the-icons" package or the font
+   ;; is not installed. (default nil)
+   dotspacemacs-startup-buffer-show-icons nil
+
    ;; Default major mode for a new empty buffer. Possible values are mode
    ;; names such as `text-mode'; and `nil' to use Fundamental mode.
    ;; (default `text-mode')
@@ -254,8 +212,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   ;;dotspacemacs-themes '(spacemacs-dark spacemacs-light)
-    dotspacemacs-themes '(spacemacs-light)
+   ;;   dotspacemacs-themes '(spacemacs-dark
+   ;;                      spacemacs-light)
+   dotspacemacs-themes '(spacemacs-light)
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
    ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
@@ -272,13 +231,11 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-    dotspacemacs-default-font (if (display-graphic-p)
-                                (cond
-                                  (IS-MAC  '("RobotoMono Nerd Font"  :size 14.0 :weight light :width normal))
-                                  (IS-LINUX '("RobotoMono Nerd Font"  :size 14.0 :weight light :width normal))
-                                  (IS-BSD '("RobotoMono Nerd Font"  :size 14.0 :weight light :width normal))
-                                  (t '("Source Code Pro" :size 12.0 :weight normal :width normal)))
-                                '("monospace" :size 12.0 :weight normal :width normal))
+   ;;   dotspacemacs-default-font '("Source Code Pro"
+   ;;                               :size 10.0
+   ;;                               :weight normal
+   ;;                               :width normal)
+   dotspacemacs-default-font my-fonts/dotspacemacs
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
@@ -434,7 +391,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers nil
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -554,21 +511,25 @@ This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
-  (spacemacs/load-spacemacs-env))
+  (spacemacs/load-spacemacs-env)
+)
 
 (defun dotspacemacs/user-init ()
+  (load-file "~/.spacemacs.d/user-config.el")
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
-If you are unsure, try setting them in `dotspacemacs/user-config' first.")
+If you are unsure, try setting them in `dotspacemacs/user-config' first."
+)
 
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
-dump.")
+dump."
+)
 
 
 (defun dotspacemacs/user-config ()
@@ -577,55 +538,8 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (load-file "~/.spacemacs.d/user-config.el"))
+)
 
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes '(default))
- '(evil-want-Y-yank-to-eol nil)
-  '(package-selected-packages
-     '(company-box frame-local dash-functional company-quickhelp dap-mode bui zenburn-theme zen-and-art-theme yasnippet-snippets yaml-mode xterm-color ws-butler writeroom-mode winum white-sand-theme which-key wgrep web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen utop use-package unfill undo-tree underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired toxi-theme toc-org tide terminal-here tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection string-edit spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle slime-company slim-mode shell-pop seti-theme scss-mode sass-mode rjsx-mode reverse-theme restart-emacs rebecca-theme rainbow-delimiters railscasts-theme racket-mode quickrun purple-haze-theme pug-mode professional-theme prettier-js popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pcre2el password-generator paradox overseer orgit-forge organic-green-theme org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file omtose-phellack-theme oldlace-theme ocp-indent occidental-theme ocamlformat obsidian-theme npm-mode nodejs-repl noctilux-theme naquadah-theme nameless mwim mustang-theme multi-term multi-line monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme mmm-mode minimal-theme merlin-iedit merlin-eldoc merlin-company material-theme markdown-toc majapahit-theme madhat2r-theme lush-theme lsp-ui lsp-treemacs lsp-origami lsp-ivy lorem-ipsum livid-mode link-hint light-soap-theme kaolin-themes json-reformat json-navigator json-mode js2-refactor js-doc jbeans-theme jazz-theme ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ivy-avy ir-black-theme inspector inkpot-theme info+ indent-guide impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-make hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate google-c-style golden-ratio gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe gh-md gendoxy geiser-racket geiser-chez gandalf-theme fuzzy font-lock+ flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido flatui-theme flatland-theme farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-collection evil-cleverparens evil-args evil-anzu espresso-theme eshell-z eshell-prompt-extras esh-help erlang emr emmet-mode elisp-slime-nav editorconfig dune dumb-jump drag-stuff dracula-theme dotenv-mode doom-themes django-theme disaster dired-quick-sort diminish define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme cpp-auto-include counsel-projectile counsel-css company-ycmd company-web company-rtags company-lua company-c-headers common-lisp-snippets column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme clojure-snippets clean-aindent-mode cider-eval-sexp-fu cider chocolate-theme cherry-blossom-theme centered-cursor-mode ccls busybee-theme bubbleberry-theme browse-at-remote birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ac-ispell))
-  '(safe-local-variable-values
-     '((eval modify-syntax-entry 43 "'")
-        (eval modify-syntax-entry 36 "'")
-        (eval modify-syntax-entry 126 "'")
-        (eval let
-          ((root-dir-unexpanded
-             (locate-dominating-file default-directory ".dir-locals.el")))
-          (when root-dir-unexpanded
-            (let*
-              ((root-dir
-                 (expand-file-name root-dir-unexpanded))
-                (root-dir*
-                  (directory-file-name root-dir)))
-              (unless
-                (boundp 'geiser-guile-load-path)
-                (defvar geiser-guile-load-path 'nil))
-              (make-local-variable 'geiser-guile-load-path)
-              (require 'cl-lib)
-              (cl-pushnew root-dir* geiser-guile-load-path :test #'string-equal))))
-        (eval setq-local guix-directory
-          (locate-dominating-file default-directory ".dir-locals.el"))
-        (typescript-backend . tide)
-        (typescript-backend . lsp)
-        (javascript-backend . tide)
-        (javascript-backend . tern)
-        (javascript-backend . lsp))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
-)
