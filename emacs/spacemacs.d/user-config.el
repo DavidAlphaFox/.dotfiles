@@ -21,6 +21,7 @@
 (setq treemacs-space-between-root-nodes nil)
 
 ;;lsp
+(require 'lsp-mode)
 (setq lsp-ui-doc-position 'at-point)
 
 ;;undo
@@ -39,7 +40,10 @@
 
 ;; racket
 (when (display-graphic-p)
-  (require 'lsp-mode)
   (require 'lsp-racket)
   (add-hook 'racket-mode-hook #'lsp-deferred)
   (add-hook 'racket-mode-hook #'lsp-racket-enable))
+
+;; ocaml
+(require 'lsp-ocaml)
+(add-hook 'tuareg-mode-hook #'lsp-deferred)
