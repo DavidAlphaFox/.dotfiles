@@ -39,10 +39,10 @@
         (file-name-base (car lua-list))))))
 
 ;; racket
-(when (display-graphic-p)
+;;(when (display-graphic-p)
   (require 'lsp-racket)
   (add-hook 'racket-mode-hook #'lsp-deferred)
-  (add-hook 'racket-mode-hook #'lsp-racket-enable))
+  (add-hook 'racket-mode-hook #'lsp-racket-enable)
 
 ;; ocaml
 (require 'lsp-ocaml)
