@@ -1,8 +1,5 @@
-(defun my-utils/setup-indent (n)
-  ;; java/c/c++
-  (setq c-basic-offset n)
-  (setq lisp-indent-offset n)
-  ;; web development
+;;; my-web.el -*- lexical-binding: t; -*-
+(let ((n 2))
   (setq coffee-tab-width n) ; coffeescript
   (setq javascript-indent-level n) ; javascript-mode
   (setq js-indent-level n) ; js-mode
@@ -12,12 +9,4 @@
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq web-mode-attr-indent-offset n)
   (setq css-indent-offset n) ; css-mode
-  (setq erlang-indent-level n)
-  (setq erlang-indent-guard n)
-  (setq erlang-argument-indent n)
-  (setq python-tab-width n))
-
-(defun my-utils/find-files (locations)
-  (cl-remove-if-not #'file-exists-p locations))
-
-
+  )
