@@ -1,5 +1,6 @@
 ;;; my-configs.el -*- lexical-binding: t; -*
-
+(when IS-BSD 
+  (setq max-lisp-eval-depth 500))
 ;; language coding
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)

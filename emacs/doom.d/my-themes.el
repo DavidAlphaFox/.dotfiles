@@ -6,7 +6,9 @@
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold nil    ; if nil, bold is universally disabled
       doom-themes-enable-italic nil) ; if nil, italics is universally disabled
+(if (display-graphic-p)
+	(load-theme 'doom-solarized-light t)
+	(load-theme 'doom-gruvbox t))
 
-(load-theme 'doom-solarized-light t)
 (doom-themes-visual-bell-config)
 
