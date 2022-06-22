@@ -39,7 +39,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(load! "my-utils.el")
 (load! "my-configs.el")
 (load! "my-fonts.el")
 (load! "my-themes.el")
