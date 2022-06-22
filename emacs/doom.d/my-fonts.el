@@ -7,6 +7,7 @@
 (defconst my-fonts/emoji-font-name
   (cond
     ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
+    ((member "twemoji-v2" (font-family-list)) "twemoji-v2")
     ((member "Noto Color Emoji" (font-family-list)) "Noto Color Emoji")
     ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
     ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
