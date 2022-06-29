@@ -16,13 +16,13 @@
       (car the-lua)
       nil)))
 
-(defconst HAS-DOTNET
-  (when (or IS-MAC IS-LINUX)
-    (let* ((dotnet-files
-             (my-utils/build-paths MY-BINARY-PATH '("dotnet")))
-            (the-dotnet
-              (my-utils/find-files dotnet-files)))
-      (not (null the-dotnet)))))
+;(defconst HAS-DOTNET
+;  (when (or IS-MAC IS-LINUX)
+;    (let* ((dotnet-files
+;             (my-utils/build-paths MY-BINARY-PATH '("dotnet")))
+;            (the-dotnet
+;              (my-utils/find-files dotnet-files)))
+;      (not (null the-dotnet)))))
 
 (defconst HAS-CLOJURE
   (cond

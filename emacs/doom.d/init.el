@@ -119,7 +119,7 @@
        common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
-       (:if HAS-DOTNET (csharp +lsp)); unity, .NET, and mono shenanigans
+       ;;(:if HAS-DOTNET (csharp +lsp)); unity, .NET, and mono shenanigans
        ;;data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
        ;;dhall
