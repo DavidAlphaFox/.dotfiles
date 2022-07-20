@@ -40,10 +40,11 @@
            (c-c++ :variables
                   c-c++-enable-clang-support t)
            (python :variables python-backend 'lsp))))
-
-    (if my/LUA
-        (cons 'lua the-layers)
-      the-layers)))
+    (when my/LUA
+      (setq the-layers (cons 'lua the-layers)))
+    (when my/HAS-JAVA
+      (setq the-layers (cons 'java the-layers)))
+    the-layers))
 
 
 (defconst my/DEVEL-TOOLS-LAYERS
