@@ -34,7 +34,7 @@
   (cond
    ((or my/IS-MAC my/IS-LINUX) t)
    (t (let* ((java-files
-              (my/build-paths MY-BINARY-PATH '("java")))
+              (my/build-paths my/BINARY-PATH '("java")))
             (the-java
              (my/find-files java-files)))
         (not (null the-java))))))

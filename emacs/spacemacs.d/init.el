@@ -5,6 +5,7 @@
 (my/load! "my-const.el")
 (my/load! "my-layers.el")
 (my/load! "my-fonts.el")
+(my/load! "my-themes.el")
 
 (defun dotspacemacs/layers ()
   "Layer configuration:
@@ -221,7 +222,7 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    ;;dotspacemacs-themes '(spacemacs-dark
    ;;                      spacemacs-light)
-   dotspacemacs-themes '(spacemacs-light)
+   dotspacemacs-themes my/THEME
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
    ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
