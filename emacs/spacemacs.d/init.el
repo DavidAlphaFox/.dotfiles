@@ -558,6 +558,7 @@ before packages are loaded."
   (my/load! "my-lisp.el")
   (my/load! "my-python.el")
   (my/load! "my-clojure.el")
+  (my/load! "my-racket.el")
 )
 
 
