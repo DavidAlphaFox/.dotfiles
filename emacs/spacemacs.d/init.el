@@ -47,7 +47,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(eldoc)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -548,9 +548,9 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (my/load! "my-configs.el")
   (my/load! "my-treemacs.el")
-  (my/load! "my-org.el")
   (my/load! "my-lsp.el")
   (my/load! "my-ocaml.el")
+  (my/load! "my-org.el")
   (my/load! "my-lua.el")
   (my/load! "my-web.el")
   (my/load! "my-erlang.el")
