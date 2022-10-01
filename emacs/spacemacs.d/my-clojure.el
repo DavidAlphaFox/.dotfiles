@@ -1,8 +1,10 @@
 ;;; my-clojure.el -*- lexical-binding: t; -*-
 (when my/HAS-CLOJURE
-  (add-hook 'clojure-mode-hook 'lsp)
-  (add-hook 'clojurescript-mode-hook 'lsp)
-  (add-hook 'clojurec-mode-hook 'lsp)
+  (require 'lsp-mode)
+  (require 'lsp-clojure)
+  (add-hook 'clojure-mode-hook #'lsp-deferred)
+  (add-hook 'clojurescript-mode-hook #'lsp-deferred)
+  (add-hook 'clojurec-mode-hook #'lsp-deferred)
   (setq
    ;; gc-cons-threshold (* 100 1024 1024)
    ;; read-process-output-max (* 1024 1024)
