@@ -3,7 +3,7 @@
 (require 'racket-mode)
 (require 'racket-eldoc)
 
-(add-hook 'racket-mode #'racket-xp-mode)
+(add-hook 'racket-mode-hook #'racket-xp-mode)
 
 ;;(add-hook 'racket-mode-local-vars-hook
 ;;  (lambda ()
@@ -14,11 +14,13 @@
 
 (add-hook 'racket-xp-mode-hook
   (lambda ()
-;;    (setq eldoc-documentation-function 'racket-xp-eldoc-function)
+    (setq eldoc-documentation-function 'racket-xp-eldoc-function)
     (cl-pushnew 'racket flycheck-disabled-checkers)))
 
-(add-hook 'racket-repl-emode-hook
+(when (display-graphic-p)
+  (add-hook 'racket-xp-mode-hook #'lsp-deferred ))
+
+(add-hook 'racket-repl-mode-hook
   (lambda ()
      (setq-local eldoc-documentation-function #'racket-repl-eldoc-function)))
 ;;(add-hook 'racket-mode-local-vars-hook #'racket-xp-mode)
-
