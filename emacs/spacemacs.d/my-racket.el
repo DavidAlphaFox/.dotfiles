@@ -12,13 +12,14 @@
 ;;    (setq-local lsp-eldoc-enable-hover nil)
 ;;    (lsp-deferred)) 'append)
 
+
+(when (display-graphic-p)
+  (add-hook 'racket-xp-mode-hook #'lsp-deferred ))
+
 (add-hook 'racket-xp-mode-hook
   (lambda ()
     (setq eldoc-documentation-function 'racket-xp-eldoc-function)
     (cl-pushnew 'racket flycheck-disabled-checkers)))
-
-(when (display-graphic-p)
-  (add-hook 'racket-xp-mode-hook #'lsp-deferred ))
 
 (add-hook 'racket-repl-mode-hook
   (lambda ()
