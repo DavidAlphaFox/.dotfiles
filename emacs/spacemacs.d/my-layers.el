@@ -4,10 +4,10 @@
                      auto-completion-enable-snippets-in-popup nil
                      auto-completion-use-company-box t)
     syntax-checking
-    ;;(ivy :variables
-    ;;  ivy-enable-advanced-buffer-information t
-    ;;  ivy-enable-icons t)
-    helm))
+    ;;helm
+    (ivy :variables 
+	 ivy-enable-advanced-buffer-information t
+	 ivy-enable-icons t)))
 
 (defconst my/WEB-DEVEL-LAYERS
   '(javascript
