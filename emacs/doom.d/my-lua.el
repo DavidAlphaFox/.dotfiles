@@ -1,6 +1,6 @@
 ;;; my-lua.el -*- lexical-binding: t; -*-
 ;; lua
 
-(unless (null MY-LUA)
+(unless (null my/LUA)
   (setq lua-default-application
-    (file-name-base MY-LUA)))
+    (file-name-base my/LUA)))

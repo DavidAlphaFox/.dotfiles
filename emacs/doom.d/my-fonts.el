@@ -1,10 +1,10 @@
 
-(defconst my-fonts/symbol-font-name
+(defconst my/SYMBOL-FONT-NAME
   (cond
     (IS-MAC (when (member "Apple Symbols" (font-family-list)) "Apple Symbols"))
     ((or IS-LINUX IS-BSD) (when (member "Symbola" (font-family-list)) "Symbola"))
     (t nil)))
-(defconst my-fonts/emoji-font-name
+(defconst my/EMOJI-FONT-NAME
   (cond
     ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
     ((member "twemoji-v2" (font-family-list)) "twemoji-v2")
@@ -14,7 +14,7 @@
     ((member "Symbola" (font-family-list)) "Symbola")
     (t nil)))
 
-(defconst my-fonts/chinese-font-name
+(defconst my/CHINESE-FONT-NAME
   (cond
     (IS-MAC
       (cond
@@ -25,17 +25,17 @@
     ((or IS-BSD IS-LINUX) (when (member "WenQuanYi Micro Hei" (font-family-list)) "WenQuanYi Micro Hei"))
     (t nil)))
 
-(defconst my-fonts/font
+(defconst my/FONT
   (if (display-graphic-p)
     (font-spec :name "FiraCode Nerd Font Mono"  :size 14.0 :weight 'normal :width 'normal)
     (font-spec :name "monospace" :size 12.0 :weight 'normal :width 'normal)))
 
-(when (display-graphic-p)
-  (set-fontset-font t 'han my-fonts/chinese-font-name)
-  (set-fontset-font t 'symbol my-fonts/symbol-font-name)
-  (set-fontset-font t '(#x1f300 . #x1fad0) my-fonts/emoji-font-name))
+;;(when (display-graphic-p)
+;;  (set-fontset-font t 'han my/CHINESE-FONT-NAME)
+;;  (set-fontset-font t 'symbol my/SYMBOL-FONT-NAME)
+;;  (set-fontset-font t '(#x1f300 . #x1fad0) my/EMOJI-FONT-NAME))
 
-(setq doom-font my-fonts/font)
+(setq doom-font my/FONT)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use

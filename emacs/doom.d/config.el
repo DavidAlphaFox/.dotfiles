@@ -53,3 +53,4 @@
 (load! "my-lisp.el")
 (load! "my-python.el")
 (load! "my-clojure.el")
+(load! "my-racket.el")

@@ -50,3 +50,4 @@
 ;(unpin! t)
 (package! doom-themes)
 (package! exec-path-from-shell)
+;;(package! merlin)

@@ -5,11 +5,10 @@
 
 (add-hook 'racket-mode-hook #'racket-xp-mode)
 
-(when (display-graphic-p)
-  (add-hook 'racket-mode-hook #'lsp-deferred))
-
 (add-hook 'racket-xp-mode-hook
   (lambda ()
+    (when (display-graphic-p)
+      (lsp-deferred))
     (setq eldoc-documentation-function 'racket-xp-eldoc-function)
     (cl-pushnew 'racket flycheck-disabled-checkers)))
 

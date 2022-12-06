@@ -4,10 +4,10 @@
                      auto-completion-enable-snippets-in-popup nil
                      auto-completion-use-company-box t)
     syntax-checking
-    ;;helm
-    (ivy :variables 
-	 ivy-enable-advanced-buffer-information t
-	 ivy-enable-icons t)))
+    helm))
+;;    (ivy :variables
+;;	    ivy-enable-advanced-buffer-information t
+;;	    ivy-enable-icons t)))
 
 (defconst my/WEB-DEVEL-LAYERS
   '(javascript
@@ -22,24 +22,24 @@
            common-lisp
            racket
            (scheme :variables
-                   scheme-implementations '(racket)))))
+             scheme-implementations '(racket)))))
         (if my/HAS-CLOJURE
             (cons 'clojure the-layers)
           the-layers)))
 
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
-         '(yaml
-           sql
-           erlang
-           ocaml
-           rust
-           (shell :variables
-                  shell-default-height 30
-                  shell-default-position 'bottom)
-           (c-c++ :variables
-                  c-c++-enable-clang-support t)
-           (python :variables python-backend 'lsp))))
+          '(yaml
+             sql
+             erlang
+             ocaml
+             rust
+             (shell :variables
+               shell-default-height 30
+               shell-default-position 'bottom)
+             (c-c++ :variables
+               c-c++-enable-clang-support t)
+             (python :variables python-backend 'lsp))))
     (when my/LUA
       (setq the-layers (cons 'lua the-layers)))
     (when my/HAS-JAVA
@@ -48,10 +48,9 @@
 
 
 (defconst my/DEVEL-TOOLS-LAYERS
-  '((lsp :variables
-         lsp-use-lsp-ui t)
-    git
-    version-control))
+  '((lsp :variables lsp-use-lsp-ui t)
+     git
+     version-control))
 
 (defconst my/COMMON-LAYERS
   '(markdown
