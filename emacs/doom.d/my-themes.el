@@ -8,7 +8,8 @@
       doom-themes-enable-italic nil) ; if nil, italics is universally disabled
 (if (display-graphic-p)
 	(load-theme 'doom-solarized-light t)
-	(load-theme 'doom-tomorrow-day t))
+	(load-theme 'adwaita t))
+	;;(load-theme 'leuven t))
 
 (doom-themes-visual-bell-config)
 
