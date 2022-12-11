@@ -115,7 +115,7 @@
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
        (cc +lsp)         ; C > C++ == 1
-       (:if my/HAS-CLOJURE (clojure +lsp :completion company :checkers syntax))           ; java with a lisp
+       (:if my/HAS-CLOJURE (clojure +lsp :checkers syntax))           ; java with a lisp
        common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
@@ -165,7 +165,7 @@
        (rust +lsp)              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        (scheme +racket +chez :checkers syntax)   ; a fully conniving family of lisps
-       (racket +xp :completion company :checkers syntax)            ; a DSL for DSLs
+       (racket +xp  :checkers syntax)            ; a DSL for DSLs
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
