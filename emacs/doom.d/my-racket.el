@@ -2,15 +2,14 @@
 (require 'lsp-racket)
 (require 'racket-mode)
 (require 'racket-eldoc)
+(require 'company)
 
-(add-hook 'racket-mode-hook #'racket-xp-mode)
 
-(add-hook 'racket-xp-mode-hook
+(add-hook 'racket-mode-hook #'company-mode)
+(add-hook 'racket-mode-hook
   (lambda ()
     (when (display-graphic-p)
-      (lsp-deferred))
-    (setq eldoc-documentation-function 'racket-xp-eldoc-function)
-    (cl-pushnew 'racket flycheck-disabled-checkers)))
+      (lsp-deferred))))
 
 (add-hook 'racket-repl-mode-hook
   (lambda ()

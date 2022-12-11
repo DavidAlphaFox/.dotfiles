@@ -22,10 +22,10 @@
 
        :completion
        company           ; the ultimate code completion backend
-       ;;helm              ; the *other* search engine for love and life
+       helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
-       vertico           ; the search engine of the future
+       ;;vertico           ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -158,14 +158,14 @@
        ;;purescript        ; javascript, but functional
        (python +lsp +pyright +cython +poetry)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
-       (racket +xp)            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust +lsp)              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       ;;(scheme +racket :checkers syntax)   ; a fully conniving family of lisps
+       (scheme +racket :checkers syntax)   ; a fully conniving family of lisps
+       (racket +xp)            ; a DSL for DSLs
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
