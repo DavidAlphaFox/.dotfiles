@@ -33,3 +33,5 @@ sbcl/quicklisp/
 !.config/i3/*
 emacs/emacs.d
 emacs/spacemacs.d/.spacemacs.env
+vim/plugged
+
