@@ -45,4 +45,4 @@ string at run time. PATH is where to look for the file (a string representing a
 directory path). If omitted, the lookup is relative to either `load-file-name',
 `byte-compile-current-file' or `buffer-file-name' (checked in that order).
 If NOERROR is non-nil, don't throw an error if the file doesn't exist."
-  `(my/load (file-name-concat ,(or path `(dir!)) ,filename) ,noerror))
+  `(my/load (file-name-concat ,(or path `(my/dir!)) ,filename) ,noerror))

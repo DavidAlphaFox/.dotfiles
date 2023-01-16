@@ -28,6 +28,7 @@
              (python :variables python-backend 'lsp))))
     (when my/LUA (setq the-layers (cons 'lua the-layers)))
     (when my/HAS-JAVA (setq the-layers (cons 'java the-layers)))
+    (when my/HAS-RUBY (setq the-layers (cons 'ruby the-layers)))
     the-layers))
 
 
