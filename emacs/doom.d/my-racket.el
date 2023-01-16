@@ -2,8 +2,6 @@
 (require 'lsp-racket)
 (require 'racket-mode)
 (require 'racket-eldoc)
-(require 'company)
-
 
 (add-hook 'racket-mode-hook #'company-mode)
 (add-hook 'racket-mode-hook

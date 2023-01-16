@@ -520,8 +520,7 @@ This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
-  (spacemacs/load-spacemacs-env)
-)
+  (spacemacs/load-spacemacs-env))
 
 (defun dotspacemacs/user-init ()
   "Initialization for user code:
@@ -558,8 +557,7 @@ before packages are loaded."
   (my/load! "my-lisp.el")
   (my/load! "my-python.el")
   (my/load! "my-clojure.el")
-  (my/load! "my-racket.el")
-)
+  (my/load! "my-racket.el"))
 
 
 ;; Do not write anything past this comment. This is where Emacs will

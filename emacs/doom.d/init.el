@@ -156,7 +156,7 @@
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       (python +lsp +pyright +cython +poetry)            ; beautiful is better than ugly
+       (python +lsp +pyright +poetry)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client

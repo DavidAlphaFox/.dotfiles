@@ -10,53 +10,33 @@
 ;;	    ivy-enable-icons t)))
 
 (defconst my/WEB-DEVEL-LAYERS
-  '(javascript
-    typescript
-    json
-    react
-    html))
+  '(javascript typescript json react html))
 
 (defconst my/LISP-DEVEL-LAYERS
   (let ((the-layers
-         '(emacs-lisp
-           common-lisp
-           racket
-           (scheme :variables
-             scheme-implementations '(racket)))))
-        (if my/HAS-CLOJURE
-            (cons 'clojure the-layers)
-          the-layers)))
+          '(emacs-lisp common-lisp racket
+             (scheme :variables scheme-implementations '(racket)))))
+    (if my/HAS-CLOJURE
+      (cons 'clojure the-layers)
+      the-layers)))
 
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
-          '(yaml
-             sql
-             erlang
-             ocaml
-             rust
-             (shell :variables
-               shell-default-height 30
-               shell-default-position 'bottom)
-             (c-c++ :variables
-               c-c++-enable-clang-support t)
+          '(yaml sql erlang ocaml rust
+             (shell :variables shell-default-height 30 shell-default-position 'bottom)
+             (c-c++ :variables c-c++-enable-clang-support t)
              (python :variables python-backend 'lsp))))
-    (when my/LUA
-      (setq the-layers (cons 'lua the-layers)))
-    (when my/HAS-JAVA
-      (setq the-layers (cons 'java the-layers)))
+    (when my/LUA (setq the-layers (cons 'lua the-layers)))
+    (when my/HAS-JAVA (setq the-layers (cons 'java the-layers)))
     the-layers))
 
 
 (defconst my/DEVEL-TOOLS-LAYERS
   '((lsp :variables lsp-use-lsp-ui t)
-     git
-     version-control))
+     git version-control))
 
 (defconst my/COMMON-LAYERS
-  '(markdown
-    multiple-cursors
-    org
-    treemacs))
+  '(markdown multiple-cursors org treemacs))
 
 (defconst my/LAYERS
   (append
