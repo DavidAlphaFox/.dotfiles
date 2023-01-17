@@ -2,6 +2,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+set backspace=indent,eol,start
+
 set number
 set showmatch
 set showmode
