@@ -202,8 +202,10 @@ focus_follows_mouse no
 #exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png
 
 # Picom
-exec --no-startup-id picom --experimental-backends -f
+exec --no-startup-id picom -b
 
+# fcitx5
+exec --no-startup-id fcitx5 -d
 # Gaps
 #smart_gaps on
 #smart_borders on
