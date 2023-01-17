@@ -1,4 +1,9 @@
 # use UTF-8 everywhere
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export GTK3_IM_MODULE=fcitx
+export XIM=fcitx
+export XMODIFIERS=@im=fcitx
 export LANG=en_US.UTF-8
 
 # specify location of kshrc

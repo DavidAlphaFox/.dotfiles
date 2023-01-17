@@ -20,6 +20,8 @@ XTerm*selectToClipboard: true
 XTerm*rightScrollBar: true
 XTerm*scrollBarBorder: 4
 XTerm*metaSendsEscape: true
+!XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
 
 #define S_base03        #002b36
 #define S_base02        #073642
