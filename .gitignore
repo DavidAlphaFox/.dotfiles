@@ -32,4 +32,4 @@ sbcl/quicklisp/
 .config/
 emacs/emacs.d
 emacs/spacemacs.d/.spacemacs.env
-vim/plugged/
+vim/plugged
