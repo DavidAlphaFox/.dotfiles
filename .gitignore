@@ -30,6 +30,6 @@ sbcl/quicklisp/
 .xmonad/xmonad.o
 .xmonad/history
 .config/
-!.config/i3/*
 emacs/emacs.d
 emacs/spacemacs.d/.spacemacs.env
+vim/plugged/
