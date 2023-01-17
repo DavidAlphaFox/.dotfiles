@@ -186,10 +186,10 @@ bindsym XF86AudioMute exec "cmixer -D pulse set Master 1+ toggle"
 
 # Screenshots
 #bindsym --release Print exec --no-startup-id gnome-screenshot -f "$HOME/Pictures/$(date +%F_%H-%M-%S).png"
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym Ctrl+Print --release exec --no-startup-id i3-scrot -wc
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym Ctrl+Shift+Print --release exec --no-startup-id i3-scrot -sc
+#bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+#bindsym Ctrl+Print --release exec --no-startup-id i3-scrot -wc
+#bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+#bindsym Ctrl+Shift+Print --release exec --no-startup-id i3-scrot -sc
 
 # Screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
@@ -199,10 +199,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 focus_follows_mouse no
 
 # Background
-#exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png
-
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/teal_puffy.png
 # Picom
 #exec --no-startup-id picom -b
+
+#dunst
+exec --no-startup-id dunst
 
 # fcitx5
 exec --no-startup-id fcitx5 -d
