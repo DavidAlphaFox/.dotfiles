@@ -164,7 +164,7 @@
        (:if my/HAS-RUBY (ruby +lsp))     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust +lsp)              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       (scheme +racket :checkers syntax)   ; a fully conniving family of lisps
+       (scheme +racket +guile :checkers syntax)   ; a fully conniving family of lisps
        (racket +xp  :checkers syntax)            ; a DSL for DSLs
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
