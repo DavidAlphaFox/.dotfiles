@@ -27,7 +27,7 @@
 
 (defconst my/FONT
   (if (display-graphic-p)
-    '("FiraCode Nerd Font Mono"  :size 14.0 :weight normal :width normal)
+    '("FiraCode Nerd Font"  :size 14.0 :weight normal :width normal)
     '("monospace" :size 12.0 :weight normal :width normal)))
 
 (when (display-graphic-p)
