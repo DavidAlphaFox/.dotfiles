@@ -27,7 +27,7 @@
 
 (defconst my/FONT
   (if (display-graphic-p)
-    '("TerminessTTF Nerd Font"  :size 14.0 :weight normal :width normal)
+    '("TerminessTTF Nerd Font"  :size 14.0 :weight medium :width normal)
     '("monospace" :size 12.0 :weight normal :width normal)))
 
 (when (display-graphic-p)
