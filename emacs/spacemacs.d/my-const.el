@@ -33,7 +33,3 @@
               (the-java (my/find-files java-files)))
         (not (null the-java))))))
 
-(defconst my/HAS-RUBY
-  (let* ((ruby-files (my/build-paths my/BINARY-PATH '("ruby")))
-	  (the-ruby (my/find-files ruby-files)))
-    (not (null the-ruby))))
