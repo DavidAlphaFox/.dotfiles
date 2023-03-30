@@ -26,7 +26,8 @@
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
              (c-c++ :variables c-c++-enable-clang-support t)
              (python :variables python-backend 'lsp))))
-    (when my/LUA (setq the-layers (cons 'lua the-layers)))
+    (when my/LUA (setq the-layers (cons '(lua :variables lua-backend 'lsp lua-lsp-server 'lua-language-server) 
+					the-layers)))
     (when my/HAS-JAVA (setq the-layers (cons 'java the-layers)))
     the-layers))
 
