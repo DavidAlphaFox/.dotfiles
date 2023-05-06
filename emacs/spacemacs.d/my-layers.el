@@ -22,7 +22,7 @@
 
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
-          '(yaml sql erlang rust
+          '(yaml sql erlang rust ocaml 
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
              (c-c++ :variables c-c++-enable-clang-support t)
              (python :variables python-backend 'lsp))))
