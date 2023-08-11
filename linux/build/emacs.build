@@ -2,4 +2,4 @@
  --with-libsystemd --with-pop=yes --without-gconf --with-native-compilation \
  --with-cario --with-x --with-x-toolkit=gtk3 --with-toolkit-scroll-bars \
  --with-xft --with-wide-int  --with-modules --with-harfbuzz \
- --with-xpm=ifavailable --with-jpeg --with-gif --with-tiff
+ --with-xpm --with-rsvg --with-jpeg --with-gif --with-tiff
