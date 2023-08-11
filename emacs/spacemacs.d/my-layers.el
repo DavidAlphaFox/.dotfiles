@@ -20,11 +20,15 @@
       (cons 'clojure the-layers)
       the-layers)))
 
+(defconst my/CPP-DEVEL-LAYERS
+   '((c-c++ :variables c-c++-enable-clang-support t)
+     (cmake :variables cmake-backend 'company-cmake
+		       cmake-enable-cmake-ide-support t)))
+
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
           '(yaml sql erlang rust ocaml 
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
-             (c-c++ :variables c-c++-enable-clang-support t)
              (python :variables python-backend 'lsp))))
     (when my/LUA (setq the-layers (cons '(lua :variables lua-backend 'lsp lua-lsp-server 'lua-language-server) 
 					the-layers)))
@@ -44,6 +48,7 @@
     my/COMMON-LAYERS
     my/DEVEL-TOOLS-LAYERS
     my/COMMON-DEVEL-LAYERS
+    my/CPP-DEVEL-LAYERS
     my/LISP-DEVEL-LAYERS
     my/WEB-DEVEL-LAYERS
     my/COMPLETION-LAYERS))

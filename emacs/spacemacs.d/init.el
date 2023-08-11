@@ -1,7 +1,10 @@
 ;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
-(load "~/.spacemacs.d/my-core.el")
+(add-to-list 'load-path "~/.spacemacs.d/compat")
+(add-to-list 'load-path "~/.spacemacs.d")
+(load "compat.el")
+(load "my-core.el")
 (my/load! "my-const.el")
 (my/load! "my-layers.el")
 (my/load! "my-fonts.el")
