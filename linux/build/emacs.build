@@ -1,5 +1,5 @@
-./configure --prefix=/usr/local \
+./configure --prefix=/usr/local --with-tree-sitter \
  --with-libsystemd  --without-gconf --with-native-compilation \
- --with-cairo --with-x --with-x-toolkit=gtk3 --with-toolkit-scroll-bars \
+ --with-cairo --with-x --with-xwidgets --with-x-toolkit=gtk3 --with-toolkit-scroll-bars \
  --with-xft --with-wide-int  --with-modules --with-harfbuzz \
  --with-xpm --with-rsvg --with-jpeg --with-gif --with-tiff
