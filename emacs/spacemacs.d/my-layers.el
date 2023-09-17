@@ -21,7 +21,8 @@
       the-layers)))
 
 (defconst my/CPP-DEVEL-LAYERS
-   '((c-c++ :variables c-c++-enable-clang-support t)
+   '(gpu
+     (c-c++ :variables c-c++-enable-clang-support t)
      (cmake :variables cmake-backend 'company-cmake
 		       cmake-enable-cmake-ide-support t)))
 
