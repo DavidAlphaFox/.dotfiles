@@ -12,10 +12,11 @@ sudo apt install \
   libjansson4 \
   libjansson-dev \
   libgccjit0 \
-  libgccjit-11-dev \ 
-  libmagickcore-dev \
+  libgccjit-11-dev \
+  libgccjit-12-dev \
+  libmagickcore-dev
   libmagick++-dev \
   libtree-sitter-dev \
-  libx11-dev \ 
+  libx11-dev \
   libxft-dev \
   libsqlite3-dev
