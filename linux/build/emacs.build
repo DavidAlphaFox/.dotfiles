@@ -1,6 +1,6 @@
 ./configure --prefix=/usr/local \
- --with-libsystemd --with-pop=yes --without-gconf --with-native-compilation \
- --with-x --with-x-toolkit=gtk3 --with-toolkit-scroll-bars \
- --with-xft --with-wide-int  --with-modules --with-harfbuzz \
- --with-xpm --with-rsvg --with-jpeg --with-gif --with-tiff  --with-imagemagick \ 
- --with-json --with-sqlite3
+--with-libsystemd --with-pop=yes --without-gconf --with-native-compilation \
+--with-x --with-x-toolkit=gtk3 --with-toolkit-scroll-bars \
+--with-xft --with-wide-int  --with-modules --with-harfbuzz \
+--with-xpm --with-rsvg --with-jpeg --with-gif --with-tiff  --with-imagemagick \
+--with-json --with-sqlite3
