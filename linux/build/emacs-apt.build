@@ -14,7 +14,7 @@ sudo apt install \
   libgccjit0 \
   libgccjit-11-dev \
   libgccjit-12-dev \
-  libmagickcore-dev
+  libmagickcore-dev \
   libmagick++-dev \
   libtree-sitter-dev \
   libx11-dev \
