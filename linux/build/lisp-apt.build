@@ -1,0 +1,18 @@
+sudo apt install \
+cmake \
+ninja-build \
+liblz4-dev \
+libev-dev \
+libz-dev \
+libx11-dev \
+libffi-dev \
+libncurses-dev \
+libvterm-dev \
+clang \
+clangd \
+clang-tools \
+cargo \
+rlwrap \
+guile-2.2-dev \
+guile-3.0-dev \
+clisp 
