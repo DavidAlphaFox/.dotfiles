@@ -4,6 +4,7 @@ ninja-build \
 liblz4-dev \
 libev-dev \
 libz-dev \
+libzstd-dev \
 libx11-dev \
 libffi-dev \
 libncurses-dev \
