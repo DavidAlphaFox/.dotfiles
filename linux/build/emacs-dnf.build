@@ -1,0 +1,23 @@
+sudo dnf group install -y "Development Tools" && \
+sudo dnf install -y \
+gtk3-devel \
+gnutls-devel \
+libtiff-devel \
+giflib-devel \
+libjpeg-turbo-devel \
+libpng-devel \
+libXpm-devel \
+ncurses-devel \
+info \
+jansson-devel \
+libgccjit-devel \
+ImageMagick-devel \
+ImageMagick-c++-devel \
+libtree-sitter-devel \
+libX11-devel \
+libXft-devel \
+sqlite-devel \
+libsq3-devel \
+systemd-devel \
+libSM-devel \
+libXt-devel

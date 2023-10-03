@@ -19,4 +19,5 @@ sudo apt install \
   libtree-sitter-dev \
   libx11-dev \
   libxft-dev \
-  libsqlite3-dev
+  libsqlite3-dev \
+  libsm-dev 
