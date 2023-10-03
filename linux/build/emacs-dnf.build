@@ -22,4 +22,5 @@ systemd-devel \
 libSM-devel \
 libXt-devel \
 dejavu-sans-mono-fonts \
-libotf-devel
+libotf-devel \
+libvterm-devel

@@ -20,4 +20,5 @@ sudo apt install \
   libx11-dev \
   libxft-dev \
   libsqlite3-dev \
-  libsm-dev 
+  libsm-dev \
+  libvterm-dev 
