@@ -21,4 +21,8 @@ sudo apt install \
   libxft-dev \
   libsqlite3-dev \
   libsm-dev \
-  libvterm-dev 
+  libvterm-dev \
+  libsystemd-dev \
+  libwxgtk3.2-dev \
+  libwxsvg-dev \
+  libwxsqlite3-3.0-dev
