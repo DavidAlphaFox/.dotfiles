@@ -1,0 +1,1 @@
+opam install merlin utop ocp-indent ocamlformat ocaml-lsp-server dream shuttle lwt core async
