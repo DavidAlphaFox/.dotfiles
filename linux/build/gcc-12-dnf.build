@@ -1,0 +1,13 @@
+sudo dnf group install -y "Development Tools" && \
+sudo dnf install -y \
+mpfr-devel \
+gmp-devel \
+libmpc-devel \
+zlib-devel \
+glibc-devel.i686 \
+glibc-devel \
+isl-devel \
+g++ \
+gcc-gnat \
+gcc-gdc \
+libgphobos-static
