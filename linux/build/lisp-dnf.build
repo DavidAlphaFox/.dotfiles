@@ -1,0 +1,13 @@
+sudo dnf install \
+cmake \
+ninja-build \
+guile30-devel \
+guile22-devel \
+lz4-devel \
+zlib-devel \
+libzstd-devel \
+libX11-devel \
+libffi-devel \
+ncurses-devel \
+rlwrap \
+clisp
