@@ -1,4 +1,4 @@
-sudo dnf install \
+sudo dnf install -y \
 cmake \
 ninja-build \
 guile30-devel \
