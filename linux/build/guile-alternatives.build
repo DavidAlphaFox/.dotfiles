@@ -1,0 +1,11 @@
+sudo update-alternatives --install /usr/bin/guile guile /usr/bin/guile2.2 22
+sudo update-alternatives --install /usr/bin/guiled guiled /usr/bin/guiled2.2 22
+sudo update-alternatives --install /usr/bin/guile-config guile-config /usr/bin/guile-config2.2 22
+sudo update-alternatives --install /usr/bin/guile-snarf guile-snarf /usr/bin/guile-snarf2.2 22
+sudo update-alternatives --install /usr/bin/guile-tools guile-tools /usr/bin/guile-tools2.2 2
+sudo update-alternatives --install /usr/bin/guile guile /usr/bin/guile3.0 30
+sudo update-alternatives --install /usr/bin/guiled guiled /usr/bin/guiled3.0 30
+sudo update-alternatives --install /usr/bin/guile-config guile-config /usr/bin/guile-config3.0 30
+sudo update-alternatives --install /usr/bin/guile-snarf guile-snarf /usr/bin/guile-snarf3.0 30
+sudo update-alternatives --install /usr/bin/guile-tools guile-tools /usr/bin/guile-tools3.0 30
+
