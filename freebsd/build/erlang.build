@@ -1,3 +1,3 @@
 #!/bin/sh
-export CC=clang CXX=clang CFLAGS="-g -O3 -fstack-protector" LDFLAGS="-fstack-protector"
+export CC=clang CXX=clang CFLAGS="-g -O2 -fstack-protector" LDFLAGS="-fstack-protector"
 kerl build 26.1.2 otp-26
