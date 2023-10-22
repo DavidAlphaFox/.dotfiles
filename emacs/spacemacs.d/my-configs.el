@@ -29,3 +29,4 @@
 ;; undo tree
 (with-eval-after-load 'undo-tree
   (setq undo-tree-auto-save-history nil))
+
