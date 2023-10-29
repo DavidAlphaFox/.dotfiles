@@ -28,7 +28,7 @@
 
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
-          '(yaml sql erlang rust ocaml 
+          '(yaml sql erlang rust 
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
              (python :variables python-backend 'lsp))))
     (when my/LUA (setq the-layers (cons '(lua :variables lua-backend 'lsp lua-lsp-server 'lua-language-server) 
