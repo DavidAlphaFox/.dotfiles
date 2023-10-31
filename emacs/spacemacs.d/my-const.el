@@ -31,5 +31,8 @@
    ((or my/IS-MAC my/IS-LINUX) t)
    (t (let* ((java-files (my/build-paths my/BINARY-PATH '("java")))
               (the-java (my/find-files java-files)))
-        (not (null the-java))))))
+	(or
+	  (not (null the-java))
+	  (getenv "JAVA_CMD")
+	  (getenv "JAVA_HOME"))))))
 
