@@ -1,0 +1,7 @@
+sh install.sh --prefix=/tmp/sbcl && \
+find /tmp/sbcl -type f | \
+sed -e s,/tmp/sbcl,/usr/local, | \
+(while read F; do rm "$F"; done) && \
+find /tmp/sbcl -depth -type d -not -empty | \
+sed -e s,/tmp/sbcl,/usr/local, | \
+(while read F; do rmdir -p  "$F"; done)
