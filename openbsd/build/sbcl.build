@@ -9,7 +9,7 @@ export LD_LIBRARY_PATH
 LIBRARY_PATH=$LIBRARY_PATH:/usr/lib:/usr/local/lib
 export LIBRARY_PATH
 
-sh make.sh --prefix=/usr/local --xc-host=clisp --fancy
+sh make.sh --prefix=/usr/local --xc-host=clisp --fancy --without-gencgc --with-mark-region-gc
 
 unset C_INCLUDE_PATH
 unset CPLUS_INCLUDE_PATH
