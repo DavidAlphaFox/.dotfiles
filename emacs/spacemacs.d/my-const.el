@@ -11,11 +11,11 @@
                            "/usr/local/sbin/"
                            "/usr/bin/"
                            "/usr/sbin/"))
-(defconst my/LUA
-  (let* ((lua-binaries '("lua" "lua54" "lua53" "lua52"))
-          (lua-files (my/build-paths my/BINARY-PATH lua-binaries))
-          (the-lua (my/find-files lua-files)))
-    (when (not (null the-lua)) (car the-lua))))
+;;(defconst my/LUA
+;;  (let* ((lua-binaries '("lua" "lua54" "lua53" "lua52"))
+;;          (lua-files (my/build-paths my/BINARY-PATH lua-binaries))
+;;          (the-lua (my/find-files lua-files)))
+;;    (when (not (null the-lua)) (car the-lua))))
 
 
 

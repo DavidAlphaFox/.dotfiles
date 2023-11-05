@@ -31,9 +31,9 @@
           '(yaml sql erlang rust 
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
              (python :variables python-backend 'lsp))))
-    (when my/LUA (setq the-layers
-                   (cons '(lua :variables lua-backend 'lsp lua-lsp-server 'lua-language-server)
-					           the-layers)))
+;;    (when my/LUA (setq the-layers
+;;                   (cons '(lua :variables lua-backend 'lsp lua-lsp-server 'lua-language-server)
+;;					           the-layers)))
     (when my/HAS-JAVA
       (setq the-layers
         (append '(java (groovy :variables groovy-backend 'lsp)
