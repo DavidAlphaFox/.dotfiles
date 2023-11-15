@@ -1,7 +1,9 @@
-./configure --prefix=/usr/local \
+./configure --prefix=/usr/local --enable-acl \
 --with-libsystemd --with-pop=yes --without-gconf --with-native-compilation \
---with-x --with-x-toolkit=gtk3 --with-toolkit-scroll-bars \
---with-xft --with-wide-int  --with-modules --with-harfbuzz \
+--with-x --with-x-toolkit=gtk3 --with-cairo --with-toolkit-scroll-bars \
+--with-wide-int  --with-modules --with-harfbuzz \
 --with-xpm --with-rsvg --with-jpeg --with-gif --with-tiff  \
---with-imagemagick --with-json --with-sqlite3 --with-dbus \
---with-xwdigrts
+--with-json --with-sqlite3 --with-dbus --with-mailutils \
+--with-xwdigets --with-gnutls --with-gsettings --with-lcms2 \
+--with-libotf --with-png --with-threads --with-tree-sitter \
+--with-webp --with-xim --with-xml2
