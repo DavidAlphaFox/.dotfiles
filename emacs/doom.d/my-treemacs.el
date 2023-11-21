@@ -1,7 +1,8 @@
-;;; my-treemacs.el -*- lexical-binding: t; -*-
-
-(doom-themes-treemacs-config)
-(setq doom-themes-treemacs-theme "doom-colors")
+;; -*- lexical-binding: t; -*-
 (setq treemacs-space-between-root-nodes nil)
 (setq treemacs-position 'right)
-(setq treemacs-lock-width t)
+;;(setq treemacs-lock-width t)
+;;(require 'treemacs-all-the-icons)
+(require 'treemacs-icons-dired)
+(require 'treemacs)
+(treemacs-load-theme "nerd-icons")

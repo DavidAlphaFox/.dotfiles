@@ -50,4 +50,6 @@
 ;(unpin! t)
 (package! doom-themes)
 (package! exec-path-from-shell)
+(package! treemacs-icons-dired)
+;;(package! treemacs-all-the-icons)
 ;;(package! merlin)
