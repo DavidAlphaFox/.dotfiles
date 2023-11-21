@@ -47,7 +47,7 @@
      git version-control))
 
 (defconst my/COMMON-LAYERS
-  '(markdown multiple-cursors org treemacs))
+  '(markdown org treemacs))
 
 (defconst my/LAYERS
   (append
