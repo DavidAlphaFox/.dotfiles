@@ -551,7 +551,7 @@ before packages are loaded."
   (my/load! "my-configs.el")
   (my/load! "my-treemacs.el")
   (my/load! "my-lsp.el")
-  ;(my/load! "my-ocaml.el")
+  (my/load! "my-ocaml.el")
   (my/load! "my-org.el")
   ;(my/load! "my-lua.el")
   (my/load! "my-web.el")
