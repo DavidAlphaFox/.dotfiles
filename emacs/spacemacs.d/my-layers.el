@@ -30,7 +30,7 @@
   (let ((the-layers
           '(yaml sql erlang rust ;;ocaml  
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
-             (ruby :variables ruby-backend 'lsp)
+            ;; (ruby :variables ruby-backend 'lsp)
              (python :variables python-backend 'lsp))))
 ;;    (when my/LUA (setq the-layers
 ;;                   (cons '(lua :variables lua-backend 'lsp lua-lsp-server 'lua-language-server)
