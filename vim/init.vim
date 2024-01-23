@@ -22,7 +22,7 @@ endif
 if has('gui_running')
    set background=dark
 else
-   set background=light
+   set background=dark
 endif
 
 let g:everforest_better_performance = 1
