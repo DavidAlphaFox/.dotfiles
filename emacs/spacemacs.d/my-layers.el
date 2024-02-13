@@ -4,10 +4,12 @@
                      auto-completion-enable-snippets-in-popup nil
                      auto-completion-use-company-box t)
     syntax-checking
-    helm))
-;;    (ivy :variables
-;;	    ivy-enable-advanced-buffer-information t
-;;	    ivy-enable-icons t)))
+;;    (helm :variables
+;;     helm-enable-auto-resize t
+;;      helm-no-header t)))
+    (ivy :variables
+	    ivy-enable-advanced-buffer-information t
+	    ivy-enable-icons t)))
 
 (defconst my/WEB-DEVEL-LAYERS
   '(javascript typescript json react html))
