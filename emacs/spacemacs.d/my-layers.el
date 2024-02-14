@@ -5,8 +5,7 @@
                      auto-completion-use-company-box t)
     syntax-checking
 ;;    (helm :variables
-;;     helm-enable-auto-resize t
-;;      helm-no-header t)))
+;;   helm-enable-auto-resize t)))
     (ivy :variables
 	    ivy-enable-advanced-buffer-information t
 	    ivy-enable-icons t)))
