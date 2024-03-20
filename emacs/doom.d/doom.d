@@ -1,0 +1,1 @@
+/home/david/.dotfiles/emacs/doom.d
