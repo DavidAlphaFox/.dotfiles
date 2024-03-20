@@ -1,5 +1,5 @@
 ;;; my-lisp.el -*- lexical-binding: t; -*-
-(require 'geiserr)
+(require 'geiser)
 (require 'company)
 
 (let ((n 2))
