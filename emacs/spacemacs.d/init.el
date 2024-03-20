@@ -553,6 +553,7 @@ before packages are loaded."
   (my/load! "my-lsp.el")
   (my/load! "my-ocaml.el")
   (my/load! "my-org.el")
+  (my/load! "my-ruby.el")
   ;;(my/load! "my-lua.el")
   (my/load! "my-web.el")
   (my/load! "my-erlang.el")
