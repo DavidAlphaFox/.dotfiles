@@ -16,7 +16,7 @@
 (defconst my/LISP-DEVEL-LAYERS
   (let ((the-layers
           '(emacs-lisp common-lisp racket
-             (scheme :variables scheme-implementations '(racket guile chez)))))
+             (scheme :variables scheme-implementations '(racket chez)))))
     (if my/HAS-CLOJURE
       (cons 'clojure the-layers)
       the-layers)))
