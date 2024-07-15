@@ -29,7 +29,7 @@
 
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
-          '(yaml sql erlang ocaml
+          '(yaml sql erlang
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
              (ruby :variables ruby-backend 'lsp)
              (python :variables python-backend 'lsp))))
@@ -38,9 +38,9 @@
 ;;					           the-layers)))
     (when my/HAS-JAVA
       (setq the-layers
-        (append '(java
-                   (groovy :variables groovy-backend 'lsp)
-                   (kotlin :variables kotlin-backend 'lsp))
+        (append '(java)
+                   ;;(groovy :variables groovy-backend 'lsp)
+                   ;;(kotlin :variables kotlin-backend 'lsp))
           the-layers)))
     the-layers))
 
