@@ -29,4 +29,4 @@
 ;; undo tree
 (with-eval-after-load 'undo-tree
   (setq undo-tree-auto-save-history nil))
-(defvar helm-ff-edit-marked-files-fn #'helm-marked-files-in-dired)
+;;(defvar helm-ff-edit-marked-files-fn #'helm-marked-files-in-dired)
