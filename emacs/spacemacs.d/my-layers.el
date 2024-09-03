@@ -29,7 +29,7 @@
 
 (defconst my/COMMON-DEVEL-LAYERS
   (let ((the-layers
-          '(yaml sql erlang
+          '(yaml sql erlang ocaml
              (shell :variables shell-default-height 30 shell-default-position 'bottom)
              (ruby :variables ruby-backend 'lsp)
              (python :variables python-backend 'lsp))))
