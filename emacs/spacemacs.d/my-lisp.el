@@ -10,5 +10,5 @@
 
 (add-hook 'geiser-mode-hook #'company-mode)
 (add-hook 'geiser-repl-mode-hook #'company-mode)
-(add-hook 'sly-mrepl-mode-hook #'company-mode)
-(setq sly-mrepl-shortcut (kbd "C-,"))
+;;(add-hook 'sly-mrepl-mode-hook #'company-mode)
+;;(setq sly-mrepl-shortcut (kbd "C-,"))
