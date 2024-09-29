@@ -14,7 +14,6 @@ Plug 'sainnhe/everforest'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'dominikduda/vim_current_word'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 if has('termguicolors')
