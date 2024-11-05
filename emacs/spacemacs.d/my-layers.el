@@ -5,7 +5,8 @@
       auto-completion-use-company-box t)
      syntax-checking
      (helm :variables
-       helm-enable-auto-resize t)))
+       helm-enable-auto-resize t
+       helm-use-posframe nil)))
 ;; (ivy :variables
 ;;      ivy-enable-advanced-buffer-information t
 ;;      ivy-enable-icons t)))
@@ -50,7 +51,7 @@
      git version-control))
 
 (defconst my/COMMON-LAYERS
-  '(markdown org treemacs))
+  '(markdown treemacs))
 
 (defconst my/LAYERS
   (append

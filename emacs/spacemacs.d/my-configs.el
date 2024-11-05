@@ -29,4 +29,7 @@
 ;; undo tree
 (with-eval-after-load 'undo-tree
   (setq undo-tree-auto-save-history nil))
+(with-eval-after-load 'helm-posframe
+   (helm-posframe-disable))
+;;helm
 ;;(defvar helm-ff-edit-marked-files-fn #'helm-marked-files-in-dired)
