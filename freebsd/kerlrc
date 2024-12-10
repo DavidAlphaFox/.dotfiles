@@ -1,1 +1,1 @@
-KERL_CONFIGURE_OPTIONS="--enable-jit --enable-kernel-poll --enable-sctp --enable-dirty-schedulers --enable-smp-support --enable-threads --enable-vm-probes --with-dynamic-trace=dtrace --with-ssl --with-javac --with-wx-config=/usr/local/bin/wxgtk3u-3.0-config --with-odbc"
+KERL_CONFIGURE_OPTIONS="--enable-pie --enable-jit --enable-kernel-poll --enable-sctp --enable-dirty-schedulers --enable-smp-support --enable-threads --enable-vm-probes --with-dynamic-trace=dtrace --with-ssl --with-javac --with-wx-config=/usr/local/bin/wxgtk3u-3.0-config --with-odbc"
