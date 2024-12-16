@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
        react
        html
        (scheme :variables scheme-implementations '(racket))
+       (ruby :variables ruby-backend 'lsp)
        git
        version-control
        (helm :variables helm-enable-auto-resize t)

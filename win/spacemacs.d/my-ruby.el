@@ -1,0 +1,5 @@
+(require 'lsp)
+(require 'inf-ruby)
+(require 'company)
+(add-hook 'inf-ruby-mode-hook #'company-mode)
+(add-to-list 'lsp-disabled-clients 'rubocop-ls)
