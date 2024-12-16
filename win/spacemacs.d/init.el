@@ -609,6 +609,7 @@ before packages are loaded."
   (load "~/.spacemacs.d/my-racket.el")
   (load "~/.spacemacs.d/my-erlang.el")
   (load "~/.spacemacs.d/my-web.el")
+  (load "~/.spacemacs.d/my-ruby.el")
   )
 
 
