@@ -43,6 +43,7 @@ This function should only modify configuration layer settings."
        emacs-lisp
        common-lisp
        racket
+       java
        clojure
        erlang
        javascript
