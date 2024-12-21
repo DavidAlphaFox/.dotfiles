@@ -38,7 +38,7 @@
       (setq the-layers
         (append '(java)
           ;;(groovy :variables groovy-backend 'lsp)
-          ;;(kotlin :variables kotlin-backend 'lsp))
+          (kotlin :variables kotlin-backend 'lsp)
           the-layers)))
     the-layers))
 
