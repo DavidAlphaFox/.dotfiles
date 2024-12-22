@@ -36,9 +36,9 @@
              (python :variables python-backend 'lsp))))
     (when my/HAS-JAVA
       (setq the-layers
-        (append '(java)
+        (append '(java
           ;;(groovy :variables groovy-backend 'lsp)
-          (kotlin :variables kotlin-backend 'lsp)
+          (kotlin :vaiables kotlin-backend 'lsp))
           the-layers)))
     the-layers))
 
