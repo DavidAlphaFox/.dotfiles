@@ -44,6 +44,7 @@ This function should only modify configuration layer settings."
        common-lisp
        racket
        java
+       kotlin
        clojure
        erlang
        javascript
