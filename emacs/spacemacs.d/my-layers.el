@@ -36,7 +36,7 @@
              (python :variables python-backend 'lsp))))
     (when my/IS-LINUX
       (setq the-layers
-        (append 'ocaml the-layers)))
+        (append '(ocaml) the-layers)))
 
     (when my/HAS-JAVA
       (setq the-layers
