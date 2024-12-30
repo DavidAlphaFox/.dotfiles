@@ -1,0 +1,6 @@
+#!/bin/sh
+export CC=clang CXX=clang++ CFLAGS="-g -O2 -fstack-protector" LDFLAGS="-fstack-protector" C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include/ CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/include/ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib 
+export JAVA_HOME=/usr/local/jdk-21
+export PATH="/usr/local/jdk-21/bin:/usr/local/bin:$PATH"
+#kerl build 27.2 otp-27
+kerl build 26.2.5.6 otp-26

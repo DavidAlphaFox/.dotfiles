@@ -1,0 +1,1 @@
+KERL_CONFIGURE_OPTIONS="--enable-pie --enable-jit --enable-kernel-poll --enable-dirty-schedulers --enable-smp-support --enable-threads --with-ssl --with-javac --with-wx-config=/usr/local/bin/wx-config --with-odbc"
