@@ -22,6 +22,14 @@
       (cons 'clojure the-layers)
       the-layers)))
 
+(defconst my/ML-DEVEL-LAYERS
+  (let ((the-layers '(ocaml)))
+    (if my/HAS-DOTNET
+      (append '(
+                 (fsharp :variables fsharp-backend 'lsp)
+                 (csharp :variables csharp-backend 'lsp)) the-layers)
+      the-layers)))
+
 (defconst my/CPP-DEVEL-LAYERS
   '(gpu
      (c-c++ :variables c-c++-enable-clang-support t)
@@ -35,13 +43,12 @@
              (ruby :variables ruby-backend 'lsp)
              (python :variables python-backend 'lsp))))
 
-    (when my/HAS-JAVA
-      (setq the-layers
-        (append '(java
-                   ;;(groovy :variables groovy-backend 'lsp)
-                   (kotlin :vaiables kotlin-backend 'lsp))
-          the-layers)))
-    the-layers))
+    (if my/HAS-JAVA
+      (append '(java
+                 ;;(groovy :variables groovy-backend 'lsp)
+                 (kotlin :vaiables kotlin-backend 'lsp))
+        the-layers)
+      the-layers)))
 
 
 (defconst my/DEVEL-TOOLS-LAYERS
@@ -58,5 +65,6 @@
     my/COMMON-DEVEL-LAYERS
     my/CPP-DEVEL-LAYERS
     my/LISP-DEVEL-LAYERS
+    my/ML-DEVEL-LAYERS
     my/WEB-DEVEL-LAYERS
     my/COMPLETION-LAYERS))
