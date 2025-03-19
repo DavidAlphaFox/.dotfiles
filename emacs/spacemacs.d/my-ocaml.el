@@ -27,4 +27,4 @@
 ;;(add-to-list 'company-backends 'merlin-company-backend)
 ;;(setq shackle-rules '(("^\\*utop\\*" :regexp t :align t :size 0.4)))
 
-(require 'opam-user-setup "~/.spacemacs.d/opam-user-setup.el")
+;;(require 'opam-user-setup "~/.spacemacs.d/opam-user-setup.el")
