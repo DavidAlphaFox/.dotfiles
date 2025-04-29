@@ -22,13 +22,17 @@
       (cons 'clojure the-layers)
       the-layers)))
 
-(defconst my/ML-DEVEL-LAYERS
-  (let ((the-layers '(ocaml)))
+(defconst my/DOTNET-DEVEL-LAYERS
     (if my/HAS-DOTNET
-      (append '(
-                 (fsharp :variables fsharp-backend 'lsp)
-                 (csharp :variables csharp-backend 'lsp)) the-layers)
-      the-layers)))
+      '((fsharp :variables fsharp-backend 'lsp)
+        (csharp :variables csharp-backend 'lsp))
+      nil))
+(defconst my/JAVA-DEVEL-LAYERS
+    (if my/HAS-JAVA
+      '(java
+	 ;;(groovy :variables groovy-backend 'lsp)
+       	(kotlin :vaiables kotlin-backend 'lsp))
+      	nil))
 
 (defconst my/CPP-DEVEL-LAYERS
   '(gpu
@@ -37,18 +41,10 @@
        cmake-enable-cmake-ide-support t)))
 
 (defconst my/COMMON-DEVEL-LAYERS
-  (let ((the-layers
-          '(yaml sql erlang ocaml
-             (shell :variables shell-default-height 30 shell-default-position 'bottom)
-             (ruby :variables ruby-backend 'lsp)
-             (python :variables python-backend 'lsp))))
+  '(yaml sql erlang
+	 (shell :variables shell-default-height 30 shell-default-position 'bottom)
+         (ruby :variables ruby-backend 'lsp)))
 
-    (if my/HAS-JAVA
-      (append '(java
-                 ;;(groovy :variables groovy-backend 'lsp)
-                 (kotlin :vaiables kotlin-backend 'lsp))
-        the-layers)
-      the-layers)))
 
 
 (defconst my/DEVEL-TOOLS-LAYERS
@@ -65,6 +61,7 @@
     my/COMMON-DEVEL-LAYERS
     my/CPP-DEVEL-LAYERS
     my/LISP-DEVEL-LAYERS
-    my/ML-DEVEL-LAYERS
+    my/DOTNET-DEVEL-LAYERS
+    my/JAVA-DEVEL-LAYERS
     my/WEB-DEVEL-LAYERS
     my/COMPLETION-LAYERS))

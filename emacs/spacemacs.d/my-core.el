@@ -2,11 +2,11 @@
 
 (defun my/build-paths (paths files)
   (flatten-list
-    (seq-map
-      (lambda (path)
-        (seq-map (lambda (file)
-                   (expand-file-name file path))
-          files))
+   (seq-map
+    (lambda (path)
+      (seq-map (lambda (file)
+                 (expand-file-name file path))
+               files))
     paths)))
 
 (defun my/find-files (locations)
@@ -17,21 +17,21 @@
   "Load PATH and handle any Doom errors that arise from it.
    If NOERROR, don't throw an error if PATH doesn't exist."
   (condition-case-unless-debug e
-    (load path noerror 'nomessage)
+      (load path noerror 'nomessage)
     (error
-      (setq path (locate-file path load-path (get-load-suffixes)))
-      (signal 'error (list path e)))))
+     (setq path (locate-file path load-path (get-load-suffixes)))
+     (signal 'error (list path e)))))
 
 (defmacro my/file! ()
   "Return the file of the file this macro was called."
   (or
    ;; REVIEW: Use `macroexp-file-name' once 27 support is dropped.
-    (let ((file (car (last current-load-list))))
-      (if (stringp file) file))
-    (bound-and-true-p byte-compile-current-file)
-    load-file-name
-    buffer-file-name   ; for `eval'
-    (error "my/file!: cannot deduce the current file path")))
+   (let ((file (car (last current-load-list))))
+     (if (stringp file) file))
+   (bound-and-true-p byte-compile-current-file)
+   load-file-name
+   buffer-file-name   ; for `eval'
+   (error "my/file!: cannot deduce the current file path")))
 
 (defmacro my/dir! ()
   "Return the directory of the file this macro was called."
