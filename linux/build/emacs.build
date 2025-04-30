@@ -1,4 +1,4 @@
-./configure --prefix=/usr/local --enable-acl --with-native-compilation \
+./configure --prefix=/usr/local --enable-acl \
 --with-libsystemd --with-pop=yes --without-gconf \
 --with-x --with-x-toolkit=gtk3 --with-cairo --with-toolkit-scroll-bars \
 --with-wide-int  --with-modules --with-harfbuzz \
