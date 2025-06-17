@@ -37,6 +37,9 @@
 (defconst my/CPP-DEVEL-LAYERS
   '(gpu
      (c-c++ :variables c-c++-enable-clang-support t)
+     (rust :variables
+       lsp-rust-analyzer-cargo-auto-reload t
+       rustic-format-on-save t)
      (cmake :variables cmake-backend 'company-cmake
        cmake-enable-cmake-ide-support t)))
 
