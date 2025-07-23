@@ -27,7 +27,10 @@
 
 (defconst my/FONT
   (if (display-graphic-p)
-    (font-spec :family "Fira Mono"  :size 14.0 :weight 'normal :width 'normal)
+    (cond
+      ((member "JetBrains Mono" (font-family-list)) (font-spec :family "JetBrains Mono"  :size 16.0 :weight 'regular :width 'normal))
+      ((member "Fira Mono" (font-family-list)) (font-spec :family "Fira Mono"  :size 14.0 :weight 'regular :width 'normal))
+      t (font-spec :family "Fira Code" :size 14.0 :weight 'regular :width 'normal))
     (font-spec :family "monospace" :size 12.0 :weight 'normal :width 'normal)))
 
 ;;(when (display-graphic-p)

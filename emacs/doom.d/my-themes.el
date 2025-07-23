@@ -10,8 +10,9 @@
 (setq doom-themes-enable-bold nil    ; if nil, bold is universally disabled
       doom-themes-enable-italic nil) ; if nil, italics is universally disabled
 (if (display-graphic-p)
-	(load-theme 'doom-solarized-light t)
-	(load-theme 'leuven t))
+	(load-theme 'doom-solarized-dark t)
+	(load-theme 'doom-solarized-dark t))
+	;;(load-theme 'doom-tokyo-night t))
 	;;(load-theme 'adwaita t))
 	;;(load-theme 'leuven t))
 
