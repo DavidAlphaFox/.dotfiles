@@ -26,3 +26,4 @@
 
 ;; tab
 (setq-default indent-tabs-mode nil)
+;;(setq doom-leader-alt-key "M-m")

@@ -6,3 +6,4 @@
 ;;(require 'treemacs-icons-dired)
 (require 'treemacs)
 (treemacs-load-theme "nerd-icons")
+(map! "M-0" #'treemacs-select-window)
