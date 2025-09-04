@@ -16,23 +16,25 @@
 
 (defconst my/LISP-DEVEL-LAYERS
   (let ((the-layers
-          '(emacs-lisp common-lisp racket
-             (scheme :variables scheme-implementations '(racket chez guile)))))
+          '(emacs-lisp
+             common-lisp
+             racket
+             (scheme :variables scheme-implementations '(chez)))))
     (if my/HAS-CLOJURE
       (cons 'clojure the-layers)
       the-layers)))
 
 (defconst my/DOTNET-DEVEL-LAYERS
-    (if my/HAS-DOTNET
-      '((fsharp :variables fsharp-backend 'lsp)
-        (csharp :variables csharp-backend 'lsp))
-      nil))
+  (if my/HAS-DOTNET
+    '((fsharp :variables fsharp-backend 'lsp)
+       (csharp :variables csharp-backend 'lsp))
+    nil))
 (defconst my/JAVA-DEVEL-LAYERS
-    (if my/HAS-JAVA
-      '(java
-	 ;;(groovy :variables groovy-backend 'lsp)
-       	(kotlin :vaiables kotlin-backend 'lsp))
-      	nil))
+  (if my/HAS-JAVA
+    '(java
+       ;;(groovy :variables groovy-backend 'lsp)
+       (kotlin :vaiables kotlin-backend 'lsp))
+    nil))
 
 (defconst my/CPP-DEVEL-LAYERS
   '(gpu
@@ -45,8 +47,8 @@
 
 (defconst my/COMMON-DEVEL-LAYERS
   '(yaml sql erlang
-	 (shell :variables shell-default-height 30 shell-default-position 'bottom)
-         (ruby :variables ruby-backend 'lsp)))
+     (shell :variables shell-default-height 30 shell-default-position 'bottom)
+     (ruby :variables ruby-backend 'lsp)))
 
 
 

@@ -9,7 +9,7 @@
   (lambda ()
     (when (display-graphic-p)
       (lsp-deferred))))
-
+(add-hook 'racket-repl-mode-hook #'company-mode)
 (add-hook 'racket-repl-mode-hook
   (lambda ()
-     (setq-local eldoc-documentation-function #'racket-repl-eldoc-function)))
+    (setq-local eldoc-documentation-function #'racket-repl-eldoc-function)))
