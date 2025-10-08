@@ -48,7 +48,7 @@
 (defconst my/COMMON-DEVEL-LAYERS
   '(yaml sql erlang
      (shell :variables shell-default-height 30 shell-default-position 'bottom)
-     (ruby :variables ruby-backend 'lsp)))
+     (python :variables ruby-backend 'lsp)))
 
 
 
