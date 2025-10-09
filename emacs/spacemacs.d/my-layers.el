@@ -52,7 +52,7 @@
 	    shell-default-position 'bottom)
      (python :variables 
 	     python-backend 'lsp
-	     python-enable-tools '(uv)
+	     python-enable-tools '(uv pyenv)
 	     )))
 
 
