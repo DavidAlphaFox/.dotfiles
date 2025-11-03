@@ -1,7 +1,7 @@
 (require 'lsp-mode)
 (require 'lsp-racket)
 (require 'racket-mode)
-(require 'racket-eldoc)
+;;(require 'racket-eldoc)
 (require 'company)
 
 (add-hook 'racket-mode-hook #'company-mode)
@@ -10,6 +10,6 @@
     (when (display-graphic-p)
       (lsp-deferred))))
 (add-hook 'racket-repl-mode-hook #'company-mode)
-(add-hook 'racket-repl-mode-hook
-  (lambda ()
-    (setq-local eldoc-documentation-function #'racket-repl-eldoc-function)))
+;;(add-hook 'racket-repl-mode-hook
+;; (lambda ()
+;;    (setq-local eldoc-documentation-function #'racket-repl-eldoc-function)))
