@@ -567,13 +567,13 @@ before packages are loaded."
   ;;(my/load! "my-org.el")
   ;;(my/load! "my-ruby.el")
   ;;(my/load! "my-lua.el")
+  ;;(my/load! "my-racket.el")
   (my/load! "my-web.el")
   (my/load! "my-erlang.el")
   (my/load! "my-clang.el")
   (my/load! "my-lisp.el")
   (my/load! "my-python.el")
-  (my/load! "my-clojure.el")
-  (my/load! "my-racket.el"))
+  (my/load! "my-clojure.el"))
 
 
 ;; Do not write anything past this comment. This is where Emacs will

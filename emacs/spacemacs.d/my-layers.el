@@ -18,7 +18,6 @@
   (let ((the-layers
           '(emacs-lisp
              common-lisp
-             racket
              (scheme :variables scheme-implementations '(chez)))))
     (if my/HAS-CLOJURE
       (cons 'clojure the-layers)
@@ -29,6 +28,7 @@
     '((fsharp :variables fsharp-backend 'lsp)
        (csharp :variables csharp-backend 'lsp))
     nil))
+
 (defconst my/JAVA-DEVEL-LAYERS
   (if my/HAS-JAVA
     '(java
@@ -47,13 +47,13 @@
 
 (defconst my/COMMON-DEVEL-LAYERS
   '(yaml sql erlang
-     (shell :variables 
-	    shell-default-height 30 
-	    shell-default-position 'bottom)
-     (python :variables 
-	     python-backend 'lsp
-	     python-enable-tools '(uv pyenv)
-	     )))
+     (shell :variables
+       shell-default-height 30
+       shell-default-position 'bottom)
+     (python :variables
+       python-backend 'lsp
+       python-enable-tools '(uv pyenv)
+       )))
 
 
 
@@ -71,7 +71,7 @@
     my/COMMON-DEVEL-LAYERS
     my/CPP-DEVEL-LAYERS
     my/LISP-DEVEL-LAYERS
-    my/DOTNET-DEVEL-LAYERS
+    ;; my/DOTNET-DEVEL-LAYERS
     my/JAVA-DEVEL-LAYERS
     my/WEB-DEVEL-LAYERS
     my/COMPLETION-LAYERS))
