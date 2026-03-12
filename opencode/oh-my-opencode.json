@@ -18,14 +18,14 @@
     },
     "oracle": {
       "model": "zhipuai-coding-plan/glm-5",
-      "maxTokens": 16384
+      "maxTokens": 32768
     },
     "librarian": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.1",
+      "model": "minimax-cn-coding-plan/MiniMax-M2.5",
       "maxTokens": 16384
     },
     "explore": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.1",
+      "model": "minimax-cn-coding-plan/MiniMax-M2.5",
       "maxTokens": 16384
     },
     "multimodal-looker": {
@@ -42,7 +42,7 @@
     },
     "momus": {
       "model": "zhipuai-coding-plan/glm-5",
-      "maxTokens": 16384
+      "maxTokens": 32768
     },
     "atlas": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.5",
@@ -67,7 +67,7 @@
     "deep": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.5",
       "maxTokens": 32768,
-      "reasoningEffort": "medium"
+      "reasoningEffort": "high"
     },
     "artistry": {
       "model": "zhipuai-coding-plan/glm-4.7",
