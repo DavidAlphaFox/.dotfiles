@@ -2,14 +2,14 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "zhipuai-coding-plan/glm-4.7",
+      "model": "zhipuai-coding-plan/glm-5",
       "maxTokens": 32768,
       "thinking": {
         "type": "enabled",
         "budgetTokens": 16384
       },
       "compaction": {
-        "model": "zhipuai-coding-plan/glm-4.7"
+        "model": "zhipuai-coding-plan/glm-5"
       }
     },
     "hephaestus": {
