@@ -21,11 +21,11 @@
       "maxTokens": 32768
     },
     "librarian": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "zhipuai-coding-plan/glm-4.7",
       "maxTokens": 16384
     },
     "explore": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "zhipuai-coding-plan/glm-4.7",
       "maxTokens": 16384
     },
     "multimodal-looker": {
@@ -37,11 +37,11 @@
       "maxTokens": 16384
     },
     "metis": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "zhipuai-coding-plan/glm-4.7",
       "maxTokens": 16384
     },
     "momus": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "zhipuai-coding-plan/glm-4.7",
       "maxTokens": 32768
     },
     "atlas": {
@@ -75,12 +75,12 @@
       "temperature": 0.9
     },
     "quick": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "zhipuai-coding-plan/glm-4.5-air",
       "maxTokens": 8192,
       "temperature": 0.3
     },
     "unspecified-low": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "zhipuai-coding-plan/glm-4.7",
       "maxTokens": 16384
     },
     "unspecified-high": {

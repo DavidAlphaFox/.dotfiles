@@ -33,7 +33,7 @@
       "maxTokens": 16384
     },
     "prometheus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
+      "model": "zhipuai-coding-plan/glm-5",
       "maxTokens": 16384
     },
     "metis": {
@@ -41,11 +41,11 @@
       "maxTokens": 16384
     },
     "momus": {
-      "model": "zhipuai-coding-plan/glm-5",
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
       "maxTokens": 32768
     },
     "atlas": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
+      "model": "zhipuai-coding-plan/glm-5",
       "maxTokens": 16384
     }
   },
@@ -65,7 +65,7 @@
       "reasoningEffort": "high"
     },
     "deep": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.5",
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
       "maxTokens": 32768,
       "reasoningEffort": "high"
     },
