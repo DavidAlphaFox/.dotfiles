@@ -3,7 +3,6 @@
 ;; It must be stored in your home directory.
 ;;(add-to-list 'load-path "~/.spacemacs.d/compat")
 (add-to-list 'load-path "~/.spacemacs.d")
-;;(load "compat.el")
 (load "my-core.el")
 (load "my-const.el")
 (load "my-layers.el")
@@ -563,16 +562,12 @@ before packages are loaded."
   (my/load! "my-configs.el")
   (my/load! "my-treemacs.el")
   (my/load! "my-lsp.el")
-  ;;(my/load! "my-ocaml.el")
-  ;;(my/load! "my-org.el")
+  (my/load! "my-org.el")
   ;;(my/load! "my-ruby.el")
-  ;;(my/load! "my-lua.el")
-  ;;(my/load! "my-racket.el")
   (my/load! "my-web.el")
   (my/load! "my-erlang.el")
   (my/load! "my-clang.el")
   (my/load! "my-lisp.el")
-  (my/load! "my-python.el")
   (my/load! "my-clojure.el"))
 
 
