@@ -2,6 +2,5 @@
 (defconst my/IS-LINUX   (eq system-type 'gnu/linux))
 (defconst my/IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 (defconst my/IS-BSD     (eq system-type 'berkeley-unix))
-(defconst my/HAS-CLOJURE t)
 (defconst my/HAS-JAVA t)
 (defconst my/HAS-DOTNET nil)
