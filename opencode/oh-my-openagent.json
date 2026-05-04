@@ -55,7 +55,7 @@
   "categories": {
     "visual-engineering": {
       "model": "kimi-for-coding/k2p6",
-      "maxTokens": 16384,
+      "maxTokens": 32768,
       "temperature": 0.7
     },
     "ultrabrain": {
@@ -84,10 +84,10 @@
     },
     "unspecified-low": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7",
-      "maxTokens": 16384
+      "maxTokens": 32768
     },
     "unspecified-high": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
+      "model": "kimi-for-coding/k2p6",
       "maxTokens": 32768,
       "reasoningEffort": "medium"
     },
