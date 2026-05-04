@@ -79,7 +79,7 @@
     },
     "quick": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7",
-      "maxTokens": 8192,
+      "maxTokens": 16384,
       "temperature": 0.3
     },
     "unspecified-low": {
