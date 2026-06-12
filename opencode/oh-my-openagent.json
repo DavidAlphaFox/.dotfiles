@@ -18,7 +18,7 @@
       "maxTokens": 16384
     },
     "multimodal-looker": {
-      "model": "kimi-for-coding/k2p6",
+      "model": "kimi-for-coding/k2p7",
       "maxTokens": 16384
     },
     "prometheus": {
@@ -54,7 +54,7 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "kimi-for-coding/k2p6",
+      "model": "kimi-for-coding/k2p7",
       "maxTokens": 32768,
       "temperature": 0.7
     },
@@ -87,7 +87,7 @@
       "maxTokens": 32768
     },
     "unspecified-high": {
-      "model": "kimi-for-coding/k2p6",
+      "model": "kimi-for-coding/k2p7",
       "maxTokens": 32768,
       "reasoningEffort": "medium"
     },
