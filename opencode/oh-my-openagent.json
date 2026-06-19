@@ -47,6 +47,9 @@
     "atlas": {
       "model": "zhipuai-coding-plan/glm-5.2",
       "maxTokens": 16384
+    },
+    "sisyphus-junior": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3"
     }
   },
   "categories": {
@@ -81,7 +84,7 @@
     },
     "unspecified-low": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "maxTokens": 16384
+      "maxTokens": 32768
     },
     "unspecified-high": {
       "model": "kimi-for-coding/k2p7",
