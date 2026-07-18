@@ -11,7 +11,8 @@
       }
     },
     "hephaestus": {
-      "model": "kimi-for-coding/k3"
+      "model": "kimi-for-coding/k3",
+      "reasoningEffort": "high"
     },
     "oracle": {
       "model": "zhipuai-coding-plan/glm-5.2",
@@ -24,15 +25,13 @@
       "model": "minimax-cn-coding-plan/MiniMax-M3"
     },
     "multimodal-looker": {
-      "model": "kimi-for-coding/k2p7",
-      "maxTokens": 16384
+      "model": "kimi-for-coding/k2p7"
     },
     "prometheus": {
-      "model": "zhipuai-coding-plan/glm-5.2",
-      "maxTokens": 16384
+      "model": "zhipuai-coding-plan/glm-5.2"
     },
     "metis": {
-      "model": "kimi-for-coding/k3"
+      "model": "minimax-cn-coding-plan/MiniMax-M3"
     },
     "momus": {
       "model": "kimi-for-coding/k3"
