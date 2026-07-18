@@ -7,7 +7,7 @@
         "type": "enabled"
       },
       "compaction": {
-        "model": "zhipuai-coding-plan/glm-4.7"
+        "model": "zhipuai-coding-plan/glm-5.2"
       }
     },
     "hephaestus": {
