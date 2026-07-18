@@ -3,30 +3,25 @@
   "agents": {
     "sisyphus": {
       "model": "zhipuai-coding-plan/glm-5.2",
-      "maxTokens": 32768,
       "thinking": {
-        "type": "enabled",
-        "budgetTokens": 16384
+        "type": "enabled"
       },
       "compaction": {
-        "model": "zhipuai-coding-plan/glm-5.2"
+        "model": "zhipuai-coding-plan/glm-4.7"
       }
     },
     "hephaestus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
-      "maxTokens": 32768
+      "model": "kimi-for-coding/k3"
     },
     "oracle": {
       "model": "zhipuai-coding-plan/glm-5.2",
       "maxTokens": 32768
     },
     "librarian": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
-      "maxTokens": 16384
+      "model": "minimax-cn-coding-plan/MiniMax-M3"
     },
     "explore": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7",
-      "maxTokens": 16384
+      "model": "minimax-cn-coding-plan/MiniMax-M3"
     },
     "multimodal-looker": {
       "model": "kimi-for-coding/k2p7",
@@ -37,63 +32,52 @@
       "maxTokens": 16384
     },
     "metis": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "maxTokens": 16384
+      "model": "kimi-for-coding/k3"
     },
     "momus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "maxTokens": 32768
+      "model": "kimi-for-coding/k3"
     },
     "atlas": {
-      "model": "zhipuai-coding-plan/glm-5.2",
-      "maxTokens": 16384
+      "model": "zhipuai-coding-plan/glm-5.2"
     },
     "sisyphus-junior": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3"
+      "model": "kimi-for-coding/k2p7"
     }
+
   },
   "categories": {
     "visual-engineering": {
-      "model": "kimi-for-coding/k2p7",
-      "maxTokens": 32768,
+      "model": "kimi-for-coding/k3",
       "temperature": 0.7
     },
     "ultrabrain": {
       "model": "zhipuai-coding-plan/glm-5.2",
-      "maxTokens": 32768,
       "thinking": {
-        "type": "enabled",
-        "budgetTokens": 16384
+        "type": "enabled"
       },
       "reasoningEffort": "high"
     },
     "deep": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "maxTokens": 32768,
+      "model": "kimi-for-coding/k3",
       "reasoningEffort": "high"
     },
     "artistry": {
-      "model": "kimi-for-coding/k2p7",
-      "maxTokens": 16384,
+      "model": "kimi-for-coding/k3",
       "temperature": 0.9
     },
     "quick": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7",
-      "maxTokens": 8192,
       "temperature": 0.3
     },
     "unspecified-low": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "maxTokens": 32768
+      "model": "kimi-for-coding/k2p7"
     },
     "unspecified-high": {
-      "model": "kimi-for-coding/k2p7",
-      "maxTokens": 32768,
+      "model": "kimi-for-coding/k3",
       "reasoningEffort": "medium"
     },
     "writing": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "maxTokens": 8192,
       "temperature": 0.6
     }
   }
