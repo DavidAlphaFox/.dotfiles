@@ -48,6 +48,7 @@
   "categories": {
     "visual-engineering": {
       "model": "kimi-for-coding/k3",
+      "reasoningEffort": "high",
       "temperature": 0.7
     },
     "ultrabrain": {
@@ -63,6 +64,7 @@
     },
     "artistry": {
       "model": "kimi-for-coding/k3",
+      "reasoningEffort": "high",
       "temperature": 0.9
     },
     "quick": {
@@ -73,7 +75,8 @@
       "model": "minimax-cn-coding-plan/MiniMax-M3"
     },
     "unspecified-high": {
-      "model": "kimi-for-coding/k3"
+      "model": "kimi-for-coding/k3",
+      "reasoningEffort": "high"
     },
     "writing": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
