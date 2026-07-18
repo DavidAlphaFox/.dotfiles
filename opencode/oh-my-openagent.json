@@ -15,8 +15,7 @@
       "reasoningEffort": "high"
     },
     "oracle": {
-      "model": "zhipuai-coding-plan/glm-5.2",
-      "maxTokens": 32768
+      "model": "zhipuai-coding-plan/glm-5.2"
     },
     "librarian": {
       "model": "minimax-cn-coding-plan/MiniMax-M3"
