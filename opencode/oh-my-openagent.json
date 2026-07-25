@@ -8,32 +8,54 @@
       },
       "compaction": {
         "model": "zhipuai-coding-plan/glm-5.2"
-      }
+      },
+      "fallback_models": [
+        "kimi-for-coding/k3"
+      ]
     },
     "hephaestus": {
       "model": "kimi-for-coding/k3",
-      "reasoningEffort": "high"
+      "reasoningEffort": "high",
+      "compaction": {
+        "model": "kimi-for-coding/k3"
+      }
     },
     "oracle": {
-      "model": "zhipuai-coding-plan/glm-5.2"
+      "model": "zhipuai-coding-plan/glm-5.2",
+      "thinking": {
+        "type": "enabled"
+      },
+      "fallback_models": [
+        "kimi-for-coding/k3"
+      ]
     },
     "librarian": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3"
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "textVerbosity": "low"
     },
     "explore": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3"
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "textVerbosity": "low"
     },
     "multimodal-looker": {
       "model": "kimi-for-coding/k2p7"
     },
     "prometheus": {
-      "model": "zhipuai-coding-plan/glm-5.2"
+      "model": "zhipuai-coding-plan/glm-5.2",
+      "thinking": {
+        "type": "enabled"
+      },
+      "fallback_models": [
+        "kimi-for-coding/k3"
+      ]
     },
     "metis": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3"
+      "model": "kimi-for-coding/k3",
+      "reasoningEffort": "high"
     },
     "momus": {
-      "model": "kimi-for-coding/k3"
+      "model": "kimi-for-coding/k3",
+      "reasoningEffort": "high"
     },
     "atlas": {
       "model": "zhipuai-coding-plan/glm-5.2"
@@ -41,12 +63,12 @@
     "sisyphus-junior": {
       "model": "kimi-for-coding/k2p7"
     }
-
   },
   "categories": {
     "visual-engineering": {
       "model": "kimi-for-coding/k3",
       "reasoningEffort": "high",
+      "maxTokens": 65536,
       "temperature": 0.7
     },
     "ultrabrain": {
