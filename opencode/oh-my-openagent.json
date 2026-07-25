@@ -79,7 +79,7 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "kimi-for-coding/k3",
+      "model": "kimi-for-coding/k3-256k",
       "reasoningEffort": "high",
       "maxTokens": 65536,
       "temperature": 0.7
@@ -94,7 +94,7 @@
       "reasoningEffort": "high"
     },
     "deep": {
-      "model": "kimi-for-coding/k3",
+      "model": "kimi-for-coding/k3-256k",
       "reasoningEffort": "high",
       "maxTokens": 65536
     },
@@ -114,7 +114,7 @@
       "maxTokens": 16384
     },
     "unspecified-high": {
-      "model": "kimi-for-coding/k3",
+      "model": "kimi-for-coding/k3-256k",
       "reasoningEffort": "high",
       "maxTokens": 65536
     },
