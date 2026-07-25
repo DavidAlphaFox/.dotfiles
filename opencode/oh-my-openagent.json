@@ -9,7 +9,15 @@
       },
       "maxTokens": 32768,
       "fallback_models": [
-        "kimi-for-coding/k3"
+        {
+          "model": "kimi-for-coding/k3",
+          "maxTokens": 32768,
+          "thinking": {
+            "type": "enabled",
+            "budgetTokens": 16384
+          },
+          "reasoningEffort": "high"
+        }
       ]
     },
     "hephaestus": {
@@ -28,7 +36,15 @@
       },
       "maxTokens": 65536,
       "fallback_models": [
-        "kimi-for-coding/k3"
+        {
+          "model": "kimi-for-coding/k3",
+          "maxTokens": 65536,
+          "thinking": {
+            "type": "enabled",
+            "budgetTokens": 32768
+          },
+          "reasoningEffort": "high"
+        }
       ]
     },
     "librarian": {
@@ -68,7 +84,15 @@
         "model": "minimax-cn-coding-plan/MiniMax-M3"
       },
       "fallback_models": [
-        "kimi-for-coding/k3"
+        {
+          "model": "kimi-for-coding/k3",
+          "maxTokens": 28672,
+          "thinking": {
+            "type": "enabled",
+            "budgetTokens": 12288
+          },
+          "reasoningEffort": "high"
+        }
       ]
     },
     "metis": {
