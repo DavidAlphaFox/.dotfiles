@@ -8,9 +8,6 @@
         "budgetTokens": 16384
       },
       "maxTokens": 32768,
-      "compaction": {
-        "model": "zhipuai-coding-plan/glm-5.2"
-      },
       "fallback_models": [
         "kimi-for-coding/k3"
       ]
@@ -30,9 +27,6 @@
         "budgetTokens": 32768
       },
       "maxTokens": 65536,
-      "compaction": {
-        "model": "zhipuai-coding-plan/glm-5.2"
-      },
       "fallback_models": [
         "kimi-for-coding/k3"
       ]
