@@ -10,7 +10,7 @@
       "maxTokens": 32768,
       "fallback_models": [
         {
-          "model": "kimi-for-coding/k3",
+          "model": "kimi-for-coding/k3-256k",
           "maxTokens": 32768,
           "thinking": {
             "type": "enabled",
@@ -21,7 +21,7 @@
       ]
     },
     "hephaestus": {
-      "model": "kimi-for-coding/k3",
+      "model": "kimi-for-coding/k3-256k",
       "reasoningEffort": "high",
       "maxTokens": 49152,
       "compaction": {
@@ -37,7 +37,7 @@
       "maxTokens": 65536,
       "fallback_models": [
         {
-          "model": "kimi-for-coding/k3",
+          "model": "kimi-for-coding/k3-256k",
           "maxTokens": 65536,
           "thinking": {
             "type": "enabled",
@@ -85,7 +85,7 @@
       },
       "fallback_models": [
         {
-          "model": "kimi-for-coding/k3",
+          "model": "kimi-for-coding/k3-256k",
           "maxTokens": 28672,
           "thinking": {
             "type": "enabled",
@@ -104,7 +104,7 @@
       }
     },
     "momus": {
-      "model": "kimi-for-coding/k3",
+      "model": "kimi-for-coding/k3-256k",
       "reasoningEffort": "high",
       "maxTokens": 49152,
       "compaction": {
