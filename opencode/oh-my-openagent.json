@@ -4,8 +4,10 @@
     "sisyphus": {
       "model": "zhipuai-coding-plan/glm-5.2",
       "thinking": {
-        "type": "enabled"
+        "type": "enabled",
+        "budgetTokens": 16384
       },
+      "maxTokens": 32768,
       "compaction": {
         "model": "zhipuai-coding-plan/glm-5.2"
       },
@@ -16,6 +18,7 @@
     "hephaestus": {
       "model": "kimi-for-coding/k3",
       "reasoningEffort": "high",
+      "maxTokens": 49152,
       "compaction": {
         "model": "kimi-for-coding/k3"
       }
@@ -23,45 +26,55 @@
     "oracle": {
       "model": "zhipuai-coding-plan/glm-5.2",
       "thinking": {
-        "type": "enabled"
+        "type": "enabled",
+        "budgetTokens": 32768
       },
+      "maxTokens": 65536,
       "fallback_models": [
         "kimi-for-coding/k3"
       ]
     },
     "librarian": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "textVerbosity": "low"
+      "textVerbosity": "low",
+      "maxTokens": 8192
     },
     "explore": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
-      "textVerbosity": "low"
+      "textVerbosity": "low",
+      "maxTokens": 8192
     },
     "multimodal-looker": {
-      "model": "kimi-for-coding/k2p7"
+      "model": "kimi-for-coding/k2p7",
+      "maxTokens": 16384
     },
     "prometheus": {
       "model": "zhipuai-coding-plan/glm-5.2",
       "thinking": {
-        "type": "enabled"
+        "type": "enabled",
+        "budgetTokens": 12288
       },
+      "maxTokens": 28672,
       "fallback_models": [
         "kimi-for-coding/k3"
       ]
     },
     "metis": {
-      "model": "kimi-for-coding/k3",
-      "reasoningEffort": "high"
+      "model": "kimi-for-coding/k3-256k",
+      "reasoningEffort": "high",
+      "maxTokens": 32768
     },
     "momus": {
       "model": "kimi-for-coding/k3",
-      "reasoningEffort": "high"
+      "reasoningEffort": "high",
+      "maxTokens": 49152
     },
     "atlas": {
       "model": "zhipuai-coding-plan/glm-5.2"
     },
     "sisyphus-junior": {
-      "model": "kimi-for-coding/k2p7"
+      "model": "kimi-for-coding/k2p7",
+      "maxTokens": 32768
     }
   },
   "categories": {
@@ -74,32 +87,40 @@
     "ultrabrain": {
       "model": "zhipuai-coding-plan/glm-5.2",
       "thinking": {
-        "type": "enabled"
+        "type": "enabled",
+        "budgetTokens": 32768
       },
+      "maxTokens": 65536,
       "reasoningEffort": "high"
     },
     "deep": {
       "model": "kimi-for-coding/k3",
-      "reasoningEffort": "high"
+      "reasoningEffort": "high",
+      "maxTokens": 65536
     },
     "artistry": {
-      "model": "kimi-for-coding/k3",
-      "reasoningEffort": "high",
+      "model": "kimi-for-coding/k3-256k",
+      "reasoningEffort": "low",
+      "maxTokens": 32768,
       "temperature": 0.9
     },
     "quick": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7",
+      "maxTokens": 8192,
       "temperature": 0.3
     },
     "unspecified-low": {
-      "model": "minimax-cn-coding-plan/MiniMax-M3"
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "maxTokens": 16384
     },
     "unspecified-high": {
       "model": "kimi-for-coding/k3",
-      "reasoningEffort": "high"
+      "reasoningEffort": "high",
+      "maxTokens": 65536
     },
     "writing": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "maxTokens": 16384,
       "temperature": 0.6
     }
   }
