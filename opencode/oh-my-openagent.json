@@ -20,7 +20,7 @@
       "reasoningEffort": "high",
       "maxTokens": 49152,
       "compaction": {
-        "model": "kimi-for-coding/k3"
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
       }
     },
     "oracle": {
@@ -30,19 +30,34 @@
         "budgetTokens": 32768
       },
       "maxTokens": 65536,
+      "compaction": {
+        "model": "zhipuai-coding-plan/glm-5.2"
+      },
       "fallback_models": [
         "kimi-for-coding/k3"
       ]
     },
     "librarian": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "thinking": {
+        "type": "disabled"
+      },
       "textVerbosity": "low",
-      "maxTokens": 8192
+      "maxTokens": 8192,
+      "compaction": {
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
+      }
     },
     "explore": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "thinking": {
+        "type": "disabled"
+      },
       "textVerbosity": "low",
-      "maxTokens": 8192
+      "maxTokens": 8192,
+      "compaction": {
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
+      }
     },
     "multimodal-looker": {
       "model": "kimi-for-coding/k2p7",
@@ -55,6 +70,9 @@
         "budgetTokens": 12288
       },
       "maxTokens": 28672,
+      "compaction": {
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
+      },
       "fallback_models": [
         "kimi-for-coding/k3"
       ]
@@ -62,19 +80,28 @@
     "metis": {
       "model": "kimi-for-coding/k3-256k",
       "reasoningEffort": "high",
-      "maxTokens": 32768
+      "maxTokens": 32768,
+      "compaction": {
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
+      }
     },
     "momus": {
       "model": "kimi-for-coding/k3",
       "reasoningEffort": "high",
-      "maxTokens": 49152
+      "maxTokens": 49152,
+      "compaction": {
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
+      }
     },
     "atlas": {
       "model": "zhipuai-coding-plan/glm-5.2"
     },
     "sisyphus-junior": {
       "model": "kimi-for-coding/k2p7",
-      "maxTokens": 32768
+      "maxTokens": 32768,
+      "compaction": {
+        "model": "minimax-cn-coding-plan/MiniMax-M3"
+      }
     }
   },
   "categories": {
@@ -111,6 +138,9 @@
     },
     "unspecified-low": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "thinking": {
+        "type": "disabled"
+      },
       "maxTokens": 16384
     },
     "unspecified-high": {
@@ -120,6 +150,9 @@
     },
     "writing": {
       "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "thinking": {
+        "type": "disabled"
+      },
       "maxTokens": 16384,
       "temperature": 0.6
     }
