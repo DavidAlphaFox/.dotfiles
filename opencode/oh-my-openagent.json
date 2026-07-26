@@ -139,7 +139,11 @@
       "reasoningEffort": "high"
     },
     "deep": {
-      "model": "kimi-for-coding/k3-256k",
+      "model": "zhipuai-coding-plan/glm-5.2",
+      "thinking": {
+        "type": "enabled",
+        "budgetTokens": 32768
+      },
       "reasoningEffort": "high",
       "maxTokens": 65536
     },
