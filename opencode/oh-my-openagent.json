@@ -10,7 +10,7 @@
       "maxTokens": 32768,
       "fallback_models": [
         {
-          "model": "kimi-for-coding/k3-256k",
+          "model": "kimi-for-coding/k3",
           "maxTokens": 32768,
           "thinking": {
             "type": "enabled",
@@ -37,7 +37,7 @@
       "maxTokens": 65536,
       "fallback_models": [
         {
-          "model": "kimi-for-coding/k3-256k",
+          "model": "kimi-for-coding/k3",
           "maxTokens": 65536,
           "thinking": {
             "type": "enabled",
@@ -85,7 +85,7 @@
       },
       "fallback_models": [
         {
-          "model": "kimi-for-coding/k3-256k",
+          "model": "kimi-for-coding/k3",
           "maxTokens": 28672,
           "thinking": {
             "type": "enabled",
@@ -139,7 +139,7 @@
       "reasoningEffort": "high"
     },
     "deep": {
-      "model": "zhipuai-coding-plan/glm-5.2",
+      "model": "kimi-for-coding/k3-256k",
       "thinking": {
         "type": "enabled",
         "budgetTokens": 32768
