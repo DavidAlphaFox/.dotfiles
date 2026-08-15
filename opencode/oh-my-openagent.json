@@ -160,7 +160,7 @@
       "maxTokens": 16384
     },
     "unspecified-high": {
-      "model": "kimi-for-coding/k3-256k",
+      "model": "zhipuai-coding-plan/glm-5.3",
       "reasoningEffort": "high",
       "maxTokens": 65536
     },
